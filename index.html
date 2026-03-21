@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brian Cronin — VP of Enterprise Data</title>
+<title>Brian Cronin — VP of Enterprise Data | Director | SVP | Data Leader</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
@@ -56,10 +56,9 @@ section{padding:96px 60px}
 .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .about-photo-block{display:flex;align-items:flex-start;gap:24px;margin-bottom:28px}
 .about-headshot{width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid var(--bg3);flex-shrink:0}
-.about-headshot-info{}
 .about-headshot-name{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1}
 .about-headshot-role{font-size:13px;color:var(--ink3);margin-top:4px;line-height:1.5}
-.about-body{font-size:16px;line-height:1.82;color:var(--ink2);margin-top:0}
+.about-body{font-size:16px;line-height:1.82;color:var(--ink2)}
 .about-body p+p{margin-top:16px}
 .about-pillars{margin-top:36px;display:flex;flex-direction:column;gap:16px}
 .about-pillar{display:flex;align-items:flex-start;gap:16px}
@@ -69,13 +68,21 @@ section{padding:96px 60px}
 .pillar-icon.gold{background:rgba(200,151,58,.12)}
 .pillar-text h4{font-weight:500;font-size:14px;color:var(--ink);margin-bottom:3px}
 .pillar-text p{font-size:13px;color:var(--ink3);line-height:1.6}
-.skills-section-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:24px;color:var(--ink)}
-.skill-group{margin-bottom:26px}
-.skill-group-label{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px}
-.skill-tags{display:flex;flex-wrap:wrap;gap:7px}
-.skill-tag{background:var(--bg);border:1px solid var(--bg3);color:var(--ink2);font-size:12px;padding:5px 13px;border-radius:6px;transition:all .18s}
-.skill-tag:hover,.skill-tag.highlight{background:var(--accent);color:#fff;border-color:var(--accent)}
-.skill-tag.teal-tag{background:rgba(10,117,101,.1);color:var(--teal);border-color:rgba(10,117,101,.2)}
+/* SKILLS MATRIX */
+.skills-matrix{background:var(--bg2)}
+.skills-grid{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skills-card{background:#fff;border:1px solid var(--bg3);border-radius:18px;padding:28px;transition:all .22s}
+.skills-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(12,12,20,.07)}
+.skills-card-icon{font-size:22px;margin-bottom:14px;display:block}
+.skills-card-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:14px;letter-spacing:-.01em}
+.skills-card-tags{display:flex;flex-wrap:wrap;gap:6px}
+.skt{font-size:11px;font-weight:500;padding:4px 10px;border-radius:6px;letter-spacing:.02em}
+.skt-blue{background:rgba(26,82,150,.08);color:var(--accent2);border:1px solid rgba(26,82,150,.15)}
+.skt-teal{background:rgba(10,117,101,.08);color:var(--teal);border:1px solid rgba(10,117,101,.15)}
+.skt-gold{background:rgba(200,151,58,.12);color:#7a5e1a;border:1px solid rgba(200,151,58,.2)}
+.skt-purple{background:rgba(100,60,180,.08);color:#5030a0;border:1px solid rgba(100,60,180,.15)}
+.skt-gray{background:var(--bg);color:var(--ink2);border:1px solid var(--bg3)}
+/* TIMELINE */
 .timeline-section{background:var(--bg)}
 .timeline{position:relative;padding-left:38px;margin-top:52px}
 .timeline::before{content:'';position:absolute;left:0;top:12px;bottom:12px;width:1px;background:var(--line)}
@@ -110,7 +117,7 @@ section{padding:96px 60px}
 .ach-label{font-size:14px;color:rgba(255,255,255,.55);line-height:1.5;margin-bottom:14px;flex:1}
 .ach-context{font-size:11px;color:rgba(255,255,255,.28);border-top:1px solid rgba(255,255,255,.07);padding-top:13px}
 .ach-card.navy{background:rgba(26,82,150,.22);border-color:rgba(26,82,150,.35)}
-.philosophy-section{background:var(--bg2)}
+.philosophy-section{background:var(--bg)}
 .phil-grid{margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .phil-card{background:#fff;border:1px solid var(--bg3);border-radius:18px;padding:28px;transition:all .22s}
 .phil-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(12,12,20,.07)}
@@ -133,7 +140,7 @@ section{padding:96px 60px}
 .project-desc{font-size:13px;line-height:1.72;color:var(--ink2);flex:1}
 .project-stack{display:flex;flex-wrap:wrap;gap:5px;border-top:1px solid var(--bg3);padding-top:14px}
 .stack-tag{font-size:10px;font-weight:500;background:#fff;border:1px solid var(--bg3);color:var(--ink3);padding:3px 9px;border-radius:4px}
-.contact-section{background:var(--bg)}
+.contact-section{background:var(--bg2)}
 .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .contact-body{font-size:16px;line-height:1.78;color:var(--ink2);margin:22px 0 32px}
 .contact-links{display:flex;flex-direction:column;gap:10px}
@@ -158,18 +165,22 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
 .footer-note{font-size:12px;color:rgba(255,255,255,.28)}
 .fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .fade-in.visible{opacity:1;transform:none}
-@media(max-width:920px){nav{padding:16px 24px}.nav-links{display:none}section{padding:68px 24px}.hero{grid-template-columns:1fr;padding:120px 24px 56px}.hero-right{display:none}.about-inner,.contact-inner{grid-template-columns:1fr}.ach-grid,.projects-grid,.phil-grid{grid-template-columns:1fr}footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}}
+@media(max-width:920px){nav{padding:16px 24px}.nav-links{display:none}section{padding:68px 24px}.hero{grid-template-columns:1fr;padding:120px 24px 56px}.hero-right{display:none}.about-inner,.contact-inner{grid-template-columns:1fr}.ach-grid,.projects-grid,.phil-grid,.skills-grid{grid-template-columns:1fr}footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}}
 </style>
 </head>
 <body>
 <nav>
   <a href="#" class="nav-logo">Brian Cronin</a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li><li><a href="#career">Career</a></li>
-    <li><a href="#impact">Impact</a></li><li><a href="#philosophy">Philosophy</a></li>
-    <li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
 <section class="hero">
   <div class="hero-left">
     <div class="hero-eyebrow">VP of Enterprise Data · Financial Services Expert</div>
@@ -198,62 +209,202 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
         <div class="hero-stat"><div class="hero-stat-num">BS</div><div class="hero-stat-label">Math &amp; Computer Science</div></div>
       </div>
       <div class="hero-industries">
-        <div class="hero-ind-label">Industries &amp; Domains</div>
+        <div class="hero-ind-label">Target Roles</div>
         <div class="hero-domains">
-          <span class="hero-domain-tag fin">Insurance / Insurtech</span>
-          <span class="hero-domain-tag fin">Wealth Management</span>
-          <span class="hero-domain-tag fin">Mortgage / Lending</span>
-          <span class="hero-domain-tag active">Enterprise Data Strategy</span>
-          <span class="hero-domain-tag active">Cultural Transformation</span>
-          <span class="hero-domain-tag">Technology Modernisation</span>
-          <span class="hero-domain-tag">Team Building</span>
+          <span class="hero-domain-tag active">Director of Data</span>
+          <span class="hero-domain-tag active">Senior Director, Data</span>
+          <span class="hero-domain-tag active">VP of Data</span>
+          <span class="hero-domain-tag active">SVP of Data</span>
+          <span class="hero-domain-tag fin">Financial Services</span>
+          <span class="hero-domain-tag fin">Insurtech</span>
+          <span class="hero-domain-tag fin">Fintech</span>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 <section class="about" id="about">
   <div class="about-inner">
     <div class="about-left fade-in">
       <div class="section-label">About Brian</div>
       <h2 class="section-title">Data that <em>transforms</em> the business — and the culture</h2>
-      <div class="about-photo-block">
+      <div class="about-photo-block" style="margin-top:24px">
         <img src="picforsite.jpg" alt="Brian Cronin" class="about-headshot">
-        <div class="about-headshot-info">
+        <div>
           <div class="about-headshot-name">Brian Cronin</div>
           <div class="about-headshot-role">VP of Enterprise Data<br>The Zebra · Charlotte, NC</div>
         </div>
       </div>
       <div class="about-body">
         <p>I've spent two decades at the intersection of financial services and enterprise data — from the quantitative foundations of mortgage credit risk to building modern data platforms at scale across brokerage, insurance, and fintech.</p>
-        <p>Data initiatives fail not because the technology is wrong, but because the culture isn't ready. I've made it my career's work to build organisations where data isn't a back-office function — it's a shared language owned by the whole business.</p>
-        <p>Most recently as VP of Enterprise Data at The Zebra, and before that as SVP at LPL Financial, I've led initiatives spanning data engineering modernisation, self-serve analytics, governance frameworks, and GenAI adoption.</p>
+        <p>Data initiatives fail not because the technology is wrong, but because the culture isn't ready. I've made it my career's work to build data-centric organisations where data isn't a back-office function — it's a shared language, a strategic asset, and a driver of measurable business outcomes.</p>
+        <p>Most recently as VP of Enterprise Data at The Zebra, and before that as SVP at LPL Financial, I've led cross-functional initiatives spanning data engineering modernisation, self-serve analytics, data governance frameworks, GenAI adoption, and change management — always connecting data work to revenue, risk, and customer experience.</p>
       </div>
       <div class="about-pillars">
-        <div class="about-pillar"><div class="pillar-icon blue">🏦</div><div class="pillar-text"><h4>Financial Services Native</h4><p>Deep domain expertise across insurance, wealth management, lending, and fintech.</p></div></div>
-        <div class="about-pillar"><div class="pillar-icon teal">🔄</div><div class="pillar-text"><h4>Cultural Transformer</h4><p>Building data-literate organisations is as much an organisational design challenge as a technical one.</p></div></div>
-        <div class="about-pillar"><div class="pillar-icon gold">📐</div><div class="pillar-text"><h4>Technical Foundations</h4><p>BS in Mathematics and Computer Science — I engage credibly with engineers and data scientists.</p></div></div>
+        <div class="about-pillar"><div class="pillar-icon blue">🏦</div><div class="pillar-text"><h4>Financial Services Native</h4><p>Deep domain expertise across insurance, wealth management, lending, and fintech — fluent in regulatory, compliance, and risk data environments.</p></div></div>
+        <div class="about-pillar"><div class="pillar-icon teal">🔄</div><div class="pillar-text"><h4>Cultural Transformer</h4><p>Building data-literate organisations requires as much change management and org design as it does technical execution. I've led both.</p></div></div>
+        <div class="about-pillar"><div class="pillar-icon gold">📐</div><div class="pillar-text"><h4>Technical Foundations</h4><p>BS in Mathematics and Computer Science. I engage credibly with engineers, architects, and data scientists — not just translate for them.</p></div></div>
       </div>
     </div>
     <div class="about-right fade-in" style="transition-delay:.14s">
-      <div class="skills-section-title">Core Expertise</div>
-      <div class="skill-group"><div class="skill-group-label">Data Strategy &amp; Leadership</div><div class="skill-tags"><span class="skill-tag highlight">Enterprise Data Strategy</span><span class="skill-tag highlight">Cultural Transformation</span><span class="skill-tag">Org Design</span><span class="skill-tag">Data Governance</span><span class="skill-tag">Executive Stakeholder Comms</span><span class="skill-tag">OKRs &amp; Team Performance</span></div></div>
-      <div class="skill-group"><div class="skill-group-label">Financial Services Domain</div><div class="skill-tags"><span class="skill-tag teal-tag">Insurance / Insurtech</span><span class="skill-tag teal-tag">Wealth Management</span><span class="skill-tag teal-tag">Mortgage &amp; Credit</span><span class="skill-tag teal-tag">Broker-Dealer Operations</span><span class="skill-tag">Risk &amp; Compliance Data</span><span class="skill-tag">Regulatory Reporting</span></div></div>
-      <div class="skill-group"><div class="skill-group-label">Technology &amp; Platforms</div><div class="skill-tags"><span class="skill-tag">Snowflake</span><span class="skill-tag">dbt</span><span class="skill-tag">Agile / SDLC</span><span class="skill-tag highlight">Requirements Analysis</span><span class="skill-tag">Business Analysis</span></div></div>
-      <div class="skill-group"><div class="skill-group-label">Analytics &amp; Insights</div><div class="skill-tags"><span class="skill-tag">Self-Serve Analytics</span><span class="skill-tag highlight">Data-Driven Growth</span><span class="skill-tag">BI &amp; Reporting</span><span class="skill-tag">CX Analytics</span><span class="skill-tag">GenAI / LLM Integration</span></div></div>
+      <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:24px;color:var(--ink)">What I Bring</div>
+      <div style="font-size:14px;line-height:1.8;color:var(--ink2)">
+        <p>Hiring managers searching for <strong style="color:var(--ink);font-weight:500">Director, Senior Director, VP, or SVP of Data</strong> roles consistently look for a specific combination: strategic vision, technical credibility, and the ability to drive cultural change at scale.</p>
+        <p style="margin-top:14px">I've spent 20+ years developing exactly that combination across the full spectrum of financial services — building data organisations from zero, modernising legacy estates, and embedding data-driven decision-making into the culture of complex enterprises.</p>
+        <p style="margin-top:14px">I'm equally comfortable presenting a $20M data investment case to a board, debugging a broken dbt pipeline with an engineer, or designing the org structure of a new data function. That range is rare — and it's what separates data leaders who can <em>hold the role</em> from those who can <em>transform it</em>.</p>
+      </div>
+      <div style="margin-top:28px;padding:20px;background:var(--bg);border-radius:14px;border:1px solid var(--bg3)">
+        <div style="font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px">Open to roles in</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="background:rgba(26,82,150,.08);color:var(--accent2);border:1px solid rgba(26,82,150,.15);font-size:12px;font-weight:500;padding:5px 12px;border-radius:6px">Director of Data &amp; Analytics</span>
+          <span style="background:rgba(26,82,150,.08);color:var(--accent2);border:1px solid rgba(26,82,150,.15);font-size:12px;font-weight:500;padding:5px 12px;border-radius:6px">Senior Director, Enterprise Data</span>
+          <span style="background:rgba(26,82,150,.08);color:var(--accent2);border:1px solid rgba(26,82,150,.15);font-size:12px;font-weight:500;padding:5px 12px;border-radius:6px">VP of Data</span>
+          <span style="background:rgba(26,82,150,.08);color:var(--accent2);border:1px solid rgba(26,82,150,.15);font-size:12px;font-weight:500;padding:5px 12px;border-radius:6px">VP of Data &amp; Analytics</span>
+          <span style="background:rgba(26,82,150,.08);color:var(--accent2);border:1px solid rgba(26,82,150,.15);font-size:12px;font-weight:500;padding:5px 12px;border-radius:6px">SVP of Enterprise Data</span>
+          <span style="background:rgba(26,82,150,.08);color:var(--accent2);border:1px solid rgba(26,82,150,.15);font-size:12px;font-weight:500;padding:5px 12px;border-radius:6px">Chief Data Officer</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<section class="skills-matrix" id="skills">
+  <div class="fade-in">
+    <div class="section-label">Skills &amp; Expertise</div>
+    <h2 class="section-title">Built for <em>Director through SVP</em> roles</h2>
+    <p style="margin-top:16px;font-size:16px;color:var(--ink2);max-width:680px;line-height:1.7">Mapped directly to the skills and keywords that appear most frequently in Director, Senior Director, VP, and SVP of Data job postings across financial services, insurtech, and fintech.</p>
+  </div>
+  <div class="skills-grid">
+
+    <div class="skills-card fade-in">
+      <span class="skills-card-icon">🎯</span>
+      <div class="skills-card-title">Enterprise Data Strategy</div>
+      <div class="skills-card-tags">
+        <span class="skt skt-blue">Enterprise data strategy</span>
+        <span class="skt skt-blue">Data-centric culture</span>
+        <span class="skt skt-blue">Data-driven decision making</span>
+        <span class="skt skt-blue">Strategic planning</span>
+        <span class="skt skt-blue">Data as a product</span>
+        <span class="skt skt-blue">Data products</span>
+        <span class="skt skt-blue">Long-term roadmap</span>
+        <span class="skt skt-blue">Business alignment</span>
+        <span class="skt skt-blue">Executive communication</span>
+        <span class="skt skt-blue">Board-level reporting</span>
+        <span class="skt skt-blue">P&amp;L ownership</span>
+        <span class="skt skt-blue">Budget management</span>
+      </div>
+    </div>
+
+    <div class="skills-card fade-in" style="transition-delay:.08s">
+      <span class="skills-card-icon">🏛️</span>
+      <div class="skills-card-title">Data Governance &amp; Quality</div>
+      <div class="skills-card-tags">
+        <span class="skt skt-teal">Data governance frameworks</span>
+        <span class="skt skt-teal">Master data management</span>
+        <span class="skt skt-teal">Data quality &amp; observability</span>
+        <span class="skt skt-teal">Data ownership</span>
+        <span class="skt skt-teal">Data catalog</span>
+        <span class="skt skt-teal">Metadata management</span>
+        <span class="skt skt-teal">Data lineage</span>
+        <span class="skt skt-teal">SOX compliance</span>
+        <span class="skt skt-teal">GDPR / CCPA</span>
+        <span class="skt skt-teal">HIPAA</span>
+        <span class="skt skt-teal">Regulatory reporting</span>
+        <span class="skt skt-teal">Risk &amp; compliance data</span>
+      </div>
+    </div>
+
+    <div class="skills-card fade-in" style="transition-delay:.16s">
+      <span class="skills-card-icon">⚙️</span>
+      <div class="skills-card-title">Data Engineering &amp; Architecture</div>
+      <div class="skills-card-tags">
+        <span class="skt skt-purple">Data pipelines</span>
+        <span class="skt skt-purple">ETL / ELT</span>
+        <span class="skt skt-purple">Data lakehouse</span>
+        <span class="skt skt-purple">Data warehouse</span>
+        <span class="skt skt-purple">Snowflake</span>
+        <span class="skt skt-purple">dbt</span>
+        <span class="skt skt-purple">Databricks</span>
+        <span class="skt skt-purple">AWS / Azure</span>
+        <span class="skt skt-purple">Apache Kafka</span>
+        <span class="skt skt-purple">Cloud-native architecture</span>
+        <span class="skt skt-purple">Data modeling</span>
+        <span class="skt skt-purple">Technology modernisation</span>
+      </div>
+    </div>
+
+    <div class="skills-card fade-in" style="transition-delay:.04s">
+      <span class="skills-card-icon">📊</span>
+      <div class="skills-card-title">Analytics, BI &amp; AI</div>
+      <div class="skills-card-tags">
+        <span class="skt skt-gold">Self-serve analytics</span>
+        <span class="skt skt-gold">Business intelligence</span>
+        <span class="skt skt-gold">Semantic layer / metrics store</span>
+        <span class="skt skt-gold">Tableau / Power BI / Looker</span>
+        <span class="skt skt-gold">Predictive modeling</span>
+        <span class="skt skt-gold">Machine learning infrastructure</span>
+        <span class="skt skt-gold">Generative AI / LLMs</span>
+        <span class="skt skt-gold">AI strategy</span>
+        <span class="skt skt-gold">Feature stores</span>
+        <span class="skt skt-gold">Customer experience analytics</span>
+        <span class="skt skt-gold">Data-driven growth</span>
+        <span class="skt skt-gold">Advanced analytics</span>
+      </div>
+    </div>
+
+    <div class="skills-card fade-in" style="transition-delay:.12s">
+      <span class="skills-card-icon">👥</span>
+      <div class="skills-card-title">Leadership &amp; Org Building</div>
+      <div class="skills-card-tags">
+        <span class="skt skt-blue">Org design</span>
+        <span class="skt skt-blue">Team building &amp; scaling</span>
+        <span class="skt skt-blue">Hiring &amp; talent strategy</span>
+        <span class="skt skt-blue">Mentorship &amp; development</span>
+        <span class="skt skt-blue">Cross-functional leadership</span>
+        <span class="skt skt-blue">Change management</span>
+        <span class="skt skt-blue">Stakeholder management</span>
+        <span class="skt skt-blue">OKR frameworks</span>
+        <span class="skt skt-blue">Data literacy programmes</span>
+        <span class="skt skt-blue">Federated &amp; centralised models</span>
+        <span class="skt skt-blue">Executive influence</span>
+        <span class="skt skt-blue">Cultural transformation</span>
+      </div>
+    </div>
+
+    <div class="skills-card fade-in" style="transition-delay:.2s">
+      <span class="skills-card-icon">🏦</span>
+      <div class="skills-card-title">Financial Services Domain</div>
+      <div class="skills-card-tags">
+        <span class="skt skt-teal">Insurance / Insurtech</span>
+        <span class="skt skt-teal">Wealth management</span>
+        <span class="skt skt-teal">Broker-dealer operations</span>
+        <span class="skt skt-teal">Mortgage &amp; credit data</span>
+        <span class="skt skt-teal">Fintech infrastructure</span>
+        <span class="skt skt-teal">AUM / assets data</span>
+        <span class="skt skt-teal">Advisor experience data</span>
+        <span class="skt skt-teal">Policy lifecycle</span>
+        <span class="skt skt-teal">Risk management</span>
+        <span class="skt skt-teal">Fraud detection</span>
+        <span class="skt skt-teal">Regulatory compliance</span>
+        <span class="skt skt-teal">FINRA / SEC data</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section class="timeline-section" id="career">
   <div class="fade-in"><div class="section-label">Career Timeline</div><h2 class="section-title">20 years of <em>enterprise</em> impact</h2></div>
   <div class="timeline">
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Present</span><span class="timeline-type exec">Current Role</span></div><div class="timeline-role">VP of Enterprise Data</div><div class="timeline-company">The Zebra · Austin, TX (Remote / Charlotte, NC)</div><p class="timeline-desc">Leading enterprise data strategy at one of the fastest-growing insurance comparison platforms in the US, covering 100+ carriers. Responsible for data engineering, analytics, governance, and data culture.</p><div class="timeline-wins"><div class="win-chip"><span class="win-chip-num">100+</span> insurance carriers</div><div class="win-chip"><span class="win-chip-num">GenAI</span> CX integration</div><div class="win-chip"><span class="win-chip-num">0→1</span> data function built</div></div></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Prior Role</span><span class="timeline-type exec">Senior Executive</span></div><div class="timeline-role">Senior Vice President, Enterprise Data</div><div class="timeline-company">LPL Financial · Charlotte, NC</div><p class="timeline-desc">Senior VP responsibility for enterprise data at the nation's largest independent broker-dealer. Championed multi-year data acceleration programme and cultural change via Experienced-Based Acceleration initiative.</p><div class="timeline-wins"><div class="win-chip"><span class="win-chip-num">#1</span> independent broker-dealer US</div><div class="win-chip"><span class="win-chip-num">6</span> acceleration cohorts, 100+ participants</div></div></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Earlier Career</span><span class="timeline-type fs">Financial Services</span></div><div class="timeline-role">Senior Data &amp; Analytics Leader</div><div class="timeline-company">FIS Global · Charlotte, NC</div><p class="timeline-desc">Data leadership at one of the world's largest fintech infrastructure providers, supporting banking, payments, and capital markets clients.</p></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Earlier Career</span><span class="timeline-type fs">Financial Services</span></div><div class="timeline-role">Data &amp; Analytics Leader</div><div class="timeline-company">First Advantage Credco · Accredited Home Lenders</div><p class="timeline-desc">Built foundational expertise in mortgage and credit data environments within highly regulated lending operations.</p></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Present</span><span class="timeline-type exec">Current Role</span></div><div class="timeline-role">VP of Enterprise Data</div><div class="timeline-company">The Zebra · Austin, TX (Remote / Charlotte, NC)</div><p class="timeline-desc">Leading enterprise data strategy at one of the fastest-growing insurance comparison platforms in the US, covering 100+ carriers. Responsible for data engineering, analytics, governance, and data culture. Driving data-driven decision-making across product, growth, and operations through platform modernisation, self-serve analytics, and GenAI integration.</p><div class="timeline-wins"><div class="win-chip"><span class="win-chip-num">100+</span> insurance carriers</div><div class="win-chip"><span class="win-chip-num">GenAI</span> CX integration</div><div class="win-chip"><span class="win-chip-num">0→1</span> enterprise data function</div></div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Prior Role</span><span class="timeline-type exec">Senior Executive</span></div><div class="timeline-role">Senior Vice President, Enterprise Data</div><div class="timeline-company">LPL Financial · Charlotte, NC</div><p class="timeline-desc">Senior VP-level ownership of enterprise data at the nation's largest independent broker-dealer. Led multi-year data modernisation programme, self-serve analytics buildout, data governance framework, and cultural change via Experienced-Based Acceleration initiative. Owned P&amp;L, budget, and team strategy for a large, complex data organisation.</p><div class="timeline-wins"><div class="win-chip"><span class="win-chip-num">#1</span> independent broker-dealer US</div><div class="win-chip"><span class="win-chip-num">$900B+</span> AUM on platform</div><div class="win-chip"><span class="win-chip-num">6</span> acceleration cohorts, 100+ participants</div></div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Earlier Career</span><span class="timeline-type fs">Financial Services</span></div><div class="timeline-role">Senior Data &amp; Analytics Leader</div><div class="timeline-company">FIS Global · Charlotte, NC</div><p class="timeline-desc">Data and analytics leadership at one of the world's largest fintech infrastructure providers, supporting banking, payments, and capital markets clients. Deep expertise in complex regulatory data environments and enterprise-scale systems.</p></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Earlier Career</span><span class="timeline-type fs">Financial Services</span></div><div class="timeline-role">Data &amp; Analytics Leader</div><div class="timeline-company">First Advantage Credco · Accredited Home Lenders</div><p class="timeline-desc">Built foundational expertise in mortgage and credit data within highly regulated lending operations. Developed skills in requirements analysis, data quality, and business analysis that have informed every subsequent leadership role.</p></div>
     <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">1999 — 2003</span><span class="timeline-type tech">Education</span></div><div class="timeline-role">BS, Mathematics &amp; Computer Science</div><div class="timeline-company">Buena Vista University · Storm Lake, IA</div></div>
   </div>
 </section>
+
 <section class="achievements-section" id="impact">
   <div class="fade-in"><div class="section-label">Measurable Impact</div><h2 class="section-title">Results that <em>speak</em></h2></div>
   <div class="ach-grid">
@@ -261,38 +412,41 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <div class="ach-card fade-in"><span class="ach-card-icon">🏦</span><div class="ach-num">$<span>900B+</span></div><div class="ach-label">Assets on platforms where enterprise data strategy has been led</div><div class="ach-context">LPL Financial — nation's largest independent broker-dealer</div></div>
     <div class="ach-card fade-in"><span class="ach-card-icon">🔄</span><div class="ach-num">4<span>×</span></div><div class="ach-label">Enterprise data transformations led across distinct FS organisations</div><div class="ach-context">Each at different scale and maturity stage</div></div>
     <div class="ach-card fade-in"><span class="ach-card-icon">👥</span><div class="ach-num">100<span>+</span></div><div class="ach-label">Data professionals developed through cultural acceleration programmes</div><div class="ach-context">LPL Financial Experienced-Based Acceleration (6 cohorts)</div></div>
-    <div class="ach-card fade-in"><span class="ach-card-icon">🤖</span><div class="ach-num">GenAI</div><div class="ach-label">Successfully integrated generative AI for CX at enterprise scale</div><div class="ach-context">Strategies, challenges, and value across employees and customers</div></div>
-    <div class="ach-card fade-in"><span class="ach-card-icon">📊</span><div class="ach-num">BS</div><div class="ach-label">Quantitative academic foundation — Mathematics and Computer Science</div><div class="ach-context">Buena Vista University · 1999–2003</div></div>
+    <div class="ach-card fade-in"><span class="ach-card-icon">🤖</span><div class="ach-num">GenAI</div><div class="ach-label">Successfully integrated generative AI and LLMs for CX at enterprise scale</div><div class="ach-context">Strategy, challenges, and value across employees and customers</div></div>
+    <div class="ach-card fade-in"><span class="ach-card-icon">📐</span><div class="ach-num">BS</div><div class="ach-label">Quantitative academic foundation — Mathematics and Computer Science</div><div class="ach-context">Buena Vista University · 1999–2003</div></div>
   </div>
 </section>
+
 <section class="philosophy-section" id="philosophy">
   <div class="fade-in"><div class="section-label">Leadership Philosophy</div><h2 class="section-title">How I <em>lead</em></h2></div>
   <div class="phil-grid">
-    <div class="phil-card fade-in"><div class="phil-num">01</div><div class="phil-title">Culture before technology</div><p class="phil-body">The most sophisticated data platform fails if the organisation doesn't trust data. Data transformation is a people problem first.</p></div>
-    <div class="phil-card fade-in"><div class="phil-num">02</div><div class="phil-title">Lead from behind</div><p class="phil-body">Creating conditions for a team to excel — giving them clarity, removing blockers, trusting their expertise — consistently beats command-and-control.</p></div>
-    <div class="phil-card fade-in"><div class="phil-num">03</div><div class="phil-title">Business outcomes, always</div><p class="phil-body">Data work is only as valuable as its impact on the business. I hold every initiative to a measurable standard — revenue, risk, efficiency, or CX.</p></div>
-    <div class="phil-card fade-in"><div class="phil-num">04</div><div class="phil-title">Speak the language of the business</div><p class="phil-body">FS organisations have specific languages — compliance, risk, AUM, policy lifecycle. 20 years of fluency earns a seat at the real table.</p></div>
-    <div class="phil-card fade-in"><div class="phil-num">05</div><div class="phil-title">Embrace AI without losing judgment</div><p class="phil-body">GenAI is transformative for FS — for CX, compliance, knowledge management. But deploying responsibly requires deep domain knowledge and rigorous data foundations.</p></div>
-    <div class="phil-card fade-in"><div class="phil-num">06</div><div class="phil-title">Invest in people obsessively</div><p class="phil-body">The best data platforms I've built were built by exceptional people I found, developed, and retained. Talent strategy is the highest-leverage thing a data leader does.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">01</div><div class="phil-title">Culture before technology</div><p class="phil-body">The most sophisticated data platform fails if the organisation doesn't trust or know how to use data. I invest equally in data literacy, confidence, and cultural change as I do in infrastructure. Data transformation is a people problem first.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">02</div><div class="phil-title">Lead from behind</div><p class="phil-body">Creating conditions for a team to excel — giving them clarity, removing blockers, trusting their expertise — consistently beats command-and-control. I've written about this publicly and lived it across every role.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">03</div><div class="phil-title">Business outcomes, always</div><p class="phil-body">Data work is only as valuable as its impact on the business. I hold every initiative to a measurable standard — revenue, risk reduction, operational efficiency, or customer experience. If we can't connect it to an outcome, we shouldn't be doing it.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">04</div><div class="phil-title">Speak the language of the business</div><p class="phil-body">Financial services organisations have specific languages — compliance, risk, AUM, advisor experience, policy lifecycle. Twenty years of that fluency is what earns a data leader a seat at the real table.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">05</div><div class="phil-title">Embrace AI without losing judgment</div><p class="phil-body">Generative AI and LLMs are genuinely transformative for FS — for CX, compliance, and knowledge management. But responsible deployment requires deep domain knowledge, rigorous data foundations, and strong governance. I've built all three.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">06</div><div class="phil-title">Invest in people obsessively</div><p class="phil-body">The best data platforms I've built were built by exceptional people I found, developed, and retained. Talent strategy, mentorship, and creating an environment where data professionals can do their best work is the highest-leverage thing a data leader does.</p></div>
   </div>
 </section>
+
 <section class="projects-section" id="projects">
   <div class="fade-in"><div class="section-label">Side Projects &amp; Thought Leadership</div><h2 class="section-title">Beyond the <em>day job</em></h2></div>
   <div class="projects-grid">
-    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag lead">Leadership</span><span class="project-arrow">↗</span></div><div class="project-title">Leading From Behind</div><p class="project-desc">Published perspective on the underrated power of servant leadership — creating conditions for a team to excel consistently outperforms top-down command.</p><div class="project-stack"><span class="stack-tag">Thought Leadership</span><span class="stack-tag">Published Article</span></div></div>
-    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag fs">AI in FS</span><span class="project-arrow">↗</span></div><div class="project-title">GenAI for Customer Experience</div><p class="project-desc">Guidance on integrating generative AI into customer-facing financial services products — challenges, strategies, and value for enterprise GenAI adoption.</p><div class="project-stack"><span class="stack-tag">GenAI</span><span class="stack-tag">CX Strategy</span><span class="stack-tag">Financial Services</span></div></div>
-    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag data">Data Culture</span><span class="project-arrow">↗</span></div><div class="project-title">Experienced-Based Acceleration</div><p class="project-desc">Designed and ran a multi-cohort data acceleration programme at LPL Financial reaching 100+ professionals across 6 events — transformation, not just training.</p><div class="project-stack"><span class="stack-tag">LPL Financial</span><span class="stack-tag">100+ Participants</span><span class="stack-tag">6 Cohorts</span></div></div>
-    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag speak">Speaking</span><span class="project-arrow">↗</span></div><div class="project-title">Industry Panels &amp; Perspectives</div><p class="project-desc">Regular contributor to industry conversations on data in FS. Featured in Financial Advisor Magazine on LPL Financial's data strategy and evolution.</p><div class="project-stack"><span class="stack-tag">Financial Advisor Magazine</span><span class="stack-tag">Panels</span></div></div>
-    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag fs">Insurtech</span><span class="project-arrow">↗</span></div><div class="project-title">Insurance Data Modernisation</div><p class="project-desc">At The Zebra, built the enterprise data function for an insurtech platform comparing 100+ carriers — architecture, governance, and analytics at scale.</p><div class="project-stack"><span class="stack-tag">The Zebra</span><span class="stack-tag">100+ Carriers</span><span class="stack-tag">Platform Build</span></div></div>
-    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag data">Mentorship</span><span class="project-arrow">↗</span></div><div class="project-title">Data Leadership Community</div><p class="project-desc">Active networker across the data and FS community in Charlotte — 500+ LinkedIn connections and a track record of investing in the careers of those I've led.</p><div class="project-stack"><span class="stack-tag">Charlotte, NC</span><span class="stack-tag">500+ Connections</span><span class="stack-tag">Mentorship</span></div></div>
+    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag lead">Leadership</span><span class="project-arrow">↗</span></div><div class="project-title">Leading From Behind</div><p class="project-desc">Published perspective on the underrated power of servant leadership — creating conditions for a team to excel consistently outperforms top-down command. Widely shared across the data and FS leadership community.</p><div class="project-stack"><span class="stack-tag">Thought Leadership</span><span class="stack-tag">Published Article</span></div></div>
+    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag fs">AI in FS</span><span class="project-arrow">↗</span></div><div class="project-title">GenAI for Customer Experience</div><p class="project-desc">Produced guidance on integrating generative AI into customer-facing FS products — covering enterprise adoption challenges, change management strategy, and value realisation for both employees and customers.</p><div class="project-stack"><span class="stack-tag">GenAI / LLM</span><span class="stack-tag">CX Strategy</span><span class="stack-tag">Financial Services</span></div></div>
+    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag data">Data Culture</span><span class="project-arrow">↗</span></div><div class="project-title">Experienced-Based Acceleration</div><p class="project-desc">Designed and ran a multi-cohort data acceleration programme at LPL Financial reaching 100+ professionals across 6 events — elevating data foundations, literacy, and culture across the enterprise. Transformation, not just training.</p><div class="project-stack"><span class="stack-tag">LPL Financial</span><span class="stack-tag">100+ Participants</span><span class="stack-tag">6 Cohorts</span></div></div>
+    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag speak">Speaking</span><span class="project-arrow">↗</span></div><div class="project-title">Industry Panels &amp; Perspectives</div><p class="project-desc">Regular contributor to industry conversations on data leadership and strategy in FS. Featured in Financial Advisor Magazine on LPL Financial's data strategy, growth, and evolution as the firm scaled.</p><div class="project-stack"><span class="stack-tag">Financial Advisor Magazine</span><span class="stack-tag">Industry Panels</span></div></div>
+    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag fs">Insurtech</span><span class="project-arrow">↗</span></div><div class="project-title">Insurance Data Modernisation</div><p class="project-desc">At The Zebra, built the enterprise data function for an insurtech platform comparing 100+ carriers — data architecture, governance model, self-serve analytics, and AI capabilities to support product and business decisions at scale.</p><div class="project-stack"><span class="stack-tag">The Zebra</span><span class="stack-tag">100+ Carriers</span><span class="stack-tag">Platform Build</span></div></div>
+    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag data">Community</span><span class="project-arrow">↗</span></div><div class="project-title">Data Leadership Network</div><p class="project-desc">Active mentor and connector across the data and FS community in Charlotte and beyond — 500+ LinkedIn connections and a track record of investing in the careers of data professionals at every level.</p><div class="project-stack"><span class="stack-tag">Charlotte, NC</span><span class="stack-tag">500+ Connections</span><span class="stack-tag">Mentorship</span></div></div>
   </div>
 </section>
+
 <section class="contact-section" id="contact">
   <div class="contact-inner">
     <div class="contact-left fade-in">
       <div class="section-label">Get In Touch</div>
       <h2 class="section-title">Open to the <em>right</em> conversation</h2>
-      <p class="contact-body">Exploring CDO, VP/SVP of Data, or Head of Data roles where data is central to value creation and cultural transformation is valued. If you're building in financial services, insurtech, or fintech, let's talk.</p>
+      <p class="contact-body">Exploring Director, Senior Director, VP, and SVP of Data roles where data is central to value creation and where cultural transformation is valued alongside technical delivery. If you're building something ambitious in financial services, insurtech, or fintech and need a data leader who can bridge strategy and execution, let's talk.</p>
       <div class="contact-links">
         <a href="https://www.linkedin.com/in/briancronin1" class="contact-link" target="_blank"><div class="contact-link-icon">🔗</div><div class="contact-link-text"><strong>LinkedIn</strong><span>linkedin.com/in/briancronin1</span></div></a>
         <a href="#" class="contact-link"><div class="contact-link-icon">✉️</div><div class="contact-link-text"><strong>Email</strong><span>Connect via LinkedIn first</span></div></a>
@@ -309,9 +463,10 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     </div>
   </div>
 </section>
+
 <footer>
   <div class="footer-logo">Brian Cronin</div>
-  <div class="footer-note">© 2026 · VP of Enterprise Data · Charlotte, NC · Open to opportunities</div>
+  <div class="footer-note">© 2026 · Director / VP / SVP of Data · Charlotte, NC · Open to opportunities</div>
 </footer>
 <script>
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.08});
@@ -319,4 +474,4 @@ document.querySelectorAll('.fade-in,.timeline-item').forEach(el=>obs.observe(el)
 document.querySelectorAll('.timeline-item').forEach((el,i)=>{el.style.transitionDelay=(i*.09)+'s'});
 </script>
 </body>
-  </html>
+      </html>
