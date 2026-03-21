@@ -30,13 +30,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:fl
 .btn-outline:hover{border-color:var(--accent2);color:var(--accent2)}
 .hero-right{position:relative}
 .hero-card{background:var(--ink);border-radius:24px;padding:36px;position:relative;overflow:hidden}
-.hero-card-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:20px}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(145deg,rgba(26,82,150,.18) 0%,transparent 55%);pointer-events:none}
+.hero-photo-row{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08)}
+.hero-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(255,255,255,.15);flex-shrink:0}
+.hero-photo-name{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#fff;line-height:1.1;letter-spacing:-.01em}
+.hero-photo-title{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+.hero-card-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:16px}
 .hero-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
 .hero-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:18px}
 .hero-stat-num{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:#fff;line-height:1;margin-bottom:5px}
 .hero-stat-num span{color:var(--gold2)}
 .hero-stat-label{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.04em;text-transform:uppercase;line-height:1.4}
-.hero-industries{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;margin-bottom:18px}
+.hero-industries{border-top:1px solid rgba(255,255,255,.08);padding-top:20px}
 .hero-ind-label{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
 .hero-domains{display:flex;flex-wrap:wrap;gap:7px}
 .hero-domain-tag{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.65);font-size:11px;font-weight:500;padding:5px 13px;border-radius:30px}
@@ -49,7 +54,12 @@ section{padding:96px 60px}
 .section-title em{font-style:normal;color:var(--accent2)}
 .about{background:#fff}
 .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.about-body{font-size:16px;line-height:1.82;color:var(--ink2);margin-top:26px}
+.about-photo-block{display:flex;align-items:flex-start;gap:24px;margin-bottom:28px}
+.about-headshot{width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid var(--bg3);flex-shrink:0}
+.about-headshot-info{}
+.about-headshot-name{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1}
+.about-headshot-role{font-size:13px;color:var(--ink3);margin-top:4px;line-height:1.5}
+.about-body{font-size:16px;line-height:1.82;color:var(--ink2);margin-top:0}
 .about-body p+p{margin-top:16px}
 .about-pillars{margin-top:36px;display:flex;flex-direction:column;gap:16px}
 .about-pillar{display:flex;align-items:flex-start;gap:16px}
@@ -173,6 +183,13 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
   </div>
   <div class="hero-right">
     <div class="hero-card">
+      <div class="hero-photo-row">
+        <img src="picforsite.jpg" alt="Brian Cronin" class="hero-photo">
+        <div>
+          <div class="hero-photo-name">Brian Cronin</div>
+          <div class="hero-photo-title">VP of Enterprise Data · Charlotte, NC</div>
+        </div>
+      </div>
       <div class="hero-card-label">Career at a glance</div>
       <div class="hero-stat-grid">
         <div class="hero-stat"><div class="hero-stat-num">20<span>+</span></div><div class="hero-stat-label">Years in Data &amp; FS</div></div>
@@ -200,6 +217,13 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <div class="about-left fade-in">
       <div class="section-label">About Brian</div>
       <h2 class="section-title">Data that <em>transforms</em> the business — and the culture</h2>
+      <div class="about-photo-block">
+        <img src="picforsite.jpg" alt="Brian Cronin" class="about-headshot">
+        <div class="about-headshot-info">
+          <div class="about-headshot-name">Brian Cronin</div>
+          <div class="about-headshot-role">VP of Enterprise Data<br>The Zebra · Charlotte, NC</div>
+        </div>
+      </div>
       <div class="about-body">
         <p>I've spent two decades at the intersection of financial services and enterprise data — from the quantitative foundations of mortgage credit risk to building modern data platforms at scale across brokerage, insurance, and fintech.</p>
         <p>Data initiatives fail not because the technology is wrong, but because the culture isn't ready. I've made it my career's work to build organisations where data isn't a back-office function — it's a shared language owned by the whole business.</p>
@@ -295,4 +319,4 @@ document.querySelectorAll('.fade-in,.timeline-item').forEach(el=>obs.observe(el)
 document.querySelectorAll('.timeline-item').forEach((el,i)=>{el.style.transitionDelay=(i*.09)+'s'});
 </script>
 </body>
-</html>
+  </html>
