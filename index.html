@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brian Cronin — VP of Enterprise Data</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0c0c14;--ink2:#3a3a50;--ink3:#80809a;--bg:#f3f2ef;--bg2:#eae8e3;--bg3:#dedad2;--accent:#0f3460;--accent2:#1a5296;--gold2:#e8b84b;--teal:#0a7565;--teal2:#0fa888;--line:rgba(12,12,20,0.11)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(16px);background:rgba(243,242,239,0.88);border-bottom:1px solid var(--line)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--ink);text-decoration:none}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink2);text-decoration:none;letter-spacing:.07em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--accent2)}
+.hero{min-height:100vh;padding:140px 60px 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;position:relative;overflow:hidden}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--teal)}
+.hero-name{font-family:'Syne',sans-serif;font-size:clamp(50px,5.8vw,82px);font-weight:800;line-height:.94;letter-spacing:-.03em;color:var(--ink);margin-bottom:14px}
+.hero-name span{color:var(--accent2);display:block}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(15px,1.7vw,20px);color:var(--ink3);margin-bottom:28px;max-width:500px}
+.hero-desc{font-size:16px;line-height:1.8;color:var(--ink2);max-width:500px;margin-bottom:40px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:13px 26px;border-radius:60px;font-size:13px;font-weight:500;text-decoration:none;transition:all .2s}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);color:var(--ink);padding:13px 26px;border-radius:60px;font-size:13px;font-weight:500;text-decoration:none;transition:all .2s}
+.btn-outline:hover{border-color:var(--accent2);color:var(--accent2)}
+.hero-right{position:relative}
+.hero-card{background:var(--ink);border-radius:24px;padding:36px;position:relative;overflow:hidden}
+.hero-card-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:20px}
+.hero-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.hero-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:18px}
+.hero-stat-num{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:#fff;line-height:1;margin-bottom:5px}
+.hero-stat-num span{color:var(--gold2)}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.04em;text-transform:uppercase;line-height:1.4}
+.hero-industries{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;margin-bottom:18px}
+.hero-ind-label{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.hero-domains{display:flex;flex-wrap:wrap;gap:7px}
+.hero-domain-tag{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.65);font-size:11px;font-weight:500;padding:5px 13px;border-radius:30px}
+.hero-domain-tag.active{background:rgba(10,117,101,.25);border-color:rgba(15,168,136,.4);color:var(--teal2)}
+.hero-domain-tag.fin{background:rgba(200,151,58,.18);border-color:rgba(232,184,75,.3);color:var(--gold2)}
+section{padding:96px 60px}
+.section-label{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.section-label::after{content:'';flex:1;max-width:56px;height:1px;background:var(--ink3)}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(34px,3.8vw,52px);font-weight:700;letter-spacing:-.03em;line-height:1.05;color:var(--ink)}
+.section-title em{font-style:normal;color:var(--accent2)}
+.about{background:#fff}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-body{font-size:16px;line-height:1.82;color:var(--ink2);margin-top:26px}
+.about-body p+p{margin-top:16px}
+.about-pillars{margin-top:36px;display:flex;flex-direction:column;gap:16px}
+.about-pillar{display:flex;align-items:flex-start;gap:16px}
+.pillar-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.pillar-icon.blue{background:rgba(26,82,150,.1)}
+.pillar-icon.teal{background:rgba(10,117,101,.1)}
+.pillar-icon.gold{background:rgba(200,151,58,.12)}
+.pillar-text h4{font-weight:500;font-size:14px;color:var(--ink);margin-bottom:3px}
+.pillar-text p{font-size:13px;color:var(--ink3);line-height:1.6}
+.skills-section-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:24px;color:var(--ink)}
+.skill-group{margin-bottom:26px}
+.skill-group-label{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:7px}
+.skill-tag{background:var(--bg);border:1px solid var(--bg3);color:var(--ink2);font-size:12px;padding:5px 13px;border-radius:6px;transition:all .18s}
+.skill-tag:hover,.skill-tag.highlight{background:var(--accent);color:#fff;border-color:var(--accent)}
+.skill-tag.teal-tag{background:rgba(10,117,101,.1);color:var(--teal);border-color:rgba(10,117,101,.2)}
+.timeline-section{background:var(--bg)}
+.timeline{position:relative;padding-left:38px;margin-top:52px}
+.timeline::before{content:'';position:absolute;left:0;top:12px;bottom:12px;width:1px;background:var(--line)}
+.timeline-item{position:relative;padding-bottom:48px;opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
+.timeline-item.visible{opacity:1;transform:none}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-dot{position:absolute;left:-45px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--line);transition:all .2s}
+.timeline-item:hover .timeline-dot{background:var(--accent2);border-color:var(--accent2);box-shadow:0 0 0 4px rgba(26,82,150,.14)}
+.timeline-meta{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.timeline-year{font-size:12px;font-weight:500;color:var(--ink3);font-family:'Syne',sans-serif}
+.timeline-type{font-size:10px;font-weight:500;background:var(--bg2);color:var(--ink3);padding:3px 9px;border-radius:30px;text-transform:uppercase}
+.timeline-type.exec{background:rgba(26,82,150,.1);color:var(--accent2)}
+.timeline-type.fs{background:rgba(200,151,58,.14);color:#8a6520}
+.timeline-type.tech{background:rgba(10,117,101,.1);color:var(--teal)}
+.timeline-role{font-family:'Syne',sans-serif;font-size:21px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.timeline-company{font-size:14px;color:var(--ink3);margin-bottom:13px}
+.timeline-desc{font-size:14px;line-height:1.75;color:var(--ink2);max-width:700px;margin-bottom:14px}
+.timeline-wins{display:flex;flex-wrap:wrap;gap:8px}
+.win-chip{background:#fff;border:1px solid var(--bg3);border-radius:8px;padding:7px 13px;font-size:12px;color:var(--ink2);display:flex;align-items:center;gap:5px}
+.win-chip-num{font-family:'Syne',sans-serif;font-weight:700;color:var(--accent2);font-size:13px}
+.achievements-section{background:var(--ink);color:#fff}
+.achievements-section .section-label{color:rgba(255,255,255,.35)}
+.achievements-section .section-label::after{background:rgba(255,255,255,.18)}
+.achievements-section .section-title{color:#fff}
+.achievements-section .section-title em{color:var(--gold2)}
+.ach-grid{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ach-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:28px;display:flex;flex-direction:column;transition:all .22s}
+.ach-card:hover{background:rgba(255,255,255,.08);transform:translateY(-3px)}
+.ach-card-icon{font-size:24px;margin-bottom:18px;display:block}
+.ach-num{font-family:'Syne',sans-serif;font-size:44px;font-weight:800;line-height:1;color:#fff;margin-bottom:7px}
+.ach-num span{color:var(--gold2)}
+.ach-label{font-size:14px;color:rgba(255,255,255,.55);line-height:1.5;margin-bottom:14px;flex:1}
+.ach-context{font-size:11px;color:rgba(255,255,255,.28);border-top:1px solid rgba(255,255,255,.07);padding-top:13px}
+.ach-card.navy{background:rgba(26,82,150,.22);border-color:rgba(26,82,150,.35)}
+.philosophy-section{background:var(--bg2)}
+.phil-grid{margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.phil-card{background:#fff;border:1px solid var(--bg3);border-radius:18px;padding:28px;transition:all .22s}
+.phil-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(12,12,20,.07)}
+.phil-num{font-family:'Syne',sans-serif;font-size:48px;font-weight:800;color:var(--bg3);line-height:1;margin-bottom:16px}
+.phil-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.phil-body{font-size:14px;line-height:1.75;color:var(--ink2)}
+.projects-section{background:#fff}
+.projects-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.project-card{background:var(--bg);border:1px solid var(--bg3);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:all .22s;text-decoration:none;color:inherit}
+.project-card:hover{border-color:var(--accent2);transform:translateY(-3px);box-shadow:0 10px 36px rgba(26,82,150,.09)}
+.project-card-top{display:flex;justify-content:space-between;align-items:flex-start}
+.project-tag{font-size:10px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;padding:4px 10px;border-radius:6px}
+.project-tag.fs{background:rgba(200,151,58,.14);color:#7a5e1a}
+.project-tag.data{background:rgba(26,82,150,.1);color:var(--accent2)}
+.project-tag.lead{background:rgba(10,117,101,.1);color:var(--teal)}
+.project-tag.speak{background:rgba(120,80,180,.1);color:#6030a0}
+.project-arrow{font-size:17px;color:var(--ink3);transition:all .18s}
+.project-card:hover .project-arrow{color:var(--accent2);transform:translate(2px,-2px)}
+.project-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--ink)}
+.project-desc{font-size:13px;line-height:1.72;color:var(--ink2);flex:1}
+.project-stack{display:flex;flex-wrap:wrap;gap:5px;border-top:1px solid var(--bg3);padding-top:14px}
+.stack-tag{font-size:10px;font-weight:500;background:#fff;border:1px solid var(--bg3);color:var(--ink3);padding:3px 9px;border-radius:4px}
+.contact-section{background:var(--bg)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.contact-body{font-size:16px;line-height:1.78;color:var(--ink2);margin:22px 0 32px}
+.contact-links{display:flex;flex-direction:column;gap:10px}
+.contact-link{display:flex;align-items:center;gap:13px;padding:14px 18px;background:#fff;border:1px solid var(--bg3);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s}
+.contact-link:hover{border-color:var(--accent2);transform:translateX(4px)}
+.contact-link-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;background:var(--bg2);flex-shrink:0}
+.contact-link-text strong{display:block;font-size:13px;font-weight:500;margin-bottom:2px}
+.contact-link-text span{font-size:12px;color:var(--ink3)}
+.contact-right{background:var(--ink);border-radius:24px;padding:36px;position:relative;overflow:hidden}
+.contact-right-title{font-family:'Syne',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:6px}
+.contact-right-sub{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:24px}
+.form-group{margin-bottom:14px}
+.form-label{display:block;font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:7px}
+.form-input,.form-textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:9px;padding:11px 14px;color:#fff;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .18s}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,.22)}
+.form-input:focus,.form-textarea:focus{border-color:var(--teal2)}
+.form-textarea{height:84px;resize:vertical}
+.form-submit{width:100%;padding:13px;background:var(--teal);border:none;border-radius:9px;color:#fff;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;transition:opacity .18s;margin-top:6px}
+.form-submit:hover{opacity:.85}
+footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;justify-content:space-between}
+.footer-logo{font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:rgba(255,255,255,.75)}
+.footer-note{font-size:12px;color:rgba(255,255,255,.28)}
+.fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
+@media(max-width:920px){nav{padding:16px 24px}.nav-links{display:none}section{padding:68px 24px}.hero{grid-template-columns:1fr;padding:120px 24px 56px}.hero-right{display:none}.about-inner,.contact-inner{grid-template-columns:1fr}.ach-grid,.projects-grid,.phil-grid{grid-template-columns:1fr}footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#" class="nav-logo">Brian Cronin</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li><li><a href="#career">Career</a></li>
+    <li><a href="#impact">Impact</a></li><li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">VP of Enterprise Data · Financial Services Expert</div>
+    <h1 class="hero-name">Brian<span>Cronin</span></h1>
+    <p class="hero-title">Data-driven growth &amp; insights through cultural transformation</p>
+    <p class="hero-desc">A financial services data executive with 20+ years turning complex data estates into engines of growth — building high-performing teams, modernising platforms, and making data a competitive differentiator across insurance, wealth management, and fintech.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Start a Conversation →</a>
+      <a href="#career" class="btn-outline">View Career</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hero-card-label">Career at a glance</div>
+      <div class="hero-stat-grid">
+        <div class="hero-stat"><div class="hero-stat-num">20<span>+</span></div><div class="hero-stat-label">Years in Data &amp; FS</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">4<span>+</span></div><div class="hero-stat-label">Enterprises Transformed</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">SVP<span>→</span></div><div class="hero-stat-label">LPL Financial</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">BS</div><div class="hero-stat-label">Math &amp; Computer Science</div></div>
+      </div>
+      <div class="hero-industries">
+        <div class="hero-ind-label">Industries &amp; Domains</div>
+        <div class="hero-domains">
+          <span class="hero-domain-tag fin">Insurance / Insurtech</span>
+          <span class="hero-domain-tag fin">Wealth Management</span>
+          <span class="hero-domain-tag fin">Mortgage / Lending</span>
+          <span class="hero-domain-tag active">Enterprise Data Strategy</span>
+          <span class="hero-domain-tag active">Cultural Transformation</span>
+          <span class="hero-domain-tag">Technology Modernisation</span>
+          <span class="hero-domain-tag">Team Building</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-left fade-in">
+      <div class="section-label">About Brian</div>
+      <h2 class="section-title">Data that <em>transforms</em> the business — and the culture</h2>
+      <div class="about-body">
+        <p>I've spent two decades at the intersection of financial services and enterprise data — from the quantitative foundations of mortgage credit risk to building modern data platforms at scale across brokerage, insurance, and fintech.</p>
+        <p>Data initiatives fail not because the technology is wrong, but because the culture isn't ready. I've made it my career's work to build organisations where data isn't a back-office function — it's a shared language owned by the whole business.</p>
+        <p>Most recently as VP of Enterprise Data at The Zebra, and before that as SVP at LPL Financial, I've led initiatives spanning data engineering modernisation, self-serve analytics, governance frameworks, and GenAI adoption.</p>
+      </div>
+      <div class="about-pillars">
+        <div class="about-pillar"><div class="pillar-icon blue">🏦</div><div class="pillar-text"><h4>Financial Services Native</h4><p>Deep domain expertise across insurance, wealth management, lending, and fintech.</p></div></div>
+        <div class="about-pillar"><div class="pillar-icon teal">🔄</div><div class="pillar-text"><h4>Cultural Transformer</h4><p>Building data-literate organisations is as much an organisational design challenge as a technical one.</p></div></div>
+        <div class="about-pillar"><div class="pillar-icon gold">📐</div><div class="pillar-text"><h4>Technical Foundations</h4><p>BS in Mathematics and Computer Science — I engage credibly with engineers and data scientists.</p></div></div>
+      </div>
+    </div>
+    <div class="about-right fade-in" style="transition-delay:.14s">
+      <div class="skills-section-title">Core Expertise</div>
+      <div class="skill-group"><div class="skill-group-label">Data Strategy &amp; Leadership</div><div class="skill-tags"><span class="skill-tag highlight">Enterprise Data Strategy</span><span class="skill-tag highlight">Cultural Transformation</span><span class="skill-tag">Org Design</span><span class="skill-tag">Data Governance</span><span class="skill-tag">Executive Stakeholder Comms</span><span class="skill-tag">OKRs &amp; Team Performance</span></div></div>
+      <div class="skill-group"><div class="skill-group-label">Financial Services Domain</div><div class="skill-tags"><span class="skill-tag teal-tag">Insurance / Insurtech</span><span class="skill-tag teal-tag">Wealth Management</span><span class="skill-tag teal-tag">Mortgage &amp; Credit</span><span class="skill-tag teal-tag">Broker-Dealer Operations</span><span class="skill-tag">Risk &amp; Compliance Data</span><span class="skill-tag">Regulatory Reporting</span></div></div>
+      <div class="skill-group"><div class="skill-group-label">Technology &amp; Platforms</div><div class="skill-tags"><span class="skill-tag">Snowflake</span><span class="skill-tag">dbt</span><span class="skill-tag">Agile / SDLC</span><span class="skill-tag highlight">Requirements Analysis</span><span class="skill-tag">Business Analysis</span></div></div>
+      <div class="skill-group"><div class="skill-group-label">Analytics &amp; Insights</div><div class="skill-tags"><span class="skill-tag">Self-Serve Analytics</span><span class="skill-tag highlight">Data-Driven Growth</span><span class="skill-tag">BI &amp; Reporting</span><span class="skill-tag">CX Analytics</span><span class="skill-tag">GenAI / LLM Integration</span></div></div>
+    </div>
+  </div>
+</section>
+<section class="timeline-section" id="career">
+  <div class="fade-in"><div class="section-label">Career Timeline</div><h2 class="section-title">20 years of <em>enterprise</em> impact</h2></div>
+  <div class="timeline">
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Present</span><span class="timeline-type exec">Current Role</span></div><div class="timeline-role">VP of Enterprise Data</div><div class="timeline-company">The Zebra · Austin, TX (Remote / Charlotte, NC)</div><p class="timeline-desc">Leading enterprise data strategy at one of the fastest-growing insurance comparison platforms in the US, covering 100+ carriers. Responsible for data engineering, analytics, governance, and data culture.</p><div class="timeline-wins"><div class="win-chip"><span class="win-chip-num">100+</span> insurance carriers</div><div class="win-chip"><span class="win-chip-num">GenAI</span> CX integration</div><div class="win-chip"><span class="win-chip-num">0→1</span> data function built</div></div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Prior Role</span><span class="timeline-type exec">Senior Executive</span></div><div class="timeline-role">Senior Vice President, Enterprise Data</div><div class="timeline-company">LPL Financial · Charlotte, NC</div><p class="timeline-desc">Senior VP responsibility for enterprise data at the nation's largest independent broker-dealer. Championed multi-year data acceleration programme and cultural change via Experienced-Based Acceleration initiative.</p><div class="timeline-wins"><div class="win-chip"><span class="win-chip-num">#1</span> independent broker-dealer US</div><div class="win-chip"><span class="win-chip-num">6</span> acceleration cohorts, 100+ participants</div></div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Earlier Career</span><span class="timeline-type fs">Financial Services</span></div><div class="timeline-role">Senior Data &amp; Analytics Leader</div><div class="timeline-company">FIS Global · Charlotte, NC</div><p class="timeline-desc">Data leadership at one of the world's largest fintech infrastructure providers, supporting banking, payments, and capital markets clients.</p></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Earlier Career</span><span class="timeline-type fs">Financial Services</span></div><div class="timeline-role">Data &amp; Analytics Leader</div><div class="timeline-company">First Advantage Credco · Accredited Home Lenders</div><p class="timeline-desc">Built foundational expertise in mortgage and credit data environments within highly regulated lending operations.</p></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">1999 — 2003</span><span class="timeline-type tech">Education</span></div><div class="timeline-role">BS, Mathematics &amp; Computer Science</div><div class="timeline-company">Buena Vista University · Storm Lake, IA</div></div>
+  </div>
+</section>
+<section class="achievements-section" id="impact">
+  <div class="fade-in"><div class="section-label">Measurable Impact</div><h2 class="section-title">Results that <em>speak</em></h2></div>
+  <div class="ach-grid">
+    <div class="ach-card navy fade-in"><span class="ach-card-icon">🏆</span><div class="ach-num">20<span>+</span></div><div class="ach-label">Years of data leadership across financial services, insurance, and fintech</div><div class="ach-context">Mortgage · Broker-Dealer · Insurtech · Fintech Infrastructure</div></div>
+    <div class="ach-card fade-in"><span class="ach-card-icon">🏦</span><div class="ach-num">$<span>900B+</span></div><div class="ach-label">Assets on platforms where enterprise data strategy has been led</div><div class="ach-context">LPL Financial — nation's largest independent broker-dealer</div></div>
+    <div class="ach-card fade-in"><span class="ach-card-icon">🔄</span><div class="ach-num">4<span>×</span></div><div class="ach-label">Enterprise data transformations led across distinct FS organisations</div><div class="ach-context">Each at different scale and maturity stage</div></div>
+    <div class="ach-card fade-in"><span class="ach-card-icon">👥</span><div class="ach-num">100<span>+</span></div><div class="ach-label">Data professionals developed through cultural acceleration programmes</div><div class="ach-context">LPL Financial Experienced-Based Acceleration (6 cohorts)</div></div>
+    <div class="ach-card fade-in"><span class="ach-card-icon">🤖</span><div class="ach-num">GenAI</div><div class="ach-label">Successfully integrated generative AI for CX at enterprise scale</div><div class="ach-context">Strategies, challenges, and value across employees and customers</div></div>
+    <div class="ach-card fade-in"><span class="ach-card-icon">📊</span><div class="ach-num">BS</div><div class="ach-label">Quantitative academic foundation — Mathematics and Computer Science</div><div class="ach-context">Buena Vista University · 1999–2003</div></div>
+  </div>
+</section>
+<section class="philosophy-section" id="philosophy">
+  <div class="fade-in"><div class="section-label">Leadership Philosophy</div><h2 class="section-title">How I <em>lead</em></h2></div>
+  <div class="phil-grid">
+    <div class="phil-card fade-in"><div class="phil-num">01</div><div class="phil-title">Culture before technology</div><p class="phil-body">The most sophisticated data platform fails if the organisation doesn't trust data. Data transformation is a people problem first.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">02</div><div class="phil-title">Lead from behind</div><p class="phil-body">Creating conditions for a team to excel — giving them clarity, removing blockers, trusting their expertise — consistently beats command-and-control.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">03</div><div class="phil-title">Business outcomes, always</div><p class="phil-body">Data work is only as valuable as its impact on the business. I hold every initiative to a measurable standard — revenue, risk, efficiency, or CX.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">04</div><div class="phil-title">Speak the language of the business</div><p class="phil-body">FS organisations have specific languages — compliance, risk, AUM, policy lifecycle. 20 years of fluency earns a seat at the real table.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">05</div><div class="phil-title">Embrace AI without losing judgment</div><p class="phil-body">GenAI is transformative for FS — for CX, compliance, knowledge management. But deploying responsibly requires deep domain knowledge and rigorous data foundations.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">06</div><div class="phil-title">Invest in people obsessively</div><p class="phil-body">The best data platforms I've built were built by exceptional people I found, developed, and retained. Talent strategy is the highest-leverage thing a data leader does.</p></div>
+  </div>
+</section>
+<section class="projects-section" id="projects">
+  <div class="fade-in"><div class="section-label">Side Projects &amp; Thought Leadership</div><h2 class="section-title">Beyond the <em>day job</em></h2></div>
+  <div class="projects-grid">
+    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag lead">Leadership</span><span class="project-arrow">↗</span></div><div class="project-title">Leading From Behind</div><p class="project-desc">Published perspective on the underrated power of servant leadership — creating conditions for a team to excel consistently outperforms top-down command.</p><div class="project-stack"><span class="stack-tag">Thought Leadership</span><span class="stack-tag">Published Article</span></div></div>
+    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag fs">AI in FS</span><span class="project-arrow">↗</span></div><div class="project-title">GenAI for Customer Experience</div><p class="project-desc">Guidance on integrating generative AI into customer-facing financial services products — challenges, strategies, and value for enterprise GenAI adoption.</p><div class="project-stack"><span class="stack-tag">GenAI</span><span class="stack-tag">CX Strategy</span><span class="stack-tag">Financial Services</span></div></div>
+    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag data">Data Culture</span><span class="project-arrow">↗</span></div><div class="project-title">Experienced-Based Acceleration</div><p class="project-desc">Designed and ran a multi-cohort data acceleration programme at LPL Financial reaching 100+ professionals across 6 events — transformation, not just training.</p><div class="project-stack"><span class="stack-tag">LPL Financial</span><span class="stack-tag">100+ Participants</span><span class="stack-tag">6 Cohorts</span></div></div>
+    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag speak">Speaking</span><span class="project-arrow">↗</span></div><div class="project-title">Industry Panels &amp; Perspectives</div><p class="project-desc">Regular contributor to industry conversations on data in FS. Featured in Financial Advisor Magazine on LPL Financial's data strategy and evolution.</p><div class="project-stack"><span class="stack-tag">Financial Advisor Magazine</span><span class="stack-tag">Panels</span></div></div>
+    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag fs">Insurtech</span><span class="project-arrow">↗</span></div><div class="project-title">Insurance Data Modernisation</div><p class="project-desc">At The Zebra, built the enterprise data function for an insurtech platform comparing 100+ carriers — architecture, governance, and analytics at scale.</p><div class="project-stack"><span class="stack-tag">The Zebra</span><span class="stack-tag">100+ Carriers</span><span class="stack-tag">Platform Build</span></div></div>
+    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag data">Mentorship</span><span class="project-arrow">↗</span></div><div class="project-title">Data Leadership Community</div><p class="project-desc">Active networker across the data and FS community in Charlotte — 500+ LinkedIn connections and a track record of investing in the careers of those I've led.</p><div class="project-stack"><span class="stack-tag">Charlotte, NC</span><span class="stack-tag">500+ Connections</span><span class="stack-tag">Mentorship</span></div></div>
+  </div>
+</section>
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left fade-in">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Open to the <em>right</em> conversation</h2>
+      <p class="contact-body">Exploring CDO, VP/SVP of Data, or Head of Data roles where data is central to value creation and cultural transformation is valued. If you're building in financial services, insurtech, or fintech, let's talk.</p>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/briancronin1" class="contact-link" target="_blank"><div class="contact-link-icon">🔗</div><div class="contact-link-text"><strong>LinkedIn</strong><span>linkedin.com/in/briancronin1</span></div></a>
+        <a href="#" class="contact-link"><div class="contact-link-icon">✉️</div><div class="contact-link-text"><strong>Email</strong><span>Connect via LinkedIn first</span></div></a>
+        <a href="#" class="contact-link"><div class="contact-link-icon">📍</div><div class="contact-link-text"><strong>Location</strong><span>Charlotte, NC · Open to remote &amp; relocation</span></div></a>
+      </div>
+    </div>
+    <div class="contact-right fade-in" style="transition-delay:.14s">
+      <div class="contact-right-title">Send a message</div>
+      <div class="contact-right-sub">I reply within 48 hours</div>
+      <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-input" placeholder="Jane Smith"></div>
+      <div class="form-group"><label class="form-label">Company &amp; Role</label><input type="text" class="form-input" placeholder="Acme Financial · Head of Talent"></div>
+      <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Tell me about the opportunity..."></textarea></div>
+      <button class="form-submit">Send Message →</button>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-logo">Brian Cronin</div>
+  <div class="footer-note">© 2026 · VP of Enterprise Data · Charlotte, NC · Open to opportunities</div>
+</footer>
+<script>
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.08});
+document.querySelectorAll('.fade-in,.timeline-item').forEach(el=>obs.observe(el));
+document.querySelectorAll('.timeline-item').forEach((el,i)=>{el.style.transitionDelay=(i*.09)+'s'});
+</script>
+</body>
+</html>
