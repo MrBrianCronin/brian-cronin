@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/etf-finder",
+      "destination": "https://etf-finder-psi.vercel.app"
+    },
+    {
+      "source": "/etf-finder/:path*",
+      "destination": "https://etf-finder-psi.vercel.app/:path*"
+    }
+  ]
+}
