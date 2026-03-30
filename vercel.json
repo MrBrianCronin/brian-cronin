@@ -5,6 +5,9 @@
     { "source": "/etf-finder/:path*", "destination": "https://etf-finder-psi.vercel.app/:path*" },
     { "source": "/car-finder", "destination": "https://car-finder-theta-six.vercel.app" },
     { "source": "/car-finder/", "destination": "https://car-finder-theta-six.vercel.app" },
-    { "source": "/car-finder/:path*", "destination": "https://car-finder-theta-six.vercel.app/:path*" }
+    { "source": "/car-finder/:path*", "destination": "https://car-finder-theta-six.vercel.app/:path*" },
+    { "source": "/telemetry", "destination": "https://telemetry-dashboard-six.vercel.app" },
+    { "source": "/telemetry/", "destination": "https://telemetry-dashboard-six.vercel.app" },
+    { "source": "/telemetry/:path*", "destination": "https://telemetry-dashboard-six.vercel.app/:path*" }
   ]
 }
