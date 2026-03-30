@@ -226,6 +226,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <li><a href="#career">Career</a></li>
     <li><a href="#impact">Impact</a></li>
     <li><a href="#demos">Projects</a></li>
+    <li><a href="#architectures">Architecture</a></li>
     <li><a href="#contact">Connect</a></li>
   </ul>
 </nav>
@@ -597,6 +598,55 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
         <span class="stack-tag">Neon PostgreSQL</span>
         <span class="stack-tag">Serverless API</span>
         <span class="stack-tag">Skeleton Loading</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ARCHITECTURE APPROACHES -->
+<section class="projects-section" id="architectures">
+  <div class="fade-in">
+    <div class="section-label">Architectural Approaches</div>
+    <h2 class="section-title">Design patterns I've <em>implemented</em></h2>
+    <p style="margin-top:16px;font-size:16px;color:var(--ink2);max-width:680px;line-height:1.7">These architecture diagrams represent design patterns and approaches I am experienced with. They are illustrative examples created for this portfolio and do not represent the actual implementation or intellectual property of any current or former employer.</p>
+  </div>
+  <div class="projects-grid" style="margin-top:48px">
+    <a href="/architectures/#aws" class="project-card fade-in" style="border-color:rgba(245,158,11,.25);background:#fff">
+      <div class="project-card-top"><span class="project-tag" style="background:rgba(245,158,11,.1);color:#B45309">Cloud Architecture</span><span class="project-arrow">↗</span></div>
+      <div class="project-title">AWS Native Event-Driven Platform</div>
+      <p class="project-desc">Event-driven data platform using API Gateway, EventBridge, Kinesis, Lambda, AWS Glue, and a multi-store persistence layer. Demonstrates real-time and batch processing paths feeding downstream APIs, dashboards, and ML models.</p>
+      <div class="project-stack">
+        <span class="stack-tag">API Gateway</span>
+        <span class="stack-tag">EventBridge</span>
+        <span class="stack-tag">Lambda</span>
+        <span class="stack-tag">AWS Glue</span>
+        <span class="stack-tag">Kinesis</span>
+        <span class="stack-tag">Step Functions</span>
+      </div>
+    </a>
+    <a href="/architectures/#snowflake" class="project-card fade-in" style="border-color:rgba(79,110,247,.25);background:#fff">
+      <div class="project-card-top"><span class="project-tag" style="background:rgba(79,110,247,.1);color:#4F6EF7">Data Engineering</span><span class="project-arrow">↗</span></div>
+      <div class="project-title">Snowflake + dbt Modern Data Stack</div>
+      <p class="project-desc">Medallion architecture with bronze/silver/gold layers, showcasing Snowflake's newest table types — dynamic tables for declarative auto-refresh, transient tables for dbt intermediates, and hybrid tables for OLTP app serving.</p>
+      <div class="project-stack">
+        <span class="stack-tag">Snowflake</span>
+        <span class="stack-tag">dbt</span>
+        <span class="stack-tag">Dynamic Tables</span>
+        <span class="stack-tag">Transient Tables</span>
+        <span class="stack-tag">Hybrid Tables</span>
+        <span class="stack-tag">SnowPro Certified</span>
+      </div>
+    </a>
+    <a href="/architectures/#ai-analytics" class="project-card fade-in" style="border-color:rgba(139,92,246,.25);background:#fff">
+      <div class="project-card-top"><span class="project-tag" style="background:rgba(139,92,246,.1);color:#8B5CF6">Agentic AI</span><span class="project-arrow">↗</span></div>
+      <div class="project-title">AI-Driven Conversational Analytics</div>
+      <p class="project-desc">Agent orchestration that scans databases, catalogs, dictionaries, and BI tools to auto-generate semantic views and callable skills. Any LLM consumes the semantic layer via MCP — no raw SQL against production tables.</p>
+      <div class="project-stack">
+        <span class="stack-tag">Agent Orchestration</span>
+        <span class="stack-tag">Semantic Layer</span>
+        <span class="stack-tag">MCP / Tool Use</span>
+        <span class="stack-tag">Multi-LLM</span>
+        <span class="stack-tag">Skills Library</span>
       </div>
     </a>
   </div>
