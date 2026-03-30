@@ -8,9 +8,9 @@
     { "source": "/car-finder/:path*", "destination": "https://car-finder-theta-six.vercel.app/:path*" },
     { "source": "/telemetry", "destination": "https://telemetry-dashboard-six.vercel.app" },
     { "source": "/telemetry/", "destination": "https://telemetry-dashboard-six.vercel.app" },
-    { "source": "/telemetry/:path*", "destination": "https://telemetry-dashboard-six.vercel.app/:path*" }
-    { "source": "/architectures", "destination": "architecture-diagrams-mu.vercel.app" },
-{ "source": "/architectures/", "destination": "architecture-diagrams-mu.vercel.app" },
-{ "source": "/architectures/:path*", "destination": "architecture-diagrams-mu.vercel.app" }
+    { "source": "/telemetry/:path*", "destination": "https://telemetry-dashboard-six.vercel.app/:path*" },
+    { "source": "/architectures", "destination": "architecture-diagrams-mu.vercel.app" }, 
+    { "source": "/architectures/", "destination": "architecture-diagrams-mu.vercel.app" },
+    { "source": "/architectures/:path*", "destination": "architecture-diagrams-mu.vercel.app" }
   ]
 }
