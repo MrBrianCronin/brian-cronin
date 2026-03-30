@@ -1,8 +1,10 @@
 {
   "rewrites": [
     { "source": "/etf-finder", "destination": "https://etf-finder-psi.vercel.app" },
+    { "source": "/etf-finder/", "destination": "https://etf-finder-psi.vercel.app" },
     { "source": "/etf-finder/:path*", "destination": "https://etf-finder-psi.vercel.app/:path*" },
     { "source": "/car-finder", "destination": "https://car-finder-theta-six.vercel.app" },
+    { "source": "/car-finder/", "destination": "https://car-finder-theta-six.vercel.app" },
     { "source": "/car-finder/:path*", "destination": "https://car-finder-theta-six.vercel.app/:path*" }
   ]
 }
