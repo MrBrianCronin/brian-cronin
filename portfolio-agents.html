@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Intelligence Agent System — Brian Cronin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0c0c14;--ink2:#3a3a50;--ink3:#80809a;--bg:#f3f2ef;--bg2:#eae8e3;--bg3:#dedad2;--accent:#0f3460;--accent2:#1a5296;--gold2:#e8b84b;--teal:#0a7565;--teal2:#0fa888;--line:rgba(12,12,20,0.11);--ai:#5b21b6;--ai2:#7c3aed;--ai3:#ede9fe}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(16px);background:rgba(243,242,239,0.88);border-bottom:1px solid var(--line)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--ink);text-decoration:none}
+.nav-back{font-size:12px;font-weight:500;color:var(--ink2);text-decoration:none;letter-spacing:.07em;text-transform:uppercase;transition:color .2s;display:flex;align-items:center;gap:6px}
+.nav-back:hover{color:var(--accent2)}
+
+/* HERO */
+.hero{min-height:70vh;padding:140px 60px 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;position:relative;overflow:hidden}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--teal)}
+.hero-name{font-family:'Syne',sans-serif;font-size:clamp(36px,4.5vw,60px);font-weight:800;line-height:1;letter-spacing:-.03em;color:var(--ink);margin-bottom:14px}
+.hero-name span{color:var(--accent2)}
+.hero-subtitle{font-family:'Syne',sans-serif;font-size:clamp(14px,1.5vw,18px);color:var(--ink3);margin-bottom:24px;max-width:540px}
+.hero-desc{font-size:15px;line-height:1.8;color:var(--ink2);max-width:540px;margin-bottom:32px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;padding:5px 13px;border-radius:30px;letter-spacing:.04em}
+.hero-badge.read-only{background:rgba(10,117,101,.12);border:1px solid rgba(10,117,101,.25);color:var(--teal)}
+.hero-badge.ai{background:rgba(91,33,182,.12);border:1px solid rgba(91,33,182,.25);color:var(--ai2)}
+.hero-badge.mac{background:rgba(26,82,150,.1);border:1px solid rgba(26,82,150,.2);color:var(--accent2)}
+.hero-badge.fin{background:rgba(200,151,58,.14);border:1px solid rgba(200,151,58,.25);color:#8a6520}
+
+/* HERO CARD - ARCHITECTURE PREVIEW */
+.hero-card{background:var(--ink);border-radius:24px;padding:32px;position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(145deg,rgba(124,58,237,.12) 0%,transparent 55%);pointer-events:none}
+.hero-card-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px}
+.arch-mini{font-family:'DM Sans',monospace;font-size:12px;line-height:1.7;color:rgba(255,255,255,.55)}
+.arch-mini .highlight{color:#a78bfa}
+.arch-mini .teal{color:#6ee7b7}
+.arch-mini .gold{color:#fcd34d}
+.arch-mini .blue{color:#93c5fd}
+.arch-mini .dim{color:rgba(255,255,255,.2)}
+
+/* SECTIONS */
+section{padding:96px 60px}
+.section-label{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.section-label::after{content:'';flex:1;max-width:56px;height:1px;background:var(--ink3)}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(30px,3.4vw,46px);font-weight:700;letter-spacing:-.03em;line-height:1.08;color:var(--ink)}
+.section-title em{font-style:normal;color:var(--accent2)}
+.section-title em.ai-em{color:var(--ai2)}
+.section-intro{font-size:16px;line-height:1.78;color:var(--ink2);max-width:740px;margin-top:18px}
+
+/* AGENT CARDS */
+.agents-section{background:#fff}
+.agents-grid{margin-top:48px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.agent-card{background:var(--bg);border:1px solid var(--bg3);border-radius:18px;padding:28px;transition:all .22s}
+.agent-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(12,12,20,.07)}
+.agent-icon{font-size:28px;margin-bottom:14px;display:block}
+.agent-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.agent-role{font-size:12px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+.agent-body{font-size:14px;line-height:1.75;color:var(--ink2);margin-bottom:18px}
+.agent-outputs{display:flex;flex-wrap:wrap;gap:6px}
+.agent-out{font-size:11px;font-weight:500;padding:4px 10px;border-radius:6px;letter-spacing:.02em}
+.agent-out.data{background:rgba(26,82,150,.08);color:var(--accent2);border:1px solid rgba(26,82,150,.15)}
+.agent-out.alert{background:rgba(200,151,58,.12);color:#7a5e1a;border:1px solid rgba(200,151,58,.2)}
+.agent-out.ai{background:rgba(91,33,182,.08);color:var(--ai2);border:1px solid rgba(91,33,182,.15)}
+.agent-out.teal{background:rgba(10,117,101,.08);color:var(--teal);border:1px solid rgba(10,117,101,.15)}
+
+/* FEATURES GRID */
+.features-section{background:var(--bg2)}
+.features-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature-card{background:#fff;border:1px solid var(--bg3);border-radius:18px;padding:24px;transition:all .22s}
+.feature-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(12,12,20,.07)}
+.feature-icon{font-size:22px;margin-bottom:12px;display:block}
+.feature-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.feature-body{font-size:13px;line-height:1.7;color:var(--ink2)}
+.feature-source{font-size:11px;color:var(--ink3);margin-top:10px;font-style:italic}
+
+/* ARCHITECTURE SECTION - DARK */
+.arch-section{background:linear-gradient(160deg,#0f0f1a 0%,#1a0f2e 50%,#0a1628 100%);color:#fff;position:relative;overflow:hidden}
+.arch-section::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.15) 0%,transparent 70%);pointer-events:none}
+.arch-section .section-label{color:rgba(196,181,253,.6)}
+.arch-section .section-label::after{background:rgba(196,181,253,.2)}
+.arch-section .section-title{color:#fff}
+.arch-section .section-intro{color:rgba(255,255,255,.65)}
+
+/* PHASE STEPPER */
+.phase-stepper{display:flex;gap:8px;margin:40px 0 32px;flex-wrap:wrap}
+.phase-btn{padding:9px 18px;border-radius:30px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:rgba(255,255,255,.55);font-size:12px;font-weight:500;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;letter-spacing:.03em}
+.phase-btn:hover{background:rgba(124,58,237,.2);border-color:rgba(124,58,237,.4);color:#c4b5fd}
+.phase-btn.active{background:rgba(124,58,237,.3);border-color:rgba(124,58,237,.5);color:#c4b5fd}
+
+/* ARCHITECTURE DIAGRAM */
+.arch-diagram{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:40px;position:relative;overflow:hidden;min-height:520px}
+.arch-layer{margin-bottom:28px;transition:opacity .4s,transform .4s}
+.arch-layer.hidden{opacity:0.12;transform:scale(0.98)}
+.arch-layer-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.arch-row{display:flex;gap:12px;flex-wrap:wrap}
+.arch-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 18px;flex:1;min-width:140px;transition:all .3s}
+.arch-box.purple{background:rgba(124,58,237,.15);border-color:rgba(124,58,237,.3)}
+.arch-box.blue{background:rgba(26,82,150,.15);border-color:rgba(26,82,150,.3)}
+.arch-box.teal{background:rgba(10,117,101,.15);border-color:rgba(10,117,101,.3)}
+.arch-box.gold{background:rgba(200,151,58,.15);border-color:rgba(200,151,58,.3)}
+.arch-box-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:4px}
+.arch-box-sub{font-size:11px;color:rgba(255,255,255,.45);line-height:1.5}
+.arch-arrow{text-align:center;color:rgba(255,255,255,.2);font-size:18px;margin:10px 0;letter-spacing:8px}
+
+/* TECH STACK */
+.stack-section{background:var(--bg)}
+.stack-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.stack-card{background:#fff;border:1px solid var(--bg3);border-radius:18px;padding:24px;transition:all .22s}
+.stack-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(12,12,20,.07)}
+.stack-card-icon{font-size:22px;margin-bottom:12px;display:block}
+.stack-card-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.stack-card-sub{font-size:12px;color:var(--ink3);margin-bottom:10px}
+.stack-card-body{font-size:13px;line-height:1.7;color:var(--ink2)}
+
+/* DASHBOARD PREVIEW */
+.dashboard-section{background:#fff}
+.tabs-preview{margin-top:48px;background:var(--ink);border-radius:20px;overflow:hidden}
+.tabs-bar{display:flex;border-bottom:1px solid rgba(255,255,255,.08);overflow-x:auto}
+.tab-btn{padding:14px 22px;font-size:12px;font-weight:500;color:rgba(255,255,255,.4);cursor:pointer;border:none;background:none;font-family:'DM Sans',sans-serif;letter-spacing:.04em;white-space:nowrap;transition:all .2s;border-bottom:2px solid transparent}
+.tab-btn:hover{color:rgba(255,255,255,.7)}
+.tab-btn.active{color:#fff;border-bottom-color:var(--ai2)}
+.tab-content{padding:32px;min-height:280px}
+.tab-pane{display:none}
+.tab-pane.active{display:block}
+.tab-pane-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:10px}
+.tab-pane-body{font-size:14px;line-height:1.75;color:rgba(255,255,255,.6);max-width:640px}
+.tab-pane-features{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tab-feat{font-size:11px;font-weight:500;padding:5px 12px;border-radius:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55)}
+
+/* FOOTER */
+footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;justify-content:space-between}
+.footer-logo{font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:rgba(255,255,255,.75)}
+.footer-note{font-size:12px;color:rgba(255,255,255,.28)}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:920px){
+nav{padding:16px 24px}
+section{padding:68px 24px}
+.hero{grid-template-columns:1fr;padding:120px 24px 56px;min-height:auto}
+.hero-card{display:none}
+.agents-grid,.features-grid,.stack-grid{grid-template-columns:1fr}
+.arch-row{flex-direction:column}
+.phase-stepper{flex-wrap:wrap}
+footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Brian Cronin</a>
+  <a href="/" class="nav-back">← Back to Home</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Personal Project · Multi-Agent System</div>
+    <h1 class="hero-name">Portfolio <span>Intelligence</span></h1>
+    <p class="hero-subtitle">A read-only analysis tool that monitors markets, evaluates your holdings, and delivers insights you can act on</p>
+    <p class="hero-desc">Four AI agents work together to scan macroeconomic news, track security-specific events, analyze portfolio performance and risk, then synthesize everything into actionable trade readouts and podcast-style audio briefings — all in a native Mac app.</p>
+    <div class="hero-badges">
+      <span class="hero-badge read-only">🔒 Read-Only · No Trade Execution</span>
+      <span class="hero-badge ai">🤖 Multi-Agent Orchestration</span>
+      <span class="hero-badge mac">💻 Native Mac App</span>
+      <span class="hero-badge fin">📊 Fidelity Integration</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hero-card-label">System Overview</div>
+      <div class="arch-mini">
+<span class="dim">┌──────────────────────────────────────────┐</span>
+<span class="highlight">  ORCHESTRATOR</span> <span class="dim">(CrewAI → LangGraph)</span>
+<span class="dim">└────┬─────────┬─────────┬─────────┬───────┘</span>
+     <span class="dim">│         │         │         │</span>
+  <span class="gold">Macro</span>    <span class="blue">Security</span>  <span class="teal">Portfolio</span> <span class="highlight">Synth</span>
+  <span class="gold">Scanner</span>  <span class="blue">Scanner</span>   <span class="teal">Analyst</span>  <span class="highlight">+ Audio</span>
+     <span class="dim">│         │         │         │</span>
+  <span class="dim">NewsAPI   Finnhub   Fidelity  ElevenLabs</span>
+  <span class="dim">Finnhub   Earnings  Finnhub   TTS API</span>
+     <span class="dim">│         │         │         │</span>
+     <span class="dim">└─────────┴─────────┴─────────┘</span>
+                  <span class="dim">│</span>
+         <span class="teal">SQLite + JSON Store</span>
+                  <span class="dim">│</span>
+      <span class="highlight">Native Mac App</span> <span class="dim">(Pywebview)</span>
+      <span class="dim">Dash + Plotly + Lightweight Charts</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section class="agents-section">
+  <div class="fade-in">
+    <div class="section-label">Agent Architecture</div>
+    <h2 class="section-title">Four agents, one <em>cohesive</em> picture</h2>
+    <p class="section-intro">Each agent has a dedicated role, data sources, and output format. The orchestrator coordinates their execution order and passes context between them so the Synthesizer can cross-reference everything into actionable intelligence.</p>
+  </div>
+  <div class="agents-grid">
+    <div class="agent-card fade-in">
+      <span class="agent-icon">🌍</span>
+      <div class="agent-title">Macro Scanner</div>
+      <div class="agent-role">Agent 1 · World &amp; US News</div>
+      <p class="agent-body">Scans broad news sources for macroeconomic events — Fed policy, GDP, employment, geopolitical shifts, trade policy — and classifies each by potential market impact and affected sectors.</p>
+      <div class="agent-outputs">
+        <span class="agent-out data">NewsAPI</span>
+        <span class="agent-out data">Finnhub News</span>
+        <span class="agent-out alert">Impact Ratings</span>
+        <span class="agent-out alert">Sector Tags</span>
+      </div>
+    </div>
+    <div class="agent-card fade-in">
+      <span class="agent-icon">🔍</span>
+      <div class="agent-title">Security Scanner</div>
+      <div class="agent-role">Agent 2 · Holdings-Specific Intelligence</div>
+      <p class="agent-body">Monitors news, earnings, analyst ratings, and corporate actions for each holding in the portfolio. Maintains a forward-looking events calendar and evaluates custom alert rules.</p>
+      <div class="agent-outputs">
+        <span class="agent-out data">Finnhub Company News</span>
+        <span class="agent-out data">Earnings Calendar</span>
+        <span class="agent-out alert">Custom Alerts</span>
+        <span class="agent-out teal">Sentiment</span>
+      </div>
+    </div>
+    <div class="agent-card fade-in">
+      <span class="agent-icon">📈</span>
+      <div class="agent-title">Portfolio Analyst</div>
+      <div class="agent-role">Agent 3 · Performance, Risk &amp; Tax</div>
+      <p class="agent-body">Evaluates holdings from Fidelity — P&amp;L, allocation drift, benchmark comparison, scenario stress testing (2008, COVID, dot-com), and tax-loss harvesting opportunities. Tracks progress toward financial goals.</p>
+      <div class="agent-outputs">
+        <span class="agent-out data">Fidelity CSV / API</span>
+        <span class="agent-out data">Finnhub Prices</span>
+        <span class="agent-out alert">Drift Alerts</span>
+        <span class="agent-out teal">Stress Tests</span>
+      </div>
+    </div>
+    <div class="agent-card fade-in">
+      <span class="agent-icon">🧠</span>
+      <div class="agent-title">Synthesizer + Audio</div>
+      <div class="agent-role">Agent 4 · Cross-Reference &amp; Recommendations</div>
+      <p class="agent-body">Combines all agent outputs into a cohesive briefing. Generates per-holding "Stock Story" narratives, thematic exposure analysis, trade readouts, and podcast-style audio summaries via ElevenLabs.</p>
+      <div class="agent-outputs">
+        <span class="agent-out ai">Trade Readouts</span>
+        <span class="agent-out ai">Stock Stories</span>
+        <span class="agent-out ai">Audio Briefing</span>
+        <span class="agent-out teal">Theme Analysis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="fade-in">
+    <div class="section-label">Feature Set</div>
+    <h2 class="section-title">Inspired by the <em>best</em> platforms</h2>
+    <p class="section-intro">Features drawn from Merrill Lynch, Morgan Stanley, Fidelity, Schwab/thinkorswim, and LPL Financial — rebuilt as a personal, read-only analysis tool.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🗺️</span>
+      <div class="feature-title">Portfolio Heatmap</div>
+      <p class="feature-body">Treemap visualization sized by allocation, colored by performance. One glance shows where the portfolio is thriving or bleeding.</p>
+      <p class="feature-source">Inspired by Merrill Lynch, thinkorswim</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">💥</span>
+      <div class="feature-title">Scenario Stress Testing</div>
+      <p class="feature-body">Replay historical crises (2008, COVID, dot-com) against current holdings to estimate portfolio vulnerability under extreme conditions.</p>
+      <p class="feature-source">Inspired by Merrill Lynch, Morgan Stanley Aladdin</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">⚖️</span>
+      <div class="feature-title">Drift Detection</div>
+      <p class="feature-body">Define target allocations, get alerted when market movements push the portfolio off-target, with specific rebalancing suggestions.</p>
+      <p class="feature-source">Inspired by LPL ClientWorks, Schwab Intelligent Portfolios</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🧾</span>
+      <div class="feature-title">Tax-Loss Harvesting</div>
+      <p class="feature-body">Scan unrealized losses against realized gains and suggest tax-aware trades. Especially valuable near year-end.</p>
+      <p class="feature-source">Inspired by Morgan Stanley Parametric, Fidelity</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">📖</span>
+      <div class="feature-title">Stock Stories</div>
+      <p class="feature-body">AI-generated per-holding narratives covering performance, catalysts, sentiment, and portfolio context — not just raw data tables.</p>
+      <p class="feature-source">Inspired by Merrill Lynch Stock Story &amp; Fund Story</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🔮</span>
+      <div class="feature-title">What-If Simulator</div>
+      <p class="feature-body">Model adding or removing positions without executing trades. See how hypothetical changes affect allocation, risk, and goals.</p>
+      <p class="feature-source">Inspired by thinkorswim paperMoney</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🎯</span>
+      <div class="feature-title">Goal Tracking</div>
+      <p class="feature-body">Set financial targets with projected trajectories based on current growth rate. Visual progress bars show if you're ahead or behind schedule.</p>
+      <p class="feature-source">Inspired by Fidelity Planning Center, Morgan Stanley GPS</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🎙️</span>
+      <div class="feature-title">Podcast Briefings</div>
+      <p class="feature-body">Weekly audio summaries generated by ElevenLabs with two AI host voices. Listen to your portfolio analysis like a podcast while commuting.</p>
+      <p class="feature-source">Inspired by Google NotebookLM Audio Overviews</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">📋</span>
+      <div class="feature-title">Trade Readouts</div>
+      <p class="feature-body">Clear, actionable trade recommendations — ticker, action, quantity, rationale — formatted for quick manual entry in Fidelity. You decide what to act on.</p>
+      <p class="feature-source">Read-only by design · No automated execution</p>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE - PROGRESSIVE PHASES -->
+<section class="arch-section" id="architecture">
+  <div class="fade-in">
+    <div class="section-label">Architecture</div>
+    <h2 class="section-title" style="color:#fff">Progressive <em class="ai-em">buildout</em></h2>
+    <p class="section-intro">The system was built in six phases, each adding a new layer of capability. Select a phase to see how the architecture evolved from a simple data fetch to a full native Mac app with AI-powered analysis.</p>
+  </div>
+  <div class="phase-stepper fade-in">
+    <button class="phase-btn" data-phase="1">Phase 1 · Foundation</button>
+    <button class="phase-btn" data-phase="2">Phase 2 · Multi-Agent</button>
+    <button class="phase-btn" data-phase="3">Phase 3 · Fidelity + Risk</button>
+    <button class="phase-btn" data-phase="4">Phase 4 · Synthesizer</button>
+    <button class="phase-btn" data-phase="5">Phase 5 · Audio</button>
+    <button class="phase-btn active" data-phase="6">Phase 6 · Native App</button>
+  </div>
+
+  <div class="arch-diagram fade-in">
+    <!-- Layer: Orchestrator -->
+    <div class="arch-layer" data-min-phase="2">
+      <div class="arch-layer-label">Orchestration Layer</div>
+      <div class="arch-row">
+        <div class="arch-box purple">
+          <div class="arch-box-title">CrewAI Orchestrator</div>
+          <div class="arch-box-sub">Schedules agents, manages task flow, passes context between agents</div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-arrow" data-min-phase="2">↓ ↓ ↓ ↓</div>
+
+    <!-- Layer: Agents -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">Agent Layer</div>
+      <div class="arch-row">
+        <div class="arch-box gold" data-min-phase="2">
+          <div class="arch-box-title">Macro Scanner</div>
+          <div class="arch-box-sub">NewsAPI · Finnhub News · Impact classification</div>
+        </div>
+        <div class="arch-box blue" data-min-phase="2">
+          <div class="arch-box-title">Security Scanner</div>
+          <div class="arch-box-sub">Company news · Earnings · Custom alerts</div>
+        </div>
+        <div class="arch-box teal" data-min-phase="1">
+          <div class="arch-box-title">Portfolio Analyst</div>
+          <div class="arch-box-sub" data-text-phase3="Fidelity data · Risk analysis · Drift · Stress tests · Tax harvesting">Finnhub prices · Holdings table · Basic metrics</div>
+        </div>
+        <div class="arch-box purple" data-min-phase="4">
+          <div class="arch-box-title">Synthesizer</div>
+          <div class="arch-box-sub">Cross-reference · Stock Stories · Trade readouts · Theme analysis</div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-arrow" data-min-phase="1">↓ ↓ ↓</div>
+
+    <!-- Layer: Data Sources -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">Data Sources</div>
+      <div class="arch-row">
+        <div class="arch-box" data-min-phase="2">
+          <div class="arch-box-title">NewsAPI</div>
+          <div class="arch-box-sub">150K+ sources · World &amp; US news</div>
+        </div>
+        <div class="arch-box" data-min-phase="1">
+          <div class="arch-box-title">Finnhub</div>
+          <div class="arch-box-sub">Quotes · Fundamentals · News · Earnings</div>
+        </div>
+        <div class="arch-box" data-min-phase="3">
+          <div class="arch-box-title">Fidelity</div>
+          <div class="arch-box-sub">CSV export · Holdings · Cost basis</div>
+        </div>
+        <div class="arch-box" data-min-phase="5">
+          <div class="arch-box-title">ElevenLabs</div>
+          <div class="arch-box-sub">Two-voice TTS · Podcast generation</div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-arrow" data-min-phase="1">↓</div>
+
+    <!-- Layer: Storage -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">Storage Layer</div>
+      <div class="arch-row">
+        <div class="arch-box">
+          <div class="arch-box-title">SQLite + JSON</div>
+          <div class="arch-box-sub">Agent outputs · Portfolio snapshots · Recommendation history · Audio archive</div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-arrow" data-min-phase="1">↓</div>
+
+    <!-- Layer: Presentation -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">Presentation Layer</div>
+      <div class="arch-row">
+        <div class="arch-box teal">
+          <div class="arch-box-title" data-text-phase6="Native Mac App (Pywebview)">Dash Web Dashboard</div>
+          <div class="arch-box-sub">Plotly charts · Lightweight Charts (TradingView) · Real-time callbacks</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD PREVIEW -->
+<section class="dashboard-section">
+  <div class="fade-in">
+    <div class="section-label">Dashboard</div>
+    <h2 class="section-title">Seven tabs, every <em>angle</em> covered</h2>
+    <p class="section-intro">The native Mac app organizes all agent outputs into focused views. Plotly handles portfolio-level visualizations; TradingView's Lightweight Charts powers professional candlestick and technical analysis views.</p>
+  </div>
+  <div class="tabs-preview fade-in">
+    <div class="tabs-bar">
+      <button class="tab-btn active" data-tab="overview">Overview</button>
+      <button class="tab-btn" data-tab="holdings">Holdings</button>
+      <button class="tab-btn" data-tab="news">News &amp; Events</button>
+      <button class="tab-btn" data-tab="risk">Risk &amp; Tax</button>
+      <button class="tab-btn" data-tab="recs">Recommendations</button>
+      <button class="tab-btn" data-tab="whatif">What-If</button>
+      <button class="tab-btn" data-tab="audio">Audio Briefing</button>
+    </div>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab-overview">
+        <div class="tab-pane-title">Portfolio Overview</div>
+        <p class="tab-pane-body">Portfolio heatmap (treemap sized by allocation, colored by performance), value chart with 30/90/365 day trailing views, sector allocation, top gainers and losers, goal progress bars with projected trajectory, and overall P&amp;L summary.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Heatmap Treemap</span><span class="tab-feat">Value Trend Line</span><span class="tab-feat">Sector Donut</span><span class="tab-feat">Goal Progress</span><span class="tab-feat">P&amp;L Summary</span></div>
+      </div>
+      <div class="tab-pane" id="tab-holdings">
+        <div class="tab-pane-title">Holdings Detail</div>
+        <p class="tab-pane-body">Full positions table with drill-down. Click any ticker to see a TradingView Lightweight Charts candlestick with volume and technical indicators, an AI-generated Stock Story narrative, related news alerts, and upcoming events.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Candlestick Charts</span><span class="tab-feat">Technical Indicators</span><span class="tab-feat">Stock Stories</span><span class="tab-feat">Related News</span><span class="tab-feat">Events Calendar</span></div>
+      </div>
+      <div class="tab-pane" id="tab-news">
+        <div class="tab-pane-title">News &amp; Events</div>
+        <p class="tab-pane-body">Three-panel view: macro events color-coded by impact level, security-specific alerts filterable by ticker, and a forward-looking events timeline showing earnings dates, ex-dividends, and Fed meetings.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Macro Events</span><span class="tab-feat">Security Alerts</span><span class="tab-feat">Events Timeline</span><span class="tab-feat">Impact Ratings</span></div>
+      </div>
+      <div class="tab-pane" id="tab-risk">
+        <div class="tab-pane-title">Risk &amp; Tax</div>
+        <p class="tab-pane-body">Allocation drift monitor with rebalancing suggestions, scenario stress test results for historical crises, tax-loss harvesting candidates with offset calculations, and thematic exposure analysis mapping holdings to macro themes.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Drift Detection</span><span class="tab-feat">Stress Testing</span><span class="tab-feat">Tax Harvesting</span><span class="tab-feat">Theme Exposure</span></div>
+      </div>
+      <div class="tab-pane" id="tab-recs">
+        <div class="tab-pane-title">Recommendations</div>
+        <p class="tab-pane-body">Prioritized list of actionable recommendations, each with a trade readout (ticker, action, quantity, rationale), confidence level, and supporting data. Includes recommendation history with outcome tracking. You decide what to act on.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Trade Readouts</span><span class="tab-feat">Confidence Scores</span><span class="tab-feat">Outcome Tracking</span><span class="tab-feat">Read-Only</span></div>
+      </div>
+      <div class="tab-pane" id="tab-whatif">
+        <div class="tab-pane-title">What-If Simulator</div>
+        <p class="tab-pane-body">Simulate adding or removing positions without executing trades. See how hypothetical changes affect sector allocation, risk profile, benchmark tracking, and goal progress before making decisions.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Hypothetical Trades</span><span class="tab-feat">Allocation Impact</span><span class="tab-feat">Risk Recalc</span><span class="tab-feat">Goal Impact</span></div>
+      </div>
+      <div class="tab-pane" id="tab-audio">
+        <div class="tab-pane-title">Audio Briefing</div>
+        <p class="tab-pane-body">Weekly podcast-style audio summaries generated by ElevenLabs with two consistent AI host voices. The Synthesizer writes the script from all agent outputs, covering market context, portfolio highlights, and key recommendations.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Two AI Voices</span><span class="tab-feat">Weekly Cadence</span><span class="tab-feat">Episode Archive</span><span class="tab-feat">ElevenLabs TTS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="stack-section">
+  <div class="fade-in">
+    <div class="section-label">Tech Stack</div>
+    <h2 class="section-title">Built with <em>Python</em>, designed for Mac</h2>
+  </div>
+  <div class="stack-grid">
+    <div class="stack-card fade-in">
+      <span class="stack-card-icon">🤖</span>
+      <div class="stack-card-title">CrewAI → LangGraph</div>
+      <div class="stack-card-sub">Agent Orchestration</div>
+      <p class="stack-card-body">CrewAI for role-based multi-agent coordination. Migration path to LangGraph for persistent state and decision history tracking.</p>
+    </div>
+    <div class="stack-card fade-in">
+      <span class="stack-card-icon">🧠</span>
+      <div class="stack-card-title">Claude API</div>
+      <div class="stack-card-sub">LLM Reasoning Engine</div>
+      <p class="stack-card-body">Anthropic's Claude powers each agent's analysis, classification, and narrative generation via the Python SDK.</p>
+    </div>
+    <div class="stack-card fade-in">
+      <span class="stack-card-icon">📊</span>
+      <div class="stack-card-title">Dash + Plotly</div>
+      <div class="stack-card-sub">Dashboard Framework</div>
+      <p class="stack-card-body">Real-time web dashboard with callbacks, native financial chart types, and production-grade performance.</p>
+    </div>
+    <div class="stack-card fade-in">
+      <span class="stack-card-icon">📉</span>
+      <div class="stack-card-title">Lightweight Charts</div>
+      <div class="stack-card-sub">Financial Charting (TradingView)</div>
+      <p class="stack-card-body">Open-source, 45KB, candlestick charts with volume, technical indicators, zoom, pan, and crosshairs.</p>
+    </div>
+    <div class="stack-card fade-in">
+      <span class="stack-card-icon">🖥️</span>
+      <div class="stack-card-title">Pywebview</div>
+      <div class="stack-card-sub">Native Mac Window</div>
+      <p class="stack-card-body">Wraps the Dash app in a native macOS Cocoa window with dock icon, system notifications, and Python-to-JS bridge.</p>
+    </div>
+    <div class="stack-card fade-in">
+      <span class="stack-card-icon">🎙️</span>
+      <div class="stack-card-title">ElevenLabs</div>
+      <div class="stack-card-sub">Podcast Audio Generation</div>
+      <p class="stack-card-body">Two-voice text-to-speech API that converts analysis scripts into podcast-style audio briefings.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Brian Cronin</div>
+  <div class="footer-note">© 2026 · Portfolio Intelligence Agent System · Personal Project</div>
+</footer>
+
+<script>
+// Fade-in observer
+const obs = new IntersectionObserver(e => e.forEach(x => {
+  if (x.isIntersecting) x.target.classList.add('visible');
+}), { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+// Tab switching
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Phase stepper
+const phaseButtons = document.querySelectorAll('.phase-btn');
+const archLayers = document.querySelectorAll('.arch-layer, .arch-arrow');
+
+function setPhase(phase) {
+  phaseButtons.forEach(b => b.classList.toggle('active', b.dataset.phase == phase));
+
+  archLayers.forEach(layer => {
+    const minPhase = parseInt(layer.dataset.minPhase || '1');
+    layer.classList.toggle('hidden', minPhase > phase);
+  });
+
+  // Handle boxes within layers
+  document.querySelectorAll('.arch-box[data-min-phase]').forEach(box => {
+    const minPhase = parseInt(box.dataset.minPhase);
+    box.classList.toggle('hidden', minPhase > phase);
+    box.style.opacity = minPhase > phase ? '0.12' : '1';
+  });
+
+  // Handle text swaps for specific phases
+  document.querySelectorAll('[data-text-phase3]').forEach(el => {
+    if (phase >= 3) el.textContent = el.dataset.textPhase3;
+    else el.textContent = 'Finnhub prices · Holdings table · Basic metrics';
+  });
+  document.querySelectorAll('[data-text-phase6]').forEach(el => {
+    if (phase >= 6) el.textContent = el.dataset.textPhase6;
+    else el.textContent = 'Dash Web Dashboard';
+  });
+}
+
+phaseButtons.forEach(btn => {
+  btn.addEventListener('click', () => setPhase(parseInt(btn.dataset.phase)));
+});
+
+// Initialize at phase 6 (all done)
+setPhase(6);
+</script>
+</body>
+</html>
