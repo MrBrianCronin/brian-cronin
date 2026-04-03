@@ -68,6 +68,30 @@ section{padding:96px 60px}
 .agent-out.alert{background:rgba(200,151,58,.12);color:#7a5e1a;border:1px solid rgba(200,151,58,.2)}
 .agent-out.ai{background:rgba(91,33,182,.08);color:var(--ai2);border:1px solid rgba(91,33,182,.15)}
 .agent-out.teal{background:rgba(10,117,101,.08);color:var(--teal);border:1px solid rgba(10,117,101,.15)}
+/* PIPELINE SECTION — "How Agents Think" */
+.pipeline-section{background:linear-gradient(160deg,#0a1628 0%,#0f0f1a 50%,#1a0f2e 100%);color:#fff;position:relative;overflow:hidden}
+.pipeline-section::before{content:'';position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(10,117,101,.12) 0%,transparent 70%);pointer-events:none}
+.pipeline-section .section-label{color:rgba(110,231,183,.5)}
+.pipeline-section .section-label::after{background:rgba(110,231,183,.2)}
+.pipeline-section .section-title{color:#fff}
+.pipeline-section .section-intro{color:rgba(255,255,255,.6)}
+.pipeline-flow{margin-top:48px;display:flex;flex-direction:column;gap:0}
+.pipeline-step{display:grid;grid-template-columns:56px 1fr;gap:0 24px;position:relative}
+.pipeline-marker{display:flex;flex-direction:column;align-items:center}
+.pipeline-dot{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);transition:all .3s}
+.pipeline-step:hover .pipeline-dot{transform:scale(1.1);border-color:rgba(124,58,237,.5)}
+.pipeline-line{width:2px;flex:1;background:linear-gradient(to bottom,rgba(255,255,255,.12),rgba(255,255,255,.06));margin:0 auto}
+.pipeline-step:last-child .pipeline-line{display:none}
+.pipeline-content{padding:0 0 36px 0}
+.pipeline-step-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:6px}
+.pipeline-step-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
+.pipeline-step-body{font-size:13.5px;line-height:1.72;color:rgba(255,255,255,.55);max-width:600px}
+.pipeline-step-body code{font-size:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:2px 7px;border-radius:5px;color:#c4b5fd;font-family:'DM Sans',monospace}
+.pipeline-callout{margin-top:52px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.25);border-radius:18px;padding:28px 32px;display:flex;align-items:flex-start;gap:18px}
+.pipeline-callout-icon{font-size:26px;flex-shrink:0;margin-top:2px}
+.pipeline-callout-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#c4b5fd;margin-bottom:6px}
+.pipeline-callout-body{font-size:13.5px;line-height:1.72;color:rgba(255,255,255,.55)}
+
 /* FEATURES GRID */
 .features-section{background:var(--bg2)}
 .features-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -148,6 +172,7 @@ section{padding:68px 24px}
 .hero-card{display:none}
 .agents-grid,.features-grid,.stack-grid{grid-template-columns:1fr}
 .arch-row{flex-direction:column}
+.pipeline-callout{flex-direction:column;gap:12px}
 .phase-stepper{flex-wrap:wrap}
 footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 }
@@ -238,12 +263,13 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 
       <div class="agent-title">Macro Scanner</div>
       <div class="agent-role">Agent 3 · World &amp; US News</div>
-      <p class="agent-body">Scans broad news sources for macroeconomic events — Fed policy, GDP, employment, geopolitical shifts, trade policy — and classifies each by potential market impact and affected sectors. Skills handle event categorization, portfolio impact mapping, and severity scoring.</p>
+      <p class="agent-body">Scans broad news sources for macroeconomic events — Fed policy, GDP, employment, geopolitical shifts, trade policy — and scores each with three independent sentiment signals (keyword rules, VADER NLP, Alpha Vantage AI) plus the CNN Fear &amp; Greed Index for market-wide context. When signals disagree, the LLM focuses on that story first.</p>
       <div class="agent-outputs">
         <span class="agent-out data">NewsAPI</span>
         <span class="agent-out data">Finnhub News</span>
-        <span class="agent-out alert">Impact Ratings</span>
-        <span class="agent-out alert">Sector Tags</span>
+        <span class="agent-out ai">VADER NLP</span>
+        <span class="agent-out ai">Alpha Vantage AI</span>
+        <span class="agent-out alert">Fear &amp; Greed</span>
       </div>
     </div>
     <div class="agent-card fade-in">
@@ -251,11 +277,11 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 
       <div class="agent-title">Security Scanner</div>
       <div class="agent-role">Agent 4 · Holdings-Specific Intelligence</div>
-      <p class="agent-body">Monitors news, analyst ratings, and corporate actions for each holding. Skills match news to owned tickers, detect sentiment with confidence scores, and flag material events like earnings surprises, splits, dividends, and regulatory actions.</p>
+      <p class="agent-body">Monitors news for each holding with per-ticker multi-signal scoring: combined 60% VADER NLP / 40% keyword rules, plus Alpha Vantage AI relevance scores. Detects signal disagreements (alarming headline, reassuring substance) and flags material events like earnings surprises, splits, and regulatory actions.</p>
       <div class="agent-outputs">
         <span class="agent-out data">Finnhub Company News</span>
-        <span class="agent-out alert">Custom Alerts</span>
-        <span class="agent-out teal">Sentiment</span>
+        <span class="agent-out ai">Multi-Signal Scoring</span>
+        <span class="agent-out alert">Signal Disagreements</span>
         <span class="agent-out alert">Material Events</span>
       </div>
     </div>
@@ -297,6 +323,96 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         <span class="agent-out ai">Audio Briefing</span>
         <span class="agent-out teal">Tax-Aware Timing</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIPELINE — HOW AGENTS THINK -->
+<section class="pipeline-section">
+  <div class="fade-in">
+    <div class="section-label">Under The Hood</div>
+    <h2 class="section-title">How agents <em class="ai-em">think</em></h2>
+    <p class="section-intro">Every agent follows a "tools compute, LLM reasons" architecture. Deterministic Python tools read full article text, score severity, map portfolio impact, and pack a compact briefing — so the language model only receives structured results it can reason about, not raw data it has to parse.</p>
+  </div>
+
+  <div class="pipeline-flow">
+    <div class="pipeline-step fade-in">
+      <div class="pipeline-marker">
+        <div class="pipeline-dot">📡</div>
+        <div class="pipeline-line"></div>
+      </div>
+      <div class="pipeline-content">
+        <div class="pipeline-step-label">Step 1</div>
+        <div class="pipeline-step-title">Fetch from multiple sources</div>
+        <p class="pipeline-step-body">Each tool pulls data from every relevant source — NewsAPI for broad coverage, Finnhub for market-specific feeds, Yahoo Finance for earnings calendars. Articles are fetched at full length, then deduplicated by headline before any analysis begins.</p>
+      </div>
+    </div>
+
+    <div class="pipeline-step fade-in">
+      <div class="pipeline-marker">
+        <div class="pipeline-dot">⚖️</div>
+        <div class="pipeline-line"></div>
+      </div>
+      <div class="pipeline-content">
+        <div class="pipeline-step-label">Step 2</div>
+        <div class="pipeline-step-title">Multi-signal sentiment scoring</div>
+        <p class="pipeline-step-body">Each article is scored by three independent systems: custom keyword rules for speed (54 financial keywords, <code>severity 1–5</code>), NLTK's VADER model for NLP nuance (7,500-word lexicon, understands negation and intensifiers), and Alpha Vantage's AI model for financial-domain depth (per-ticker relevance scores). The CNN Fear &amp; Greed Index adds a market-wide sentiment reading. When signals disagree — alarming headline, reassuring substance — that's flagged as the most interesting insight.</p>
+      </div>
+    </div>
+
+    <div class="pipeline-step fade-in">
+      <div class="pipeline-marker">
+        <div class="pipeline-dot">🏷️</div>
+        <div class="pipeline-line"></div>
+      </div>
+      <div class="pipeline-content">
+        <div class="pipeline-step-label">Step 3</div>
+        <div class="pipeline-step-title">Categorize &amp; detect events</div>
+        <p class="pipeline-step-body">Articles are classified into macro themes (Fed policy, inflation, trade, geopolitical) and material event types (earnings, analyst actions, insider trades, regulatory, corporate). Each article can trigger multiple categories — a Fed rate decision article might tag both <code>fed_policy</code> and <code>inflation</code>.</p>
+      </div>
+    </div>
+
+    <div class="pipeline-step fade-in">
+      <div class="pipeline-marker">
+        <div class="pipeline-dot">🎯</div>
+        <div class="pipeline-line"></div>
+      </div>
+      <div class="pipeline-content">
+        <div class="pipeline-step-label">Step 4</div>
+        <div class="pipeline-step-title">Map portfolio impact</div>
+        <p class="pipeline-step-body">A static impact map connects macro categories to specific portfolio holdings. A trade policy headline automatically links to emerging market and tech supply chain tickers. The tool calculates total portfolio exposure as a percentage — so "trade war" isn't abstract, it's "38% of your holdings."</p>
+      </div>
+    </div>
+
+    <div class="pipeline-step fade-in">
+      <div class="pipeline-marker">
+        <div class="pipeline-dot">📦</div>
+        <div class="pipeline-line"></div>
+      </div>
+      <div class="pipeline-content">
+        <div class="pipeline-step-label">Step 5</div>
+        <div class="pipeline-step-title">Rank, pack &amp; trim</div>
+        <p class="pipeline-step-body">Articles are ranked by <code>severity × portfolio relevance</code>, then only the top stories make the cut. Raw text is discarded — what survives is a compact JSON briefing with scores, tickers, and rationales. Hundreds of articles become ~2K tokens of structured signal.</p>
+      </div>
+    </div>
+
+    <div class="pipeline-step fade-in">
+      <div class="pipeline-marker">
+        <div class="pipeline-dot">🧠</div>
+      </div>
+      <div class="pipeline-content">
+        <div class="pipeline-step-label">Step 6</div>
+        <div class="pipeline-step-title">Claude reasons across all signals</div>
+        <p class="pipeline-step-body">The language model receives the pre-scored briefing packet with every signal layered in: keyword severity, VADER NLP, Alpha Vantage AI scores, Fear &amp; Greed context, and signal disagreement flags. Its job is synthesis: what does this pattern of signals mean for timing, risk, and action? Four independent reads on each article, one reasoning step to connect them.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pipeline-callout fade-in">
+    <div class="pipeline-callout-icon">💡</div>
+    <div>
+      <div class="pipeline-callout-title">Why this architecture matters</div>
+      <p class="pipeline-callout-body">Traditional agent designs send raw data to the LLM and let it figure things out — expensive, slow, and token-hungry. This system layers four independent sentiment signals (keyword rules, VADER NLP, Alpha Vantage AI, Fear &amp; Greed Index) before the LLM ever sees the data. The Python tools read thousands of words and produce structured, multi-signal scores for free; Claude reads a compact briefing and reasons across all signals — like a senior analyst receiving a research brief from four different desks.</p>
     </div>
   </div>
 </section>
@@ -368,6 +484,21 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <span class="feature-icon">📊</span>
       <div class="feature-title">Correlation Analysis</div>
       <p class="feature-body">Pairwise correlation matrix across all holdings reveals hidden concentration risk. Three tech ETFs might look diversified by name but move in lockstep — this tool catches that.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🔄</span>
+      <div class="feature-title">Transaction History</div>
+      <p class="feature-body">Full trade history from Fidelity via SnapTrade — buys, sells, dividends, contributions, withdrawals, fees. Summary cards, date/type/ticker filters, sortable table with type-colored badges.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🏦</span>
+      <div class="feature-title">Multi-Account Selector</div>
+      <p class="feature-body">Global account switcher scopes all pages to a specific brokerage account. React Context architecture means every dashboard view becomes account-aware without per-page refactoring.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🧪</span>
+      <div class="feature-title">Multi-Signal Sentiment</div>
+      <p class="feature-body">Four independent sentiment signals — keyword rules, VADER NLP, Alpha Vantage AI, CNN Fear &amp; Greed — scored before the LLM sees any data. Signal disagreements are flagged as the most interesting insights.</p>
     </div>
   </div>
 </section>
@@ -480,11 +611,23 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         </div>
         <div class="arch-box" data-min-phase="2">
           <div class="arch-box-title">SnapTrade</div>
-          <div class="arch-box-sub">Brokerage API · Live holdings · Cost basis</div>
+          <div class="arch-box-sub">Brokerage API · Holdings · Balances · Transactions · Orders · Performance</div>
         </div>
         <div class="arch-box" data-min-phase="4">
           <div class="arch-box-title">NewsAPI</div>
           <div class="arch-box-sub">150K+ sources · World &amp; US news</div>
+        </div>
+        <div class="arch-box" data-min-phase="4">
+          <div class="arch-box-title">Alpha Vantage</div>
+          <div class="arch-box-sub">AI sentiment API · Per-ticker relevance scoring</div>
+        </div>
+        <div class="arch-box" data-min-phase="4">
+          <div class="arch-box-title">VADER NLP</div>
+          <div class="arch-box-sub">7,500-word lexicon · Negation &amp; intensifier aware</div>
+        </div>
+        <div class="arch-box" data-min-phase="4">
+          <div class="arch-box-title">CNN Fear &amp; Greed</div>
+          <div class="arch-box-sub">Market-wide sentiment · 0–100 index · Trend tracking</div>
         </div>
         <div class="arch-box" data-min-phase="6">
           <div class="arch-box-title">ElevenLabs</div>
@@ -523,6 +666,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <button class="tab-btn" data-tab="smartmoney">Smart Money</button>
       <button class="tab-btn" data-tab="news">News</button>
       <button class="tab-btn" data-tab="calendar">Calendar</button>
+      <button class="tab-btn" data-tab="transactions">Transactions</button>
       <button class="tab-btn" data-tab="tax">Tax</button>
       <button class="tab-btn" data-tab="recs">Recommendations</button>
       <button class="tab-btn" data-tab="settings">Settings</button>
@@ -562,6 +706,11 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         <div class="tab-pane-title">Earnings &amp; Events Calendar</div>
         <p class="tab-pane-body">Forward-looking timeline combining market events (earnings dates, ex-dividends, Fed meetings, economic data releases) with personal financial events (tuition, bonus timing, large expenses). Color-coded by type to answer: "What's coming up that affects my portfolio or cash flow?"</p>
         <div class="tab-pane-features"><span class="tab-feat">Earnings Dates</span><span class="tab-feat">Ex-Dividend</span><span class="tab-feat">Personal Events</span><span class="tab-feat">Cash Flow Timeline</span></div>
+      </div>
+      <div class="tab-pane" id="tab-transactions">
+        <div class="tab-pane-title">Transactions</div>
+        <p class="tab-pane-body">Full trade history pulled directly from Fidelity via SnapTrade. Summary cards show total trades, capital deployed, dividends received, and fees paid. Filter by date range, transaction type (buy, sell, dividend, contribution, withdrawal, fee, tax), or ticker search. Sortable table with type-colored badges and a reference legend for all transaction types.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Summary Cards</span><span class="tab-feat">Type Filters</span><span class="tab-feat">Sortable Table</span><span class="tab-feat">Multi-Account</span></div>
       </div>
       <div class="tab-pane" id="tab-tax">
         <div class="tab-pane-title">Tax Strategy</div>
@@ -617,7 +766,13 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <span class="stack-card-icon">📈</span>
       <div class="stack-card-title">Finnhub + SnapTrade</div>
       <div class="stack-card-sub">Market Data + Brokerage</div>
-      <p class="stack-card-body">Finnhub for live quotes, fundamentals, news, and congressional trades. SnapTrade for direct brokerage account access. yfinance as fallback.</p>
+      <p class="stack-card-body">Finnhub for live quotes, fundamentals, news, and congressional trades. SnapTrade for full brokerage access — holdings, balances, transactions, orders, performance, and multi-account support. yfinance as fallback.</p>
+    </div>
+    <div class="stack-card fade-in">
+      <span class="stack-card-icon">⚖️</span>
+      <div class="stack-card-title">Multi-Signal Sentiment</div>
+      <div class="stack-card-sub">NLP + AI Scoring</div>
+      <p class="stack-card-body">VADER NLP (7,500-word lexicon), Alpha Vantage AI sentiment (per-ticker relevance), CNN Fear &amp; Greed Index (market-wide context), and custom keyword rules. Four reads per article before the LLM reasons.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">🗄️</span>
