@@ -68,7 +68,6 @@ section{padding:96px 60px}
 .agent-out.alert{background:rgba(200,151,58,.12);color:#7a5e1a;border:1px solid rgba(200,151,58,.2)}
 .agent-out.ai{background:rgba(91,33,182,.08);color:var(--ai2);border:1px solid rgba(91,33,182,.15)}
 .agent-out.teal{background:rgba(10,117,101,.08);color:var(--teal);border:1px solid rgba(10,117,101,.15)}
-
 /* FEATURES GRID */
 .features-section{background:var(--bg2)}
 .features-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -167,34 +166,34 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="hero-eyebrow">Personal Project · Multi-Agent System</div>
     <h1 class="hero-name">Portfolio <span>Intelligence</span></h1>
     <p class="hero-subtitle">A read-only analysis tool that monitors markets, evaluates your holdings, and delivers insights you can act on</p>
-    <p class="hero-desc">Four AI agents work together to scan macroeconomic news, track security-specific events, analyze portfolio performance and risk, then synthesize everything into actionable trade readouts and podcast-style audio briefings — all in a native Mac app.</p>
+    <p class="hero-desc">AI agents built on CrewAI and Claude work together to analyze portfolio performance, detect allocation drift, track congressional trading signals, scan macroeconomic news, and synthesize everything into actionable intelligence — powered by a FastAPI backend and React frontend with encrypted storage and JWT authentication.</p>
     <div class="hero-badges">
       <span class="hero-badge read-only">🔒 Read-Only · No Trade Execution</span>
-      <span class="hero-badge ai">🤖 Multi-Agent Orchestration</span>
-      <span class="hero-badge mac">💻 Native Mac App</span>
-      <span class="hero-badge fin">📊 Fidelity Integration</span>
+      <span class="hero-badge ai">🤖 CrewAI + Claude Agents</span>
+      <span class="hero-badge mac">⚛️ React + FastAPI</span>
+      <span class="hero-badge fin">📊 SnapTrade + Fidelity</span>
+      <span class="hero-badge read-only">🔑 Encrypted · JWT Auth</span>
     </div>
   </div>
   <div class="hero-right">
     <div class="hero-card">
       <div class="hero-card-label">System Overview</div>
       <div class="arch-mini">
-<span class="dim">┌──────────────────────────────────────────┐</span>
-<span class="highlight">  ORCHESTRATOR</span> <span class="dim">(CrewAI → LangGraph)</span>
-<span class="dim">└────┬─────────┬─────────┬─────────┬───────┘</span>
-     <span class="dim">│         │         │         │</span>
-  <span class="gold">Macro</span>    <span class="blue">Security</span>  <span class="teal">Portfolio</span> <span class="highlight">Synth</span>
-  <span class="gold">Scanner</span>  <span class="blue">Scanner</span>   <span class="teal">Analyst</span>  <span class="highlight">+ Audio</span>
-     <span class="dim">│         │         │         │</span>
-  <span class="dim">NewsAPI   Finnhub   Fidelity  ElevenLabs</span>
-  <span class="dim">Finnhub   Earnings  Finnhub   TTS API</span>
-     <span class="dim">│         │         │         │</span>
-     <span class="dim">└─────────┴─────────┴─────────┘</span>
-                  <span class="dim">│</span>
-         <span class="teal">SQLite + JSON Store</span>
-                  <span class="dim">│</span>
-      <span class="highlight">Native Mac App</span> <span class="dim">(Pywebview)</span>
-      <span class="dim">Dash + Plotly + Lightweight Charts</span>
+<span class="dim">┌──────────────────────────────────────────────────────┐</span>
+<span class="highlight">  ORCHESTRATOR</span> <span class="dim">(CrewAI + Claude Sonnet)</span>
+<span class="dim">└──┬──────────┬───────────┬────────┬────────┬──────────┘</span>
+   <span class="dim">│          │           │        │        │</span>
+ <span class="teal">Portfolio</span> <span class="teal">Smart</span>    <span class="dim">Macro</span>   <span class="dim">Tax</span>    <span class="dim">Synth</span>
+ <span class="teal">Analyst</span>  <span class="teal">Money</span>    <span class="dim">Scanner</span> <span class="dim">Strategy</span> <span class="dim">+ Audio</span>
+ <span class="teal">✓ BUILT</span>  <span class="teal">✓ BUILT</span>  <span class="dim">planned</span> <span class="dim">planned</span> <span class="dim">planned</span>
+   <span class="dim">│          │           │        │        │</span>
+   <span class="dim">└──────────┴───────────┴────────┴────────┘</span>
+                       <span class="dim">│</span>
+              <span class="teal">SQLite + Encrypted JSON</span>
+        <span class="dim">Finnhub · SnapTrade · yfinance</span>
+                       <span class="dim">│</span>
+        <span class="highlight">React + Vite</span> <span class="dim">frontend</span>
+        <span class="blue">FastAPI</span> <span class="dim">backend (Railway)</span>
       </div>
     </div>
   </div>
@@ -204,15 +203,42 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 <section class="agents-section">
   <div class="fade-in">
     <div class="section-label">Agent Architecture</div>
-    <h2 class="section-title">Four agents, one <em>cohesive</em> picture</h2>
-    <p class="section-intro">Each agent has a dedicated role, data sources, and output format. The orchestrator coordinates their execution order and passes context between them so the Synthesizer can cross-reference everything into actionable intelligence.</p>
+    <h2 class="section-title">Seven agents, one <em>cohesive</em> picture</h2>
+    <p class="section-intro">Each agent has a dedicated role, data sources, and deterministic skill tools that guarantee accurate computation. The LLM reasons about what the numbers mean — the tools handle the math. CrewAI orchestrates execution and passes context so agents can cross-reference everything into actionable intelligence.</p>
   </div>
   <div class="agents-grid">
     <div class="agent-card fade-in">
+      <span class="agent-icon">📈</span>
+
+      <div class="agent-title">Portfolio Analyst</div>
+      <div class="agent-role">Agent 1 · Performance, Risk &amp; Correlation</div>
+      <p class="agent-body">Evaluates all holdings with five deterministic skill tools: Sharpe ratio and volatility calculations, concentration risk detection (HHI, sector limits), allocation drift vs. targets, performer ranking with percentiles, and pairwise correlation analysis to uncover hidden concentration across holdings that appear diversified.</p>
+      <div class="agent-outputs">
+        <span class="agent-out data">Finnhub Prices</span>
+        <span class="agent-out teal">Risk Metrics</span>
+        <span class="agent-out alert">Drift Alerts</span>
+        <span class="agent-out teal">Correlation Matrix</span>
+      </div>
+    </div>
+    <div class="agent-card fade-in">
+      <span class="agent-icon">🏛️</span>
+
+      <div class="agent-title">Smart Money</div>
+      <div class="agent-role">Agent 2 · Congressional Trading Signals</div>
+      <p class="agent-body">Tracks congressional stock trades disclosed under the STOCK Act and cross-references them against your holdings. Detects patterns in insider trading activity — which members are buying or selling, sector clustering, and timing relative to legislation — to surface signals that institutional-grade investors watch.</p>
+      <div class="agent-outputs">
+        <span class="agent-out data">Finnhub Congressional</span>
+        <span class="agent-out teal">Trade Patterns</span>
+        <span class="agent-out alert">Overlap Alerts</span>
+        <span class="agent-out data">Member Activity</span>
+      </div>
+    </div>
+    <div class="agent-card fade-in">
       <span class="agent-icon">🌍</span>
+
       <div class="agent-title">Macro Scanner</div>
-      <div class="agent-role">Agent 1 · World &amp; US News</div>
-      <p class="agent-body">Scans broad news sources for macroeconomic events — Fed policy, GDP, employment, geopolitical shifts, trade policy — and classifies each by potential market impact and affected sectors.</p>
+      <div class="agent-role">Agent 3 · World &amp; US News</div>
+      <p class="agent-body">Scans broad news sources for macroeconomic events — Fed policy, GDP, employment, geopolitical shifts, trade policy — and classifies each by potential market impact and affected sectors. Skills handle event categorization, portfolio impact mapping, and severity scoring.</p>
       <div class="agent-outputs">
         <span class="agent-out data">NewsAPI</span>
         <span class="agent-out data">Finnhub News</span>
@@ -222,38 +248,54 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     </div>
     <div class="agent-card fade-in">
       <span class="agent-icon">🔍</span>
+
       <div class="agent-title">Security Scanner</div>
-      <div class="agent-role">Agent 2 · Holdings-Specific Intelligence</div>
-      <p class="agent-body">Monitors news, earnings, analyst ratings, and corporate actions for each holding in the portfolio. Maintains a forward-looking events calendar and evaluates custom alert rules.</p>
+      <div class="agent-role">Agent 4 · Holdings-Specific Intelligence</div>
+      <p class="agent-body">Monitors news, analyst ratings, and corporate actions for each holding. Skills match news to owned tickers, detect sentiment with confidence scores, and flag material events like earnings surprises, splits, dividends, and regulatory actions.</p>
       <div class="agent-outputs">
         <span class="agent-out data">Finnhub Company News</span>
-        <span class="agent-out data">Earnings Calendar</span>
         <span class="agent-out alert">Custom Alerts</span>
         <span class="agent-out teal">Sentiment</span>
+        <span class="agent-out alert">Material Events</span>
       </div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-icon">📈</span>
-      <div class="agent-title">Portfolio Analyst</div>
-      <div class="agent-role">Agent 3 · Performance, Risk &amp; Tax</div>
-      <p class="agent-body">Evaluates holdings from Fidelity — P&amp;L, allocation drift, benchmark comparison, scenario stress testing (2008, COVID, dot-com), and tax-loss harvesting opportunities. Tracks progress toward financial goals.</p>
+      <span class="agent-icon">📅</span>
+
+      <div class="agent-title">Earnings &amp; Events Calendar</div>
+      <div class="agent-role">Agent 5 · Forward-Looking Timeline</div>
+      <p class="agent-body">Tracks scheduled market events — earnings dates, ex-dividend dates, index rebalancing, Fed meetings — alongside personal financial events like tuition payments, bonus timing, and large planned expenses. Answers: "What's coming up that I should plan around?"</p>
       <div class="agent-outputs">
-        <span class="agent-out data">Fidelity CSV / API</span>
-        <span class="agent-out data">Finnhub Prices</span>
-        <span class="agent-out alert">Drift Alerts</span>
-        <span class="agent-out teal">Stress Tests</span>
+        <span class="agent-out data">Finnhub Calendar</span>
+        <span class="agent-out data">Personal Events</span>
+        <span class="agent-out alert">Upcoming Timeline</span>
+        <span class="agent-out teal">Cash Flow Impact</span>
+      </div>
+    </div>
+    <div class="agent-card fade-in">
+      <span class="agent-icon">🧾</span>
+
+      <div class="agent-title">Tax Strategy</div>
+      <div class="agent-role">Agent 6 · Tax-Loss Harvesting &amp; Optimization</div>
+      <p class="agent-body">Monitors unrealized gains and losses to identify tax-loss harvesting opportunities. Skills compute cost basis math, classify holding periods (short-term vs. long-term), track 30-day wash sale windows, and rank harvest candidates by tax savings potential. Runs weekly, with increased frequency in Q4.</p>
+      <div class="agent-outputs">
+        <span class="agent-out data">Cost Basis Data</span>
+        <span class="agent-out alert">Wash Sale Windows</span>
+        <span class="agent-out teal">Harvest Candidates</span>
+        <span class="agent-out alert">Capital Gains</span>
       </div>
     </div>
     <div class="agent-card fade-in">
       <span class="agent-icon">🧠</span>
+
       <div class="agent-title">Synthesizer + Audio</div>
-      <div class="agent-role">Agent 4 · Cross-Reference &amp; Recommendations</div>
-      <p class="agent-body">Combines all agent outputs into a cohesive briefing. Generates per-holding "Stock Story" narratives, thematic exposure analysis, trade readouts, and podcast-style audio summaries via ElevenLabs.</p>
+      <div class="agent-role">Agent 7 · Cross-Reference &amp; Recommendations</div>
+      <p class="agent-body">Combines outputs from all agents into a unified assessment. Incorporates tax implications into timing, factors in upcoming calendar events, and generates prioritized trade readouts with confidence scores. Produces podcast-style audio briefings via ElevenLabs.</p>
       <div class="agent-outputs">
         <span class="agent-out ai">Trade Readouts</span>
         <span class="agent-out ai">Stock Stories</span>
         <span class="agent-out ai">Audio Briefing</span>
-        <span class="agent-out teal">Theme Analysis</span>
+        <span class="agent-out teal">Tax-Aware Timing</span>
       </div>
     </div>
   </div>
@@ -312,6 +354,21 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <div class="feature-title">Trade Readouts</div>
       <p class="feature-body">Clear, actionable trade recommendations — ticker, action, quantity, rationale — formatted for quick manual entry in Fidelity. You decide what to act on.</p>
     </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">📅</span>
+      <div class="feature-title">Personal Events Calendar</div>
+      <p class="feature-body">Combine market events with personal financial milestones — tuition payments, bonus timing, property taxes — so recommendations factor in your real cash flow, not just the market.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🔐</span>
+      <div class="feature-title">macOS Keychain Security</div>
+      <p class="feature-body">All API keys and secrets stored in macOS Keychain, encrypted by the OS and protected by your login password or Touch ID. No plaintext .env files — even a compromised dependency can't read your credentials.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">📊</span>
+      <div class="feature-title">Correlation Analysis</div>
+      <p class="feature-body">Pairwise correlation matrix across all holdings reveals hidden concentration risk. Three tech ETFs might look diversified by name but move in lockstep — this tool catches that.</p>
+    </div>
   </div>
 </section>
 
@@ -320,20 +377,49 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
   <div class="fade-in">
     <div class="section-label">Architecture</div>
     <h2 class="section-title" style="color:#fff">Progressive <em class="ai-em">buildout</em></h2>
-    <p class="section-intro">The system was built in six phases, each adding a new layer of capability. Select a phase to see how the architecture evolved from a simple data fetch to a full native Mac app with AI-powered analysis.</p>
+    <p class="section-intro">The system is built in seven phases, each adding a new layer of capability. Select a phase to see how the architecture evolves from a simple data fetch to a full native Mac app with seven AI agents and encrypted secrets management.</p>
   </div>
   <div class="phase-stepper fade-in">
     <button class="phase-btn" data-phase="1">Phase 1 · Foundation</button>
-    <button class="phase-btn" data-phase="2">Phase 2 · Multi-Agent</button>
-    <button class="phase-btn" data-phase="3">Phase 3 · Fidelity + Risk</button>
-    <button class="phase-btn" data-phase="4">Phase 4 · Synthesizer</button>
-    <button class="phase-btn" data-phase="5">Phase 5 · Audio</button>
-    <button class="phase-btn active" data-phase="6">Phase 6 · Native App</button>
+    <button class="phase-btn" data-phase="2">Phase 2 · Allocations + Brokerage</button>
+    <button class="phase-btn" data-phase="3">Phase 3 · Drift Detection</button>
+    <button class="phase-btn" data-phase="4">Phase 4 · Scanners + Calendar</button>
+    <button class="phase-btn" data-phase="5">Phase 5 · Tax + Synthesizer</button>
+    <button class="phase-btn" data-phase="6">Phase 6 · Audio Briefings</button>
+    <button class="phase-btn active" data-phase="7">Phase 7 · Native App + Polish</button>
   </div>
 
   <div class="arch-diagram fade-in">
+    <!-- Layer: Presentation -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">Presentation Layer</div>
+      <div class="arch-row">
+        <div class="arch-box teal">
+          <div class="arch-box-title">React + Vite Frontend</div>
+          <div class="arch-box-sub">Recharts · Lightweight Charts (TradingView) · Tailwind CSS · JWT Auth</div>
+        </div>
+        <div class="arch-box purple" data-min-phase="7">
+          <div class="arch-box-title">Native Mac App</div>
+          <div class="arch-box-sub">Pywebview wrapper · Dock icon · System notifications</div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-arrow" data-min-phase="1">↓ ↓ ↓</div>
+
+    <!-- Layer: API -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">API Layer</div>
+      <div class="arch-row">
+        <div class="arch-box blue">
+          <div class="arch-box-title">FastAPI Backend</div>
+          <div class="arch-box-sub">REST endpoints · JWT auth · Rate limiting · Security headers · Railway deploy</div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-arrow" data-min-phase="1">↓ ↓ ↓</div>
+
     <!-- Layer: Orchestrator -->
-    <div class="arch-layer" data-min-phase="2">
+    <div class="arch-layer" data-min-phase="1">
       <div class="arch-layer-label">Orchestration Layer</div>
       <div class="arch-row">
         <div class="arch-box purple">
@@ -342,27 +428,39 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         </div>
       </div>
     </div>
-    <div class="arch-arrow" data-min-phase="2">↓ ↓ ↓ ↓</div>
+    <div class="arch-arrow" data-min-phase="1">↓ ↓ ↓ ↓</div>
 
     <!-- Layer: Agents -->
     <div class="arch-layer" data-min-phase="1">
       <div class="arch-layer-label">Agent Layer</div>
       <div class="arch-row">
-        <div class="arch-box gold" data-min-phase="2">
+        <div class="arch-box teal" data-min-phase="1">
+          <div class="arch-box-title">Portfolio Analyst</div>
+          <div class="arch-box-sub">5 skill tools · Risk metrics · Correlation · Drift · Ranking</div>
+        </div>
+        <div class="arch-box teal" data-min-phase="1">
+          <div class="arch-box-title">Smart Money</div>
+          <div class="arch-box-sub">Congressional trades · STOCK Act · Insider patterns</div>
+        </div>
+        <div class="arch-box gold" data-min-phase="4">
           <div class="arch-box-title">Macro Scanner</div>
           <div class="arch-box-sub">NewsAPI · Finnhub News · Impact classification</div>
         </div>
-        <div class="arch-box blue" data-min-phase="2">
+        <div class="arch-box blue" data-min-phase="4">
           <div class="arch-box-title">Security Scanner</div>
-          <div class="arch-box-sub">Company news · Earnings · Custom alerts</div>
+          <div class="arch-box-sub">Company news · Sentiment · Material events</div>
         </div>
-        <div class="arch-box teal" data-min-phase="1">
-          <div class="arch-box-title">Portfolio Analyst</div>
-          <div class="arch-box-sub" data-text-phase3="Fidelity data · Risk analysis · Drift · Stress tests · Tax harvesting">Finnhub prices · Holdings table · Basic metrics</div>
+        <div class="arch-box blue" data-min-phase="4">
+          <div class="arch-box-title">Events Calendar</div>
+          <div class="arch-box-sub">Earnings dates · Ex-dividends · Personal events</div>
         </div>
-        <div class="arch-box purple" data-min-phase="4">
+        <div class="arch-box gold" data-min-phase="5">
+          <div class="arch-box-title">Tax Strategy</div>
+          <div class="arch-box-sub">Harvest candidates · Wash sales · Cost basis</div>
+        </div>
+        <div class="arch-box purple" data-min-phase="5">
           <div class="arch-box-title">Synthesizer</div>
-          <div class="arch-box-sub">Cross-reference · Stock Stories · Trade readouts · Theme analysis</div>
+          <div class="arch-box-sub">Cross-reference · Tax-aware timing · Trade readouts</div>
         </div>
       </div>
     </div>
@@ -372,19 +470,23 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="arch-layer" data-min-phase="1">
       <div class="arch-layer-label">Data Sources</div>
       <div class="arch-row">
+        <div class="arch-box" data-min-phase="1">
+          <div class="arch-box-title">Finnhub</div>
+          <div class="arch-box-sub">Quotes · Fundamentals · News · Congressional · Earnings</div>
+        </div>
+        <div class="arch-box" data-min-phase="1">
+          <div class="arch-box-title">yfinance</div>
+          <div class="arch-box-sub">Fallback · Dividends · Institutional holders</div>
+        </div>
         <div class="arch-box" data-min-phase="2">
+          <div class="arch-box-title">SnapTrade</div>
+          <div class="arch-box-sub">Brokerage API · Live holdings · Cost basis</div>
+        </div>
+        <div class="arch-box" data-min-phase="4">
           <div class="arch-box-title">NewsAPI</div>
           <div class="arch-box-sub">150K+ sources · World &amp; US news</div>
         </div>
-        <div class="arch-box" data-min-phase="1">
-          <div class="arch-box-title">Finnhub</div>
-          <div class="arch-box-sub">Quotes · Fundamentals · News · Earnings</div>
-        </div>
-        <div class="arch-box" data-min-phase="3">
-          <div class="arch-box-title">Fidelity</div>
-          <div class="arch-box-sub">CSV export · Holdings · Cost basis</div>
-        </div>
-        <div class="arch-box" data-min-phase="5">
+        <div class="arch-box" data-min-phase="6">
           <div class="arch-box-title">ElevenLabs</div>
           <div class="arch-box-sub">Two-voice TTS · Podcast generation</div>
         </div>
@@ -397,20 +499,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <div class="arch-layer-label">Storage Layer</div>
       <div class="arch-row">
         <div class="arch-box">
-          <div class="arch-box-title">SQLite + JSON</div>
-          <div class="arch-box-sub">Agent outputs · Portfolio snapshots · Recommendation history · Audio archive</div>
-        </div>
-      </div>
-    </div>
-    <div class="arch-arrow" data-min-phase="1">↓</div>
-
-    <!-- Layer: Presentation -->
-    <div class="arch-layer" data-min-phase="1">
-      <div class="arch-layer-label">Presentation Layer</div>
-      <div class="arch-row">
-        <div class="arch-box teal">
-          <div class="arch-box-title" data-text-phase6="Native Mac App (Pywebview)">Dash Web Dashboard</div>
-          <div class="arch-box-sub">Plotly charts · Lightweight Charts (TradingView) · Real-time callbacks</div>
+          <div class="arch-box-title">SQLite + Encrypted JSON</div>
+          <div class="arch-box-sub">Agent outputs · Portfolio snapshots · Market data cache · Fernet encryption at rest</div>
         </div>
       </div>
     </div>
@@ -421,54 +511,72 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 <section class="dashboard-section">
   <div class="fade-in">
     <div class="section-label">Dashboard</div>
-    <h2 class="section-title">Seven tabs, every <em>angle</em> covered</h2>
-    <p class="section-intro">The native Mac app organizes all agent outputs into focused views. Plotly handles portfolio-level visualizations; TradingView's Lightweight Charts powers professional candlestick and technical analysis views.</p>
+    <h2 class="section-title">Every <em>angle</em> covered</h2>
+    <p class="section-intro">The React dashboard organizes all agent outputs into focused views. Recharts handles portfolio-level visualizations; TradingView's Lightweight Charts powers professional candlestick and technical analysis views.</p>
   </div>
   <div class="tabs-preview fade-in">
     <div class="tabs-bar">
       <button class="tab-btn active" data-tab="overview">Overview</button>
       <button class="tab-btn" data-tab="holdings">Holdings</button>
-      <button class="tab-btn" data-tab="news">News &amp; Events</button>
-      <button class="tab-btn" data-tab="risk">Risk &amp; Tax</button>
+      <button class="tab-btn" data-tab="allocations">Allocations</button>
+      <button class="tab-btn" data-tab="analysis">Analysis</button>
+      <button class="tab-btn" data-tab="smartmoney">Smart Money</button>
+      <button class="tab-btn" data-tab="news">News</button>
+      <button class="tab-btn" data-tab="calendar">Calendar</button>
+      <button class="tab-btn" data-tab="tax">Tax</button>
       <button class="tab-btn" data-tab="recs">Recommendations</button>
-      <button class="tab-btn" data-tab="whatif">What-If</button>
-      <button class="tab-btn" data-tab="audio">Audio Briefing</button>
+      <button class="tab-btn" data-tab="settings">Settings</button>
     </div>
     <div class="tab-content">
       <div class="tab-pane active" id="tab-overview">
         <div class="tab-pane-title">Portfolio Overview</div>
-        <p class="tab-pane-body">Portfolio heatmap (treemap sized by allocation, colored by performance), value chart with 30/90/365 day trailing views, sector allocation, top gainers and losers, goal progress bars with projected trajectory, and overall P&amp;L summary.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Heatmap Treemap</span><span class="tab-feat">Value Trend Line</span><span class="tab-feat">Sector Donut</span><span class="tab-feat">Goal Progress</span><span class="tab-feat">P&amp;L Summary</span></div>
+        <p class="tab-pane-body">Portfolio heatmap (treemap sized by allocation, colored by performance), value chart with 30/90/365 day trailing views, sector allocation donut, top gainers and losers, and overall P&amp;L summary.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Heatmap Treemap</span><span class="tab-feat">Value Trend Line</span><span class="tab-feat">Sector Donut</span><span class="tab-feat">P&amp;L Summary</span></div>
       </div>
       <div class="tab-pane" id="tab-holdings">
         <div class="tab-pane-title">Holdings Detail</div>
-        <p class="tab-pane-body">Full positions table with drill-down. Click any ticker to see a TradingView Lightweight Charts candlestick with volume and technical indicators, an AI-generated Stock Story narrative, related news alerts, and upcoming events.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Candlestick Charts</span><span class="tab-feat">Technical Indicators</span><span class="tab-feat">Stock Stories</span><span class="tab-feat">Related News</span><span class="tab-feat">Events Calendar</span></div>
+        <p class="tab-pane-body">Full positions table with drill-down. Click any ticker to see a TradingView Lightweight Charts candlestick with volume, an AI-generated Stock Story narrative, and related news alerts.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Candlestick Charts</span><span class="tab-feat">Volume Analysis</span><span class="tab-feat">Stock Stories</span><span class="tab-feat">Related News</span></div>
+      </div>
+      <div class="tab-pane" id="tab-allocations">
+        <div class="tab-pane-title">Allocation Manager</div>
+        <p class="tab-pane-body">Define target allocations by sector with interactive sliders. Multi-dimension targets support category-level and individual-holding targets. Visual comparison of actual vs. target with drift percentage and rebalancing suggestions.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Target Sliders</span><span class="tab-feat">Drift Detection</span><span class="tab-feat">Rebalance Suggestions</span><span class="tab-feat">Multi-Dimension</span></div>
+      </div>
+      <div class="tab-pane" id="tab-analysis">
+        <div class="tab-pane-title">Portfolio Analysis</div>
+        <p class="tab-pane-body">The Portfolio Analyst agent's full report powered by five deterministic skill tools: risk metrics (Sharpe ratio, volatility, max drawdown), concentration risk (HHI, sector limits), allocation drift vs. targets, performer rankings with percentiles, and cross-holding correlation analysis.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Sharpe Ratio</span><span class="tab-feat">Concentration HHI</span><span class="tab-feat">Drift Detection</span><span class="tab-feat">Correlation Matrix</span><span class="tab-feat">Performer Ranking</span></div>
+      </div>
+      <div class="tab-pane" id="tab-smartmoney">
+        <div class="tab-pane-title">Smart Money</div>
+        <p class="tab-pane-body">Congressional trading analysis powered by STOCK Act disclosures via Finnhub. See which members of Congress are buying or selling, detect sector clustering patterns, identify overlap with your holdings, and track timing relative to legislation.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Congressional Trades</span><span class="tab-feat">Holdings Overlap</span><span class="tab-feat">Sector Patterns</span><span class="tab-feat">STOCK Act Data</span></div>
       </div>
       <div class="tab-pane" id="tab-news">
-        <div class="tab-pane-title">News &amp; Events</div>
-        <p class="tab-pane-body">Three-panel view: macro events color-coded by impact level, security-specific alerts filterable by ticker, and a forward-looking events timeline showing earnings dates, ex-dividends, and Fed meetings.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Macro Events</span><span class="tab-feat">Security Alerts</span><span class="tab-feat">Events Timeline</span><span class="tab-feat">Impact Ratings</span></div>
+        <div class="tab-pane-title">News</div>
+        <p class="tab-pane-body">Dual-pane view: macro events color-coded by impact level from the Macro Scanner, and security-specific alerts filterable by ticker from the Security Scanner.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Macro Events</span><span class="tab-feat">Security Alerts</span><span class="tab-feat">Impact Ratings</span><span class="tab-feat">Sentiment Scores</span></div>
       </div>
-      <div class="tab-pane" id="tab-risk">
-        <div class="tab-pane-title">Risk &amp; Tax</div>
-        <p class="tab-pane-body">Allocation drift monitor with rebalancing suggestions, scenario stress test results for historical crises, tax-loss harvesting candidates with offset calculations, and thematic exposure analysis mapping holdings to macro themes.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Drift Detection</span><span class="tab-feat">Stress Testing</span><span class="tab-feat">Tax Harvesting</span><span class="tab-feat">Theme Exposure</span></div>
+      <div class="tab-pane" id="tab-calendar">
+        <div class="tab-pane-title">Earnings &amp; Events Calendar</div>
+        <p class="tab-pane-body">Forward-looking timeline combining market events (earnings dates, ex-dividends, Fed meetings, economic data releases) with personal financial events (tuition, bonus timing, large expenses). Color-coded by type to answer: "What's coming up that affects my portfolio or cash flow?"</p>
+        <div class="tab-pane-features"><span class="tab-feat">Earnings Dates</span><span class="tab-feat">Ex-Dividend</span><span class="tab-feat">Personal Events</span><span class="tab-feat">Cash Flow Timeline</span></div>
+      </div>
+      <div class="tab-pane" id="tab-tax">
+        <div class="tab-pane-title">Tax Strategy</div>
+        <p class="tab-pane-body">Tax-loss harvesting candidates ranked by savings potential, unrealized gains/losses by holding period (short-term vs. long-term), wash sale window tracker (30-day rule), and capital gains exposure estimates. Increased frequency in Q4.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Harvest Candidates</span><span class="tab-feat">Wash Sale Tracker</span><span class="tab-feat">Capital Gains</span><span class="tab-feat">Holding Periods</span></div>
       </div>
       <div class="tab-pane" id="tab-recs">
         <div class="tab-pane-title">Recommendations</div>
-        <p class="tab-pane-body">Prioritized list of actionable recommendations, each with a trade readout (ticker, action, quantity, rationale), confidence level, and supporting data. Includes recommendation history with outcome tracking. You decide what to act on.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Trade Readouts</span><span class="tab-feat">Confidence Scores</span><span class="tab-feat">Outcome Tracking</span><span class="tab-feat">Read-Only</span></div>
+        <p class="tab-pane-body">Prioritized list of actionable recommendations, each with a trade readout (ticker, action, quantity, rationale), confidence level, tax impact, and supporting data from all five agents. Includes recommendation history with outcome tracking. You decide what to act on.</p>
+        <div class="tab-pane-features"><span class="tab-feat">Trade Readouts</span><span class="tab-feat">Confidence Scores</span><span class="tab-feat">Tax Impact</span><span class="tab-feat">Outcome Tracking</span></div>
       </div>
-      <div class="tab-pane" id="tab-whatif">
-        <div class="tab-pane-title">What-If Simulator</div>
-        <p class="tab-pane-body">Simulate adding or removing positions without executing trades. See how hypothetical changes affect sector allocation, risk profile, benchmark tracking, and goal progress before making decisions.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Hypothetical Trades</span><span class="tab-feat">Allocation Impact</span><span class="tab-feat">Risk Recalc</span><span class="tab-feat">Goal Impact</span></div>
-      </div>
-      <div class="tab-pane" id="tab-audio">
-        <div class="tab-pane-title">Audio Briefing</div>
-        <p class="tab-pane-body">Weekly podcast-style audio summaries generated by ElevenLabs with two consistent AI host voices. The Synthesizer writes the script from all agent outputs, covering market context, portfolio highlights, and key recommendations.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Two AI Voices</span><span class="tab-feat">Weekly Cadence</span><span class="tab-feat">Episode Archive</span><span class="tab-feat">ElevenLabs TTS</span></div>
+      <div class="tab-pane" id="tab-settings">
+        <div class="tab-pane-title">Settings</div>
+        <p class="tab-pane-body">API key status indicators, agent schedule controls, target allocation management, personal events editor, and data source toggle. All secrets stored securely in macOS Keychain — never in config files.</p>
+        <div class="tab-pane-features"><span class="tab-feat">API Status</span><span class="tab-feat">Agent Schedules</span><span class="tab-feat">Allocation Targets</span><span class="tab-feat">Keychain Security</span></div>
       </div>
     </div>
   </div>
@@ -478,44 +586,56 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 <section class="stack-section">
   <div class="fade-in">
     <div class="section-label">Tech Stack</div>
-    <h2 class="section-title">Built with <em>Python</em>, designed for Mac</h2>
+    <h2 class="section-title">Built with <em>Python + React</em></h2>
   </div>
   <div class="stack-grid">
     <div class="stack-card fade-in">
       <span class="stack-card-icon">🤖</span>
-      <div class="stack-card-title">CrewAI → LangGraph</div>
+      <div class="stack-card-title">CrewAI</div>
       <div class="stack-card-sub">Agent Orchestration</div>
-      <p class="stack-card-body">CrewAI for role-based multi-agent coordination. Migration path to LangGraph for persistent state and decision history tracking.</p>
+      <p class="stack-card-body">Role-based multi-agent coordination with deterministic skill tools. Agents reason with Claude; tools handle the math.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">🧠</span>
-      <div class="stack-card-title">Claude API</div>
+      <div class="stack-card-title">Claude (Anthropic)</div>
       <div class="stack-card-sub">LLM Reasoning Engine</div>
-      <p class="stack-card-body">Anthropic's Claude powers each agent's analysis, classification, and narrative generation via the Python SDK.</p>
+      <p class="stack-card-body">Claude Sonnet powers each agent's analysis, classification, and narrative generation via the Anthropic Python SDK.</p>
     </div>
     <div class="stack-card fade-in">
-      <span class="stack-card-icon">📊</span>
-      <div class="stack-card-title">Dash + Plotly</div>
-      <div class="stack-card-sub">Dashboard Framework</div>
-      <p class="stack-card-body">Real-time web dashboard with callbacks, native financial chart types, and production-grade performance.</p>
+      <span class="stack-card-icon">⚡</span>
+      <div class="stack-card-title">FastAPI + Uvicorn</div>
+      <div class="stack-card-sub">Backend API</div>
+      <p class="stack-card-body">Async REST API with JWT authentication, rate limiting, security headers, and CORS. Deployed on Railway.</p>
     </div>
     <div class="stack-card fade-in">
-      <span class="stack-card-icon">📉</span>
-      <div class="stack-card-title">Lightweight Charts</div>
-      <div class="stack-card-sub">Financial Charting (TradingView)</div>
-      <p class="stack-card-body">Open-source, 45KB, candlestick charts with volume, technical indicators, zoom, pan, and crosshairs.</p>
+      <span class="stack-card-icon">⚛️</span>
+      <div class="stack-card-title">React 18 + Vite</div>
+      <div class="stack-card-sub">Frontend</div>
+      <p class="stack-card-body">Single-page app with React Router, Tailwind CSS, Recharts for portfolio visualizations, and Lightweight Charts for candlesticks. Deployed on Vercel.</p>
     </div>
     <div class="stack-card fade-in">
-      <span class="stack-card-icon">🖥️</span>
-      <div class="stack-card-title">Pywebview</div>
-      <div class="stack-card-sub">Native Mac Window</div>
-      <p class="stack-card-body">Wraps the Dash app in a native macOS Cocoa window with dock icon, system notifications, and Python-to-JS bridge.</p>
+      <span class="stack-card-icon">📈</span>
+      <div class="stack-card-title">Finnhub + SnapTrade</div>
+      <div class="stack-card-sub">Market Data + Brokerage</div>
+      <p class="stack-card-body">Finnhub for live quotes, fundamentals, news, and congressional trades. SnapTrade for direct brokerage account access. yfinance as fallback.</p>
+    </div>
+    <div class="stack-card fade-in">
+      <span class="stack-card-icon">🗄️</span>
+      <div class="stack-card-title">SQLite + SQLAlchemy</div>
+      <div class="stack-card-sub">Encrypted Storage</div>
+      <p class="stack-card-body">SQLAlchemy ORM with WAL mode, parameterized queries, and optional Fernet encryption at rest for financial data.</p>
+    </div>
+    <div class="stack-card fade-in">
+      <span class="stack-card-icon">🔐</span>
+      <div class="stack-card-title">Security Stack</div>
+      <div class="stack-card-sub">Auth, Encryption &amp; Audit</div>
+      <p class="stack-card-body">JWT auth (HS256), macOS Keychain for secrets, Fernet encryption at rest, structured audit logging, rate limiting, and security headers.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">🎙️</span>
       <div class="stack-card-title">ElevenLabs</div>
-      <div class="stack-card-sub">Podcast Audio Generation</div>
-      <p class="stack-card-body">Two-voice text-to-speech API that converts analysis scripts into podcast-style audio briefings.</p>
+      <div class="stack-card-sub">Podcast Audio (Phase 6)</div>
+      <p class="stack-card-body">Two-voice text-to-speech API that will convert analysis scripts into podcast-style audio briefings.</p>
     </div>
   </div>
 </section>
@@ -560,24 +680,14 @@ function setPhase(phase) {
     box.classList.toggle('hidden', minPhase > phase);
     box.style.opacity = minPhase > phase ? '0.12' : '1';
   });
-
-  // Handle text swaps for specific phases
-  document.querySelectorAll('[data-text-phase3]').forEach(el => {
-    if (phase >= 3) el.textContent = el.dataset.textPhase3;
-    else el.textContent = 'Finnhub prices · Holdings table · Basic metrics';
-  });
-  document.querySelectorAll('[data-text-phase6]').forEach(el => {
-    if (phase >= 6) el.textContent = el.dataset.textPhase6;
-    else el.textContent = 'Dash Web Dashboard';
-  });
 }
 
 phaseButtons.forEach(btn => {
   btn.addEventListener('click', () => setPhase(parseInt(btn.dataset.phase)));
 });
 
-// Initialize at phase 6 (all done)
-setPhase(6);
+// Initialize at phase 7 (full architecture)
+setPhase(7);
 </script>
 </body>
 </html>
