@@ -191,12 +191,13 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="hero-eyebrow">Personal Project · Multi-Agent System</div>
     <h1 class="hero-name">Portfolio <span>Intelligence</span></h1>
     <p class="hero-subtitle">A read-only analysis tool that monitors markets, evaluates your holdings, and delivers insights you can act on</p>
-    <p class="hero-desc">AI agents built on CrewAI and Claude work together to analyze portfolio performance, detect allocation drift, track congressional trading signals, scan macroeconomic news, and synthesize everything into actionable intelligence — powered by a FastAPI backend and React frontend with encrypted storage and JWT authentication.</p>
+    <p class="hero-desc">AI agents built on CrewAI and Claude work together to analyze portfolio performance, detect allocation drift, track congressional trading signals, scan macroeconomic news, and synthesize everything into actionable intelligence — powered by a FastAPI backend on Railway, React frontend on Vercel, and a DataStore abstraction layer backed by Google BigQuery on GCP with JWT authentication.</p>
     <div class="hero-badges">
       <span class="hero-badge read-only">🔒 Read-Only · No Trade Execution</span>
       <span class="hero-badge ai">🤖 CrewAI + Claude Agents</span>
       <span class="hero-badge mac">⚛️ React + FastAPI</span>
       <span class="hero-badge fin">📊 SnapTrade + Fidelity</span>
+      <span class="hero-badge mac">☁️ GCP BigQuery</span>
       <span class="hero-badge read-only">🔑 Encrypted · JWT Auth</span>
     </div>
   </div>
@@ -210,11 +211,11 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
    <span class="dim">│          │           │        │        │</span>
  <span class="teal">Portfolio</span> <span class="teal">Smart</span>    <span class="dim">Macro</span>   <span class="dim">Tax</span>    <span class="dim">Synth</span>
  <span class="teal">Analyst</span>  <span class="teal">Money</span>    <span class="dim">Scanner</span> <span class="dim">Strategy</span> <span class="dim">+ Audio</span>
- <span class="teal">✓ BUILT</span>  <span class="teal">✓ BUILT</span>  <span class="dim">planned</span> <span class="dim">planned</span> <span class="dim">planned</span>
    <span class="dim">│          │           │        │        │</span>
    <span class="dim">└──────────┴───────────┴────────┴────────┘</span>
                        <span class="dim">│</span>
-              <span class="teal">SQLite + Encrypted JSON</span>
+         <span class="gold">DataStore Abstraction Layer</span>
+      <span class="teal">Google BigQuery</span> <span class="dim">·</span> <span class="teal">GCP</span>
         <span class="dim">Finnhub · SnapTrade · yfinance</span>
                        <span class="dim">│</span>
         <span class="highlight">React + Vite</span> <span class="dim">frontend</span>
@@ -543,7 +544,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <div class="arch-row">
         <div class="arch-box blue">
           <div class="arch-box-title">FastAPI Backend</div>
-          <div class="arch-box-sub">REST endpoints · JWT auth · Rate limiting · Security headers · Railway deploy</div>
+          <div class="arch-box-sub">REST endpoints · JWT auth · Rate limiting · Security headers · DataStore abstraction · Railway deploy</div>
         </div>
       </div>
     </div>
@@ -637,13 +638,29 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     </div>
     <div class="arch-arrow" data-min-phase="1">↓</div>
 
+    <!-- Layer: DataStore Abstraction -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">Data Abstraction Layer</div>
+      <div class="arch-row">
+        <div class="arch-box gold">
+          <div class="arch-box-title">DataStore Interface</div>
+          <div class="arch-box-sub">Strategy pattern · Backend-agnostic API · Factory routing via env config</div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-arrow" data-min-phase="1">↓</div>
+
     <!-- Layer: Storage -->
     <div class="arch-layer" data-min-phase="1">
       <div class="arch-layer-label">Storage Layer</div>
       <div class="arch-row">
+        <div class="arch-box teal">
+          <div class="arch-box-title">Google BigQuery</div>
+          <div class="arch-box-sub">GCP serverless warehouse · Agent outputs · Portfolio snapshots · UUID-based IDs · Production backend</div>
+        </div>
         <div class="arch-box">
-          <div class="arch-box-title">SQLite + Encrypted JSON</div>
-          <div class="arch-box-sub">Agent outputs · Portfolio snapshots · Market data cache · Fernet encryption at rest</div>
+          <div class="arch-box-title">SQLite</div>
+          <div class="arch-box-sub">Local development backend · App settings · Encrypted secrets via Fernet</div>
         </div>
       </div>
     </div>
@@ -735,7 +752,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 <section class="stack-section">
   <div class="fade-in">
     <div class="section-label">Tech Stack</div>
-    <h2 class="section-title">Built with <em>Python + React</em></h2>
+    <h2 class="section-title">Built with <em>Python + React + GCP</em></h2>
   </div>
   <div class="stack-grid">
     <div class="stack-card fade-in">
@@ -776,9 +793,9 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">🗄️</span>
-      <div class="stack-card-title">SQLite + SQLAlchemy</div>
-      <div class="stack-card-sub">Encrypted Storage</div>
-      <p class="stack-card-body">SQLAlchemy ORM with WAL mode, parameterized queries, and optional Fernet encryption at rest for financial data.</p>
+      <div class="stack-card-title">Google BigQuery + GCP</div>
+      <div class="stack-card-sub">Cloud Data Warehouse</div>
+      <p class="stack-card-body">Serverless analytics warehouse on Google Cloud Platform. DataStore abstraction layer uses Strategy pattern with factory routing — production runs on BigQuery, local dev on SQLite, swappable via environment config with no code changes.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">🔐</span>
