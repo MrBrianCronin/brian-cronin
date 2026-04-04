@@ -385,11 +385,15 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 
 <!-- DASHBOARD PREVIEW -->
 <section class="dashboard-section">
-  <div class="fade-in">
-    <div class="section-label">Dashboard</div>
-    <h2 class="section-title">The <em>dashboard</em></h2>
-    <p class="section-intro">Everything the agents produce shows up here — organized into tabs so I can quickly find what I'm looking for. Recharts for portfolio visualizations, TradingView's Lightweight Charts for the candlestick views.</p>
-    <p style="margin-top:16px;font-size:14px;color:var(--teal);font-weight:500">Click the tabs below to preview each view with sample data ↓</p>
+  <div class="fade-in" style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:4px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="section-label" style="margin-bottom:0">Interactive Preview</div>
+      <span style="font-size:13px;color:var(--teal);font-weight:500">Click any tab · Sample data</span>
+    </div>
+    <details style="font-size:13px;color:var(--ink2);cursor:pointer">
+      <summary style="font-weight:500;color:var(--ink3);list-style:none;display:flex;align-items:center;gap:6px">How this works <span style="font-size:10px;transition:transform .2s">▼</span></summary>
+      <div style="margin-top:10px;padding:16px;background:var(--bg2);border-radius:12px;border:1px solid var(--bg3);line-height:1.7;max-width:640px">Everything the agents produce ends up here — organized into tabs so I can find what I need fast. Recharts handles the portfolio-level visualizations, TradingView's Lightweight Charts powers the candlestick views, and each tab shows which agent and data sources are behind it.</div>
+    </details>
   </div>
   <div class="tabs-preview fade-in">
     <div class="tabs-bar">
