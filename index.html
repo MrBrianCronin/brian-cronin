@@ -5,23 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brian Cronin — Data Leader | Financial Services</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0c0c14;--ink2:#3a3a50;--ink3:#80809a;--bg:#f3f2ef;--bg2:#eae8e3;--bg3:#dedad2;--accent:#0f3460;--accent2:#1a5296;--gold2:#e8b84b;--teal:#0a7565;--teal2:#0fa888;--line:rgba(12,12,20,0.11);--ai:#5b21b6;--ai2:#7c3aed;--ai3:#ede9fe}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(16px);background:rgba(243,242,239,0.88);border-bottom:1px solid var(--line)}
-.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--ink);text-decoration:none}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--ink);text-decoration:none}
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{font-size:12px;font-weight:500;color:var(--ink2);text-decoration:none;letter-spacing:.07em;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--accent2)}
 .hero{min-height:100vh;padding:140px 60px 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;position:relative;overflow:hidden}
 .hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:20px}
 .hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--teal)}
-.hero-name{font-family:'Syne',sans-serif;font-size:clamp(50px,5.8vw,82px);font-weight:800;line-height:.94;letter-spacing:-.03em;color:var(--ink);margin-bottom:14px}
+.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(50px,5.8vw,82px);font-weight:700;line-height:.94;letter-spacing:-.03em;color:var(--ink);margin-bottom:14px}
 .hero-name span{color:var(--accent2);display:block}
-.hero-title{font-family:'Syne',sans-serif;font-size:clamp(15px,1.7vw,20px);color:var(--ink3);margin-bottom:28px;max-width:500px}
+.hero-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(15px,1.7vw,20px);color:var(--ink3);margin-bottom:28px;max-width:500px}
 .hero-desc{font-size:16px;line-height:1.8;color:var(--ink2);max-width:500px;margin-bottom:40px}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:13px 26px;border-radius:60px;font-size:13px;font-weight:500;text-decoration:none;transition:all .2s}
@@ -33,12 +33,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:fl
 .hero-card::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(145deg,rgba(26,82,150,.18) 0%,transparent 55%);pointer-events:none}
 .hero-photo-row{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08)}
 .hero-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(255,255,255,.15);flex-shrink:0}
-.hero-photo-name{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#fff;line-height:1.1}
+.hero-photo-name{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#fff;line-height:1.1}
 .hero-photo-title{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
 .hero-card-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:16px}
 .hero-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
 .hero-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:18px}
-.hero-stat-num{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:#fff;line-height:1;margin-bottom:5px}
+.hero-stat-num{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:#fff;line-height:1;margin-bottom:5px}
 .hero-stat-num span{color:var(--gold2)}
 .hero-stat-label{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.04em;text-transform:uppercase;line-height:1.4}
 .hero-industries{border-top:1px solid rgba(255,255,255,.08);padding-top:20px}
@@ -51,7 +51,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:fl
 section{padding:96px 60px}
 .section-label{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .section-label::after{content:'';flex:1;max-width:56px;height:1px;background:var(--ink3)}
-.section-title{font-family:'Syne',sans-serif;font-size:clamp(34px,3.8vw,52px);font-weight:700;letter-spacing:-.03em;line-height:1.05;color:var(--ink)}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(34px,3.8vw,52px);font-weight:700;letter-spacing:-.03em;line-height:1.05;color:var(--ink)}
 .section-title em{font-style:normal;color:var(--accent2)}
 .section-title em.ai-em{color:var(--ai2)}
 /* AGENTIC AI SECTION */
@@ -70,7 +70,7 @@ section{padding:96px 60px}
 .agentic-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:32px;position:relative;overflow:hidden;transition:all .25s}
 .agentic-card:hover{background:rgba(124,58,237,.1);border-color:rgba(124,58,237,.3);transform:translateY(-3px)}
 .agentic-card-icon{font-size:28px;margin-bottom:18px;display:block}
-.agentic-card-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:12px}
+.agentic-card-title{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:12px}
 .agentic-card-body{font-size:14px;line-height:1.75;color:rgba(255,255,255,.6);margin-bottom:20px}
 .agentic-card-tags{display:flex;flex-wrap:wrap;gap:7px}
 .ait{font-size:11px;font-weight:500;padding:4px 11px;border-radius:6px}
@@ -79,7 +79,7 @@ section{padding:96px 60px}
 .ait-teal{background:rgba(10,117,101,.2);color:#6ee7b7;border:1px solid rgba(10,117,101,.3)}
 .ait-amber{background:rgba(200,151,58,.2);color:#fcd34d;border:1px solid rgba(200,151,58,.3)}
 .agentic-stack{margin-bottom:48px}
-.agentic-stack-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px}
+.agentic-stack-title{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px}
 .agentic-tools{display:flex;flex-wrap:wrap;gap:12px}
 .agentic-tool{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 18px;transition:all .2s}
 .agentic-tool:hover{background:rgba(124,58,237,.15);border-color:rgba(124,58,237,.3)}
@@ -87,14 +87,14 @@ section{padding:96px 60px}
 .agentic-tool-name{font-size:13px;font-weight:500;color:#fff}
 .agentic-tool-desc{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px}
 .agentic-impact{background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.25);border-radius:20px;padding:32px;display:flex;align-items:center;gap:40px}
-.agentic-impact-num{font-family:'Syne',sans-serif;font-size:72px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#fff;flex-shrink:0}
+.agentic-impact-num{font-family:'Space Grotesk',sans-serif;font-size:72px;font-weight:700;line-height:1;letter-spacing:-.04em;color:#fff;flex-shrink:0}
 .agentic-impact-num span{color:#a78bfa}
-.agentic-impact-text h3{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:-.02em}
+.agentic-impact-text h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:-.02em}
 .agentic-impact-text p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.6)}
 /* GOVERNANCE CALLOUT */
 .governance-callout{margin-top:32px;background:rgba(26,82,150,.12);border:1px solid rgba(26,82,150,.25);border-radius:16px;padding:24px 28px;display:flex;gap:18px;align-items:flex-start}
 .governance-callout-icon{font-size:24px;flex-shrink:0;margin-top:2px}
-.governance-callout-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:#93c5fd;margin-bottom:6px}
+.governance-callout-title{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:#93c5fd;margin-bottom:6px}
 .governance-callout-body{font-size:13px;line-height:1.7;color:rgba(255,255,255,.55)}
 /* FEATURED PROJECT SPOTLIGHT */
 .spotlight{background:linear-gradient(160deg,#0a1628 0%,#0f0f1a 50%,#1a0f2e 100%);color:#fff;padding:80px 60px;position:relative;overflow:hidden}
@@ -103,7 +103,7 @@ section{padding:96px 60px}
 .spotlight-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;position:relative;z-index:1}
 .spotlight-eyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(196,181,253,.6);display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .spotlight-eyebrow::before{content:'';display:block;width:28px;height:2px;background:rgba(196,181,253,.4)}
-.spotlight-title{font-family:'Syne',sans-serif;font-size:clamp(30px,3.4vw,44px);font-weight:800;line-height:1.05;letter-spacing:-.03em;color:#fff;margin-bottom:14px}
+.spotlight-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,3.4vw,44px);font-weight:700;line-height:1.05;letter-spacing:-.03em;color:#fff;margin-bottom:14px}
 .spotlight-title em{font-style:normal;color:#a78bfa}
 .spotlight-desc{font-size:15px;line-height:1.78;color:rgba(255,255,255,.65);max-width:560px;margin-bottom:24px}
 .spotlight-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
@@ -112,14 +112,14 @@ section{padding:96px 60px}
 .spotlight-badge.teal{background:rgba(10,117,101,.25);border:1px solid rgba(10,117,101,.4);color:#6ee7b7}
 .spotlight-badge.blue{background:rgba(26,82,150,.25);border:1px solid rgba(26,82,150,.4);color:#93c5fd}
 .spotlight-badge.gold{background:rgba(200,151,58,.2);border:1px solid rgba(200,151,58,.35);color:#fcd34d}
-.spotlight-cta{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.9);color:#fff;padding:14px 28px;border-radius:60px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s;font-family:'Syne',sans-serif;letter-spacing:-.01em}
+.spotlight-cta{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.9);color:#fff;padding:14px 28px;border-radius:60px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s;font-family:'Space Grotesk',sans-serif;letter-spacing:-.01em}
 .spotlight-cta:hover{background:#7c3aed;transform:translateY(-2px);box-shadow:0 8px 30px rgba(124,58,237,.35)}
 .spotlight-arch{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px}
-.spotlight-arch-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:16px;font-family:'DM Sans',sans-serif}
+.spotlight-arch-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:16px;font-family:'Inter',sans-serif}
 .sa-layer{margin-bottom:10px}
 .sa-row{display:flex;gap:8px;flex-wrap:wrap}
 .sa-box{flex:1;min-width:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 12px;text-align:center}
-.sa-box-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:#fff;white-space:nowrap}
+.sa-box-title{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:#fff;white-space:nowrap}
 .sa-box-sub{font-size:9px;color:rgba(255,255,255,.4);margin-top:2px;line-height:1.3}
 .sa-box.purple{background:rgba(124,58,237,.18);border-color:rgba(124,58,237,.3)}
 .sa-box.teal{background:rgba(10,117,101,.18);border-color:rgba(10,117,101,.3)}
@@ -128,7 +128,7 @@ section{padding:96px 60px}
 .sa-arrow{text-align:center;color:rgba(255,255,255,.15);font-size:14px;margin:6px 0;letter-spacing:6px}
 .spotlight-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
 .spotlight-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:14px;text-align:center}
-.spotlight-stat-num{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;line-height:1}
+.spotlight-stat-num{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#fff;line-height:1}
 .spotlight-stat-num span{color:#a78bfa}
 .spotlight-stat-label{font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
 
@@ -137,7 +137,7 @@ section{padding:96px 60px}
 .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .about-photo-block{display:flex;align-items:flex-start;gap:24px;margin-bottom:28px}
 .about-headshot{width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid var(--bg3);flex-shrink:0}
-.about-headshot-name{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1}
+.about-headshot-name{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1}
 .about-headshot-role{font-size:13px;color:var(--ink3);margin-top:4px;line-height:1.5}
 .about-body{font-size:16px;line-height:1.82;color:var(--ink2)}
 .about-body p+p{margin-top:16px}
@@ -156,7 +156,7 @@ section{padding:96px 60px}
 .skills-card{background:#fff;border:1px solid var(--bg3);border-radius:18px;padding:28px;transition:all .22s}
 .skills-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(12,12,20,.07)}
 .skills-card-icon{font-size:22px;margin-bottom:14px;display:block}
-.skills-card-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:14px;letter-spacing:-.01em}
+.skills-card-title{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:14px;letter-spacing:-.01em}
 .skills-card-tags{display:flex;flex-wrap:wrap;gap:6px}
 .skt{font-size:11px;font-weight:500;padding:4px 10px;border-radius:6px;letter-spacing:.02em}
 .skt-blue{background:rgba(26,82,150,.08);color:var(--accent2);border:1px solid rgba(26,82,150,.15)}
@@ -174,17 +174,17 @@ section{padding:96px 60px}
 .timeline-dot{position:absolute;left:-45px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--line);transition:all .2s}
 .timeline-item:hover .timeline-dot{background:var(--accent2);border-color:var(--accent2);box-shadow:0 0 0 4px rgba(26,82,150,.14)}
 .timeline-meta{display:flex;align-items:center;gap:10px;margin-bottom:9px}
-.timeline-year{font-size:12px;font-weight:500;color:var(--ink3);font-family:'Syne',sans-serif}
+.timeline-year{font-size:12px;font-weight:500;color:var(--ink3);font-family:'Space Grotesk',sans-serif}
 .timeline-type{font-size:10px;font-weight:500;background:var(--bg2);color:var(--ink3);padding:3px 9px;border-radius:30px;text-transform:uppercase}
 .timeline-type.exec{background:rgba(26,82,150,.1);color:var(--accent2)}
 .timeline-type.fs{background:rgba(200,151,58,.14);color:#8a6520}
 .timeline-type.tech{background:rgba(10,117,101,.1);color:var(--teal)}
-.timeline-role{font-family:'Syne',sans-serif;font-size:21px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.timeline-role{font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:700;color:var(--ink);margin-bottom:2px}
 .timeline-company{font-size:14px;color:var(--ink3);margin-bottom:13px}
 .timeline-desc{font-size:14px;line-height:1.75;color:var(--ink2);max-width:700px;margin-bottom:14px}
 .timeline-wins{display:flex;flex-wrap:wrap;gap:8px}
 .win-chip{background:#fff;border:1px solid var(--bg3);border-radius:8px;padding:7px 13px;font-size:12px;color:var(--ink2);display:flex;align-items:center;gap:5px}
-.win-chip-num{font-family:'Syne',sans-serif;font-weight:700;color:var(--accent2);font-size:13px}
+.win-chip-num{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent2);font-size:13px}
 .achievements-section{background:var(--ink);color:#fff}
 .achievements-section .section-label{color:rgba(255,255,255,.35)}
 .achievements-section .section-label::after{background:rgba(255,255,255,.18)}
@@ -194,7 +194,7 @@ section{padding:96px 60px}
 .ach-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:28px;display:flex;flex-direction:column;transition:all .22s}
 .ach-card:hover{background:rgba(255,255,255,.08);transform:translateY(-3px)}
 .ach-card-icon{font-size:24px;margin-bottom:18px;display:block}
-.ach-num{font-family:'Syne',sans-serif;font-size:44px;font-weight:800;line-height:1;color:#fff;margin-bottom:7px}
+.ach-num{font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;line-height:1;color:#fff;margin-bottom:7px}
 .ach-num span{color:var(--gold2)}
 .ach-label{font-size:14px;color:rgba(255,255,255,.55);line-height:1.5;margin-bottom:14px;flex:1}
 .ach-context{font-size:11px;color:rgba(255,255,255,.28);border-top:1px solid rgba(255,255,255,.07);padding-top:13px}
@@ -204,8 +204,8 @@ section{padding:96px 60px}
 .phil-grid{margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .phil-card{background:#fff;border:1px solid var(--bg3);border-radius:18px;padding:28px;transition:all .22s}
 .phil-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(12,12,20,.07)}
-.phil-num{font-family:'Syne',sans-serif;font-size:48px;font-weight:800;color:var(--bg3);line-height:1;margin-bottom:16px}
-.phil-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.phil-num{font-family:'Space Grotesk',sans-serif;font-size:48px;font-weight:700;color:var(--bg3);line-height:1;margin-bottom:16px}
+.phil-title{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:10px}
 .phil-body{font-size:14px;line-height:1.75;color:var(--ink2)}
 .projects-section{background:#fff}
 .projects-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -220,7 +220,7 @@ section{padding:96px 60px}
 .project-tag.ai{background:rgba(91,33,182,.1);color:var(--ai2)}
 .project-arrow{font-size:17px;color:var(--ink3);transition:all .18s}
 .project-card:hover .project-arrow{color:var(--accent2);transform:translate(2px,-2px)}
-.project-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--ink)}
+.project-title{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--ink)}
 .project-desc{font-size:13px;line-height:1.72;color:var(--ink2);flex:1}
 .project-stack{display:flex;flex-wrap:wrap;gap:5px;border-top:1px solid var(--bg3);padding-top:14px}
 .stack-tag{font-size:10px;font-weight:500;background:#fff;border:1px solid var(--bg3);color:var(--ink3);padding:3px 9px;border-radius:4px}
@@ -234,18 +234,18 @@ section{padding:96px 60px}
 .contact-link-text strong{display:block;font-size:13px;font-weight:500;margin-bottom:2px}
 .contact-link-text span{font-size:12px;color:var(--ink3)}
 .contact-right{background:var(--ink);border-radius:24px;padding:36px;position:relative;overflow:hidden}
-.contact-right-title{font-family:'Syne',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:6px}
+.contact-right-title{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:6px}
 .contact-right-sub{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:24px}
 .form-group{margin-bottom:14px}
 .form-label{display:block;font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:7px}
-.form-input,.form-textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:9px;padding:11px 14px;color:#fff;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .18s}
+.form-input,.form-textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:9px;padding:11px 14px;color:#fff;font-size:13px;font-family:'Inter',sans-serif;outline:none;transition:border-color .18s}
 .form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,.22)}
 .form-input:focus,.form-textarea:focus{border-color:var(--teal2)}
 .form-textarea{height:84px;resize:vertical}
-.form-submit{width:100%;padding:13px;background:var(--teal);border:none;border-radius:9px;color:#fff;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;transition:opacity .18s;margin-top:6px}
+.form-submit{width:100%;padding:13px;background:var(--teal);border:none;border-radius:9px;color:#fff;font-size:13px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:opacity .18s;margin-top:6px}
 .form-submit:hover{opacity:.85}
 footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;justify-content:space-between}
-.footer-logo{font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:rgba(255,255,255,.75)}
+.footer-logo{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:rgba(255,255,255,.75)}
 .footer-note{font-size:12px;color:rgba(255,255,255,.28)}
 .fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .fade-in.visible{opacity:1;transform:none}
@@ -271,8 +271,8 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
   <div class="hero-left">
     <div class="hero-eyebrow">VP of Data · Financial Services</div>
     <h1 class="hero-name">Brian<span>Cronin</span></h1>
-    <p class="hero-title">Data-driven growth &amp; insights through cultural transformation</p>
-    <p class="hero-desc">A financial services data executive with 20+ years turning complex data estates into engines of growth — and now leading one of the most ambitious agentic AI transformations in the industry, achieving up to 10x acceleration in data environment modernisation.</p>
+    <p class="hero-title">I build data organizations that actually work — and now I'm doing it with AI agents</p>
+    <p class="hero-desc">Twenty-plus years in financial services data, from mortgage ops to running the enterprise data org at the nation's largest independent broker-dealer. Now I'm designing agentic AI systems that are transforming data environments 10x faster than traditional approaches. Same leadership principles, radically different toolbox.</p>
     <div class="hero-ctas">
       <a href="#agentic" class="btn-primary">Agentic AI Work →</a>
       <a href="#career" class="btn-outline">View Career</a>
@@ -316,7 +316,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <div class="spotlight-left">
       <div class="spotlight-eyebrow">Featured Project · Live on GCP</div>
       <h2 class="spotlight-title">Portfolio <em>Intelligence</em></h2>
-      <p class="spotlight-desc">A multi-agent analysis system where seven AI agents monitor markets, evaluate portfolio holdings, and deliver actionable intelligence — built on Google Cloud BigQuery with a DataStore abstraction layer, deployed on Railway, with a React frontend on Vercel.</p>
+      <p class="spotlight-desc">Seven AI agents keep tabs on my portfolio so I don't have to check five different apps before my morning coffee. They scan 150K+ news sources, track congressional trades, score sentiment from multiple angles, and tell me what actually matters — all running on BigQuery, deployed on Railway, with a React frontend I can pull up on my phone.</p>
       <div class="spotlight-badges">
         <span class="spotlight-badge purple">CrewAI + Claude Agents</span>
         <span class="spotlight-badge teal">Google BigQuery</span>
@@ -372,7 +372,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
   <div class="about-inner">
     <div class="about-left fade-in">
       <div class="section-label">About Brian</div>
-      <h2 class="section-title">Data that <em>transforms</em> the business — and the culture</h2>
+      <h2 class="section-title">The short <em>version</em></h2>
       <div class="about-photo-block" style="margin-top:24px">
         <img src="picforsite.jpg" alt="Brian Cronin" class="about-headshot">
         <div>
@@ -381,30 +381,30 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
         </div>
       </div>
       <div class="about-body">
-        <p>I've spent two decades at the intersection of financial services and enterprise data — and I'm now at the forefront of what comes next: agentic AI-driven transformation at enterprise scale.</p>
-        <p>Today I'm leading a massive data transformation using agentic AI — designing autonomous agents, skills, and multi-agent orchestration frameworks that are delivering up to <strong>10x acceleration</strong> in modernising data environments. Using AWS Kiro, Google Agentspace, Claude Code, and Snowflake Cortex, my team is redefining how data organisations operate, learn, and scale.</p>
-        <p>I believe in being <strong>AI-first but governance-led</strong>: the opportunity that agentic AI presents is extraordinary, but it must be matched with robust guardrails, clear data ownership, explainability frameworks, and a culture that understands both the power and the risk. I've built both sides — the innovation and the governance — and I don't separate them.</p>
+        <p>I've been doing data work in financial services for over twenty years — mortgage, broker-dealer, fintech infrastructure, insurtech. Every stop taught me something different about what makes data organizations succeed (and what makes them fail).</p>
+        <p>Right now I'm leading an agentic AI programme that's getting <strong>10x acceleration</strong> on data environment transformations. We're using AWS Kiro, Google Agentspace, Claude Code, and Snowflake Cortex to do in days what used to take months. It's the most exciting work I've done in my career, and it's not close.</p>
+        <p>I'm a firm believer that <strong>AI without governance is just chaos with better marketing</strong>. Every agent my team deploys has guardrails, human checkpoints, audit trails, and an off switch. In financial services, that's not optional — it's the whole point.</p>
       </div>
       <div class="about-pillars">
-        <div class="about-pillar"><div class="pillar-icon purple">🤖</div><div class="pillar-text"><h4>Agentic AI Pioneer</h4><p>Leading one of the industry's most ambitious agentic AI programmes — designing agents, skills, and orchestration frameworks delivering 10x data transformation acceleration.</p></div></div>
-        <div class="about-pillar"><div class="pillar-icon blue">🏦</div><div class="pillar-text"><h4>Financial Services Native</h4><p>Deep domain expertise across insurance, wealth management, lending, and fintech — fluent in regulatory, compliance, and risk data environments.</p></div></div>
-        <div class="about-pillar"><div class="pillar-icon teal">🔄</div><div class="pillar-text"><h4>Cultural Transformer</h4><p>Building data-literate, AI-ready organisations requires as much change management and governance design as technical execution. I've led both at scale.</p></div></div>
+        <div class="about-pillar"><div class="pillar-icon purple">🤖</div><div class="pillar-text"><h4>Agentic AI — Hands On</h4><p>I don't just talk about AI strategy in meetings. I'm designing agents, writing skills, building orchestration frameworks, and shipping results. The 10x number isn't a slide deck — it's what my team is actually delivering.</p></div></div>
+        <div class="about-pillar"><div class="pillar-icon blue">🏦</div><div class="pillar-text"><h4>Financial Services Through and Through</h4><p>Insurance, wealth management, lending, fintech — I speak the language. Regulatory constraints, compliance data, risk environments. This is my home turf.</p></div></div>
+        <div class="about-pillar"><div class="pillar-icon teal">🔄</div><div class="pillar-text"><h4>Culture Is the Hard Part</h4><p>The technology is the easy part. Getting people to trust data, adopt new tools, and change how they work — that's where most transformations die. I've done it four times across four very different organizations.</p></div></div>
       </div>
     </div>
     <div class="about-right fade-in" style="transition-delay:.14s">
-      <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:24px;color:var(--ink)">What I Bring</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:24px;color:var(--ink)">What I Bring</div>
       <div style="font-size:14px;line-height:1.8;color:var(--ink2)">
-        <p>The most effective data leaders today combine strategic vision, technical credibility, and the ability to drive cultural change at scale. In the age of agentic AI, they also need the wisdom to know where AI should accelerate — and where governance must hold the line.</p>
-        <p style="margin-top:14px">I've built data organisations from zero, modernised legacy estates, and embedded data-driven decision-making across complex enterprises. Now I'm leading the next chapter: deploying autonomous AI agents that can transform data environments at a speed and scale that was unimaginable even two years ago.</p>
-        <p style="margin-top:14px">The 10x acceleration isn't hype — it's the result of thoughtful agent design, well-governed orchestration frameworks, and deep integration between AI capabilities and enterprise data foundations that were built the right way.</p>
+        <p>I've built data orgs from scratch, inherited legacy messes, and figured out how to make both work. The common thread is always the same: get the right people, give them clarity, remove the blockers, and measure what matters.</p>
+        <p style="margin-top:14px">The agentic AI work I'm doing now is the most impactful thing I've seen in twenty years of data. We're compressing months of migration work into days — not by cutting corners, but by letting well-designed agents handle the repetitive grind so my team can focus on the decisions that actually need a human brain.</p>
+        <p style="margin-top:14px">The 10x number comes from real deliverables, not a pitch deck. Thoughtful agent design, proper guardrails, and a data foundation that was built right in the first place.</p>
       </div>
       <div style="margin-top:28px;padding:20px;background:var(--ai3);border-radius:14px;border:1px solid rgba(91,33,182,.2)">
         <div style="font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ai2);margin-bottom:12px">AI-First Leadership Principles</div>
         <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="font-size:13px;color:var(--ink2);display:flex;gap:8px;align-items:flex-start"><span style="color:var(--ai2);font-weight:700;flex-shrink:0">→</span>Agents amplify human expertise — they don't replace human judgment</div>
-          <div style="font-size:13px;color:var(--ink2);display:flex;gap:8px;align-items:flex-start"><span style="color:var(--ai2);font-weight:700;flex-shrink:0">→</span>Every agent needs an owner, a scope, and an off switch</div>
-          <div style="font-size:13px;color:var(--ink2);display:flex;gap:8px;align-items:flex-start"><span style="color:var(--ai2);font-weight:700;flex-shrink:0">→</span>Governance isn't a constraint on AI — it's what makes AI trustworthy at scale</div>
-          <div style="font-size:13px;color:var(--ink2);display:flex;gap:8px;align-items:flex-start"><span style="color:var(--ai2);font-weight:700;flex-shrink:0">→</span>Speed of deployment must be matched by rigour of guardrails</div>
+          <div style="font-size:13px;color:var(--ink2);display:flex;gap:8px;align-items:flex-start"><span style="color:var(--ai2);font-weight:700;flex-shrink:0">→</span>Agents do the heavy lifting — humans make the calls</div>
+          <div style="font-size:13px;color:var(--ink2);display:flex;gap:8px;align-items:flex-start"><span style="color:var(--ai2);font-weight:700;flex-shrink:0">→</span>Every agent gets an owner, a scope, and an off switch</div>
+          <div style="font-size:13px;color:var(--ink2);display:flex;gap:8px;align-items:flex-start"><span style="color:var(--ai2);font-weight:700;flex-shrink:0">→</span>Governance isn't the brakes — it's what lets you go fast without crashing</div>
+          <div style="font-size:13px;color:var(--ink2);display:flex;gap:8px;align-items:flex-start"><span style="color:var(--ai2);font-weight:700;flex-shrink:0">→</span>If you can't explain what an agent did and why, it shouldn't be running</div>
         </div>
       </div>
     </div>
@@ -416,15 +416,15 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
   <div class="fade-in">
     <div class="section-label">Agentic AI Leadership</div>
     <div class="agentic-badge">🟣 Active Initiative</div>
-    <h2 class="section-title" style="color:#fff">Leading the <em class="ai-em">agentic AI</em> frontier</h2>
-    <p class="agentic-intro">I am currently leading one of the most ambitious agentic AI-driven data transformations in the industry. By designing autonomous agents, composable skills, and multi-agent orchestration frameworks — and integrating them with a modern cloud data stack — my team is delivering <strong>up to 10x acceleration</strong> in the speed at which complex data environments can be transformed. This is what AI-first data leadership looks like in practice.</p>
+    <h2 class="section-title" style="color:#fff">What I'm <em class="ai-em">building</em> right now</h2>
+    <p class="agentic-intro">My team is using agentic AI to do data transformation work in days that used to take months. We design agents with specific jobs, give them well-defined skills and clear boundaries, and orchestrate them across complex workflows. The result is <strong>up to 10x acceleration</strong> — and that number keeps climbing as the agents get smarter and the patterns get more repeatable.</p>
   </div>
 
   <div class="agentic-grid fade-in">
     <div class="agentic-card">
       <span class="agentic-card-icon">🧠</span>
       <div class="agentic-card-title">Agent &amp; Skills Design</div>
-      <div class="agentic-card-body">Designing purpose-built autonomous agents with well-defined skills, boundaries, and escalation paths. Each agent is scoped to a specific data domain — ingestion, transformation, quality, cataloguing — with composable skills that can be reused across the estate.</div>
+      <div class="agentic-card-body">Each agent gets a specific job — ingestion, transformation, quality, cataloguing — with composable skills it can reuse across different data domains. Clear boundaries, clear escalation paths. An agent that tries to do everything is an agent that does nothing well.</div>
       <div class="agentic-card-tags">
         <span class="ait ait-purple">Agent design</span>
         <span class="ait ait-purple">Skills architecture</span>
@@ -436,7 +436,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <div class="agentic-card">
       <span class="agentic-card-icon">🔗</span>
       <div class="agentic-card-title">Multi-Agent Orchestration</div>
-      <div class="agentic-card-body">Building orchestration frameworks that coordinate multiple specialised agents working in parallel and in sequence — handling complex, multi-step data transformation workflows that previously required large teams of engineers and weeks of elapsed time.</div>
+      <div class="agentic-card-body">Multiple agents working together on complex workflows — some in parallel, some in sequence — handling multi-step data transformations that used to need a full team and weeks of calendar time. The orchestration layer is where the real leverage lives.</div>
       <div class="agentic-card-tags">
         <span class="ait ait-purple">Agent orchestration</span>
         <span class="ait ait-purple">Multi-agent systems</span>
@@ -447,7 +447,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <div class="agentic-card">
       <span class="agentic-card-icon">⚡</span>
       <div class="agentic-card-title">10× Data Transformation</div>
-      <div class="agentic-card-body">Agentic AI is compressing data transformation timelines that used to take months into days or weeks. Tasks that required large specialist teams — schema migration, pipeline generation, data quality remediation, documentation — are now executed by agents with human review and approval gates.</div>
+      <div class="agentic-card-body">Schema migration, pipeline generation, data quality cleanup, documentation — stuff that used to eat up months of engineering time. Agents handle the repetitive work, humans review and approve. The timeline compression is real, and it compounds as patterns get reused.</div>
       <div class="agentic-card-tags">
         <span class="ait ait-amber">10× acceleration</span>
         <span class="ait ait-amber">Pipeline automation</span>
@@ -458,7 +458,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <div class="agentic-card">
       <span class="agentic-card-icon">🛡️</span>
       <div class="agentic-card-title">AI Governance &amp; Guardrails</div>
-      <div class="agentic-card-body">Every agent operates within a governance framework: defined scope, data access controls, human-in-the-loop approval checkpoints, audit trails, and explainability requirements. Responsible AI deployment in financial services demands this — and it's what makes the acceleration sustainable and trustworthy.</div>
+      <div class="agentic-card-body">Every agent has a defined scope, data access controls, human approval checkpoints, audit trails, and explainability requirements. In financial services, you don't get to move fast and break things. You move fast and document everything. That's what makes this sustainable.</div>
       <div class="agentic-card-tags">
         <span class="ait ait-teal">AI governance</span>
         <span class="ait ait-teal">Guardrails</span>
@@ -495,7 +495,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <div class="agentic-impact-num">10<span>×</span></div>
     <div class="agentic-impact-text">
       <h3>Acceleration in data environment transformation</h3>
-      <p>By combining agentic AI with a modern cloud data stack, tasks that previously required months of engineering effort — schema migration, pipeline generation, data quality remediation, and cataloguing — are now completed in days. This is not automation for automation's sake; it's AI amplifying the expertise of skilled data professionals and allowing them to operate at a scale that was previously impossible.</p>
+      <p>Schema migrations, pipeline builds, data quality cleanups, cataloguing — the bread and butter of data modernization that used to eat months of engineering time. My team is finishing these in days now. Not by cutting corners. By letting agents handle the grind so our people can focus on the architecture decisions and business logic that actually need a human brain.</p>
     </div>
   </div>
 
@@ -503,7 +503,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <span class="governance-callout-icon">🔐</span>
     <div>
       <div class="governance-callout-title">AI-First. Governance-Led.</div>
-      <div class="governance-callout-body">The speed of agentic AI is extraordinary — but in financial services, speed without governance is a liability, not an advantage. Every agent I deploy operates within a defined governance framework: scoped data access, human approval checkpoints, immutable audit trails, explainability requirements, and clear escalation paths. I'm as focused on building the guardrails as I am on building the agents. That's what makes this transformation sustainable — and what separates responsible AI leadership from AI theatre.</div>
+      <div class="governance-callout-body">Speed without governance is just a faster way to create problems. Every agent my team deploys runs within a governance framework — scoped access, human approval gates, immutable audit trails, explainability requirements, and clear escalation paths. I put as much thought into the guardrails as the agents themselves. That's the difference between doing AI well and just doing AI loudly.</div>
     </div>
   </div>
 </section>
@@ -511,8 +511,8 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
 <section class="skills-matrix" id="skills">
   <div class="fade-in">
     <div class="section-label">Skills &amp; Expertise</div>
-    <h2 class="section-title">Twenty years of <em>deep expertise</em></h2>
-    <p style="margin-top:16px;font-size:16px;color:var(--ink2);max-width:680px;line-height:1.7">A practitioner's skill set spanning agentic AI, enterprise data strategy, governance, engineering, analytics, and the leadership capabilities to drive transformation across complex financial services organisations.</p>
+    <h2 class="section-title">What's in the <em>toolbox</em></h2>
+    <p style="margin-top:16px;font-size:16px;color:var(--ink2);max-width:680px;line-height:1.7">Twenty years of building data organizations means you pick up a lot of skills along the way. Here's what I bring to the table — from hands-on agent design to boardroom strategy.</p>
   </div>
   <div class="skills-grid">
     <div class="skills-card fade-in" style="border-color:rgba(91,33,182,.2);background:rgba(91,33,182,.03)">
@@ -638,12 +638,12 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
 <section class="philosophy-section" id="philosophy">
   <div class="fade-in"><div class="section-label">Leadership Philosophy</div><h2 class="section-title">How I <em>lead</em></h2></div>
   <div class="phil-grid">
-    <div class="phil-card fade-in"><div class="phil-num">01</div><div class="phil-title">AI-first, governance-led</div><p class="phil-body">Agentic AI is the most powerful accelerant data organisations have ever had. But in financial services, deploying it without rigorous governance, clear guardrails, and human oversight isn't leadership — it's recklessness. I pursue both with equal commitment.</p></div>
-    <div class="phil-card fade-in"><div class="phil-num">02</div><div class="phil-title">Culture before technology</div><p class="phil-body">The most sophisticated AI or data platform fails if the organisation doesn't trust it or know how to use it. I invest equally in literacy, confidence, and cultural change as I do in infrastructure. Transformation is a people problem first.</p></div>
-    <div class="phil-card fade-in"><div class="phil-num">03</div><div class="phil-title">Lead from behind</div><p class="phil-body">Creating conditions for a team to excel — giving them clarity, removing blockers, trusting their expertise — consistently beats command-and-control. The best agentic AI work I've seen comes from teams who feel empowered to experiment and learn.</p></div>
-    <div class="phil-card fade-in"><div class="phil-num">04</div><div class="phil-title">Business outcomes, always</div><p class="phil-body">Data and AI work is only as valuable as its impact on the business. I hold every initiative to a measurable standard — revenue, risk reduction, operational efficiency, or customer experience. The 10x acceleration means nothing if it's not moving the right metrics.</p></div>
-    <div class="phil-card fade-in"><div class="phil-num">05</div><div class="phil-title">Speak the language of the business</div><p class="phil-body">Financial services organisations have specific languages — compliance, risk, AUM, policy lifecycle. Twenty years of that fluency, combined with the ability to explain agentic AI in terms boards and regulators understand, is what earns a data leader a seat at the real table.</p></div>
-    <div class="phil-card fade-in"><div class="phil-num">06</div><div class="phil-title">Invest in people obsessively</div><p class="phil-body">The best data and AI platforms I've built were built by exceptional people I found, developed, and retained. In the agentic AI era, investing in human expertise matters more, not less — because agents are only as good as the humans who design, govern, and improve them.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">01</div><div class="phil-title">AI-first, governance-led</div><p class="phil-body">Agentic AI is the biggest accelerant data teams have ever had. But deploying it in financial services without guardrails isn't bold — it's reckless. I go hard on both the innovation and the governance because you can't have one without the other.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">02</div><div class="phil-title">Culture eats technology for breakfast</div><p class="phil-body">The best data platform in the world is worthless if nobody trusts it or knows how to use it. I spend as much energy on literacy, buy-in, and change management as I do on the tech stack. Transformation is a people problem first.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">03</div><div class="phil-title">Lead from behind</div><p class="phil-body">Give smart people clarity, remove the blockers, trust their expertise, and get out of the way. That beats command-and-control every time. The best work I've seen — including the agentic AI stuff — comes from teams that feel safe to experiment.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">04</div><div class="phil-title">If it doesn't move a metric, it doesn't matter</div><p class="phil-body">Every data initiative should tie to something the business cares about — revenue, risk reduction, efficiency, customer experience. The 10x acceleration is great, but only if it's pointed at the right problems.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">05</div><div class="phil-title">Speak their language, not yours</div><p class="phil-body">Compliance, risk, AUM, policy lifecycle — financial services has its own vocabulary. Twenty years of fluency in that language, plus the ability to explain agentic AI to a board in terms they actually care about, is what gets a data leader a real seat at the table.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">06</div><div class="phil-title">Invest in your people obsessively</div><p class="phil-body">Every great data platform I've built was built by great people I found, developed, and kept. In the agentic AI era, human expertise matters more, not less — because agents are only as good as the people who design, govern, and improve them.</p></div>
   </div>
 </section>
 
@@ -651,8 +651,8 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
 <section class="projects-section" id="demos" style="background:var(--bg2)">
   <div class="fade-in">
     <div class="section-label">Interactive Projects — Try Them Live</div>
-    <h2 class="section-title">Built with <em>AI-assisted</em> development</h2>
-    <p style="margin-top:16px;font-size:16px;color:var(--ink2);max-width:680px;line-height:1.7">Interactive applications showcasing product thinking, data strategy, and modern web development — each built through AI-assisted vibe coding to demonstrate what's possible when domain expertise meets agentic development tools.</p>
+    <h2 class="section-title">Things I've <em>built</em></h2>
+    <p style="margin-top:16px;font-size:16px;color:var(--ink2);max-width:680px;line-height:1.7">Side projects where I get to combine domain knowledge with hands-on building. Each one started as "I wonder if I could..." and turned into something I'm proud to put my name on. All built with AI-assisted development — because that's how I think data leaders should be working now.</p>
   </div>
   <div class="projects-grid" style="margin-top:48px">
     <a href="/portfolio-agents.html" class="project-card fade-in" style="border-color:rgba(124,58,237,.25);background:#fff">

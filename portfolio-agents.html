@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio Intelligence Agent System — Brian Cronin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0c0c14;--ink2:#3a3a50;--ink3:#80809a;--bg:#f3f2ef;--bg2:#eae8e3;--bg3:#dedad2;--accent:#0f3460;--accent2:#1a5296;--gold2:#e8b84b;--teal:#0a7565;--teal2:#0fa888;--line:rgba(12,12,20,0.11);--ai:#5b21b6;--ai2:#7c3aed;--ai3:#ede9fe}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(16px);background:rgba(243,242,239,0.88);border-bottom:1px solid var(--line)}
-.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--ink);text-decoration:none}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--ink);text-decoration:none}
 .nav-back{font-size:12px;font-weight:500;color:var(--ink2);text-decoration:none;letter-spacing:.07em;text-transform:uppercase;transition:color .2s;display:flex;align-items:center;gap:6px}
 .nav-back:hover{color:var(--accent2)}
 
@@ -22,9 +22,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:fl
 .hero{min-height:70vh;padding:140px 60px 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;position:relative;overflow:hidden}
 .hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:20px}
 .hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--teal)}
-.hero-name{font-family:'Syne',sans-serif;font-size:clamp(36px,4.5vw,60px);font-weight:800;line-height:1;letter-spacing:-.03em;color:var(--ink);margin-bottom:14px}
+.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(36px,4.5vw,60px);font-weight:700;line-height:1;letter-spacing:-.03em;color:var(--ink);margin-bottom:14px}
 .hero-name span{color:var(--accent2)}
-.hero-subtitle{font-family:'Syne',sans-serif;font-size:clamp(14px,1.5vw,18px);color:var(--ink3);margin-bottom:24px;max-width:540px}
+.hero-subtitle{font-family:'Space Grotesk',sans-serif;font-size:clamp(14px,1.5vw,18px);color:var(--ink3);margin-bottom:24px;max-width:540px}
 .hero-desc{font-size:15px;line-height:1.8;color:var(--ink2);max-width:540px;margin-bottom:32px}
 .hero-badges{display:flex;flex-wrap:wrap;gap:8px}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;padding:5px 13px;border-radius:30px;letter-spacing:.04em}
@@ -37,7 +37,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:fl
 .hero-card{background:var(--ink);border-radius:24px;padding:32px;position:relative;overflow:hidden}
 .hero-card::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(145deg,rgba(124,58,237,.12) 0%,transparent 55%);pointer-events:none}
 .hero-card-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px}
-.arch-mini{font-family:'DM Sans',monospace;font-size:12px;line-height:1.7;color:rgba(255,255,255,.55)}
+.arch-mini{font-family:'Inter',monospace;font-size:12px;line-height:1.7;color:rgba(255,255,255,.55)}
 .arch-mini .highlight{color:#a78bfa}
 .arch-mini .teal{color:#6ee7b7}
 .arch-mini .gold{color:#fcd34d}
@@ -48,7 +48,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:fl
 section{padding:96px 60px}
 .section-label{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .section-label::after{content:'';flex:1;max-width:56px;height:1px;background:var(--ink3)}
-.section-title{font-family:'Syne',sans-serif;font-size:clamp(30px,3.4vw,46px);font-weight:700;letter-spacing:-.03em;line-height:1.08;color:var(--ink)}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,3.4vw,46px);font-weight:700;letter-spacing:-.03em;line-height:1.08;color:var(--ink)}
 .section-title em{font-style:normal;color:var(--accent2)}
 .section-title em.ai-em{color:var(--ai2)}
 .section-intro{font-size:16px;line-height:1.78;color:var(--ink2);max-width:740px;margin-top:18px}
@@ -59,7 +59,7 @@ section{padding:96px 60px}
 .agent-card{background:var(--bg);border:1px solid var(--bg3);border-radius:18px;padding:28px;transition:all .22s}
 .agent-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(12,12,20,.07)}
 .agent-icon{font-size:28px;margin-bottom:14px;display:block}
-.agent-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.agent-title{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:6px}
 .agent-role{font-size:12px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
 .agent-body{font-size:14px;line-height:1.75;color:var(--ink2);margin-bottom:18px}
 .agent-outputs{display:flex;flex-wrap:wrap;gap:6px}
@@ -84,12 +84,12 @@ section{padding:96px 60px}
 .pipeline-step:last-child .pipeline-line{display:none}
 .pipeline-content{padding:0 0 36px 0}
 .pipeline-step-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:6px}
-.pipeline-step-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
+.pipeline-step-title{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
 .pipeline-step-body{font-size:13.5px;line-height:1.72;color:rgba(255,255,255,.55);max-width:600px}
-.pipeline-step-body code{font-size:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:2px 7px;border-radius:5px;color:#c4b5fd;font-family:'DM Sans',monospace}
+.pipeline-step-body code{font-size:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:2px 7px;border-radius:5px;color:#c4b5fd;font-family:'Inter',monospace}
 .pipeline-callout{margin-top:52px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.25);border-radius:18px;padding:28px 32px;display:flex;align-items:flex-start;gap:18px}
 .pipeline-callout-icon{font-size:26px;flex-shrink:0;margin-top:2px}
-.pipeline-callout-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#c4b5fd;margin-bottom:6px}
+.pipeline-callout-title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#c4b5fd;margin-bottom:6px}
 .pipeline-callout-body{font-size:13.5px;line-height:1.72;color:rgba(255,255,255,.55)}
 
 /* FEATURES GRID */
@@ -98,7 +98,7 @@ section{padding:96px 60px}
 .feature-card{background:#fff;border:1px solid var(--bg3);border-radius:18px;padding:24px;transition:all .22s}
 .feature-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(12,12,20,.07)}
 .feature-icon{font-size:22px;margin-bottom:12px;display:block}
-.feature-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.feature-title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px}
 .feature-body{font-size:13px;line-height:1.7;color:var(--ink2)}
 
 /* ARCHITECTURE SECTION - DARK */
@@ -111,7 +111,7 @@ section{padding:96px 60px}
 
 /* PHASE STEPPER */
 .phase-stepper{display:flex;gap:8px;margin:40px 0 32px;flex-wrap:wrap}
-.phase-btn{padding:9px 18px;border-radius:30px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:rgba(255,255,255,.55);font-size:12px;font-weight:500;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;letter-spacing:.03em}
+.phase-btn{padding:9px 18px;border-radius:30px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:rgba(255,255,255,.55);font-size:12px;font-weight:500;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;letter-spacing:.03em}
 .phase-btn:hover{background:rgba(124,58,237,.2);border-color:rgba(124,58,237,.4);color:#c4b5fd}
 .phase-btn.active{background:rgba(124,58,237,.3);border-color:rgba(124,58,237,.5);color:#c4b5fd}
 
@@ -126,7 +126,7 @@ section{padding:96px 60px}
 .arch-box.blue{background:rgba(26,82,150,.15);border-color:rgba(26,82,150,.3)}
 .arch-box.teal{background:rgba(10,117,101,.15);border-color:rgba(10,117,101,.3)}
 .arch-box.gold{background:rgba(200,151,58,.15);border-color:rgba(200,151,58,.3)}
-.arch-box-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:4px}
+.arch-box-title{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:4px}
 .arch-box-sub{font-size:11px;color:rgba(255,255,255,.45);line-height:1.5}
 .arch-arrow{text-align:center;color:rgba(255,255,255,.2);font-size:18px;margin:10px 0;letter-spacing:8px}
 
@@ -136,7 +136,7 @@ section{padding:96px 60px}
 .stack-card{background:#fff;border:1px solid var(--bg3);border-radius:18px;padding:24px;transition:all .22s}
 .stack-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(12,12,20,.07)}
 .stack-card-icon{font-size:22px;margin-bottom:12px;display:block}
-.stack-card-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.stack-card-title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px}
 .stack-card-sub{font-size:12px;color:var(--ink3);margin-bottom:10px}
 .stack-card-body{font-size:13px;line-height:1.7;color:var(--ink2)}
 
@@ -144,20 +144,20 @@ section{padding:96px 60px}
 .dashboard-section{background:#fff}
 .tabs-preview{margin-top:48px;background:var(--ink);border-radius:20px;overflow:hidden}
 .tabs-bar{display:flex;border-bottom:1px solid rgba(255,255,255,.08);overflow-x:auto}
-.tab-btn{padding:14px 22px;font-size:12px;font-weight:500;color:rgba(255,255,255,.4);cursor:pointer;border:none;background:none;font-family:'DM Sans',sans-serif;letter-spacing:.04em;white-space:nowrap;transition:all .2s;border-bottom:2px solid transparent}
+.tab-btn{padding:14px 22px;font-size:12px;font-weight:500;color:rgba(255,255,255,.4);cursor:pointer;border:none;background:none;font-family:'Inter',sans-serif;letter-spacing:.04em;white-space:nowrap;transition:all .2s;border-bottom:2px solid transparent}
 .tab-btn:hover{color:rgba(255,255,255,.7)}
 .tab-btn.active{color:#fff;border-bottom-color:var(--ai2)}
 .tab-content{padding:32px;min-height:280px}
 .tab-pane{display:none}
 .tab-pane.active{display:block}
-.tab-pane-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:10px}
+.tab-pane-title{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:10px}
 .tab-pane-body{font-size:14px;line-height:1.75;color:rgba(255,255,255,.6);max-width:640px}
 .tab-pane-features{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .tab-feat{font-size:11px;font-weight:500;padding:5px 12px;border-radius:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55)}
 
 /* FOOTER */
 footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;justify-content:space-between}
-.footer-logo{font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:rgba(255,255,255,.75)}
+.footer-logo{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:rgba(255,255,255,.75)}
 .footer-note{font-size:12px;color:rgba(255,255,255,.28)}
 
 /* ANIMATIONS */
@@ -190,8 +190,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
   <div class="hero-left">
     <div class="hero-eyebrow">Personal Project · Multi-Agent System</div>
     <h1 class="hero-name">Portfolio <span>Intelligence</span></h1>
-    <p class="hero-subtitle">A read-only analysis tool that monitors markets, evaluates your holdings, and delivers insights you can act on</p>
-    <p class="hero-desc">AI agents built on CrewAI and Claude work together to analyze portfolio performance, detect allocation drift, track congressional trading signals, scan macroeconomic news, and synthesize everything into actionable intelligence — powered by a FastAPI backend on Railway, React frontend on Vercel, and a DataStore abstraction layer backed by Google BigQuery on GCP with JWT authentication.</p>
+    <p class="hero-subtitle">I got tired of checking five apps before making a portfolio decision, so I built a system that does it for me</p>
+    <p class="hero-desc">Seven AI agents scan news, track congressional trades, score sentiment from multiple angles, monitor allocation drift, and put it all together into something I can actually act on. The backend runs on FastAPI and BigQuery on GCP, the frontend is React on Vercel, and the whole thing deploys to Railway. I can check it from my phone over coffee.</p>
     <div class="hero-badges">
       <span class="hero-badge read-only">🔒 Read-Only · No Trade Execution</span>
       <span class="hero-badge ai">🤖 CrewAI + Claude Agents</span>
@@ -229,8 +229,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 <section class="agents-section">
   <div class="fade-in">
     <div class="section-label">Agent Architecture</div>
-    <h2 class="section-title">Seven agents, one <em>cohesive</em> picture</h2>
-    <p class="section-intro">Each agent has a dedicated role, data sources, and deterministic skill tools that guarantee accurate computation. The LLM reasons about what the numbers mean — the tools handle the math. CrewAI orchestrates execution and passes context so agents can cross-reference everything into actionable intelligence.</p>
+    <h2 class="section-title">Seven agents, each with a <em>real job</em></h2>
+    <p class="section-intro">Every agent has a specific role and its own set of tools that handle the math — Sharpe ratios, correlation matrices, sentiment scores. The LLM's job is to look at those results and figure out what they mean together. CrewAI orchestrates the whole crew and passes context between them so nothing gets analyzed in a vacuum.</p>
   </div>
   <div class="agents-grid">
     <div class="agent-card fade-in">
@@ -238,7 +238,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 
       <div class="agent-title">Portfolio Analyst</div>
       <div class="agent-role">Agent 1 · Performance, Risk &amp; Correlation</div>
-      <p class="agent-body">Evaluates all holdings with five deterministic skill tools: Sharpe ratio and volatility calculations, concentration risk detection (HHI, sector limits), allocation drift vs. targets, performer ranking with percentiles, and pairwise correlation analysis to uncover hidden concentration across holdings that appear diversified.</p>
+      <p class="agent-body">Runs five tools across every holding: Sharpe ratio and volatility, concentration risk (HHI, sector limits), drift vs. my target allocations, performer ranking with percentiles, and pairwise correlation analysis — because three tech ETFs might look diversified until you see they move in lockstep.</p>
       <div class="agent-outputs">
         <span class="agent-out data">Finnhub Prices</span>
         <span class="agent-out teal">Risk Metrics</span>
@@ -251,7 +251,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 
       <div class="agent-title">Smart Money</div>
       <div class="agent-role">Agent 2 · Congressional Trading Signals</div>
-      <p class="agent-body">Tracks congressional stock trades disclosed under the STOCK Act and cross-references them against your holdings. Detects patterns in insider trading activity — which members are buying or selling, sector clustering, and timing relative to legislation — to surface signals that institutional-grade investors watch.</p>
+      <p class="agent-body">Pulls congressional stock trades from STOCK Act disclosures and cross-references them against my holdings. Which members are buying or selling, sector clustering, timing relative to legislation — the kind of signals that institutional investors pay attention to. If a senator is loading up on a sector I'm in, I want to know about it.</p>
       <div class="agent-outputs">
         <span class="agent-out data">Finnhub Congressional</span>
         <span class="agent-out teal">Trade Patterns</span>
@@ -264,7 +264,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 
       <div class="agent-title">Macro Scanner</div>
       <div class="agent-role">Agent 3 · World &amp; US News</div>
-      <p class="agent-body">Scans broad news sources for macroeconomic events — Fed policy, GDP, employment, geopolitical shifts, trade policy — and scores each with three independent sentiment signals (keyword rules, VADER NLP, Alpha Vantage AI) plus the CNN Fear &amp; Greed Index for market-wide context. When signals disagree, the LLM focuses on that story first.</p>
+      <p class="agent-body">Scans broad news for macro events — Fed moves, GDP, employment data, geopolitical shifts, trade policy — and runs each story through three sentiment scoring systems plus the CNN Fear &amp; Greed Index. The interesting part: when the signals disagree (alarming headline, reassuring details), that's flagged as the story worth reading first.</p>
       <div class="agent-outputs">
         <span class="agent-out data">NewsAPI</span>
         <span class="agent-out data">Finnhub News</span>
@@ -278,7 +278,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 
       <div class="agent-title">Security Scanner</div>
       <div class="agent-role">Agent 4 · Holdings-Specific Intelligence</div>
-      <p class="agent-body">Monitors news for each holding with per-ticker multi-signal scoring: combined 60% VADER NLP / 40% keyword rules, plus Alpha Vantage AI relevance scores. Detects signal disagreements (alarming headline, reassuring substance) and flags material events like earnings surprises, splits, and regulatory actions.</p>
+      <p class="agent-body">Same multi-signal scoring as the Macro Scanner, but zoomed in on each individual holding. Per-ticker sentiment (60% VADER NLP, 40% keyword rules), Alpha Vantage AI relevance scores, and material event detection — earnings surprises, splits, regulatory actions. If something's happening with a stock I own, this agent catches it.</p>
       <div class="agent-outputs">
         <span class="agent-out data">Finnhub Company News</span>
         <span class="agent-out ai">Multi-Signal Scoring</span>
@@ -291,7 +291,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 
       <div class="agent-title">Earnings &amp; Events Calendar</div>
       <div class="agent-role">Agent 5 · Forward-Looking Timeline</div>
-      <p class="agent-body">Tracks scheduled market events — earnings dates, ex-dividend dates, index rebalancing, Fed meetings — alongside personal financial events like tuition payments, bonus timing, and large planned expenses. Answers: "What's coming up that I should plan around?"</p>
+      <p class="agent-body">Combines market events (earnings dates, ex-dividends, Fed meetings) with personal financial events (big expenses, bonus timing, tax deadlines). The goal: answer the question "what's coming up in the next few weeks that I should be thinking about?" — because a great trade idea doesn't help if rent is due.</p>
       <div class="agent-outputs">
         <span class="agent-out data">Finnhub Calendar</span>
         <span class="agent-out data">Personal Events</span>
@@ -304,7 +304,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 
       <div class="agent-title">Tax Strategy</div>
       <div class="agent-role">Agent 6 · Tax-Loss Harvesting &amp; Optimization</div>
-      <p class="agent-body">Monitors unrealized gains and losses to identify tax-loss harvesting opportunities. Skills compute cost basis math, classify holding periods (short-term vs. long-term), track 30-day wash sale windows, and rank harvest candidates by tax savings potential. Runs weekly, with increased frequency in Q4.</p>
+      <p class="agent-body">Watches unrealized gains and losses for tax-loss harvesting opportunities — cost basis math, short-term vs. long-term classification, 30-day wash sale tracking, and harvest candidates ranked by actual tax savings. Runs weekly, but cranks up the frequency in Q4 when every dollar of tax savings counts.</p>
       <div class="agent-outputs">
         <span class="agent-out data">Cost Basis Data</span>
         <span class="agent-out alert">Wash Sale Windows</span>
@@ -317,7 +317,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 
       <div class="agent-title">Synthesizer + Audio</div>
       <div class="agent-role">Agent 7 · Cross-Reference &amp; Recommendations</div>
-      <p class="agent-body">Combines outputs from all agents into a unified assessment. Incorporates tax implications into timing, factors in upcoming calendar events, and generates prioritized trade readouts with confidence scores. Produces podcast-style audio briefings via ElevenLabs.</p>
+      <p class="agent-body">Takes everything the other six agents found and connects the dots. Factors tax implications into timing, weighs calendar events against trade ideas, and produces prioritized readouts with confidence scores. Also generates podcast-style audio briefings so I can listen to my portfolio update while walking the dog.</p>
       <div class="agent-outputs">
         <span class="agent-out ai">Trade Readouts</span>
         <span class="agent-out ai">Stock Stories</span>
@@ -333,7 +333,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
   <div class="fade-in">
     <div class="section-label">Under The Hood</div>
     <h2 class="section-title">How agents <em class="ai-em">think</em></h2>
-    <p class="section-intro">Every agent follows a "tools compute, LLM reasons" architecture. Deterministic Python tools read full article text, score severity, map portfolio impact, and pack a compact briefing — so the language model only receives structured results it can reason about, not raw data it has to parse.</p>
+    <p class="section-intro">The core design principle: tools do the math, the LLM does the thinking. Python tools read articles, score sentiment, calculate risk metrics, and pack everything into a compact briefing. Claude only sees structured results it can reason about — not raw data it has to parse. It's like handing a senior analyst a research brief instead of a stack of newspapers.</p>
   </div>
 
   <div class="pipeline-flow">
@@ -413,7 +413,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="pipeline-callout-icon">💡</div>
     <div>
       <div class="pipeline-callout-title">Why this architecture matters</div>
-      <p class="pipeline-callout-body">Traditional agent designs send raw data to the LLM and let it figure things out — expensive, slow, and token-hungry. This system layers four independent sentiment signals (keyword rules, VADER NLP, Alpha Vantage AI, Fear &amp; Greed Index) before the LLM ever sees the data. The Python tools read thousands of words and produce structured, multi-signal scores for free; Claude reads a compact briefing and reasons across all signals — like a senior analyst receiving a research brief from four different desks.</p>
+      <p class="pipeline-callout-body">Most agent designs dump raw data into the LLM and hope for the best — expensive, slow, and token-hungry. This system runs four independent sentiment signals before the LLM even gets involved. The Python tools read thousands of words and crunch the numbers for free. Claude gets a tight briefing and focuses on what it's actually good at: connecting the dots across all those signals and telling me what matters.</p>
     </div>
   </div>
 </section>
@@ -422,8 +422,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 <section class="features-section">
   <div class="fade-in">
     <div class="section-label">Feature Set</div>
-    <h2 class="section-title">A complete <em>analysis</em> toolkit</h2>
-    <p class="section-intro">Every feature is designed to surface insights, flag risks, and give you the information you need to make confident decisions — without ever touching your brokerage account.</p>
+    <h2 class="section-title">What it <em>actually does</em></h2>
+    <p class="section-intro">The whole point is to give me everything I need to make a decision without logging into five different apps. It's read-only by design — it analyzes and recommends, but never touches the brokerage account.</p>
   </div>
   <div class="features-grid">
     <div class="feature-card fade-in">
@@ -508,8 +508,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 <section class="arch-section" id="architecture">
   <div class="fade-in">
     <div class="section-label">Architecture</div>
-    <h2 class="section-title" style="color:#fff">Progressive <em class="ai-em">buildout</em></h2>
-    <p class="section-intro">The system is built in seven phases, each adding a new layer of capability. Select a phase to see how the architecture evolves from a simple data fetch to a full native Mac app with seven AI agents and encrypted secrets management.</p>
+    <h2 class="section-title" style="color:#fff">How it all <em class="ai-em">fits together</em></h2>
+    <p class="section-intro">Built in phases, each one adding a new layer. Click through to see how the architecture grows from a simple data fetch to a full system with seven AI agents, BigQuery on GCP, and a DataStore abstraction that lets me swap backends without touching a line of application code.</p>
   </div>
   <div class="phase-stepper fade-in">
     <button class="phase-btn" data-phase="1">Phase 1 · Foundation</button>
@@ -671,8 +671,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 <section class="dashboard-section">
   <div class="fade-in">
     <div class="section-label">Dashboard</div>
-    <h2 class="section-title">Every <em>angle</em> covered</h2>
-    <p class="section-intro">The React dashboard organizes all agent outputs into focused views. Recharts handles portfolio-level visualizations; TradingView's Lightweight Charts powers professional candlestick and technical analysis views.</p>
+    <h2 class="section-title">The <em>dashboard</em></h2>
+    <p class="section-intro">Everything the agents produce shows up here — organized into tabs so I can quickly find what I'm looking for. Recharts for portfolio visualizations, TradingView's Lightweight Charts for the candlestick views.</p>
   </div>
   <div class="tabs-preview fade-in">
     <div class="tabs-bar">
@@ -706,7 +706,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       </div>
       <div class="tab-pane" id="tab-analysis">
         <div class="tab-pane-title">Portfolio Analysis</div>
-        <p class="tab-pane-body">The Portfolio Analyst agent's full report powered by five deterministic skill tools: risk metrics (Sharpe ratio, volatility, max drawdown), concentration risk (HHI, sector limits), allocation drift vs. targets, performer rankings with percentiles, and cross-holding correlation analysis.</p>
+        <p class="tab-pane-body">The Portfolio Analyst's full report — five tools crunch the numbers: risk metrics (Sharpe ratio, volatility, max drawdown), concentration risk (HHI, sector limits), drift vs. targets, performer rankings, and cross-holding correlation analysis.</p>
         <div class="tab-pane-features"><span class="tab-feat">Sharpe Ratio</span><span class="tab-feat">Concentration HHI</span><span class="tab-feat">Drift Detection</span><span class="tab-feat">Correlation Matrix</span><span class="tab-feat">Performer Ranking</span></div>
       </div>
       <div class="tab-pane" id="tab-smartmoney">
@@ -752,56 +752,56 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 <section class="stack-section">
   <div class="fade-in">
     <div class="section-label">Tech Stack</div>
-    <h2 class="section-title">Built with <em>Python + React + GCP</em></h2>
+    <h2 class="section-title">The <em>tech stack</em></h2>
   </div>
   <div class="stack-grid">
     <div class="stack-card fade-in">
       <span class="stack-card-icon">🤖</span>
       <div class="stack-card-title">CrewAI</div>
       <div class="stack-card-sub">Agent Orchestration</div>
-      <p class="stack-card-body">Role-based multi-agent coordination with deterministic skill tools. Agents reason with Claude; tools handle the math.</p>
+      <p class="stack-card-body">Coordinates multiple agents, manages task flow, passes context between them. Each agent gets tools that handle the math so Claude can focus on the reasoning.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">🧠</span>
       <div class="stack-card-title">Claude (Anthropic)</div>
       <div class="stack-card-sub">LLM Reasoning Engine</div>
-      <p class="stack-card-body">Claude Sonnet powers each agent's analysis, classification, and narrative generation via the Anthropic Python SDK.</p>
+      <p class="stack-card-body">The brain behind each agent. Claude Sonnet handles the analysis, classification, and narrative writing through the Anthropic Python SDK.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">⚡</span>
       <div class="stack-card-title">FastAPI + Uvicorn</div>
       <div class="stack-card-sub">Backend API</div>
-      <p class="stack-card-body">Async REST API with JWT authentication, rate limiting, security headers, and CORS. Deployed on Railway.</p>
+      <p class="stack-card-body">Async REST API handling all the agent triggers, data retrieval, and auth. JWT tokens, rate limiting, security headers. Deployed on Railway.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">⚛️</span>
       <div class="stack-card-title">React 18 + Vite</div>
       <div class="stack-card-sub">Frontend</div>
-      <p class="stack-card-body">Single-page app with React Router, Tailwind CSS, Recharts for portfolio visualizations, and Lightweight Charts for candlesticks. Deployed on Vercel.</p>
+      <p class="stack-card-body">The frontend I can pull up on my phone or laptop. React Router, Tailwind, Recharts for portfolio charts, and TradingView's Lightweight Charts for candlesticks. Lives on Vercel.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">📈</span>
       <div class="stack-card-title">Finnhub + SnapTrade</div>
       <div class="stack-card-sub">Market Data + Brokerage</div>
-      <p class="stack-card-body">Finnhub for live quotes, fundamentals, news, and congressional trades. SnapTrade for full brokerage access — holdings, balances, transactions, orders, performance, and multi-account support. yfinance as fallback.</p>
+      <p class="stack-card-body">Finnhub for live quotes, fundamentals, news, and congressional trades. SnapTrade gives me full read-only brokerage access to Fidelity — holdings, balances, transactions, the works. yfinance as a fallback when APIs get flaky.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">⚖️</span>
       <div class="stack-card-title">Multi-Signal Sentiment</div>
       <div class="stack-card-sub">NLP + AI Scoring</div>
-      <p class="stack-card-body">VADER NLP (7,500-word lexicon), Alpha Vantage AI sentiment (per-ticker relevance), CNN Fear &amp; Greed Index (market-wide context), and custom keyword rules. Four reads per article before the LLM reasons.</p>
+      <p class="stack-card-body">Four independent reads on every article before Claude even sees it: VADER NLP (7,500-word lexicon), Alpha Vantage AI (per-ticker relevance), CNN Fear &amp; Greed Index, and 54 custom keyword rules. When the signals disagree, that's where it gets interesting.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">🗄️</span>
       <div class="stack-card-title">Google BigQuery + GCP</div>
       <div class="stack-card-sub">Cloud Data Warehouse</div>
-      <p class="stack-card-body">Serverless analytics warehouse on Google Cloud Platform. DataStore abstraction layer uses Strategy pattern with factory routing — production runs on BigQuery, local dev on SQLite, swappable via environment config with no code changes.</p>
+      <p class="stack-card-body">Production data lives in BigQuery on GCP. I built a DataStore abstraction layer (Strategy pattern with factory routing) so I can swap between BigQuery and SQLite with an environment variable — no code changes needed.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">🔐</span>
       <div class="stack-card-title">Security Stack</div>
       <div class="stack-card-sub">Auth, Encryption &amp; Audit</div>
-      <p class="stack-card-body">JWT auth (HS256), macOS Keychain for secrets, Fernet encryption at rest, structured audit logging, rate limiting, and security headers.</p>
+      <p class="stack-card-body">JWT auth, macOS Keychain for secrets (no plaintext .env files), Fernet encryption at rest, audit logging, rate limiting, and security headers. Because a portfolio tool without proper security isn't a tool — it's a liability.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">🎙️</span>
