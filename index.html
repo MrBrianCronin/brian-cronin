@@ -96,6 +96,37 @@ section{padding:96px 60px}
 .governance-callout-icon{font-size:24px;flex-shrink:0;margin-top:2px}
 .governance-callout-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:#93c5fd;margin-bottom:6px}
 .governance-callout-body{font-size:13px;line-height:1.7;color:rgba(255,255,255,.55)}
+/* FEATURED PROJECT SPOTLIGHT */
+.spotlight{background:linear-gradient(160deg,#0a1628 0%,#0f0f1a 50%,#1a0f2e 100%);color:#fff;padding:80px 60px;position:relative;overflow:hidden}
+.spotlight::before{content:'';position:absolute;top:-150px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(124,58,237,.18) 0%,transparent 70%);pointer-events:none}
+.spotlight::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(10,117,101,.12) 0%,transparent 70%);pointer-events:none}
+.spotlight-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;position:relative;z-index:1}
+.spotlight-eyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(196,181,253,.6);display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.spotlight-eyebrow::before{content:'';display:block;width:28px;height:2px;background:rgba(196,181,253,.4)}
+.spotlight-title{font-family:'Syne',sans-serif;font-size:clamp(30px,3.4vw,44px);font-weight:800;line-height:1.05;letter-spacing:-.03em;color:#fff;margin-bottom:14px}
+.spotlight-title em{font-style:normal;color:#a78bfa}
+.spotlight-desc{font-size:15px;line-height:1.78;color:rgba(255,255,255,.65);max-width:560px;margin-bottom:24px}
+.spotlight-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.spotlight-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;padding:5px 13px;border-radius:30px;letter-spacing:.04em}
+.spotlight-badge.purple{background:rgba(124,58,237,.25);border:1px solid rgba(124,58,237,.4);color:#c4b5fd}
+.spotlight-badge.teal{background:rgba(10,117,101,.25);border:1px solid rgba(10,117,101,.4);color:#6ee7b7}
+.spotlight-badge.blue{background:rgba(26,82,150,.25);border:1px solid rgba(26,82,150,.4);color:#93c5fd}
+.spotlight-badge.gold{background:rgba(200,151,58,.2);border:1px solid rgba(200,151,58,.35);color:#fcd34d}
+.spotlight-cta{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.9);color:#fff;padding:14px 28px;border-radius:60px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s;font-family:'Syne',sans-serif;letter-spacing:-.01em}
+.spotlight-cta:hover{background:#7c3aed;transform:translateY(-2px);box-shadow:0 8px 30px rgba(124,58,237,.35)}
+.spotlight-arch{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px;font-family:'DM Sans',monospace;font-size:12px;line-height:1.7;color:rgba(255,255,255,.5)}
+.spotlight-arch .hl{color:#a78bfa}
+.spotlight-arch .tl{color:#6ee7b7}
+.spotlight-arch .bl{color:#93c5fd}
+.spotlight-arch .gl{color:#fcd34d}
+.spotlight-arch .dm{color:rgba(255,255,255,.2)}
+.spotlight-arch-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:14px;font-family:'DM Sans',sans-serif}
+.spotlight-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.spotlight-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:14px;text-align:center}
+.spotlight-stat-num{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;line-height:1}
+.spotlight-stat-num span{color:#a78bfa}
+.spotlight-stat-label{font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+
 /* ABOUT */
 .about{background:#fff}
 .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
@@ -213,7 +244,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
 .footer-note{font-size:12px;color:rgba(255,255,255,.28)}
 .fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .fade-in.visible{opacity:1;transform:none}
-@media(max-width:920px){nav{padding:16px 24px}.nav-links{display:none}section{padding:68px 24px}.hero{grid-template-columns:1fr;padding:120px 24px 56px}.hero-right{display:none}.about-inner,.contact-inner{grid-template-columns:1fr}.ach-grid,.projects-grid,.phil-grid,.skills-grid,.agentic-grid{grid-template-columns:1fr}.agentic-impact{flex-direction:column;gap:20px}footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}}
+@media(max-width:920px){nav{padding:16px 24px}.nav-links{display:none}section{padding:68px 24px}.hero{grid-template-columns:1fr;padding:120px 24px 56px}.hero-right{display:none}.spotlight{padding:56px 24px}.spotlight-inner{grid-template-columns:1fr;gap:32px}.spotlight-arch{display:none}.spotlight-stats{grid-template-columns:repeat(3,1fr)}.about-inner,.contact-inner{grid-template-columns:1fr}.ach-grid,.projects-grid,.phil-grid,.skills-grid,.agentic-grid{grid-template-columns:1fr}.agentic-impact{flex-direction:column;gap:20px}footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}}
 </style>
 </head>
 <body>
@@ -273,6 +304,48 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     </div>
   </div>
 </section>
+
+<!-- FEATURED PROJECT SPOTLIGHT -->
+<div class="spotlight" id="featured">
+  <div class="spotlight-inner fade-in">
+    <div class="spotlight-left">
+      <div class="spotlight-eyebrow">Featured Project · Live on GCP</div>
+      <h2 class="spotlight-title">Portfolio <em>Intelligence</em></h2>
+      <p class="spotlight-desc">A multi-agent analysis system where seven AI agents monitor markets, evaluate portfolio holdings, and deliver actionable intelligence — built on Google Cloud BigQuery with a DataStore abstraction layer, deployed on Railway, with a React frontend on Vercel.</p>
+      <div class="spotlight-badges">
+        <span class="spotlight-badge purple">CrewAI + Claude Agents</span>
+        <span class="spotlight-badge teal">Google BigQuery</span>
+        <span class="spotlight-badge blue">React + FastAPI</span>
+        <span class="spotlight-badge gold">SnapTrade + Fidelity</span>
+      </div>
+      <a href="/portfolio-agents.html" class="spotlight-cta">Explore the Architecture →</a>
+    </div>
+    <div class="spotlight-right">
+      <div class="spotlight-arch">
+        <div class="spotlight-arch-label">System Architecture</div>
+<span class="dm">┌────────────────────────────────────────┐</span>
+<span class="hl">  ORCHESTRATOR</span> <span class="dm">(CrewAI + Claude)</span>
+<span class="dm">└──┬────────┬────────┬────────┬─────────┘</span>
+   <span class="dm">│        │        │        │</span>
+ <span class="tl">Portfolio</span> <span class="tl">Smart</span>  <span class="bl">Macro</span>  <span class="bl">Security</span>
+ <span class="tl">Analyst</span>  <span class="tl">Money</span>  <span class="bl">Scanner</span> <span class="bl">Scanner</span>
+   <span class="dm">│        │        │        │</span>
+   <span class="dm">└────────┴────────┴────────┘</span>
+                  <span class="dm">│</span>
+        <span class="gl">DataStore Abstraction</span>
+        <span class="tl">Google BigQuery</span> <span class="dm">· GCP</span>
+                  <span class="dm">│</span>
+      <span class="hl">React + Vite</span> <span class="dm">frontend</span>
+      <span class="bl">FastAPI</span> <span class="dm">backend (Railway)</span>
+      </div>
+      <div class="spotlight-stats">
+        <div class="spotlight-stat"><div class="spotlight-stat-num">7</div><div class="spotlight-stat-label">AI Agents</div></div>
+        <div class="spotlight-stat"><div class="spotlight-stat-num">4<span>×</span></div><div class="spotlight-stat-label">Sentiment Signals</div></div>
+        <div class="spotlight-stat"><div class="spotlight-stat-num">8</div><div class="spotlight-stat-label">BigQuery Tables</div></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <section class="about" id="about">
   <div class="about-inner">
@@ -564,14 +637,14 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <a href="/portfolio-agents.html" class="project-card fade-in" style="border-color:rgba(124,58,237,.25);background:#fff">
       <div class="project-card-top"><span class="project-tag ai">Multi-Agent System</span><span class="project-arrow">↗</span></div>
       <div class="project-title">Portfolio Intelligence</div>
-      <p class="project-desc">A read-only multi-agent analysis tool that monitors markets, evaluates Fidelity portfolio holdings, and delivers insights through a native Mac app — featuring AI-powered trade readouts, scenario stress testing, tax-loss harvesting, and podcast-style audio briefings.</p>
+      <p class="project-desc">A read-only multi-agent analysis tool that monitors markets, evaluates Fidelity portfolio holdings, and delivers insights — featuring AI-powered trade readouts, scenario stress testing, tax-loss harvesting, and a DataStore abstraction layer backed by Google BigQuery on GCP.</p>
       <div class="project-stack">
         <span class="stack-tag">CrewAI</span>
         <span class="stack-tag">Claude API</span>
-        <span class="stack-tag">Dash + Plotly</span>
-        <span class="stack-tag">TradingView Charts</span>
-        <span class="stack-tag">Pywebview</span>
-        <span class="stack-tag">ElevenLabs</span>
+        <span class="stack-tag">Google BigQuery</span>
+        <span class="stack-tag">React + Vite</span>
+        <span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">Railway + Vercel</span>
       </div>
     </a>
     <a href="/etf-finder" class="project-card fade-in" style="border-color:rgba(26,82,150,.25);background:#fff">
