@@ -382,447 +382,6 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
   </div>
 </section>
 
-<!-- AGENTS -->
-<section class="agents-section">
-  <div class="fade-in">
-    <div class="section-label">Agent Architecture</div>
-    <h2 class="section-title">Seven agents, each with a <em>real job</em></h2>
-    <p class="section-intro">Every agent has a specific role and its own set of tools that handle the math — Sharpe ratios, correlation matrices, sentiment scores. The LLM's job is to look at those results and figure out what they mean together. CrewAI orchestrates the whole crew and passes context between them so nothing gets analyzed in a vacuum.</p>
-  </div>
-  <div class="agents-grid">
-    <div class="agent-card fade-in">
-      <span class="agent-icon">📈</span>
-
-      <div class="agent-title">Portfolio Analyst</div>
-      <div class="agent-role">Agent 1 · Performance, Risk &amp; Correlation</div>
-      <p class="agent-body">Runs five tools across every holding: Sharpe ratio and volatility, concentration risk (HHI, sector limits), drift vs. my target allocations, performer ranking with percentiles, and pairwise correlation analysis — because three tech ETFs might look diversified until you see they move in lockstep.</p>
-      <div class="agent-outputs">
-        <span class="agent-out data">Finnhub Prices</span>
-        <span class="agent-out teal">Risk Metrics</span>
-        <span class="agent-out alert">Drift Alerts</span>
-        <span class="agent-out teal">Correlation Matrix</span>
-      </div>
-    </div>
-    <div class="agent-card fade-in">
-      <span class="agent-icon">🏛️</span>
-
-      <div class="agent-title">Smart Money</div>
-      <div class="agent-role">Agent 2 · Congressional Trading Signals</div>
-      <p class="agent-body">Pulls congressional stock trades from STOCK Act disclosures and cross-references them against my holdings. Which members are buying or selling, sector clustering, timing relative to legislation — the kind of signals that institutional investors pay attention to. If a senator is loading up on a sector I'm in, I want to know about it.</p>
-      <div class="agent-outputs">
-        <span class="agent-out data">Finnhub Congressional</span>
-        <span class="agent-out teal">Trade Patterns</span>
-        <span class="agent-out alert">Overlap Alerts</span>
-        <span class="agent-out data">Member Activity</span>
-      </div>
-    </div>
-    <div class="agent-card fade-in">
-      <span class="agent-icon">🌍</span>
-
-      <div class="agent-title">Macro Scanner</div>
-      <div class="agent-role">Agent 3 · World &amp; US News</div>
-      <p class="agent-body">Scans broad news for macro events — Fed moves, GDP, employment data, geopolitical shifts, trade policy — and runs each story through three sentiment scoring systems plus the CNN Fear &amp; Greed Index. The interesting part: when the signals disagree (alarming headline, reassuring details), that's flagged as the story worth reading first.</p>
-      <div class="agent-outputs">
-        <span class="agent-out data">NewsAPI</span>
-        <span class="agent-out data">Finnhub News</span>
-        <span class="agent-out ai">VADER NLP</span>
-        <span class="agent-out ai">Alpha Vantage AI</span>
-        <span class="agent-out alert">Fear &amp; Greed</span>
-      </div>
-    </div>
-    <div class="agent-card fade-in">
-      <span class="agent-icon">🔍</span>
-
-      <div class="agent-title">Security Scanner</div>
-      <div class="agent-role">Agent 4 · Holdings-Specific Intelligence</div>
-      <p class="agent-body">Same multi-signal scoring as the Macro Scanner, but zoomed in on each individual holding. Per-ticker sentiment (60% VADER NLP, 40% keyword rules), Alpha Vantage AI relevance scores, and material event detection — earnings surprises, splits, regulatory actions. If something's happening with a stock I own, this agent catches it.</p>
-      <div class="agent-outputs">
-        <span class="agent-out data">Finnhub Company News</span>
-        <span class="agent-out ai">Multi-Signal Scoring</span>
-        <span class="agent-out alert">Signal Disagreements</span>
-        <span class="agent-out alert">Material Events</span>
-      </div>
-    </div>
-    <div class="agent-card fade-in">
-      <span class="agent-icon">📅</span>
-
-      <div class="agent-title">Earnings &amp; Events Calendar</div>
-      <div class="agent-role">Agent 5 · Forward-Looking Timeline</div>
-      <p class="agent-body">Combines market events (earnings dates, ex-dividends, Fed meetings) with personal financial events (big expenses, bonus timing, tax deadlines). The goal: answer the question "what's coming up in the next few weeks that I should be thinking about?" — because a great trade idea doesn't help if rent is due.</p>
-      <div class="agent-outputs">
-        <span class="agent-out data">Finnhub Calendar</span>
-        <span class="agent-out data">Personal Events</span>
-        <span class="agent-out alert">Upcoming Timeline</span>
-        <span class="agent-out teal">Cash Flow Impact</span>
-      </div>
-    </div>
-    <div class="agent-card fade-in">
-      <span class="agent-icon">🧾</span>
-
-      <div class="agent-title">Tax Strategy</div>
-      <div class="agent-role">Agent 6 · Tax-Loss Harvesting &amp; Optimization</div>
-      <p class="agent-body">Watches unrealized gains and losses for tax-loss harvesting opportunities — cost basis math, short-term vs. long-term classification, 30-day wash sale tracking, and harvest candidates ranked by actual tax savings. Runs weekly, but cranks up the frequency in Q4 when every dollar of tax savings counts.</p>
-      <div class="agent-outputs">
-        <span class="agent-out data">Cost Basis Data</span>
-        <span class="agent-out alert">Wash Sale Windows</span>
-        <span class="agent-out teal">Harvest Candidates</span>
-        <span class="agent-out alert">Capital Gains</span>
-      </div>
-    </div>
-    <div class="agent-card fade-in">
-      <span class="agent-icon">🧠</span>
-
-      <div class="agent-title">Synthesizer + Audio</div>
-      <div class="agent-role">Agent 7 · Cross-Reference &amp; Recommendations</div>
-      <p class="agent-body">Takes everything the other six agents found and connects the dots. Factors tax implications into timing, weighs calendar events against trade ideas, and produces prioritized readouts with confidence scores. Also generates podcast-style audio briefings so I can listen to my portfolio update while walking the dog.</p>
-      <div class="agent-outputs">
-        <span class="agent-out ai">Trade Readouts</span>
-        <span class="agent-out ai">Stock Stories</span>
-        <span class="agent-out ai">Audio Briefing</span>
-        <span class="agent-out teal">Tax-Aware Timing</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PIPELINE — HOW AGENTS THINK -->
-<section class="pipeline-section">
-  <div class="fade-in">
-    <div class="section-label">Under The Hood</div>
-    <h2 class="section-title">How agents <em class="ai-em">think</em></h2>
-    <p class="section-intro">The core design principle: tools do the math, the LLM does the thinking. Python tools read articles, score sentiment, calculate risk metrics, and pack everything into a compact briefing. Claude only sees structured results it can reason about — not raw data it has to parse. It's like handing a senior analyst a research brief instead of a stack of newspapers.</p>
-  </div>
-
-  <div class="pipeline-flow">
-    <div class="pipeline-step fade-in">
-      <div class="pipeline-marker">
-        <div class="pipeline-dot">📡</div>
-        <div class="pipeline-line"></div>
-      </div>
-      <div class="pipeline-content">
-        <div class="pipeline-step-label">Step 1</div>
-        <div class="pipeline-step-title">Fetch from multiple sources</div>
-        <p class="pipeline-step-body">Each tool pulls data from every relevant source — NewsAPI for broad coverage, Finnhub for market-specific feeds, Yahoo Finance for earnings calendars. Articles are fetched at full length, then deduplicated by headline before any analysis begins.</p>
-      </div>
-    </div>
-
-    <div class="pipeline-step fade-in">
-      <div class="pipeline-marker">
-        <div class="pipeline-dot">⚖️</div>
-        <div class="pipeline-line"></div>
-      </div>
-      <div class="pipeline-content">
-        <div class="pipeline-step-label">Step 2</div>
-        <div class="pipeline-step-title">Multi-signal sentiment scoring</div>
-        <p class="pipeline-step-body">Each article is scored by three independent systems: custom keyword rules for speed (54 financial keywords, <code>severity 1–5</code>), NLTK's VADER model for NLP nuance (7,500-word lexicon, understands negation and intensifiers), and Alpha Vantage's AI model for financial-domain depth (per-ticker relevance scores). The CNN Fear &amp; Greed Index adds a market-wide sentiment reading. When signals disagree — alarming headline, reassuring substance — that's flagged as the most interesting insight.</p>
-      </div>
-    </div>
-
-    <div class="pipeline-step fade-in">
-      <div class="pipeline-marker">
-        <div class="pipeline-dot">🏷️</div>
-        <div class="pipeline-line"></div>
-      </div>
-      <div class="pipeline-content">
-        <div class="pipeline-step-label">Step 3</div>
-        <div class="pipeline-step-title">Categorize &amp; detect events</div>
-        <p class="pipeline-step-body">Articles are classified into macro themes (Fed policy, inflation, trade, geopolitical) and material event types (earnings, analyst actions, insider trades, regulatory, corporate). Each article can trigger multiple categories — a Fed rate decision article might tag both <code>fed_policy</code> and <code>inflation</code>.</p>
-      </div>
-    </div>
-
-    <div class="pipeline-step fade-in">
-      <div class="pipeline-marker">
-        <div class="pipeline-dot">🎯</div>
-        <div class="pipeline-line"></div>
-      </div>
-      <div class="pipeline-content">
-        <div class="pipeline-step-label">Step 4</div>
-        <div class="pipeline-step-title">Map portfolio impact</div>
-        <p class="pipeline-step-body">A static impact map connects macro categories to specific portfolio holdings. A trade policy headline automatically links to emerging market and tech supply chain tickers. The tool calculates total portfolio exposure as a percentage — so "trade war" isn't abstract, it's "38% of your holdings."</p>
-      </div>
-    </div>
-
-    <div class="pipeline-step fade-in">
-      <div class="pipeline-marker">
-        <div class="pipeline-dot">📦</div>
-        <div class="pipeline-line"></div>
-      </div>
-      <div class="pipeline-content">
-        <div class="pipeline-step-label">Step 5</div>
-        <div class="pipeline-step-title">Rank, pack &amp; trim</div>
-        <p class="pipeline-step-body">Articles are ranked by <code>severity × portfolio relevance</code>, then only the top stories make the cut. Raw text is discarded — what survives is a compact JSON briefing with scores, tickers, and rationales. Hundreds of articles become ~2K tokens of structured signal.</p>
-      </div>
-    </div>
-
-    <div class="pipeline-step fade-in">
-      <div class="pipeline-marker">
-        <div class="pipeline-dot">🧠</div>
-      </div>
-      <div class="pipeline-content">
-        <div class="pipeline-step-label">Step 6</div>
-        <div class="pipeline-step-title">Claude reasons across all signals</div>
-        <p class="pipeline-step-body">The language model receives the pre-scored briefing packet with every signal layered in: keyword severity, VADER NLP, Alpha Vantage AI scores, Fear &amp; Greed context, and signal disagreement flags. Its job is synthesis: what does this pattern of signals mean for timing, risk, and action? Four independent reads on each article, one reasoning step to connect them.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="pipeline-callout fade-in">
-    <div class="pipeline-callout-icon">💡</div>
-    <div>
-      <div class="pipeline-callout-title">Why this architecture matters</div>
-      <p class="pipeline-callout-body">Most agent designs dump raw data into the LLM and hope for the best — expensive, slow, and token-hungry. This system runs four independent sentiment signals before the LLM even gets involved. The Python tools read thousands of words and crunch the numbers for free. Claude gets a tight briefing and focuses on what it's actually good at: connecting the dots across all those signals and telling me what matters.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features-section">
-  <div class="fade-in">
-    <div class="section-label">Feature Set</div>
-    <h2 class="section-title">What it <em>actually does</em></h2>
-    <p class="section-intro">The whole point is to give me everything I need to make a decision without logging into five different apps. It's read-only by design — it analyzes and recommends, but never touches the brokerage account.</p>
-  </div>
-  <div class="features-grid">
-    <div class="feature-card fade-in">
-      <span class="feature-icon">🗺️</span>
-      <div class="feature-title">Portfolio Heatmap</div>
-      <p class="feature-body">Treemap visualization sized by allocation, colored by performance. One glance shows where the portfolio is thriving or bleeding.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">💥</span>
-      <div class="feature-title">Scenario Stress Testing</div>
-      <p class="feature-body">Replay historical crises (2008, COVID, dot-com) against current holdings to estimate portfolio vulnerability under extreme conditions.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">⚖️</span>
-      <div class="feature-title">Drift Detection</div>
-      <p class="feature-body">Define target allocations, get alerted when market movements push the portfolio off-target, with specific rebalancing suggestions.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">🧾</span>
-      <div class="feature-title">Tax-Loss Harvesting</div>
-      <p class="feature-body">Scan unrealized losses against realized gains and suggest tax-aware trades. Especially valuable near year-end.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">📖</span>
-      <div class="feature-title">Stock Stories</div>
-      <p class="feature-body">AI-generated per-holding narratives covering performance, catalysts, sentiment, and portfolio context — not just raw data tables.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">🔮</span>
-      <div class="feature-title">What-If Simulator</div>
-      <p class="feature-body">Model adding or removing positions without executing trades. See how hypothetical changes affect allocation, risk, and goals.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">🎯</span>
-      <div class="feature-title">Goal Tracking</div>
-      <p class="feature-body">Set financial targets with projected trajectories based on current growth rate. Visual progress bars show if you're ahead or behind schedule.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">🎙️</span>
-      <div class="feature-title">Podcast Briefings</div>
-      <p class="feature-body">Weekly audio summaries generated by ElevenLabs with two AI host voices. Listen to your portfolio analysis like a podcast while commuting.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">📋</span>
-      <div class="feature-title">Trade Readouts</div>
-      <p class="feature-body">Clear, actionable trade recommendations — ticker, action, quantity, rationale — formatted for quick manual entry in Fidelity. You decide what to act on.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">📅</span>
-      <div class="feature-title">Personal Events Calendar</div>
-      <p class="feature-body">Combine market events with personal financial milestones — tuition payments, bonus timing, property taxes — so recommendations factor in your real cash flow, not just the market.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">🔐</span>
-      <div class="feature-title">macOS Keychain Security</div>
-      <p class="feature-body">All API keys and secrets stored in macOS Keychain, encrypted by the OS and protected by your login password or Touch ID. No plaintext .env files — even a compromised dependency can't read your credentials.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">📊</span>
-      <div class="feature-title">Correlation Analysis</div>
-      <p class="feature-body">Pairwise correlation matrix across all holdings reveals hidden concentration risk. Three tech ETFs might look diversified by name but move in lockstep — this tool catches that.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">🔄</span>
-      <div class="feature-title">Transaction History</div>
-      <p class="feature-body">Full trade history from Fidelity via SnapTrade — buys, sells, dividends, contributions, withdrawals, fees. Summary cards, date/type/ticker filters, sortable table with type-colored badges.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">🏦</span>
-      <div class="feature-title">Multi-Account Selector</div>
-      <p class="feature-body">Global account switcher scopes all pages to a specific brokerage account. React Context architecture means every dashboard view becomes account-aware without per-page refactoring.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <span class="feature-icon">🧪</span>
-      <div class="feature-title">Multi-Signal Sentiment</div>
-      <p class="feature-body">Four independent sentiment signals — keyword rules, VADER NLP, Alpha Vantage AI, CNN Fear &amp; Greed — scored before the LLM sees any data. Signal disagreements are flagged as the most interesting insights.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ARCHITECTURE - PROGRESSIVE PHASES -->
-<section class="arch-section" id="architecture">
-  <div class="fade-in">
-    <div class="section-label">Architecture</div>
-    <h2 class="section-title" style="color:#fff">How it all <em class="ai-em">fits together</em></h2>
-    <p class="section-intro">Built in phases, each one adding a new layer. Click through to see how the architecture grows from a simple data fetch to a full system with seven AI agents, BigQuery on GCP, and a DataStore abstraction that lets me swap backends without touching a line of application code.</p>
-  </div>
-  <div class="phase-stepper fade-in">
-    <button class="phase-btn" data-phase="1">Phase 1 · Foundation</button>
-    <button class="phase-btn" data-phase="2">Phase 2 · Allocations + Brokerage</button>
-    <button class="phase-btn" data-phase="3">Phase 3 · Drift Detection</button>
-    <button class="phase-btn" data-phase="4">Phase 4 · Scanners + Calendar</button>
-    <button class="phase-btn" data-phase="5">Phase 5 · Tax + Synthesizer</button>
-    <button class="phase-btn" data-phase="6">Phase 6 · Audio Briefings</button>
-    <button class="phase-btn active" data-phase="7">Phase 7 · Native App + Polish</button>
-  </div>
-
-  <div class="arch-diagram fade-in">
-    <!-- Layer: Presentation -->
-    <div class="arch-layer" data-min-phase="1">
-      <div class="arch-layer-label">Presentation Layer</div>
-      <div class="arch-row">
-        <div class="arch-box teal">
-          <div class="arch-box-title">React + Vite Frontend</div>
-          <div class="arch-box-sub">Recharts · Lightweight Charts (TradingView) · Tailwind CSS · JWT Auth</div>
-        </div>
-        <div class="arch-box purple" data-min-phase="7">
-          <div class="arch-box-title">Native Mac App</div>
-          <div class="arch-box-sub">Pywebview wrapper · Dock icon · System notifications</div>
-        </div>
-      </div>
-    </div>
-    <div class="arch-arrow" data-min-phase="1">↓ ↓ ↓</div>
-
-    <!-- Layer: API -->
-    <div class="arch-layer" data-min-phase="1">
-      <div class="arch-layer-label">API Layer</div>
-      <div class="arch-row">
-        <div class="arch-box blue">
-          <div class="arch-box-title">FastAPI Backend</div>
-          <div class="arch-box-sub">REST endpoints · JWT auth · Rate limiting · Security headers · DataStore abstraction · Railway deploy</div>
-        </div>
-      </div>
-    </div>
-    <div class="arch-arrow" data-min-phase="1">↓ ↓ ↓</div>
-
-    <!-- Layer: Orchestrator -->
-    <div class="arch-layer" data-min-phase="1">
-      <div class="arch-layer-label">Orchestration Layer</div>
-      <div class="arch-row">
-        <div class="arch-box purple">
-          <div class="arch-box-title">CrewAI Orchestrator</div>
-          <div class="arch-box-sub">Schedules agents, manages task flow, passes context between agents</div>
-        </div>
-      </div>
-    </div>
-    <div class="arch-arrow" data-min-phase="1">↓ ↓ ↓ ↓</div>
-
-    <!-- Layer: Agents -->
-    <div class="arch-layer" data-min-phase="1">
-      <div class="arch-layer-label">Agent Layer</div>
-      <div class="arch-row">
-        <div class="arch-box teal" data-min-phase="1">
-          <div class="arch-box-title">Portfolio Analyst</div>
-          <div class="arch-box-sub">5 skill tools · Risk metrics · Correlation · Drift · Ranking</div>
-        </div>
-        <div class="arch-box teal" data-min-phase="1">
-          <div class="arch-box-title">Smart Money</div>
-          <div class="arch-box-sub">Congressional trades · STOCK Act · Insider patterns</div>
-        </div>
-        <div class="arch-box gold" data-min-phase="4">
-          <div class="arch-box-title">Macro Scanner</div>
-          <div class="arch-box-sub">NewsAPI · Finnhub News · Impact classification</div>
-        </div>
-        <div class="arch-box blue" data-min-phase="4">
-          <div class="arch-box-title">Security Scanner</div>
-          <div class="arch-box-sub">Company news · Sentiment · Material events</div>
-        </div>
-        <div class="arch-box blue" data-min-phase="4">
-          <div class="arch-box-title">Events Calendar</div>
-          <div class="arch-box-sub">Earnings dates · Ex-dividends · Personal events</div>
-        </div>
-        <div class="arch-box gold" data-min-phase="5">
-          <div class="arch-box-title">Tax Strategy</div>
-          <div class="arch-box-sub">Harvest candidates · Wash sales · Cost basis</div>
-        </div>
-        <div class="arch-box purple" data-min-phase="5">
-          <div class="arch-box-title">Synthesizer</div>
-          <div class="arch-box-sub">Cross-reference · Tax-aware timing · Trade readouts</div>
-        </div>
-      </div>
-    </div>
-    <div class="arch-arrow" data-min-phase="1">↓ ↓ ↓</div>
-
-    <!-- Layer: Data Sources -->
-    <div class="arch-layer" data-min-phase="1">
-      <div class="arch-layer-label">Data Sources</div>
-      <div class="arch-row">
-        <div class="arch-box" data-min-phase="1">
-          <div class="arch-box-title">Finnhub</div>
-          <div class="arch-box-sub">Quotes · Fundamentals · News · Congressional · Earnings</div>
-        </div>
-        <div class="arch-box" data-min-phase="1">
-          <div class="arch-box-title">yfinance</div>
-          <div class="arch-box-sub">Fallback · Dividends · Institutional holders</div>
-        </div>
-        <div class="arch-box" data-min-phase="2">
-          <div class="arch-box-title">SnapTrade</div>
-          <div class="arch-box-sub">Brokerage API · Holdings · Balances · Transactions · Orders · Performance</div>
-        </div>
-        <div class="arch-box" data-min-phase="4">
-          <div class="arch-box-title">NewsAPI</div>
-          <div class="arch-box-sub">150K+ sources · World &amp; US news</div>
-        </div>
-        <div class="arch-box" data-min-phase="4">
-          <div class="arch-box-title">Alpha Vantage</div>
-          <div class="arch-box-sub">AI sentiment API · Per-ticker relevance scoring</div>
-        </div>
-        <div class="arch-box" data-min-phase="4">
-          <div class="arch-box-title">VADER NLP</div>
-          <div class="arch-box-sub">7,500-word lexicon · Negation &amp; intensifier aware</div>
-        </div>
-        <div class="arch-box" data-min-phase="4">
-          <div class="arch-box-title">CNN Fear &amp; Greed</div>
-          <div class="arch-box-sub">Market-wide sentiment · 0–100 index · Trend tracking</div>
-        </div>
-        <div class="arch-box" data-min-phase="6">
-          <div class="arch-box-title">ElevenLabs</div>
-          <div class="arch-box-sub">Two-voice TTS · Podcast generation</div>
-        </div>
-      </div>
-    </div>
-    <div class="arch-arrow" data-min-phase="1">↓</div>
-
-    <!-- Layer: DataStore Abstraction -->
-    <div class="arch-layer" data-min-phase="1">
-      <div class="arch-layer-label">Data Abstraction Layer</div>
-      <div class="arch-row">
-        <div class="arch-box gold">
-          <div class="arch-box-title">DataStore Interface</div>
-          <div class="arch-box-sub">Strategy pattern · Backend-agnostic API · Factory routing via env config</div>
-        </div>
-      </div>
-    </div>
-    <div class="arch-arrow" data-min-phase="1">↓</div>
-
-    <!-- Layer: Storage -->
-    <div class="arch-layer" data-min-phase="1">
-      <div class="arch-layer-label">Storage Layer</div>
-      <div class="arch-row">
-        <div class="arch-box teal">
-          <div class="arch-box-title">Google BigQuery</div>
-          <div class="arch-box-sub">GCP serverless warehouse · Agent outputs · Portfolio snapshots · UUID-based IDs · Production backend</div>
-        </div>
-        <div class="arch-box">
-          <div class="arch-box-title">SQLite</div>
-          <div class="arch-box-sub">Local development backend · App settings · Encrypted secrets via Fernet</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- DASHBOARD PREVIEW -->
 <section class="dashboard-section">
@@ -1617,6 +1176,449 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     </div>
   </div>
 </section>
+
+<!-- AGENTS -->
+<section class="agents-section">
+  <div class="fade-in">
+    <div class="section-label">Agent Architecture</div>
+    <h2 class="section-title">Seven agents, each with a <em>real job</em></h2>
+    <p class="section-intro">Every agent has a specific role and its own set of tools that handle the math — Sharpe ratios, correlation matrices, sentiment scores. The LLM's job is to look at those results and figure out what they mean together. CrewAI orchestrates the whole crew and passes context between them so nothing gets analyzed in a vacuum.</p>
+  </div>
+  <div class="agents-grid">
+    <div class="agent-card fade-in">
+      <span class="agent-icon">📈</span>
+
+      <div class="agent-title">Portfolio Analyst</div>
+      <div class="agent-role">Agent 1 · Performance, Risk &amp; Correlation</div>
+      <p class="agent-body">Runs five tools across every holding: Sharpe ratio and volatility, concentration risk (HHI, sector limits), drift vs. my target allocations, performer ranking with percentiles, and pairwise correlation analysis — because three tech ETFs might look diversified until you see they move in lockstep.</p>
+      <div class="agent-outputs">
+        <span class="agent-out data">Finnhub Prices</span>
+        <span class="agent-out teal">Risk Metrics</span>
+        <span class="agent-out alert">Drift Alerts</span>
+        <span class="agent-out teal">Correlation Matrix</span>
+      </div>
+    </div>
+    <div class="agent-card fade-in">
+      <span class="agent-icon">🏛️</span>
+
+      <div class="agent-title">Smart Money</div>
+      <div class="agent-role">Agent 2 · Congressional Trading Signals</div>
+      <p class="agent-body">Pulls congressional stock trades from STOCK Act disclosures and cross-references them against my holdings. Which members are buying or selling, sector clustering, timing relative to legislation — the kind of signals that institutional investors pay attention to. If a senator is loading up on a sector I'm in, I want to know about it.</p>
+      <div class="agent-outputs">
+        <span class="agent-out data">Finnhub Congressional</span>
+        <span class="agent-out teal">Trade Patterns</span>
+        <span class="agent-out alert">Overlap Alerts</span>
+        <span class="agent-out data">Member Activity</span>
+      </div>
+    </div>
+    <div class="agent-card fade-in">
+      <span class="agent-icon">🌍</span>
+
+      <div class="agent-title">Macro Scanner</div>
+      <div class="agent-role">Agent 3 · World &amp; US News</div>
+      <p class="agent-body">Scans broad news for macro events — Fed moves, GDP, employment data, geopolitical shifts, trade policy — and runs each story through three sentiment scoring systems plus the CNN Fear &amp; Greed Index. The interesting part: when the signals disagree (alarming headline, reassuring details), that's flagged as the story worth reading first.</p>
+      <div class="agent-outputs">
+        <span class="agent-out data">NewsAPI</span>
+        <span class="agent-out data">Finnhub News</span>
+        <span class="agent-out ai">VADER NLP</span>
+        <span class="agent-out ai">Alpha Vantage AI</span>
+        <span class="agent-out alert">Fear &amp; Greed</span>
+      </div>
+    </div>
+    <div class="agent-card fade-in">
+      <span class="agent-icon">🔍</span>
+
+      <div class="agent-title">Security Scanner</div>
+      <div class="agent-role">Agent 4 · Holdings-Specific Intelligence</div>
+      <p class="agent-body">Same multi-signal scoring as the Macro Scanner, but zoomed in on each individual holding. Per-ticker sentiment (60% VADER NLP, 40% keyword rules), Alpha Vantage AI relevance scores, and material event detection — earnings surprises, splits, regulatory actions. If something's happening with a stock I own, this agent catches it.</p>
+      <div class="agent-outputs">
+        <span class="agent-out data">Finnhub Company News</span>
+        <span class="agent-out ai">Multi-Signal Scoring</span>
+        <span class="agent-out alert">Signal Disagreements</span>
+        <span class="agent-out alert">Material Events</span>
+      </div>
+    </div>
+    <div class="agent-card fade-in">
+      <span class="agent-icon">📅</span>
+
+      <div class="agent-title">Earnings &amp; Events Calendar</div>
+      <div class="agent-role">Agent 5 · Forward-Looking Timeline</div>
+      <p class="agent-body">Combines market events (earnings dates, ex-dividends, Fed meetings) with personal financial events (big expenses, bonus timing, tax deadlines). The goal: answer the question "what's coming up in the next few weeks that I should be thinking about?" — because a great trade idea doesn't help if rent is due.</p>
+      <div class="agent-outputs">
+        <span class="agent-out data">Finnhub Calendar</span>
+        <span class="agent-out data">Personal Events</span>
+        <span class="agent-out alert">Upcoming Timeline</span>
+        <span class="agent-out teal">Cash Flow Impact</span>
+      </div>
+    </div>
+    <div class="agent-card fade-in">
+      <span class="agent-icon">🧾</span>
+
+      <div class="agent-title">Tax Strategy</div>
+      <div class="agent-role">Agent 6 · Tax-Loss Harvesting &amp; Optimization</div>
+      <p class="agent-body">Watches unrealized gains and losses for tax-loss harvesting opportunities — cost basis math, short-term vs. long-term classification, 30-day wash sale tracking, and harvest candidates ranked by actual tax savings. Runs weekly, but cranks up the frequency in Q4 when every dollar of tax savings counts.</p>
+      <div class="agent-outputs">
+        <span class="agent-out data">Cost Basis Data</span>
+        <span class="agent-out alert">Wash Sale Windows</span>
+        <span class="agent-out teal">Harvest Candidates</span>
+        <span class="agent-out alert">Capital Gains</span>
+      </div>
+    </div>
+    <div class="agent-card fade-in">
+      <span class="agent-icon">🧠</span>
+
+      <div class="agent-title">Synthesizer + Audio</div>
+      <div class="agent-role">Agent 7 · Cross-Reference &amp; Recommendations</div>
+      <p class="agent-body">Takes everything the other six agents found and connects the dots. Factors tax implications into timing, weighs calendar events against trade ideas, and produces prioritized readouts with confidence scores. Also generates podcast-style audio briefings so I can listen to my portfolio update while walking the dog.</p>
+      <div class="agent-outputs">
+        <span class="agent-out ai">Trade Readouts</span>
+        <span class="agent-out ai">Stock Stories</span>
+        <span class="agent-out ai">Audio Briefing</span>
+        <span class="agent-out teal">Tax-Aware Timing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIPELINE — HOW AGENTS THINK -->
+<section class="pipeline-section">
+  <div class="fade-in">
+    <div class="section-label">Under The Hood</div>
+    <h2 class="section-title">How agents <em class="ai-em">think</em></h2>
+    <p class="section-intro">The core design principle: tools do the math, the LLM does the thinking. Python tools read articles, score sentiment, calculate risk metrics, and pack everything into a compact briefing. Claude only sees structured results it can reason about — not raw data it has to parse. It's like handing a senior analyst a research brief instead of a stack of newspapers.</p>
+  </div>
+
+  <div class="pipeline-flow">
+    <div class="pipeline-step fade-in">
+      <div class="pipeline-marker">
+        <div class="pipeline-dot">📡</div>
+        <div class="pipeline-line"></div>
+      </div>
+      <div class="pipeline-content">
+        <div class="pipeline-step-label">Step 1</div>
+        <div class="pipeline-step-title">Fetch from multiple sources</div>
+        <p class="pipeline-step-body">Each tool pulls data from every relevant source — NewsAPI for broad coverage, Finnhub for market-specific feeds, Yahoo Finance for earnings calendars. Articles are fetched at full length, then deduplicated by headline before any analysis begins.</p>
+      </div>
+    </div>
+
+    <div class="pipeline-step fade-in">
+      <div class="pipeline-marker">
+        <div class="pipeline-dot">⚖️</div>
+        <div class="pipeline-line"></div>
+      </div>
+      <div class="pipeline-content">
+        <div class="pipeline-step-label">Step 2</div>
+        <div class="pipeline-step-title">Multi-signal sentiment scoring</div>
+        <p class="pipeline-step-body">Each article is scored by three independent systems: custom keyword rules for speed (54 financial keywords, <code>severity 1–5</code>), NLTK's VADER model for NLP nuance (7,500-word lexicon, understands negation and intensifiers), and Alpha Vantage's AI model for financial-domain depth (per-ticker relevance scores). The CNN Fear &amp; Greed Index adds a market-wide sentiment reading. When signals disagree — alarming headline, reassuring substance — that's flagged as the most interesting insight.</p>
+      </div>
+    </div>
+
+    <div class="pipeline-step fade-in">
+      <div class="pipeline-marker">
+        <div class="pipeline-dot">🏷️</div>
+        <div class="pipeline-line"></div>
+      </div>
+      <div class="pipeline-content">
+        <div class="pipeline-step-label">Step 3</div>
+        <div class="pipeline-step-title">Categorize &amp; detect events</div>
+        <p class="pipeline-step-body">Articles are classified into macro themes (Fed policy, inflation, trade, geopolitical) and material event types (earnings, analyst actions, insider trades, regulatory, corporate). Each article can trigger multiple categories — a Fed rate decision article might tag both <code>fed_policy</code> and <code>inflation</code>.</p>
+      </div>
+    </div>
+
+    <div class="pipeline-step fade-in">
+      <div class="pipeline-marker">
+        <div class="pipeline-dot">🎯</div>
+        <div class="pipeline-line"></div>
+      </div>
+      <div class="pipeline-content">
+        <div class="pipeline-step-label">Step 4</div>
+        <div class="pipeline-step-title">Map portfolio impact</div>
+        <p class="pipeline-step-body">A static impact map connects macro categories to specific portfolio holdings. A trade policy headline automatically links to emerging market and tech supply chain tickers. The tool calculates total portfolio exposure as a percentage — so "trade war" isn't abstract, it's "38% of your holdings."</p>
+      </div>
+    </div>
+
+    <div class="pipeline-step fade-in">
+      <div class="pipeline-marker">
+        <div class="pipeline-dot">📦</div>
+        <div class="pipeline-line"></div>
+      </div>
+      <div class="pipeline-content">
+        <div class="pipeline-step-label">Step 5</div>
+        <div class="pipeline-step-title">Rank, pack &amp; trim</div>
+        <p class="pipeline-step-body">Articles are ranked by <code>severity × portfolio relevance</code>, then only the top stories make the cut. Raw text is discarded — what survives is a compact JSON briefing with scores, tickers, and rationales. Hundreds of articles become ~2K tokens of structured signal.</p>
+      </div>
+    </div>
+
+    <div class="pipeline-step fade-in">
+      <div class="pipeline-marker">
+        <div class="pipeline-dot">🧠</div>
+      </div>
+      <div class="pipeline-content">
+        <div class="pipeline-step-label">Step 6</div>
+        <div class="pipeline-step-title">Claude reasons across all signals</div>
+        <p class="pipeline-step-body">The language model receives the pre-scored briefing packet with every signal layered in: keyword severity, VADER NLP, Alpha Vantage AI scores, Fear &amp; Greed context, and signal disagreement flags. Its job is synthesis: what does this pattern of signals mean for timing, risk, and action? Four independent reads on each article, one reasoning step to connect them.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pipeline-callout fade-in">
+    <div class="pipeline-callout-icon">💡</div>
+    <div>
+      <div class="pipeline-callout-title">Why this architecture matters</div>
+      <p class="pipeline-callout-body">Most agent designs dump raw data into the LLM and hope for the best — expensive, slow, and token-hungry. This system runs four independent sentiment signals before the LLM even gets involved. The Python tools read thousands of words and crunch the numbers for free. Claude gets a tight briefing and focuses on what it's actually good at: connecting the dots across all those signals and telling me what matters.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="fade-in">
+    <div class="section-label">Feature Set</div>
+    <h2 class="section-title">What it <em>actually does</em></h2>
+    <p class="section-intro">The whole point is to give me everything I need to make a decision without logging into five different apps. It's read-only by design — it analyzes and recommends, but never touches the brokerage account.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🗺️</span>
+      <div class="feature-title">Portfolio Heatmap</div>
+      <p class="feature-body">Treemap visualization sized by allocation, colored by performance. One glance shows where the portfolio is thriving or bleeding.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">💥</span>
+      <div class="feature-title">Scenario Stress Testing</div>
+      <p class="feature-body">Replay historical crises (2008, COVID, dot-com) against current holdings to estimate portfolio vulnerability under extreme conditions.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">⚖️</span>
+      <div class="feature-title">Drift Detection</div>
+      <p class="feature-body">Define target allocations, get alerted when market movements push the portfolio off-target, with specific rebalancing suggestions.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🧾</span>
+      <div class="feature-title">Tax-Loss Harvesting</div>
+      <p class="feature-body">Scan unrealized losses against realized gains and suggest tax-aware trades. Especially valuable near year-end.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">📖</span>
+      <div class="feature-title">Stock Stories</div>
+      <p class="feature-body">AI-generated per-holding narratives covering performance, catalysts, sentiment, and portfolio context — not just raw data tables.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🔮</span>
+      <div class="feature-title">What-If Simulator</div>
+      <p class="feature-body">Model adding or removing positions without executing trades. See how hypothetical changes affect allocation, risk, and goals.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🎯</span>
+      <div class="feature-title">Goal Tracking</div>
+      <p class="feature-body">Set financial targets with projected trajectories based on current growth rate. Visual progress bars show if you're ahead or behind schedule.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🎙️</span>
+      <div class="feature-title">Podcast Briefings</div>
+      <p class="feature-body">Weekly audio summaries generated by ElevenLabs with two AI host voices. Listen to your portfolio analysis like a podcast while commuting.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">📋</span>
+      <div class="feature-title">Trade Readouts</div>
+      <p class="feature-body">Clear, actionable trade recommendations — ticker, action, quantity, rationale — formatted for quick manual entry in Fidelity. You decide what to act on.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">📅</span>
+      <div class="feature-title">Personal Events Calendar</div>
+      <p class="feature-body">Combine market events with personal financial milestones — tuition payments, bonus timing, property taxes — so recommendations factor in your real cash flow, not just the market.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🔐</span>
+      <div class="feature-title">macOS Keychain Security</div>
+      <p class="feature-body">All API keys and secrets stored in macOS Keychain, encrypted by the OS and protected by your login password or Touch ID. No plaintext .env files — even a compromised dependency can't read your credentials.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">📊</span>
+      <div class="feature-title">Correlation Analysis</div>
+      <p class="feature-body">Pairwise correlation matrix across all holdings reveals hidden concentration risk. Three tech ETFs might look diversified by name but move in lockstep — this tool catches that.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🔄</span>
+      <div class="feature-title">Transaction History</div>
+      <p class="feature-body">Full trade history from Fidelity via SnapTrade — buys, sells, dividends, contributions, withdrawals, fees. Summary cards, date/type/ticker filters, sortable table with type-colored badges.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🏦</span>
+      <div class="feature-title">Multi-Account Selector</div>
+      <p class="feature-body">Global account switcher scopes all pages to a specific brokerage account. React Context architecture means every dashboard view becomes account-aware without per-page refactoring.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🧪</span>
+      <div class="feature-title">Multi-Signal Sentiment</div>
+      <p class="feature-body">Four independent sentiment signals — keyword rules, VADER NLP, Alpha Vantage AI, CNN Fear &amp; Greed — scored before the LLM sees any data. Signal disagreements are flagged as the most interesting insights.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE - PROGRESSIVE PHASES -->
+<section class="arch-section" id="architecture">
+  <div class="fade-in">
+    <div class="section-label">Architecture</div>
+    <h2 class="section-title" style="color:#fff">How it all <em class="ai-em">fits together</em></h2>
+    <p class="section-intro">Built in phases, each one adding a new layer. Click through to see how the architecture grows from a simple data fetch to a full system with seven AI agents, BigQuery on GCP, and a DataStore abstraction that lets me swap backends without touching a line of application code.</p>
+  </div>
+  <div class="phase-stepper fade-in">
+    <button class="phase-btn" data-phase="1">Phase 1 · Foundation</button>
+    <button class="phase-btn" data-phase="2">Phase 2 · Allocations + Brokerage</button>
+    <button class="phase-btn" data-phase="3">Phase 3 · Drift Detection</button>
+    <button class="phase-btn" data-phase="4">Phase 4 · Scanners + Calendar</button>
+    <button class="phase-btn" data-phase="5">Phase 5 · Tax + Synthesizer</button>
+    <button class="phase-btn" data-phase="6">Phase 6 · Audio Briefings</button>
+    <button class="phase-btn active" data-phase="7">Phase 7 · Native App + Polish</button>
+  </div>
+
+  <div class="arch-diagram fade-in">
+    <!-- Layer: Presentation -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">Presentation Layer</div>
+      <div class="arch-row">
+        <div class="arch-box teal">
+          <div class="arch-box-title">React + Vite Frontend</div>
+          <div class="arch-box-sub">Recharts · Lightweight Charts (TradingView) · Tailwind CSS · JWT Auth</div>
+        </div>
+        <div class="arch-box purple" data-min-phase="7">
+          <div class="arch-box-title">Native Mac App</div>
+          <div class="arch-box-sub">Pywebview wrapper · Dock icon · System notifications</div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-arrow" data-min-phase="1">↓ ↓ ↓</div>
+
+    <!-- Layer: API -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">API Layer</div>
+      <div class="arch-row">
+        <div class="arch-box blue">
+          <div class="arch-box-title">FastAPI Backend</div>
+          <div class="arch-box-sub">REST endpoints · JWT auth · Rate limiting · Security headers · DataStore abstraction · Railway deploy</div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-arrow" data-min-phase="1">↓ ↓ ↓</div>
+
+    <!-- Layer: Orchestrator -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">Orchestration Layer</div>
+      <div class="arch-row">
+        <div class="arch-box purple">
+          <div class="arch-box-title">CrewAI Orchestrator</div>
+          <div class="arch-box-sub">Schedules agents, manages task flow, passes context between agents</div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-arrow" data-min-phase="1">↓ ↓ ↓ ↓</div>
+
+    <!-- Layer: Agents -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">Agent Layer</div>
+      <div class="arch-row">
+        <div class="arch-box teal" data-min-phase="1">
+          <div class="arch-box-title">Portfolio Analyst</div>
+          <div class="arch-box-sub">5 skill tools · Risk metrics · Correlation · Drift · Ranking</div>
+        </div>
+        <div class="arch-box teal" data-min-phase="1">
+          <div class="arch-box-title">Smart Money</div>
+          <div class="arch-box-sub">Congressional trades · STOCK Act · Insider patterns</div>
+        </div>
+        <div class="arch-box gold" data-min-phase="4">
+          <div class="arch-box-title">Macro Scanner</div>
+          <div class="arch-box-sub">NewsAPI · Finnhub News · Impact classification</div>
+        </div>
+        <div class="arch-box blue" data-min-phase="4">
+          <div class="arch-box-title">Security Scanner</div>
+          <div class="arch-box-sub">Company news · Sentiment · Material events</div>
+        </div>
+        <div class="arch-box blue" data-min-phase="4">
+          <div class="arch-box-title">Events Calendar</div>
+          <div class="arch-box-sub">Earnings dates · Ex-dividends · Personal events</div>
+        </div>
+        <div class="arch-box gold" data-min-phase="5">
+          <div class="arch-box-title">Tax Strategy</div>
+          <div class="arch-box-sub">Harvest candidates · Wash sales · Cost basis</div>
+        </div>
+        <div class="arch-box purple" data-min-phase="5">
+          <div class="arch-box-title">Synthesizer</div>
+          <div class="arch-box-sub">Cross-reference · Tax-aware timing · Trade readouts</div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-arrow" data-min-phase="1">↓ ↓ ↓</div>
+
+    <!-- Layer: Data Sources -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">Data Sources</div>
+      <div class="arch-row">
+        <div class="arch-box" data-min-phase="1">
+          <div class="arch-box-title">Finnhub</div>
+          <div class="arch-box-sub">Quotes · Fundamentals · News · Congressional · Earnings</div>
+        </div>
+        <div class="arch-box" data-min-phase="1">
+          <div class="arch-box-title">yfinance</div>
+          <div class="arch-box-sub">Fallback · Dividends · Institutional holders</div>
+        </div>
+        <div class="arch-box" data-min-phase="2">
+          <div class="arch-box-title">SnapTrade</div>
+          <div class="arch-box-sub">Brokerage API · Holdings · Balances · Transactions · Orders · Performance</div>
+        </div>
+        <div class="arch-box" data-min-phase="4">
+          <div class="arch-box-title">NewsAPI</div>
+          <div class="arch-box-sub">150K+ sources · World &amp; US news</div>
+        </div>
+        <div class="arch-box" data-min-phase="4">
+          <div class="arch-box-title">Alpha Vantage</div>
+          <div class="arch-box-sub">AI sentiment API · Per-ticker relevance scoring</div>
+        </div>
+        <div class="arch-box" data-min-phase="4">
+          <div class="arch-box-title">VADER NLP</div>
+          <div class="arch-box-sub">7,500-word lexicon · Negation &amp; intensifier aware</div>
+        </div>
+        <div class="arch-box" data-min-phase="4">
+          <div class="arch-box-title">CNN Fear &amp; Greed</div>
+          <div class="arch-box-sub">Market-wide sentiment · 0–100 index · Trend tracking</div>
+        </div>
+        <div class="arch-box" data-min-phase="6">
+          <div class="arch-box-title">ElevenLabs</div>
+          <div class="arch-box-sub">Two-voice TTS · Podcast generation</div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-arrow" data-min-phase="1">↓</div>
+
+    <!-- Layer: DataStore Abstraction -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">Data Abstraction Layer</div>
+      <div class="arch-row">
+        <div class="arch-box gold">
+          <div class="arch-box-title">DataStore Interface</div>
+          <div class="arch-box-sub">Strategy pattern · Backend-agnostic API · Factory routing via env config</div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-arrow" data-min-phase="1">↓</div>
+
+    <!-- Layer: Storage -->
+    <div class="arch-layer" data-min-phase="1">
+      <div class="arch-layer-label">Storage Layer</div>
+      <div class="arch-row">
+        <div class="arch-box teal">
+          <div class="arch-box-title">Google BigQuery</div>
+          <div class="arch-box-sub">GCP serverless warehouse · Agent outputs · Portfolio snapshots · UUID-based IDs · Production backend</div>
+        </div>
+        <div class="arch-box">
+          <div class="arch-box-title">SQLite</div>
+          <div class="arch-box-sub">Local development backend · App settings · Encrypted secrets via Fernet</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- TECH STACK -->
 <section class="stack-section">
