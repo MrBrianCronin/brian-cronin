@@ -114,13 +114,18 @@ section{padding:96px 60px}
 .spotlight-badge.gold{background:rgba(200,151,58,.2);border:1px solid rgba(200,151,58,.35);color:#fcd34d}
 .spotlight-cta{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.9);color:#fff;padding:14px 28px;border-radius:60px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s;font-family:'Syne',sans-serif;letter-spacing:-.01em}
 .spotlight-cta:hover{background:#7c3aed;transform:translateY(-2px);box-shadow:0 8px 30px rgba(124,58,237,.35)}
-.spotlight-arch{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px;font-family:'DM Sans',monospace;font-size:12px;line-height:1.7;color:rgba(255,255,255,.5)}
-.spotlight-arch .hl{color:#a78bfa}
-.spotlight-arch .tl{color:#6ee7b7}
-.spotlight-arch .bl{color:#93c5fd}
-.spotlight-arch .gl{color:#fcd34d}
-.spotlight-arch .dm{color:rgba(255,255,255,.2)}
-.spotlight-arch-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:14px;font-family:'DM Sans',sans-serif}
+.spotlight-arch{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px}
+.spotlight-arch-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:16px;font-family:'DM Sans',sans-serif}
+.sa-layer{margin-bottom:10px}
+.sa-row{display:flex;gap:8px;flex-wrap:wrap}
+.sa-box{flex:1;min-width:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 12px;text-align:center}
+.sa-box-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:#fff;white-space:nowrap}
+.sa-box-sub{font-size:9px;color:rgba(255,255,255,.4);margin-top:2px;line-height:1.3}
+.sa-box.purple{background:rgba(124,58,237,.18);border-color:rgba(124,58,237,.3)}
+.sa-box.teal{background:rgba(10,117,101,.18);border-color:rgba(10,117,101,.3)}
+.sa-box.blue{background:rgba(26,82,150,.18);border-color:rgba(26,82,150,.3)}
+.sa-box.gold{background:rgba(200,151,58,.18);border-color:rgba(200,151,58,.3)}
+.sa-arrow{text-align:center;color:rgba(255,255,255,.15);font-size:14px;margin:6px 0;letter-spacing:6px}
 .spotlight-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
 .spotlight-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:14px;text-align:center}
 .spotlight-stat-num{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;line-height:1}
@@ -323,20 +328,36 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <div class="spotlight-right">
       <div class="spotlight-arch">
         <div class="spotlight-arch-label">System Architecture</div>
-<span class="dm">┌────────────────────────────────────────┐</span>
-<span class="hl">  ORCHESTRATOR</span> <span class="dm">(CrewAI + Claude)</span>
-<span class="dm">└──┬────────┬────────┬────────┬─────────┘</span>
-   <span class="dm">│        │        │        │</span>
- <span class="tl">Portfolio</span> <span class="tl">Smart</span>  <span class="bl">Macro</span>  <span class="bl">Security</span>
- <span class="tl">Analyst</span>  <span class="tl">Money</span>  <span class="bl">Scanner</span> <span class="bl">Scanner</span>
-   <span class="dm">│        │        │        │</span>
-   <span class="dm">└────────┴────────┴────────┘</span>
-                  <span class="dm">│</span>
-        <span class="gl">DataStore Abstraction</span>
-        <span class="tl">Google BigQuery</span> <span class="dm">· GCP</span>
-                  <span class="dm">│</span>
-      <span class="hl">React + Vite</span> <span class="dm">frontend</span>
-      <span class="bl">FastAPI</span> <span class="dm">backend (Railway)</span>
+        <div class="sa-layer">
+          <div class="sa-row"><div class="sa-box purple" style="flex:1"><div class="sa-box-title">CrewAI Orchestrator</div><div class="sa-box-sub">Claude Sonnet · Task routing</div></div></div>
+        </div>
+        <div class="sa-arrow">↓ ↓ ↓</div>
+        <div class="sa-layer">
+          <div class="sa-row">
+            <div class="sa-box teal"><div class="sa-box-title">Portfolio Analyst</div></div>
+            <div class="sa-box teal"><div class="sa-box-title">Smart Money</div></div>
+            <div class="sa-box blue"><div class="sa-box-title">Macro Scanner</div></div>
+            <div class="sa-box blue"><div class="sa-box-title">Security Scanner</div></div>
+          </div>
+        </div>
+        <div class="sa-arrow">↓ ↓ ↓</div>
+        <div class="sa-layer">
+          <div class="sa-row"><div class="sa-box gold" style="flex:1"><div class="sa-box-title">DataStore Abstraction</div><div class="sa-box-sub">Strategy pattern · Backend-agnostic</div></div></div>
+        </div>
+        <div class="sa-arrow">↓</div>
+        <div class="sa-layer">
+          <div class="sa-row">
+            <div class="sa-box teal"><div class="sa-box-title">Google BigQuery</div><div class="sa-box-sub">GCP · Production</div></div>
+            <div class="sa-box"><div class="sa-box-title">SQLite</div><div class="sa-box-sub">Local dev</div></div>
+          </div>
+        </div>
+        <div class="sa-arrow">↓</div>
+        <div class="sa-layer">
+          <div class="sa-row">
+            <div class="sa-box purple"><div class="sa-box-title">React + Vite</div><div class="sa-box-sub">Vercel</div></div>
+            <div class="sa-box blue"><div class="sa-box-title">FastAPI</div><div class="sa-box-sub">Railway</div></div>
+          </div>
+        </div>
       </div>
       <div class="spotlight-stats">
         <div class="spotlight-stat"><div class="spotlight-stat-num">7</div><div class="spotlight-stat-label">AI Agents</div></div>
