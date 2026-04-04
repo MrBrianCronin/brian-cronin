@@ -155,6 +155,152 @@ section{padding:96px 60px}
 .tab-pane-features{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .tab-feat{font-size:11px;font-weight:500;padding:5px 12px;border-radius:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55)}
 
+/* DASHBOARD MOCKUP STYLES */
+.mockup-container{display:flex;flex-direction:column;gap:24px}
+.summary-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px}
+.summary-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;font-size:12px}
+.summary-card-label{color:rgba(255,255,255,.5);font-size:11px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.summary-card-value{font-size:16px;font-weight:700;color:#fff;margin-bottom:4px}
+.summary-card-change{font-size:11px;color:#34d399}
+.summary-card-change.neg{color:#f87171}
+
+.heatmap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.heatmap-block{aspect-ratio:1;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:#fff;flex-direction:column}
+.heatmap-label{font-size:9px;margin-top:2px;opacity:.8}
+
+.sector-chart{display:flex;align-items:center;gap:24px}
+.sector-pie{width:120px;height:120px;border-radius:50%;background:conic-gradient(#7c3aed 0deg 151.2deg,#06b6d4 151.2deg 216deg,#34d399 216deg 259.2deg,#fcd34d 259.2deg 302.4deg,#ef4444 302.4deg 330deg,#60a5fa 330deg 360deg);position:relative}
+.sector-legend{display:flex;flex-direction:column;gap:8px;font-size:11px}
+.sector-item{display:flex;align-items:center;gap:6px}
+.sector-dot{width:12px;height:12px;border-radius:2px;flex-shrink:0}
+
+.holdings-table{width:100%;font-size:11px;border-collapse:collapse;margin-bottom:8px}
+.holdings-table th{text-align:left;padding:8px;color:rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.08);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.holdings-table td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.85)}
+.holdings-table tr:hover{background:rgba(255,255,255,.02)}
+.ticker-badge{color:#60a5fa;font-weight:600}
+.value-positive{color:#34d399}
+.value-negative{color:#f87171}
+
+.allocation-bars{display:flex;flex-direction:column;gap:12px;font-size:11px}
+.allocation-row{display:flex;align-items:center;gap:12px}
+.allocation-label{width:100px;color:rgba(255,255,255,.7);font-weight:500}
+.allocation-chart{flex:1;display:flex;gap:2px;height:20px;background:rgba(255,255,255,.03);border-radius:4px;overflow:hidden}
+.bar-target{background:rgba(255,255,255,.15);flex-basis:40%}
+.bar-actual{background:#7c3aed;flex-basis:42.3%}
+.allocation-pct{width:60px;text-align:right;color:rgba(255,255,255,.6)}
+.allocation-drift{width:50px;text-align:right}
+.allocation-drift.pos{color:#34d399}
+.allocation-drift.neg{color:#f87171}
+
+.risk-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px;font-size:11px}
+.risk-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px}
+.risk-label{color:rgba(255,255,255,.5);font-size:10px;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
+.risk-value{font-size:18px;font-weight:700;color:#fff}
+
+.correlation-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:10px;margin-bottom:16px}
+.corr-header{text-align:center;color:rgba(255,255,255,.5);padding:6px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08)}
+.corr-cell{text-align:center;padding:8px;background:rgba(255,255,255,.04);border-radius:4px;font-weight:600}
+
+.performers{display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:11px}
+.performer-list{display:flex;flex-direction:column;gap:8px}
+.performer-item{display:flex;justify-content:space-between;padding:8px;background:rgba(255,255,255,.03);border-radius:6px}
+.performer-ticker{color:#60a5fa;font-weight:600}
+.performer-gain{color:#34d399}
+.performer-loss{color:#f87171}
+
+.congress-table{width:100%;font-size:11px;border-collapse:collapse;margin-bottom:12px}
+.congress-table th{text-align:left;padding:8px;color:rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.08);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.congress-table td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.8)}
+.trade-type{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600}
+.trade-buy{background:rgba(52,211,153,.2);color:#34d399}
+.trade-sell{background:rgba(248,113,113,.2);color:#f87171}
+
+.overlap-section{margin-top:12px;padding:12px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid rgba(255,255,255,.08)}
+.overlap-title{font-size:11px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.overlap-tickers{display:flex;gap:8px}
+.overlap-ticker{display:inline-block;padding:4px 10px;background:rgba(124,58,237,.2);color:#a78bfa;border-radius:4px;font-size:11px;font-weight:600}
+
+.dual-pane{display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:11px}
+.pane-header{color:rgba(255,255,255,.6);font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em;font-size:10px}
+.event-item{padding:10px;background:rgba(255,255,255,.03);border-left:3px solid rgba(255,255,255,.2);margin-bottom:8px;border-radius:4px}
+.event-title{color:#fff;font-weight:600;font-size:12px}
+.event-subtitle{color:rgba(255,255,255,.5);font-size:10px;margin-top:2px}
+.event-severity-high{border-left-color:#ef4444}
+.event-severity-med{border-left-color:#fcd34d}
+.event-severity-low{border-left-color:#34d399}
+.severity-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;margin-bottom:-1px}
+.severity-dot.high{background:#ef4444}
+.severity-dot.med{background:#fcd34d}
+.severity-dot.low{background:#34d399}
+
+.timeline{display:flex;flex-direction:column;gap:12px;font-size:11px}
+.timeline-item{display:flex;gap:12px;padding:10px;background:rgba(255,255,255,.03);border-radius:8px;border-left:2px solid rgba(255,255,255,.1)}
+.timeline-dot{width:8px;height:8px;background:rgba(255,255,255,.4);border-radius:50%;margin-top:4px;flex-shrink:0}
+.timeline-item.earnings .timeline-dot{background:#a78bfa}
+.timeline-item.dividend .timeline-dot{background:#34d399}
+.timeline-item.fed .timeline-dot{background:#60a5fa}
+.timeline-item.personal .timeline-dot{background:#fcd34d}
+.timeline-content{flex:1}
+.timeline-date{color:rgba(255,255,255,.5);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+.timeline-label{color:#fff;font-weight:600}
+.event-badge{display:inline-block;margin-left:8px;padding:1px 6px;border-radius:3px;font-size:9px;font-weight:600}
+.badge-earnings{background:rgba(167,139,250,.2);color:#a78bfa}
+.badge-dividend{background:rgba(52,211,153,.2);color:#34d399}
+.badge-fed{background:rgba(96,165,250,.2);color:#60a5fa}
+.badge-personal{background:rgba(252,211,77,.2);color:#fcd34d}
+
+.transactions-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;font-size:11px}
+.trans-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px}
+.trans-label{color:rgba(255,255,255,.5);font-size:10px;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
+.trans-value{font-size:16px;font-weight:700;color:#fff}
+
+.transactions-table{width:100%;font-size:11px;border-collapse:collapse}
+.transactions-table th{text-align:left;padding:8px;color:rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.08);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.transactions-table td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.8)}
+.type-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600}
+.type-buy{background:rgba(52,211,153,.2);color:#34d399}
+.type-sell{background:rgba(248,113,113,.2);color:#f87171}
+.type-dividend{background:rgba(167,139,250,.2);color:#a78bfa}
+.type-contrib{background:rgba(96,165,250,.2);color:#60a5fa}
+
+.tax-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;font-size:11px}
+.tax-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px}
+.tax-label{color:rgba(255,255,255,.5);font-size:10px;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
+.tax-value{font-size:16px;font-weight:700;color:#fff}
+
+.harvest-table{width:100%;font-size:11px;border-collapse:collapse}
+.harvest-table th{text-align:left;padding:8px;color:rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.08);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.harvest-table td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.8)}
+.wash-sale-warning{color:#fcd34d}
+
+.recommendations{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.rec-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;font-size:11px}
+.rec-action{display:inline-block;width:fit-content;padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.rec-buy{background:rgba(52,211,153,.25);color:#34d399}
+.rec-sell{background:rgba(248,113,113,.25);color:#f87171}
+.rec-hold{background:rgba(167,139,250,.25);color:#a78bfa}
+.rec-review{background:rgba(252,211,77,.25);color:#fcd34d}
+.rec-ticker{color:#60a5fa;font-size:13px;font-weight:700}
+.rec-rationale{color:rgba(255,255,255,.6);line-height:1.5;font-size:10px;margin:8px 0}
+.rec-confidence{display:flex;align-items:center;gap:8px;font-size:10px;color:rgba(255,255,255,.6)}
+.conf-bar{flex:1;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+.conf-fill{height:100%;background:#7c3aed}
+
+.settings-section{display:flex;flex-direction:column;gap:20px;font-size:11px}
+.settings-group{border-top:1px solid rgba(255,255,255,.08);padding-top:16px}
+.settings-group-title{color:rgba(255,255,255,.6);font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em;font-size:10px}
+.settings-item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.settings-label{color:rgba(255,255,255,.7);font-weight:500}
+.status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px}
+.status-dot.connected{background:#34d399}
+.status-dot.disconnected{background:#fcd34d}
+.status-text{color:rgba(255,255,255,.6);font-size:10px}
+.toggle-indicator{width:36px;height:20px;background:rgba(255,255,255,.1);border-radius:10px;position:relative;display:flex;align-items:center}
+.toggle-indicator.on{background:rgba(52,211,153,.3)}
+.toggle-dot{width:16px;height:16px;background:rgba(255,255,255,.3);border-radius:50%;position:absolute;left:2px;transition:left .2s}
+.toggle-indicator.on .toggle-dot{left:18px;background:#34d399}
+
 /* FOOTER */
 footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;justify-content:space-between}
 .footer-logo{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:rgba(255,255,255,.75)}
@@ -690,59 +836,678 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     </div>
     <div class="tab-content">
       <div class="tab-pane active" id="tab-overview">
-        <div class="tab-pane-title">Portfolio Overview</div>
-        <p class="tab-pane-body">Portfolio heatmap (treemap sized by allocation, colored by performance), value chart with 30/90/365 day trailing views, sector allocation donut, top gainers and losers, and overall P&amp;L summary.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Heatmap Treemap</span><span class="tab-feat">Value Trend Line</span><span class="tab-feat">Sector Donut</span><span class="tab-feat">P&amp;L Summary</span></div>
+        <div class="mockup-container">
+          <div class="summary-cards">
+            <div class="summary-card">
+              <div class="summary-card-label">Total Value</div>
+              <div class="summary-card-value">$487,231</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-card-label">Day Change</div>
+              <div class="summary-card-value">+$2,847</div>
+              <div class="summary-card-change">+0.58%</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-card-label">Total P&L</div>
+              <div class="summary-card-value">+$63,441</div>
+              <div class="summary-card-change">+14.97%</div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Holdings Heatmap</div>
+          <div class="heatmap-grid">
+            <div class="heatmap-block" style="background:#34d399;">AAPL<div class="heatmap-label">+2.1%</div></div>
+            <div class="heatmap-block" style="background:#34d399;">MSFT<div class="heatmap-label">+1.4%</div></div>
+            <div class="heatmap-block" style="background:#f87171;">GOOGL<div class="heatmap-label">-0.8%</div></div>
+            <div class="heatmap-block" style="background:#34d399;">AMZN<div class="heatmap-label">+3.2%</div></div>
+            <div class="heatmap-block" style="background:#f87171;">NVDA<div class="heatmap-label">-1.5%</div></div>
+            <div class="heatmap-block" style="background:#34d399;">JPM<div class="heatmap-label">+0.9%</div></div>
+            <div class="heatmap-block" style="background:#34d399;">V<div class="heatmap-label">+0.4%</div></div>
+            <div class="heatmap-block" style="background:#f87171;">UNH<div class="heatmap-label">-0.3%</div></div>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin:16px 0 12px 0;text-transform:uppercase;letter-spacing:.05em">Sector Allocation</div>
+          <div class="sector-chart">
+            <div class="sector-pie"></div>
+            <div class="sector-legend">
+              <div class="sector-item"><span class="sector-dot" style="background:#7c3aed"></span>Tech 42%</div>
+              <div class="sector-item"><span class="sector-dot" style="background:#06b6d4"></span>Healthcare 18%</div>
+              <div class="sector-item"><span class="sector-dot" style="background:#34d399"></span>Financials 15%</div>
+              <div class="sector-item"><span class="sector-dot" style="background:#fcd34d"></span>Consumer 12%</div>
+              <div class="sector-item"><span class="sector-dot" style="background:#ef4444"></span>Energy 8%</div>
+              <div class="sector-item"><span class="sector-dot" style="background:#60a5fa"></span>Other 5%</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="tab-pane" id="tab-holdings">
-        <div class="tab-pane-title">Holdings Detail</div>
-        <p class="tab-pane-body">Full positions table with drill-down. Click any ticker to see a TradingView Lightweight Charts candlestick with volume, an AI-generated Stock Story narrative, and related news alerts.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Candlestick Charts</span><span class="tab-feat">Volume Analysis</span><span class="tab-feat">Stock Stories</span><span class="tab-feat">Related News</span></div>
+        <div class="mockup-container">
+          <table class="holdings-table">
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Value</th>
+                <th>Day Chg</th>
+                <th>P&L</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="ticker-badge">AAPL</span></td>
+                <td>45</td>
+                <td>$198.42</td>
+                <td>$8,929</td>
+                <td><span class="value-positive">+$126</span></td>
+                <td><span class="value-positive">+$1,240</span></td>
+              </tr>
+              <tr>
+                <td><span class="ticker-badge">MSFT</span></td>
+                <td>30</td>
+                <td>$432.18</td>
+                <td>$12,965</td>
+                <td><span class="value-positive">+$92</span></td>
+                <td><span class="value-positive">+$2,184</span></td>
+              </tr>
+              <tr>
+                <td><span class="ticker-badge">GOOGL</span></td>
+                <td>20</td>
+                <td>$178.56</td>
+                <td>$3,571</td>
+                <td><span class="value-negative">-$18</span></td>
+                <td><span class="value-negative">-$284</span></td>
+              </tr>
+              <tr>
+                <td><span class="ticker-badge">AMZN</span></td>
+                <td>15</td>
+                <td>$189.73</td>
+                <td>$2,846</td>
+                <td><span class="value-positive">+$82</span></td>
+                <td><span class="value-positive">+$512</span></td>
+              </tr>
+              <tr>
+                <td><span class="ticker-badge">NVDA</span></td>
+                <td>25</td>
+                <td>$892.45</td>
+                <td>$22,311</td>
+                <td><span class="value-negative">-$284</span></td>
+                <td><span class="value-positive">+$4,621</span></td>
+              </tr>
+              <tr>
+                <td><span class="ticker-badge">JPM</span></td>
+                <td>40</td>
+                <td>$198.32</td>
+                <td>$7,933</td>
+                <td><span class="value-positive">+$64</span></td>
+                <td><span class="value-positive">+$586</span></td>
+              </tr>
+              <tr>
+                <td><span class="ticker-badge">V</span></td>
+                <td>35</td>
+                <td>$278.91</td>
+                <td>$9,762</td>
+                <td><span class="value-positive">+$31</span></td>
+                <td><span class="value-positive">+$743</span></td>
+              </tr>
+              <tr>
+                <td><span class="ticker-badge">UNH</span></td>
+                <td>12</td>
+                <td>$524.67</td>
+                <td>$6,296</td>
+                <td><span class="value-negative">-$12</span></td>
+                <td><span class="value-negative">-$228</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="tab-pane" id="tab-allocations">
-        <div class="tab-pane-title">Allocation Manager</div>
-        <p class="tab-pane-body">Define target allocations by sector with interactive sliders. Multi-dimension targets support category-level and individual-holding targets. Visual comparison of actual vs. target with drift percentage and rebalancing suggestions.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Target Sliders</span><span class="tab-feat">Drift Detection</span><span class="tab-feat">Rebalance Suggestions</span><span class="tab-feat">Multi-Dimension</span></div>
+        <div class="mockup-container">
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Category Allocations</div>
+          <div class="allocation-bars">
+            <div class="allocation-row">
+              <div class="allocation-label">Technology</div>
+              <div class="allocation-chart">
+                <div class="bar-target" style="flex-basis:40%"></div>
+                <div class="bar-actual" style="flex-basis:42.3%"></div>
+              </div>
+              <div class="allocation-pct">40% → 42.3%</div>
+              <div class="allocation-drift pos">+2.3%</div>
+            </div>
+            <div class="allocation-row">
+              <div class="allocation-label">Healthcare</div>
+              <div class="allocation-chart">
+                <div class="bar-target" style="flex-basis:20%"></div>
+                <div class="bar-actual" style="flex-basis:18.1%;background:#f87171"></div>
+              </div>
+              <div class="allocation-pct">20% → 18.1%</div>
+              <div class="allocation-drift neg">-1.9%</div>
+            </div>
+            <div class="allocation-row">
+              <div class="allocation-label">Financials</div>
+              <div class="allocation-chart">
+                <div class="bar-target" style="flex-basis:15%"></div>
+                <div class="bar-actual" style="flex-basis:15.4%"></div>
+              </div>
+              <div class="allocation-pct">15% → 15.4%</div>
+              <div class="allocation-drift pos">+0.4%</div>
+            </div>
+            <div class="allocation-row">
+              <div class="allocation-label">Consumer</div>
+              <div class="allocation-chart">
+                <div class="bar-target" style="flex-basis:12%"></div>
+                <div class="bar-actual" style="flex-basis:11.8%;background:#f87171"></div>
+              </div>
+              <div class="allocation-pct">12% → 11.8%</div>
+              <div class="allocation-drift neg">-0.2%</div>
+            </div>
+            <div class="allocation-row">
+              <div class="allocation-label">Energy</div>
+              <div class="allocation-chart">
+                <div class="bar-target" style="flex-basis:8%"></div>
+                <div class="bar-actual" style="flex-basis:7.9%;background:#f87171"></div>
+              </div>
+              <div class="allocation-pct">8% → 7.9%</div>
+              <div class="allocation-drift neg">-0.1%</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="tab-pane" id="tab-analysis">
-        <div class="tab-pane-title">Portfolio Analysis</div>
-        <p class="tab-pane-body">The Portfolio Analyst's full report — five tools crunch the numbers: risk metrics (Sharpe ratio, volatility, max drawdown), concentration risk (HHI, sector limits), drift vs. targets, performer rankings, and cross-holding correlation analysis.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Sharpe Ratio</span><span class="tab-feat">Concentration HHI</span><span class="tab-feat">Drift Detection</span><span class="tab-feat">Correlation Matrix</span><span class="tab-feat">Performer Ranking</span></div>
+        <div class="mockup-container">
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Risk Metrics</div>
+          <div class="risk-cards">
+            <div class="risk-card">
+              <div class="risk-label">Sharpe Ratio</div>
+              <div class="risk-value">1.42</div>
+            </div>
+            <div class="risk-card">
+              <div class="risk-label">Portfolio Beta</div>
+              <div class="risk-value">1.08</div>
+            </div>
+            <div class="risk-card">
+              <div class="risk-label">Max Drawdown</div>
+              <div class="risk-value" style="color:#f87171">-12.4%</div>
+            </div>
+            <div class="risk-card">
+              <div class="risk-label">Volatility</div>
+              <div class="risk-value">16.2%</div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin:16px 0 12px 0;text-transform:uppercase;letter-spacing:.05em">Correlation Matrix</div>
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;font-size:10px;margin-bottom:16px">
+            <div style="text-align:center;color:rgba(255,255,255,.5);padding:6px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08)"></div>
+            <div style="text-align:center;color:rgba(255,255,255,.5);padding:6px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08)">AAPL</div>
+            <div style="text-align:center;color:rgba(255,255,255,.5);padding:6px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08)">MSFT</div>
+            <div style="text-align:center;color:rgba(255,255,255,.5);padding:6px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08)">NVDA</div>
+            <div style="text-align:center;color:rgba(255,255,255,.5);padding:6px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08)">GOOGL</div>
+            <div style="color:rgba(255,255,255,.6);padding:6px;text-align:right">AAPL</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#fff">1.00</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#60a5fa">0.87</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#60a5fa">0.72</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#60a5fa">0.65</div>
+            <div style="color:rgba(255,255,255,.6);padding:6px;text-align:right">MSFT</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#60a5fa">0.87</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#fff">1.00</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#60a5fa">0.68</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#fcd34d">0.45</div>
+            <div style="color:rgba(255,255,255,.6);padding:6px;text-align:right">NVDA</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#60a5fa">0.72</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#60a5fa">0.68</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#fff">1.00</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#fcd34d">0.51</div>
+            <div style="color:rgba(255,255,255,.6);padding:6px;text-align:right">GOOGL</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#60a5fa">0.65</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#fcd34d">0.45</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#fcd34d">0.51</div>
+            <div style="text-align:center;padding:6px;background:rgba(255,255,255,.04);border-radius:3px;font-weight:600;color:#fff">1.00</div>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin:16px 0 12px 0;text-transform:uppercase;letter-spacing:.05em">Top Performers</div>
+          <div class="performers">
+            <div class="performer-list" style="border-right:1px solid rgba(255,255,255,.08);padding-right:12px">
+              <div style="color:rgba(255,255,255,.5);font-size:10px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">Gainers</div>
+              <div class="performer-item">
+                <span class="performer-ticker">AMZN</span>
+                <span class="performer-gain">+24.3%</span>
+              </div>
+              <div class="performer-item">
+                <span class="performer-ticker">NVDA</span>
+                <span class="performer-gain">+18.7%</span>
+              </div>
+              <div class="performer-item">
+                <span class="performer-ticker">AAPL</span>
+                <span class="performer-gain">+12.1%</span>
+              </div>
+            </div>
+            <div class="performer-list" style="padding-left:12px">
+              <div style="color:rgba(255,255,255,.5);font-size:10px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">Losers</div>
+              <div class="performer-item">
+                <span class="performer-ticker">UNH</span>
+                <span class="performer-loss">-4.2%</span>
+              </div>
+              <div class="performer-item">
+                <span class="performer-ticker">GOOGL</span>
+                <span class="performer-loss">-2.8%</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="tab-pane" id="tab-smartmoney">
-        <div class="tab-pane-title">Smart Money</div>
-        <p class="tab-pane-body">Congressional trading analysis powered by STOCK Act disclosures via Finnhub. See which members of Congress are buying or selling, detect sector clustering patterns, identify overlap with your holdings, and track timing relative to legislation.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Congressional Trades</span><span class="tab-feat">Holdings Overlap</span><span class="tab-feat">Sector Patterns</span><span class="tab-feat">STOCK Act Data</span></div>
+        <div class="mockup-container">
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Recent Congressional Trades</div>
+          <table class="congress-table">
+            <thead>
+              <tr>
+                <th>Member</th>
+                <th>Ticker</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rep. Johnson</td>
+                <td><span class="ticker-badge">MSFT</span></td>
+                <td><span class="trade-type trade-buy">BUY</span></td>
+                <td>$50K–$100K</td>
+                <td>Mar 2026</td>
+              </tr>
+              <tr>
+                <td>Sen. Chen</td>
+                <td><span class="ticker-badge">AAPL</span></td>
+                <td><span class="trade-type trade-sell">SELL</span></td>
+                <td>$10K–$50K</td>
+                <td>Feb 2026</td>
+              </tr>
+              <tr>
+                <td>Rep. Williams</td>
+                <td><span class="ticker-badge">NVDA</span></td>
+                <td><span class="trade-type trade-buy">BUY</span></td>
+                <td>$100K–$250K</td>
+                <td>Mar 2026</td>
+              </tr>
+              <tr>
+                <td>Sen. Davis</td>
+                <td><span class="ticker-badge">JPM</span></td>
+                <td><span class="trade-type trade-buy">BUY</span></td>
+                <td>$50K–$100K</td>
+                <td>Feb 2026</td>
+              </tr>
+              <tr>
+                <td>Rep. Patel</td>
+                <td><span class="ticker-badge">V</span></td>
+                <td><span class="trade-type trade-buy">BUY</span></td>
+                <td>$25K–$50K</td>
+                <td>Mar 2026</td>
+              </tr>
+              <tr>
+                <td>Sen. Martinez</td>
+                <td><span class="ticker-badge">GOOGL</span></td>
+                <td><span class="trade-type trade-sell">SELL</span></td>
+                <td>$100K–$250K</td>
+                <td>Jan 2026</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="overlap-section">
+            <div class="overlap-title">Your Portfolio Overlap (3 matches)</div>
+            <div class="overlap-tickers">
+              <div class="overlap-ticker">MSFT</div>
+              <div class="overlap-ticker">AAPL</div>
+              <div class="overlap-ticker">NVDA</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="tab-pane" id="tab-news">
-        <div class="tab-pane-title">News</div>
-        <p class="tab-pane-body">Dual-pane view: macro events color-coded by impact level from the Macro Scanner, and security-specific alerts filterable by ticker from the Security Scanner.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Macro Events</span><span class="tab-feat">Security Alerts</span><span class="tab-feat">Impact Ratings</span><span class="tab-feat">Sentiment Scores</span></div>
+        <div class="mockup-container">
+          <div class="dual-pane">
+            <div>
+              <div class="pane-header">Macro Events</div>
+              <div class="event-item event-severity-high">
+                <div><span class="severity-dot high"></span><div class="event-title">Trade tensions with EU escalate</div></div>
+                <div class="event-subtitle">Market impact: High</div>
+              </div>
+              <div class="event-item event-severity-med">
+                <div><span class="severity-dot med"></span><div class="event-title">GDP growth exceeds expectations</div></div>
+                <div class="event-subtitle">+2.8% vs. +2.4% forecast</div>
+              </div>
+              <div class="event-item event-severity-low">
+                <div><span class="severity-dot low"></span><div class="event-title">Fed signals rate hold through Q2</div></div>
+                <div class="event-subtitle">Market impact: Low</div>
+              </div>
+              <div class="event-item event-severity-med">
+                <div><span class="severity-dot med"></span><div class="event-title">Oil prices up 8% on supply disruption</div></div>
+                <div class="event-subtitle">WTI crude to $89/barrel</div>
+              </div>
+            </div>
+            <div>
+              <div class="pane-header">Security Alerts</div>
+              <div class="event-item">
+                <div style="color:#60a5fa;font-weight:600;font-size:11px">NVDA</div>
+                <div class="event-title" style="font-size:11px">Earnings beat by 12%</div>
+                <div class="event-subtitle">Stock rally likely continues</div>
+              </div>
+              <div class="event-item">
+                <div style="color:#60a5fa;font-weight:600;font-size:11px">JPM</div>
+                <div class="event-title" style="font-size:11px">Analyst upgrade to overweight</div>
+                <div class="event-subtitle">Goldman Sachs PT raised to $215</div>
+              </div>
+              <div class="event-item">
+                <div style="color:#60a5fa;font-weight:600;font-size:11px">AAPL</div>
+                <div class="event-title" style="font-size:11px">Supply chain concerns in SE Asia</div>
+                <div class="event-subtitle">Potential margin pressure Q2</div>
+              </div>
+              <div class="event-item">
+                <div style="color:#60a5fa;font-weight:600;font-size:11px">MSFT</div>
+                <div class="event-title" style="font-size:11px">Azure growth accelerates</div>
+                <div class="event-subtitle">AI workloads driving revenue</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="tab-pane" id="tab-calendar">
-        <div class="tab-pane-title">Earnings &amp; Events Calendar</div>
-        <p class="tab-pane-body">Forward-looking timeline combining market events (earnings dates, ex-dividends, Fed meetings, economic data releases) with personal financial events (tuition, bonus timing, large expenses). Color-coded by type to answer: "What's coming up that affects my portfolio or cash flow?"</p>
-        <div class="tab-pane-features"><span class="tab-feat">Earnings Dates</span><span class="tab-feat">Ex-Dividend</span><span class="tab-feat">Personal Events</span><span class="tab-feat">Cash Flow Timeline</span></div>
+        <div class="mockup-container">
+          <div class="timeline">
+            <div class="timeline-item earnings">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-date">Apr 15</div>
+                <div class="timeline-label">MSFT Ex-Dividend<span class="event-badge badge-dividend">Dividend</span></div>
+              </div>
+            </div>
+            <div class="timeline-item personal">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-date">Apr 15</div>
+                <div class="timeline-label">Quarterly Tax Payment<span class="event-badge badge-personal">Personal</span></div>
+              </div>
+            </div>
+            <div class="timeline-item earnings">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-date">Apr 24</div>
+                <div class="timeline-label">AAPL Earnings<span class="event-badge badge-earnings">Earnings</span></div>
+              </div>
+            </div>
+            <div class="timeline-item personal">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-date">Apr 30</div>
+                <div class="timeline-label">Bonus Expected<span class="event-badge badge-personal">Personal</span></div>
+              </div>
+            </div>
+            <div class="timeline-item fed">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-date">May 6–7</div>
+                <div class="timeline-label">Fed Meeting<span class="event-badge badge-fed">Event</span></div>
+              </div>
+            </div>
+            <div class="timeline-item earnings">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-date">May 12</div>
+                <div class="timeline-label">GOOGL Earnings<span class="event-badge badge-earnings">Earnings</span></div>
+              </div>
+            </div>
+            <div class="timeline-item earnings">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-date">May 22</div>
+                <div class="timeline-label">AMZN Ex-Dividend<span class="event-badge badge-dividend">Dividend</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="tab-pane" id="tab-transactions">
-        <div class="tab-pane-title">Transactions</div>
-        <p class="tab-pane-body">Full trade history pulled directly from Fidelity via SnapTrade. Summary cards show total trades, capital deployed, dividends received, and fees paid. Filter by date range, transaction type (buy, sell, dividend, contribution, withdrawal, fee, tax), or ticker search. Sortable table with type-colored badges and a reference legend for all transaction types.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Summary Cards</span><span class="tab-feat">Type Filters</span><span class="tab-feat">Sortable Table</span><span class="tab-feat">Multi-Account</span></div>
+        <div class="mockup-container">
+          <div class="transactions-summary">
+            <div class="trans-card">
+              <div class="trans-label">Total Trades</div>
+              <div class="trans-value">47</div>
+            </div>
+            <div class="trans-card">
+              <div class="trans-label">Capital Deployed</div>
+              <div class="trans-value">$423K</div>
+            </div>
+            <div class="trans-card">
+              <div class="trans-label">Dividends</div>
+              <div class="trans-value">$3,841</div>
+            </div>
+            <div class="trans-card">
+              <div class="trans-label">Fees Paid</div>
+              <div class="trans-value">$127</div>
+            </div>
+          </div>
+          <table class="transactions-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Ticker</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mar 28</td>
+                <td><span class="type-badge type-buy">BUY</span></td>
+                <td><span class="ticker-badge">AAPL</span></td>
+                <td>15</td>
+                <td>$192.50</td>
+                <td>$2,887.50</td>
+              </tr>
+              <tr>
+                <td>Mar 25</td>
+                <td><span class="type-badge type-dividend">DIV</span></td>
+                <td><span class="ticker-badge">JPM</span></td>
+                <td>40</td>
+                <td>$0.95</td>
+                <td>$38.00</td>
+              </tr>
+              <tr>
+                <td>Mar 22</td>
+                <td><span class="type-badge type-sell">SELL</span></td>
+                <td><span class="ticker-badge">GOOGL</span></td>
+                <td>5</td>
+                <td>$179.20</td>
+                <td>$896.00</td>
+              </tr>
+              <tr>
+                <td>Mar 18</td>
+                <td><span class="type-badge type-contrib">CONTRIB</span></td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>$5,000.00</td>
+              </tr>
+              <tr>
+                <td>Mar 15</td>
+                <td><span class="type-badge type-buy">BUY</span></td>
+                <td><span class="ticker-badge">NVDA</span></td>
+                <td>8</td>
+                <td>$891.30</td>
+                <td>$7,130.40</td>
+              </tr>
+              <tr>
+                <td>Mar 10</td>
+                <td><span class="type-badge type-dividend">DIV</span></td>
+                <td><span class="ticker-badge">V</span></td>
+                <td>35</td>
+                <td>$1.54</td>
+                <td>$53.90</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="tab-pane" id="tab-tax">
-        <div class="tab-pane-title">Tax Strategy</div>
-        <p class="tab-pane-body">Tax-loss harvesting candidates ranked by savings potential, unrealized gains/losses by holding period (short-term vs. long-term), wash sale window tracker (30-day rule), and capital gains exposure estimates. Increased frequency in Q4.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Harvest Candidates</span><span class="tab-feat">Wash Sale Tracker</span><span class="tab-feat">Capital Gains</span><span class="tab-feat">Holding Periods</span></div>
+        <div class="mockup-container">
+          <div class="tax-cards">
+            <div class="tax-card">
+              <div class="tax-label">Unrealized Gains</div>
+              <div class="tax-value" style="color:#34d399">+$63,441</div>
+            </div>
+            <div class="tax-card">
+              <div class="tax-label">Short-Term</div>
+              <div class="tax-value">$18,200</div>
+            </div>
+            <div class="tax-card">
+              <div class="tax-label">Long-Term</div>
+              <div class="tax-value">$45,241</div>
+            </div>
+            <div class="tax-card">
+              <div class="tax-label">Harvest Opportunities</div>
+              <div class="tax-value">3</div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin:16px 0 12px 0;text-transform:uppercase;letter-spacing:.05em">Loss Harvesting Candidates</div>
+          <table class="harvest-table">
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>Unrealized Loss</th>
+                <th>Holding Period</th>
+                <th>Est. Tax Savings</th>
+                <th>Wash Sale</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="ticker-badge">GOOGL</span></td>
+                <td style="color:#f87171">-$2,840</td>
+                <td>Long-term</td>
+                <td>$568</td>
+                <td style="color:#34d399">Clear</td>
+              </tr>
+              <tr>
+                <td><span class="ticker-badge">UNH</span></td>
+                <td style="color:#f87171">-$1,920</td>
+                <td>Short-term</td>
+                <td>$461</td>
+                <td style="color:#34d399">Clear</td>
+              </tr>
+              <tr>
+                <td><span class="ticker-badge">AMZN</span></td>
+                <td style="color:#f87171">-$1,250</td>
+                <td>Short-term</td>
+                <td>$300</td>
+                <td class="wash-sale-warning">⚠️ 12-day window</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="tab-pane" id="tab-recs">
-        <div class="tab-pane-title">Recommendations</div>
-        <p class="tab-pane-body">Prioritized list of actionable recommendations, each with a trade readout (ticker, action, quantity, rationale), confidence level, tax impact, and supporting data from all five agents. Includes recommendation history with outcome tracking. You decide what to act on.</p>
-        <div class="tab-pane-features"><span class="tab-feat">Trade Readouts</span><span class="tab-feat">Confidence Scores</span><span class="tab-feat">Tax Impact</span><span class="tab-feat">Outcome Tracking</span></div>
+        <div class="mockup-container">
+          <div class="recommendations">
+            <div class="rec-card">
+              <span class="rec-action rec-buy">Buy</span>
+              <div class="rec-ticker">AMZN</div>
+              <div class="rec-rationale">Strong earnings momentum + institutional accumulation, low correlation to existing tech holdings</div>
+              <div class="rec-confidence">
+                <span>Confidence:</span>
+                <div class="conf-bar"><div class="conf-fill" style="width:82%"></div></div>
+                <span>82%</span>
+              </div>
+            </div>
+            <div class="rec-card">
+              <span class="rec-action rec-hold">Hold</span>
+              <div class="rec-ticker">NVDA</div>
+              <div class="rec-rationale">High concentration risk offset by sector momentum, watch for earnings volatility</div>
+              <div class="rec-confidence">
+                <span>Confidence:</span>
+                <div class="conf-bar"><div class="conf-fill" style="width:71%"></div></div>
+                <span>71%</span>
+              </div>
+            </div>
+            <div class="rec-card">
+              <span class="rec-action rec-review">Review</span>
+              <div class="rec-ticker">GOOGL</div>
+              <div class="rec-rationale">Negative sentiment trend across multiple signals, monitor regulatory developments closely</div>
+              <div class="rec-confidence">
+                <span>Confidence:</span>
+                <div class="conf-bar"><div class="conf-fill" style="width:64%"></div></div>
+                <span>64%</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="tab-pane" id="tab-settings">
-        <div class="tab-pane-title">Settings</div>
-        <p class="tab-pane-body">API key status indicators, agent schedule controls, target allocation management, personal events editor, and data source toggle. All secrets stored securely in macOS Keychain — never in config files.</p>
-        <div class="tab-pane-features"><span class="tab-feat">API Status</span><span class="tab-feat">Agent Schedules</span><span class="tab-feat">Allocation Targets</span><span class="tab-feat">Keychain Security</span></div>
+        <div class="mockup-container">
+          <div class="settings-section">
+            <div class="settings-group">
+              <div class="settings-group-title">API Status</div>
+              <div class="settings-item">
+                <span class="settings-label"><span class="status-dot connected"></span>Finnhub</span>
+                <span class="status-text">Connected</span>
+              </div>
+              <div class="settings-item">
+                <span class="settings-label"><span class="status-dot connected"></span>SnapTrade</span>
+                <span class="status-text">Connected</span>
+              </div>
+              <div class="settings-item">
+                <span class="settings-label"><span class="status-dot connected"></span>NewsAPI</span>
+                <span class="status-text">Connected</span>
+              </div>
+              <div class="settings-item">
+                <span class="settings-label"><span class="status-dot connected"></span>Alpha Vantage</span>
+                <span class="status-text">Connected</span>
+              </div>
+              <div class="settings-item">
+                <span class="settings-label"><span class="status-dot disconnected"></span>ElevenLabs</span>
+                <span class="status-text">Not Configured</span>
+              </div>
+            </div>
+            <div class="settings-group">
+              <div class="settings-group-title">Agent Controls</div>
+              <div class="settings-item">
+                <span class="settings-label">Portfolio Analyst</span>
+                <div class="toggle-indicator on">
+                  <div class="toggle-dot"></div>
+                </div>
+              </div>
+              <div class="settings-item">
+                <span class="settings-label">Risk Monitor</span>
+                <div class="toggle-indicator on">
+                  <div class="toggle-dot"></div>
+                </div>
+              </div>
+              <div class="settings-item">
+                <span class="settings-label">News Scanner</span>
+                <div class="toggle-indicator on">
+                  <div class="toggle-dot"></div>
+                </div>
+              </div>
+              <div class="settings-item">
+                <span class="settings-label">Smart Money Tracker</span>
+                <div class="toggle-indicator on">
+                  <div class="toggle-dot"></div>
+                </div>
+              </div>
+              <div class="settings-item">
+                <span class="settings-label">Macro Scanner</span>
+                <div class="toggle-indicator on">
+                  <div class="toggle-dot"></div>
+                </div>
+              </div>
+            </div>
+            <div class="settings-group">
+              <div class="settings-group-title">Data Store</div>
+              <div class="settings-item">
+                <span class="settings-label"><span class="status-dot connected"></span>Backend: BigQuery (GCP)</span>
+                <span class="status-text">Production</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
