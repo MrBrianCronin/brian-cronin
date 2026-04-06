@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Tracker App — Brian Cronin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #0c0c14;
+      --ink2: #3a3a50;
+      --ink3: #80809a;
+      --bg: #f3f2ef;
+      --bg2: #eae8e3;
+      --bg3: #dedad2;
+      --accent: #0f3460;
+      --accent2: #1a5296;
+      --gold2: #e8b84b;
+      --teal: #0a7565;
+      --teal2: #0fa888;
+      --line: rgba(12, 12, 20, 0.11);
+      --ai: #5b21b6;
+      --ai2: #7c3aed;
+      --ai3: #ede9fe;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      backdrop-filter: blur(16px);
+      background: rgba(243,242,239,0.88);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.125rem;
+      letter-spacing: -0.015em;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    nav .back {
+      font-size: 0.95rem;
+      color: var(--ink3);
+    }
+
+    nav .back:hover {
+      color: var(--ink);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin: 1rem 0;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-content h1 .accent {
+      color: var(--accent);
+    }
+
+    .hero-content .eyebrow {
+      font-size: 0.875rem;
+      color: var(--ink3);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content .subtitle {
+      font-size: 1.25rem;
+      color: var(--ink2);
+      margin: 2rem 0;
+      line-height: 1.5;
+    }
+
+    .hero-content .description {
+      font-size: 1rem;
+      color: var(--ink3);
+      margin: 1.5rem 0 2rem 0;
+      line-height: 1.7;
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      color: var(--ink2);
+    }
+
+    .hero-card {
+      background: var(--ink);
+      color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      font-family: 'Monaco', monospace;
+      font-size: 0.75rem;
+      line-height: 1.8;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .hero-card-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--teal2);
+    }
+
+    /* RESPONSIVE HERO */
+    @media (max-width: 920px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 3rem 2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      nav {
+        padding: 1.5rem 2rem;
+      }
+    }
+
+    /* SECTION CONTAINER */
+    section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 3rem;
+    }
+
+    section.dark {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #fff;
+      margin: 4rem 0;
+    }
+
+    section.dark h2,
+    section.dark h3 {
+      color: #fff;
+    }
+
+    .section-label {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink3);
+      margin-bottom: 0.5rem;
+    }
+
+    section.dark .section-label {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.75rem;
+      font-weight: 700;
+      margin: 1rem 0 2rem 0;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 1.5rem 0 1rem 0;
+      letter-spacing: -0.01em;
+    }
+
+    /* DASHBOARD PREVIEW SECTION */
+    .preview-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+    }
+
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2rem;
+    }
+
+    .preview-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .preview-helper {
+      font-size: 0.875rem;
+      color: var(--ink3);
+    }
+
+    /* TABS */
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 2rem;
+      gap: 2rem;
+    }
+
+    .tab-button {
+      background: none;
+      border: none;
+      padding: 1rem 0;
+      font-size: 0.95rem;
+      color: var(--ink3);
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .tab-button.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .tab-button:hover:not(.active) {
+      color: var(--ink2);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* CONTEXT BOX */
+    .context-box {
+      background: rgba(10, 117, 101, 0.08);
+      border-left: 4px solid var(--teal);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 6px;
+    }
+
+    .context-box.ai {
+      background: var(--ai3);
+      border-left-color: var(--ai2);
+    }
+
+    .context-title {
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .context-desc {
+      font-size: 0.9rem;
+      color: var(--ink2);
+    }
+
+    /* GOAL RINGS */
+    .goal-rings {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .goal-ring {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .ring-visual {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      position: relative;
+    }
+
+    .ring-label {
+      font-size: 0.85rem;
+      color: var(--ink2);
+      text-align: center;
+    }
+
+    /* GOAL RING COLORS */
+    .ring-weight { background: conic-gradient(#e73737 0deg 241.2deg, #eee 241.2deg); }
+    .ring-workouts { background: conic-gradient(#2563eb 0deg 295.2deg, #eee 295.2deg); }
+    .ring-output { background: conic-gradient(#10b981 0deg 162deg, #eee 162deg); }
+    .ring-strength { background: conic-gradient(#f59e0b 0deg 208.8deg, #eee 208.8deg); }
+
+    /* STREAK BAR */
+    .streak-bar {
+      background: var(--bg2);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .streak-label {
+      font-size: 0.9rem;
+      color: var(--ink2);
+      margin-bottom: 1rem;
+    }
+
+    .streak-dots {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .streak-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #ddd;
+    }
+
+    .streak-dot.active {
+      background: var(--teal2);
+    }
+
+    /* ACTIVITY FEED */
+    .activity-feed {
+      margin: 2rem 0;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--bg2);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .activity-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #fff;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .icon-peloton { background: #e73737; }
+    .icon-tonal { background: #2563eb; }
+    .icon-scale { background: #10b981; }
+    .icon-watch { background: #000; }
+
+    .activity-details {
+      flex: 1;
+    }
+
+    .activity-title {
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .activity-meta {
+      font-size: 0.85rem;
+      color: var(--ink3);
+    }
+
+    /* STATS GRID */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      background: var(--bg2);
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--ink3);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* WORKOUT TABLE */
+    .workout-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    .workout-table th {
+      background: var(--bg2);
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--ink2);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .workout-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.9rem;
+    }
+
+    .workout-table tr:hover {
+      background: var(--bg2);
+    }
+
+    /* GOAL CARDS */
+    .goal-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .goal-card {
+      background: var(--bg2);
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .goal-title {
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 4px;
+      transition: width 0.3s;
+    }
+
+    .progress-text {
+      font-size: 0.85rem;
+      color: var(--ink3);
+    }
+
+    /* PIPELINE SECTION */
+    .pipeline {
+      margin: 3rem 0;
+    }
+
+    .pipeline-step {
+      display: flex;
+      gap: 2rem;
+      margin: 2rem 0;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      align-items: flex-start;
+    }
+
+    .pipeline-step:last-child {
+      border-bottom: none;
+    }
+
+    .step-icon {
+      font-size: 2rem;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    .step-content h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .step-content p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .callout-box {
+      background: rgba(10, 168, 136, 0.15);
+      border-left: 4px solid var(--teal2);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .callout-box h4 {
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-box p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
+    }
+
+    /* ARCHITECTURE DIAGRAM */
+    .arch-section {
+      margin: 3rem 0;
+    }
+
+    .phase-buttons {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .phase-btn {
+      padding: 0.75rem 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .phase-btn.active {
+      background: var(--teal2);
+      border-color: var(--teal2);
+    }
+
+    .phase-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .arch-layer {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      border-left: 4px solid var(--teal2);
+    }
+
+    .layer-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 1rem;
+    }
+
+    .layer-boxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .arch-box {
+      padding: 1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .arch-box.teal {
+      background: rgba(10, 117, 101, 0.3);
+      border-color: var(--teal);
+    }
+
+    .arch-box.gold {
+      background: rgba(232, 184, 75, 0.15);
+      border-color: var(--gold2);
+    }
+
+    .arch-box.purple {
+      background: rgba(124, 58, 237, 0.2);
+      border-color: var(--ai2);
+    }
+
+    .arch-box.blue {
+      background: rgba(37, 99, 235, 0.2);
+      border-color: #2563eb;
+    }
+
+    .arch-box-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .arch-box-desc {
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    .hidden-phase {
+      display: none;
+    }
+
+    /* TECH STACK GRID */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .tech-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 2rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .tech-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(15, 52, 96, 0.1);
+    }
+
+    .tech-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .tech-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+
+    .tech-type {
+      font-size: 0.8rem;
+      color: var(--ink3);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .tech-desc {
+      font-size: 0.9rem;
+      color: var(--ink2);
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.9rem;
+      color: var(--ink3);
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    /* ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 920px) {
+      section {
+        padding: 3rem 2rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .goal-rings {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .goal-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .phase-buttons {
+        justify-content: flex-start;
+        overflow-x: auto;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="/">Brian Cronin</a>
+    <a href="/" class="back">← Back to Home</a>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">Personal Project · Fitness Dashboard</p>
+      <h1>Health<br><span class="accent">Tracker</span></h1>
+      <p class="subtitle">Apple Health collects the basics, but I wanted the full picture — training, body composition, nutrition, and sleep all in one place, cross-referenced and queryable</p>
+      <p class="description">Apple Health is great at collecting data, but terrible at helping you do anything with it. It can't tell you how your Tonal strength volume affects your Peloton output the next day, whether your calorie intake on MyFitnessPal is tracking with your body composition changes on the scale, or how your Oura sleep score correlates with your training performance. When you're wearing both an Apple Watch and an Oura Ring, you're also getting overlapping data — duplicate heart rate readings, competing sleep scores, redundant step counts. So I built a system with a custom data mastering layer that pulls raw data from six sources into BigQuery, reconciles the overlaps using source-priority logic, and produces one golden record per event. A lightweight data governance tool lets me dial in source trust rankings, field-level priority rules, and conflict resolution policies — the same concepts enterprises spend millions on, applied to a personal health stack. The dashboard surfaces goal rings, streak tracking, nutrition breakdowns, sleep quality trends, and real cross-domain analysis you can't get anywhere else.</p>
+
+      <div class="badge-group">
+        <span class="badge">🏋️ Peloton + Tonal + Apple Health</span>
+        <span class="badge">🍎 MyFitnessPal Nutrition</span>
+        <span class="badge">😴 Oura Ring Sleep + Recovery</span>
+        <span class="badge">📊 BigQuery Data Warehouse</span>
+        <span class="badge">⚡ Express.js + Railway</span>
+        <span class="badge">⚛️ Next.js + Vercel</span>
+        <span class="badge">🎯 Goal Rings + Streaks</span>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-card-title">System Overview</div>
+      <pre style="font-family:'Inter',monospace;font-size:12px;line-height:1.7;color:rgba(255,255,255,.55);margin:0;white-space:pre">
+<span style="color:#e73737">  Peloton</span> · <span style="color:#2563eb">Tonal</span> · <span style="color:rgba(255,255,255,.7)">Apple Health</span> · <span style="color:#10b981">Fit Profile</span>
+<span style="color:#f59e0b">  MyFitnessPal</span> · <span style="color:#a78bfa">Oura Ring</span>
+<span style="color:rgba(255,255,255,.2)">  └────┬────┬────┬────┬────┬────┘</span>
+       <span style="color:rgba(255,255,255,.2)">│    │    │    │    │</span>
+  <span style="color:rgba(255,255,255,.3)">HealthKit + Direct APIs</span>
+             <span style="color:rgba(255,255,255,.2)">│</span>
+  <span style="color:#e8b84b">Data Mastering + Governance</span>
+  <span style="color:rgba(255,255,255,.35)">├── Source trust rankings</span>
+  <span style="color:rgba(255,255,255,.35)">├── Golden record creation</span>
+  <span style="color:rgba(255,255,255,.35)">└── Field-level conflict resolution</span>
+             <span style="color:rgba(255,255,255,.2)">│</span>
+  <span style="color:#0fa888">BigQuery Data Warehouse</span>
+  <span style="color:rgba(255,255,255,.35)">├── 8 tables (partitioned)</span>
+  <span style="color:rgba(255,255,255,.35)">├── 3 pre-aggregated views</span>
+  <span style="color:rgba(255,255,255,.35)">└── Clustered by source/type</span>
+             <span style="color:rgba(255,255,255,.2)">│</span>
+  <span style="color:#93c5fd">Express API</span> <span style="color:rgba(255,255,255,.3)">(Railway)</span>
+  <span style="color:rgba(255,255,255,.35)">├── 5 parallel dashboard queries</span>
+  <span style="color:rgba(255,255,255,.35)">├── Auto-update side effects</span>
+  <span style="color:rgba(255,255,255,.35)">└── Dedup sync pipeline</span>
+             <span style="color:rgba(255,255,255,.2)">│</span>
+  <span style="color:#c4b5fd">Next.js Frontend</span> <span style="color:rgba(255,255,255,.3)">(Vercel)</span>
+  <span style="color:rgba(255,255,255,.35)">├── Goal rings + streak bars</span>
+  <span style="color:rgba(255,255,255,.35)">├── Workout feed + body comp</span>
+  <span style="color:rgba(255,255,255,.35)">└── Mobile-first · Garmin-style</span></pre>
+    </div>
+  </section>
+
+  <!-- DASHBOARD PREVIEW SECTION -->
+  <section>
+    <div class="preview-section">
+      <div class="preview-header">
+        <h3 class="preview-title">Interactive Preview</h3>
+        <p class="preview-helper">Click any tab · Mockup data</p>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-button active" data-tab="home">Home</button>
+        <button class="tab-button" data-tab="workouts">Workouts</button>
+        <button class="tab-button" data-tab="body">Body</button>
+        <button class="tab-button" data-tab="goals">Goals</button>
+        <button class="tab-button" data-tab="trends">Trends</button>
+      </div>
+
+      <!-- HOME TAB -->
+      <div id="home" class="tab-content active">
+        <div class="context-box ai">
+          <div class="context-title">Dashboard API · 5 Parallel Queries</div>
+          <p class="context-desc">The /api/dashboard endpoint fires 5 parallel BigQuery queries: daily summary, workouts, body measurements, goals, and trends. Results are cached for 15 minutes to keep sub-second load times.</p>
+        </div>
+
+        <div class="goal-rings">
+          <div class="goal-ring">
+            <div class="ring-visual ring-weight">67%</div>
+            <div class="ring-label">Weight Goal</div>
+          </div>
+          <div class="goal-ring">
+            <div class="ring-visual ring-workouts">82%</div>
+            <div class="ring-label">Workouts</div>
+          </div>
+          <div class="goal-ring">
+            <div class="ring-visual ring-output">45%</div>
+            <div class="ring-label">Output</div>
+          </div>
+          <div class="goal-ring">
+            <div class="ring-visual ring-strength">58%</div>
+            <div class="ring-label">Strength</div>
+          </div>
+        </div>
+
+        <div class="streak-bar">
+          <div class="streak-label">7-Day Streak (Last Week)</div>
+          <div class="streak-dots">
+            <div class="streak-dot active"></div>
+            <div class="streak-dot active"></div>
+            <div class="streak-dot active"></div>
+            <div class="streak-dot active"></div>
+            <div class="streak-dot active"></div>
+            <div class="streak-dot"></div>
+            <div class="streak-dot"></div>
+          </div>
+        </div>
+
+        <h4 style="margin: 2rem 0 1rem 0;">Today's Activity Feed</h4>
+        <div class="activity-feed">
+          <div class="activity-item">
+            <div class="activity-icon icon-peloton">P</div>
+            <div class="activity-details">
+              <div class="activity-title">Peloton Cycling Class</div>
+              <div class="activity-meta">45 min · 198 kJ output · Avg HR 142 bpm</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon icon-tonal">T</div>
+            <div class="activity-details">
+              <div class="activity-title">Tonal Strength Workout</div>
+              <div class="activity-meta">38 min · 6,200 lbs volume · Upper Body</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon icon-scale">S</div>
+            <div class="activity-details">
+              <div class="activity-title">Fit Profile Weigh-In</div>
+              <div class="activity-meta">Weight 185.2 lbs · Body Fat 18.2%</div>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="margin: 2rem 0 1rem 0;">Weekly Summary</h4>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">142</div>
+            <div class="stat-label">Avg HR (bpm)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">12.4k</div>
+            <div class="stat-label">Volume (lbs)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">3,200</div>
+            <div class="stat-label">Calories</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">18.2%</div>
+            <div class="stat-label">Body Fat</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">2,180</div>
+            <div class="stat-label">Avg Intake (cal)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">7h 12m</div>
+            <div class="stat-label">Avg Sleep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WORKOUTS TAB -->
+      <div id="workouts" class="tab-content">
+        <div class="context-box">
+          <div class="context-title">Filterable Workout List</div>
+          <p class="context-desc">All workouts from Peloton, Tonal, and Apple Watch synced through HealthKit. Deduplicated on external_id, sortable by date, type, or duration.</p>
+        </div>
+
+        <table class="workout-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Title</th>
+              <th>Duration</th>
+              <th>Calories</th>
+              <th>Avg HR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Apr 5, 2026</td>
+              <td><span style="color: #e73737; font-weight: 600;">●</span> Peloton</td>
+              <td>45-Min Cycling Class</td>
+              <td>45 min</td>
+              <td>412</td>
+              <td>142 bpm</td>
+            </tr>
+            <tr>
+              <td>Apr 5, 2026</td>
+              <td><span style="color: #2563eb; font-weight: 600;">●</span> Tonal</td>
+              <td>Upper Body Strength</td>
+              <td>38 min</td>
+              <td>285</td>
+              <td>118 bpm</td>
+            </tr>
+            <tr>
+              <td>Apr 4, 2026</td>
+              <td><span style="color: #e73737; font-weight: 600;">●</span> Peloton</td>
+              <td>30-Min Power Ride</td>
+              <td>30 min</td>
+              <td>298</td>
+              <td>156 bpm</td>
+            </tr>
+            <tr>
+              <td>Apr 4, 2026</td>
+              <td><span style="color: #000; font-weight: 600;">●</span> Watch</td>
+              <td>Evening Run</td>
+              <td>22 min</td>
+              <td>201</td>
+              <td>162 bpm</td>
+            </tr>
+            <tr>
+              <td>Apr 3, 2026</td>
+              <td><span style="color: #2563eb; font-weight: 600;">●</span> Tonal</td>
+              <td>Lower Body + Core</td>
+              <td>42 min</td>
+              <td>305</td>
+              <td>125 bpm</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- BODY TAB -->
+      <div id="body" class="tab-content">
+        <div class="context-box">
+          <div class="context-title">Body Composition Tracking</div>
+          <p class="context-desc">Measurements from Fit Profile smart scale synced daily through HealthKit. Tracked metrics: weight, body fat %, muscle mass, BMI, body water, and basal metabolic rate.</p>
+        </div>
+
+        <h4 style="margin: 1.5rem 0 1rem 0;">Current Stats</h4>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">185.2</div>
+            <div class="stat-label">Weight (lbs)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">18.2%</div>
+            <div class="stat-label">Body Fat</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">152.1</div>
+            <div class="stat-label">Muscle Mass (lbs)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">25.1</div>
+            <div class="stat-label">BMI</div>
+          </div>
+        </div>
+
+        <h4 style="margin: 2rem 0 1rem 0;">Monthly Trend</h4>
+        <div style="background: var(--bg2); padding: 2rem; border-radius: 8px; display: flex; justify-content: space-around; align-items: flex-end; height: 200px;">
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="width: 40px; height: 120px; background: var(--bg3); border-radius: 4px; margin-bottom: 0.5rem;"></div>
+            <div style="font-size: 0.85rem; color: var(--ink3);">187</div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="width: 40px; height: 140px; background: var(--accent2); border-radius: 4px; margin-bottom: 0.5rem;"></div>
+            <div style="font-size: 0.85rem; color: var(--ink3);">186.1</div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="width: 40px; height: 155px; background: var(--accent2); border-radius: 4px; margin-bottom: 0.5rem;"></div>
+            <div style="font-size: 0.85rem; color: var(--ink3);">185.6</div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="width: 40px; height: 165px; background: var(--accent); border-radius: 4px; margin-bottom: 0.5rem;"></div>
+            <div style="font-size: 0.85rem; color: var(--ink3);">185.2</div>
+          </div>
+        </div>
+
+        <h4 style="margin: 2rem 0 1rem 0;">Weight Goal Progress</h4>
+        <div style="background: var(--bg2); padding: 1.5rem; border-radius: 8px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; font-size: 0.9rem;">
+            <span><strong>Start</strong> 187 lbs</span>
+            <span><strong>Current</strong> 185.2 lbs</span>
+            <span><strong>Target</strong> 183 lbs</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 67%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GOALS TAB -->
+      <div id="goals" class="tab-content">
+        <div class="context-box">
+          <div class="context-title">Active Monthly Goals</div>
+          <p class="context-desc">The API automatically calculates percentage complete on every data write. Daily snapshots track progress toward monthly and overall targets.</p>
+        </div>
+
+        <div class="goal-cards">
+          <div class="goal-card">
+            <div class="goal-title">Weight Goal</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 67%;"></div>
+            </div>
+            <div class="progress-text">Lose 10 lbs by June (4 lbs down, 6 to go)</div>
+          </div>
+          <div class="goal-card">
+            <div class="goal-title">Workout Count</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 80%;"></div>
+            </div>
+            <div class="progress-text">20 workouts/month (16 completed, 4 remaining)</div>
+          </div>
+          <div class="goal-card">
+            <div class="goal-title">Peloton Output PR</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 88%;"></div>
+            </div>
+            <div class="progress-text">Hit 400 kJ in a class (Peak: 398 kJ)</div>
+          </div>
+          <div class="goal-card">
+            <div class="goal-title">Body Fat Target</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 45%;"></div>
+            </div>
+            <div class="progress-text">Get to 16% body fat (Current: 18.2%)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRENDS TAB -->
+      <div id="trends" class="tab-content">
+        <div class="context-box">
+          <div class="context-title">Weekly & Monthly Aggregations</div>
+          <p class="context-desc">Pre-aggregated daily and weekly summaries power fast dashboard loads. BigQuery views handle month-over-month comparisons and trend analysis.</p>
+        </div>
+
+        <h4 style="margin: 1.5rem 0 1rem 0;">This Week</h4>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Workouts</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">3,200</div>
+            <div class="stat-label">Calories</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">42</div>
+            <div class="stat-label">Avg Duration (min)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">12.4k</div>
+            <div class="stat-label">Total Volume (lbs)</div>
+          </div>
+        </div>
+
+        <h4 style="margin: 2rem 0 1rem 0;">Month-over-Month</h4>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+          <div style="background: var(--bg2); padding: 1.5rem; border-radius: 8px;">
+            <div style="font-size: 0.85rem; color: var(--ink3); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">This Month</div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem;">16</div>
+            <div style="font-size: 0.9rem; color: var(--ink2);">Workouts completed</div>
+          </div>
+          <div style="background: var(--bg2); padding: 1.5rem; border-radius: 8px;">
+            <div style="font-size: 0.85rem; color: var(--ink3); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Last Month</div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--ink3); margin-bottom: 0.5rem;">18</div>
+            <div style="font-size: 0.9rem; color: var(--ink2);">Workouts completed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA FLOW PIPELINE SECTION -->
+  <section class="dark">
+    <p class="section-label">How Data Flows</p>
+    <h2>From workout to dashboard</h2>
+    <p style="font-size: 1.05rem; line-height: 1.7; color: rgba(255, 255, 255, 0.85); margin-bottom: 2rem;">The whole point of this system is that data from six different sources ends up in one place where it can be queried together. Apple Health and direct APIs handle the collection, but BigQuery is where the real analysis happens — joining Peloton ride metrics with Tonal strength data, correlating body composition with MyFitnessPal nutrition logs, layering in Oura sleep and recovery scores, and pre-aggregating daily summaries so the dashboard loads in under a second.</p>
+
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-icon">📱</div>
+        <div class="step-content">
+          <h4>Data Sources</h4>
+          <p>Peloton syncs cycling metrics, Tonal pushes strength data, the Fit Profile scale uploads body composition through HealthKit. MyFitnessPal logs nutrition via its API, and the Oura Ring pushes sleep stages, HRV, and readiness scores through the Oura Cloud API.</p>
+        </div>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="step-icon">🔄</div>
+        <div class="step-content">
+          <h4>Data Mastering + Sync Engine</h4>
+          <p>When you're wearing both an Apple Watch and an Oura Ring, you get duplicate heart rate, sleep, and activity data. The data mastering layer applies source-priority logic — Oura wins for sleep and HRV, Apple Watch wins for active heart rate and workout metrics — and deduplicates on external_id plus time-window matching to produce one golden record per event. A lightweight data governance tool manages source trust rankings and field-level conflict resolution policies. Each sync is logged for auditability.</p>
+        </div>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="step-icon">🗄️</div>
+        <div class="step-content">
+          <h4>BigQuery</h4>
+          <p>Data lands in partitioned, clustered tables. Daily summaries pre-aggregate for fast reads. Views power the dashboard queries.</p>
+        </div>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="step-icon">⚡</div>
+        <div class="step-content">
+          <h4>Express API</h4>
+          <p>The /api/dashboard endpoint fires 5 parallel BigQuery queries. Every write auto-updates streaks, daily summaries, and goal progress.</p>
+        </div>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="step-icon">📊</div>
+        <div class="step-content">
+          <h4>Dashboard</h4>
+          <p>Next.js frontend renders goal rings, streak bars, workout feeds, and body comp trends. Mobile-first, data-dense, Garmin-inspired.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-box">
+      <h4>Data Mastering + Governance</h4>
+      <p>Every write triggers automatic side effects — daily summary rollups, streak updates, and goal progress checks. But the real differentiator is the data mastering layer: when Apple Watch and Oura Ring both report heart rate and sleep, source trust rankings and field-level governance rules determine which signal wins for each metric. The same master data management concepts that enterprises spend millions implementing — source-of-truth hierarchies, conflict resolution policies, golden record creation — applied to a six-source personal health platform.</p>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE DIAGRAM SECTION -->
+  <section class="dark arch-section">
+    <p class="section-label">System Architecture</p>
+    <h2>The full picture</h2>
+    <p style="font-size: 1.05rem; line-height: 1.7; color: rgba(255, 255, 255, 0.85); margin-bottom: 2rem;">Current state plus where it's heading. Use the phase buttons to see how the system evolves.</p>
+
+    <div class="phase-buttons">
+      <button class="phase-btn active" data-phase="1">Phase 1: Core Backend</button>
+      <button class="phase-btn" data-phase="2">Phase 2: Frontend</button>
+      <button class="phase-btn" data-phase="3">Phase 3: Data Pipeline</button>
+      <button class="phase-btn" data-phase="4">Phase 4: Intelligence</button>
+      <button class="phase-btn" data-phase="5">Phase 5: Full Vision</button>
+    </div>
+
+    <div class="arch-layer">
+      <div class="layer-label">Frontend Layer</div>
+      <div class="layer-boxes">
+        <div class="arch-box blue hidden-phase" data-min-phase="2">
+          <div class="arch-box-title">Next.js App</div>
+          <div class="arch-box-desc">Vercel · React SSR · Mobile-first</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-layer">
+      <div class="layer-label">API Layer</div>
+      <div class="layer-boxes">
+        <div class="arch-box teal">
+          <div class="arch-box-title">Express.js API</div>
+          <div class="arch-box-desc">Railway · REST · Auth · Logging</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-layer">
+      <div class="layer-label">Data Mastering + Governance</div>
+      <div class="layer-boxes">
+        <div class="arch-box gold">
+          <div class="arch-box-title">Data Mastering Engine</div>
+          <div class="arch-box-desc">Source-priority logic · Golden record creation · Time-window dedup</div>
+        </div>
+        <div class="arch-box gold">
+          <div class="arch-box-title">Data Governance Tool</div>
+          <div class="arch-box-desc">Source trust rankings · Field-level rules · Conflict resolution</div>
+        </div>
+        <div class="arch-box teal">
+          <div class="arch-box-title">Side Effects Engine</div>
+          <div class="arch-box-desc">Streaks · Daily summaries · Goal progress</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-layer">
+      <div class="layer-label">Storage Layer</div>
+      <div class="layer-boxes">
+        <div class="arch-box teal">
+          <div class="arch-box-title">Google BigQuery</div>
+          <div class="arch-box-desc">8 tables · 3 views · Partitioned</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-layer">
+      <div class="layer-label">Sync Layer (Phase 3+)</div>
+      <div class="layer-boxes">
+        <div class="arch-box teal hidden-phase" data-min-phase="3">
+          <div class="arch-box-title">HealthKit Sync</div>
+          <div class="arch-box-desc">Batch sync · Dedup · Logging</div>
+        </div>
+        <div class="arch-box gold hidden-phase" data-min-phase="3">
+          <div class="arch-box-title">Peloton Enrichment</div>
+          <div class="arch-box-desc">REST API · Rich metrics</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-layer">
+      <div class="layer-label">Data Sources</div>
+      <div class="layer-boxes">
+        <div class="arch-box" style="background: rgba(231, 55, 55, 0.15); border-color: #e73737;">
+          <div class="arch-box-title">Peloton</div>
+          <div class="arch-box-desc">Cycling · Cardio metrics</div>
+        </div>
+        <div class="arch-box" style="background: rgba(37, 99, 235, 0.2); border-color: #2563eb;">
+          <div class="arch-box-title">Tonal</div>
+          <div class="arch-box-desc">Strength · Volume tracking</div>
+        </div>
+        <div class="arch-box" style="background: rgba(0, 0, 0, 0.1); border-color: #888;">
+          <div class="arch-box-title">Apple Health</div>
+          <div class="arch-box-desc">Watch · HRV · Recovery</div>
+        </div>
+        <div class="arch-box" style="background: rgba(16, 185, 129, 0.15); border-color: #10b981;">
+          <div class="arch-box-title">Fit Profile Scale</div>
+          <div class="arch-box-desc">Weight · Body composition</div>
+        </div>
+        <div class="arch-box hidden-phase" data-min-phase="3" style="background: rgba(245, 158, 11, 0.15); border-color: #f59e0b;">
+          <div class="arch-box-title">MyFitnessPal</div>
+          <div class="arch-box-desc">Calories · Macros · Nutrition</div>
+        </div>
+        <div class="arch-box hidden-phase" data-min-phase="3" style="background: rgba(167, 139, 250, 0.15); border-color: #a78bfa;">
+          <div class="arch-box-title">Oura Ring</div>
+          <div class="arch-box-desc">Sleep stages · HRV · Readiness</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-layer hidden-phase" data-min-phase="4">
+      <div class="layer-label">Intelligence Layer (Phase 4+)</div>
+      <div class="layer-boxes">
+        <div class="arch-box purple">
+          <div class="arch-box-title">Workout Recommender</div>
+          <div class="arch-box-desc">ML-powered suggestions</div>
+        </div>
+        <div class="arch-box purple">
+          <div class="arch-box-title">Body Comp Forecaster</div>
+          <div class="arch-box-desc">Predictive trends</div>
+        </div>
+        <div class="arch-box purple">
+          <div class="arch-box-title">Recovery Advisor</div>
+          <div class="arch-box-desc">Oura HRV + sleep · Training load</div>
+        </div>
+        <div class="arch-box purple">
+          <div class="arch-box-title">Nutrition Analyzer</div>
+          <div class="arch-box-desc">MFP macros vs body comp trends</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-layer hidden-phase" data-min-phase="5">
+      <div class="layer-label">Automation Layer (Phase 5+)</div>
+      <div class="layer-boxes">
+        <div class="arch-box gold">
+          <div class="arch-box-title">Smart Notifications</div>
+          <div class="arch-box-desc">Streaks · Milestones · PRs</div>
+        </div>
+        <div class="arch-box gold">
+          <div class="arch-box-title">Auto Goal Adjustment</div>
+          <div class="arch-box-desc">Dynamic targets · Progress rate</div>
+        </div>
+        <div class="arch-box purple">
+          <div class="arch-box-title">Weekly Digest</div>
+          <div class="arch-box-desc">AI-generated summary email</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK SECTION -->
+  <section>
+    <p class="section-label">Tech Stack</p>
+    <h2>The tech stack</h2>
+
+    <div class="tech-grid">
+      <div class="tech-card fade-in">
+        <div class="tech-icon">🗄️</div>
+        <div class="tech-name">Google BigQuery</div>
+        <div class="tech-type">Cloud Data Warehouse</div>
+        <p class="tech-desc">8 tables, 3 views, partitioned by date and clustered by source. Pre-aggregated daily summaries for sub-second dashboard loads.</p>
+      </div>
+
+      <div class="tech-card fade-in">
+        <div class="tech-icon">⚡</div>
+        <div class="tech-name">Express.js</div>
+        <div class="tech-type">Backend API</div>
+        <p class="tech-desc">REST API handling data ingestion, dashboard queries, and goal tracking. Auto-updates streaks and summaries on every write. Lives on Railway.</p>
+      </div>
+
+      <div class="tech-card fade-in">
+        <div class="tech-icon">⚛️</div>
+        <div class="tech-name">Next.js</div>
+        <div class="tech-type">Frontend (Planned)</div>
+        <p class="tech-desc">Mobile-first React app with a Garmin-inspired data-dense UI. Goal rings, streak indicators, workout feeds, and body composition charts. Will deploy to Vercel.</p>
+      </div>
+
+      <div class="tech-card fade-in">
+        <div class="tech-icon">📱</div>
+        <div class="tech-name">Apple HealthKit</div>
+        <div class="tech-type">Data Hub</div>
+        <p class="tech-desc">One of two integration paths. Peloton, Tonal, and Fit Profile sync through HealthKit for workout and body comp data. MyFitnessPal and Oura connect via their own REST APIs for nutrition and sleep — giving us six sources feeding one warehouse.</p>
+      </div>
+
+      <div class="tech-card fade-in">
+        <div class="tech-icon">🚂</div>
+        <div class="tech-name">Railway</div>
+        <div class="tech-type">API Hosting</div>
+        <p class="tech-desc">Auto-deploys from GitHub on every push to main. Environment variables for GCP credentials, API keys, and CORS config. Health check monitoring built in.</p>
+      </div>
+
+      <div class="tech-card fade-in">
+        <div class="tech-icon">🔺</div>
+        <div class="tech-name">Vercel</div>
+        <div class="tech-type">Frontend Hosting (Planned)</div>
+        <p class="tech-desc">Edge-deployed Next.js with automatic preview deployments on PRs. Same hosting stack as briancronin.ai.</p>
+      </div>
+
+      <div class="tech-card fade-in">
+        <div class="tech-icon">🏋️</div>
+        <div class="tech-name">Peloton + Tonal</div>
+        <div class="tech-type">Workout Sources</div>
+        <p class="tech-desc">Peloton for cycling and cardio metrics, Tonal for strength training and volume tracking. Both sync through HealthKit, with optional Peloton API enrichment for instructor names and class details.</p>
+      </div>
+
+      <div class="tech-card fade-in">
+        <div class="tech-icon">⚖️</div>
+        <div class="tech-name">Fit Profile Scale</div>
+        <div class="tech-type">Body Composition</div>
+        <p class="tech-desc">Smart scale pushing weight, body fat percentage, muscle mass, BMI, body water, bone mass, and basal metabolic rate through HealthKit.</p>
+      </div>
+
+      <div class="tech-card fade-in">
+        <div class="tech-icon">🍎</div>
+        <div class="tech-name">MyFitnessPal</div>
+        <div class="tech-type">Nutrition Tracking</div>
+        <p class="tech-desc">Calorie and macro tracking via the MFP API. Logs meals, snacks, and water intake. Cross-referenced with body composition data to surface whether nutrition is actually driving the results you're seeing on the scale.</p>
+      </div>
+
+      <div class="tech-card fade-in">
+        <div class="tech-icon">😴</div>
+        <div class="tech-name">Oura Ring</div>
+        <div class="tech-type">Sleep + Recovery</div>
+        <p class="tech-desc">Sleep stages (deep, REM, light), HRV trends, readiness scores, and resting heart rate via the Oura Cloud API. The missing piece that connects training load to recovery — so you know when to push and when to pull back.</p>
+      </div>
+
+      <div class="tech-card fade-in">
+        <div class="tech-icon">🎯</div>
+        <div class="tech-name">Goal Engine</div>
+        <div class="tech-type">Progress Tracking</div>
+        <p class="tech-desc">Monthly and overall goals with daily progress snapshots. The API automatically calculates percentage complete on every data write.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="/">Brian Cronin</a>
+    <span>© 2026 · Health Tracker App · Personal Project</span>
+  </footer>
+
+  <script>
+    // FADE-IN OBSERVER
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.tech-card').forEach((card) => {
+      observer.observe(card);
+    });
+
+    // TAB SWITCHING
+    document.querySelectorAll('.tab-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const tabName = button.getAttribute('data-tab');
+
+        // Hide all tabs
+        document.querySelectorAll('.tab-content').forEach((tab) => {
+          tab.classList.remove('active');
+        });
+
+        // Remove active class from all buttons
+        document.querySelectorAll('.tab-button').forEach((btn) => {
+          btn.classList.remove('active');
+        });
+
+        // Show selected tab
+        document.getElementById(tabName).classList.add('active');
+        button.classList.add('active');
+      });
+    });
+
+    // PHASE STEPPER
+    document.querySelectorAll('.phase-btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        const phase = parseInt(button.getAttribute('data-phase'));
+
+        // Update active button
+        document.querySelectorAll('.phase-btn').forEach((btn) => {
+          btn.classList.remove('active');
+        });
+        button.classList.add('active');
+
+        // Show/hide elements based on phase
+        document.querySelectorAll('[data-min-phase]').forEach((element) => {
+          const minPhase = parseInt(element.getAttribute('data-min-phase'));
+          if (minPhase <= phase) {
+            element.classList.remove('hidden-phase');
+          } else {
+            element.classList.add('hidden-phase');
+          }
+        });
+      });
+    });
+
+    // Initialize phase 1 on page load
+    document.querySelectorAll('[data-min-phase]').forEach((element) => {
+      const minPhase = parseInt(element.getAttribute('data-min-phase'));
+      if (minPhase > 1) {
+        element.classList.add('hidden-phase');
+      }
+    });
+  </script>
+</body>
+</html>
