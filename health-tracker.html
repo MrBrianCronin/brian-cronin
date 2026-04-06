@@ -821,7 +821,7 @@
       <p class="eyebrow">Personal Project · Fitness Dashboard</p>
       <h1>Health<br><span class="accent">Tracker</span></h1>
       <p class="subtitle">Apple Health collects the basics, but I wanted the full picture — training, body composition, nutrition, and sleep all in one place, cross-referenced and queryable</p>
-      <p class="description">Apple Health is great at collecting data, but terrible at helping you do anything with it. It can't tell you how your Tonal strength volume affects your Peloton output the next day, whether your calorie intake on MyFitnessPal is tracking with your body composition changes on the scale, or how your Oura sleep score correlates with your training performance. When you're wearing both an Apple Watch and an Oura Ring, you're also getting overlapping data — duplicate heart rate readings, competing sleep scores, redundant step counts. So I built a system with a custom data mastering layer that pulls raw data from six sources into BigQuery, reconciles the overlaps using source-priority logic, and produces one golden record per event. A lightweight data governance tool lets me dial in source trust rankings, field-level priority rules, and conflict resolution policies — the same concepts enterprises spend millions on, applied to a personal health stack. The dashboard surfaces goal rings, streak tracking, nutrition breakdowns, sleep quality trends, and real cross-domain analysis you can't get anywhere else.</p>
+      <p class="description">Apple Health is great at collecting data, but terrible at helping you do anything with it. It can't tell you how your Tonal strength volume affects your Peloton output the next day, whether your calorie intake on MyFitnessPal is tracking with your body composition changes on the scale, or how your Oura sleep score correlates with your training performance. When you're wearing both an Apple Watch and an Oura Ring, you're also getting overlapping data — duplicate heart rate readings, competing sleep scores, redundant step counts. So I built a system with a custom data mastering layer that pulls raw data from six sources into BigQuery, reconciles the overlaps using source-priority logic, and produces one golden record per event. A lightweight data governance tool lets me dial in source trust rankings, field-level priority rules, and conflict resolution policies — the same concepts enterprises spend millions on, applied to a personal health stack. The dashboard surfaces goal rings, streak tracking, nutrition breakdowns, sleep quality trends, and real cross-domain analysis you can't get anywhere else. The endgame: custom watch complications that replace Apple's fitness rings with my own goal trackers on the watch face, and a full-screen SwiftUI dashboard app one tap away — my own health command center on my wrist.</p>
 
       <div class="badge-group">
         <span class="badge">🏋️ Peloton + Tonal + Apple Health</span>
@@ -830,6 +830,7 @@
         <span class="badge">📊 BigQuery Data Warehouse</span>
         <span class="badge">⚡ Express.js + Railway</span>
         <span class="badge">⚛️ Next.js + Vercel</span>
+        <span class="badge">⌚ Custom Watch Complications</span>
         <span class="badge">🎯 Goal Rings + Streaks</span>
       </div>
     </div>
@@ -1245,7 +1246,9 @@
       <button class="phase-btn" data-phase="2">Phase 2: Frontend</button>
       <button class="phase-btn" data-phase="3">Phase 3: Data Pipeline</button>
       <button class="phase-btn" data-phase="4">Phase 4: Intelligence</button>
-      <button class="phase-btn" data-phase="5">Phase 5: Full Vision</button>
+      <button class="phase-btn" data-phase="5">Phase 5: Automations</button>
+      <button class="phase-btn" data-phase="6">Phase 6: Watch Complications</button>
+      <button class="phase-btn" data-phase="7">Phase 7: watchOS App</button>
     </div>
 
     <div class="arch-layer">
@@ -1254,6 +1257,14 @@
         <div class="arch-box blue hidden-phase" data-min-phase="2">
           <div class="arch-box-title">Next.js App</div>
           <div class="arch-box-desc">Vercel · React SSR · Mobile-first</div>
+        </div>
+        <div class="arch-box hidden-phase" data-min-phase="6" style="background: rgba(52, 211, 153, 0.15); border-color: #34d399;">
+          <div class="arch-box-title">Watch Complications</div>
+          <div class="arch-box-desc">Custom goal rings on watch face · Streak count · Today's calories · Sleep score — replacing Apple's fitness rings with my own trackers</div>
+        </div>
+        <div class="arch-box hidden-phase" data-min-phase="7" style="background: rgba(52, 211, 153, 0.15); border-color: #34d399;">
+          <div class="arch-box-title">watchOS Dashboard App</div>
+          <div class="arch-box-desc">SwiftUI · Full-screen custom dashboard one tap from the watch face · Goal rings, streaks, sleep score, today's stats · The health command center Apple doesn't make</div>
         </div>
       </div>
     </div>
@@ -1462,6 +1473,20 @@
         <div class="tech-name">Goal Engine</div>
         <div class="tech-type">Progress Tracking</div>
         <p class="tech-desc">Monthly and overall goals with daily progress snapshots. The API automatically calculates percentage complete on every data write.</p>
+      </div>
+
+      <div class="tech-card fade-in">
+        <div class="tech-icon">⌚</div>
+        <div class="tech-name">Watch Complications</div>
+        <div class="tech-type">watchOS · Planned</div>
+        <p class="tech-desc">Custom goal ring complications that replace Apple's built-in fitness rings right on the watch face. Your weight, workout, output, and strength goals — glanceable on your wrist 24/7, powered by your own API. One tap opens the full dashboard app.</p>
+      </div>
+
+      <div class="tech-card fade-in">
+        <div class="tech-icon">📲</div>
+        <div class="tech-name">watchOS App</div>
+        <div class="tech-type">SwiftUI · Planned</div>
+        <p class="tech-desc">Full-screen SwiftUI dashboard app — the health command center Apple doesn't make. Goal rings, streaks, sleep score, nutrition summary, and today's training all on your wrist. Talks to the same Railway API that powers the web dashboard — one backend, three frontends (web, watch face, watch app).</p>
       </div>
     </div>
   </section>
