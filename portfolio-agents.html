@@ -354,6 +354,40 @@ section{padding:96px 60px}
 .finder-gap-title{font-size:11px;font-weight:600;color:#c4b5fd;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .finder-gap-body{font-size:10px;color:rgba(255,255,255,.55);line-height:1.6}
 
+/* AI SEARCH BAR */
+.ai-search-bar{display:flex;align-items:center;gap:8px;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:10px 14px;margin-bottom:14px;position:relative}
+.ai-search-bar .ai-icon{font-size:16px;flex-shrink:0}
+.ai-search-query{flex:1;font-family:'Inter',sans-serif;font-size:12px;color:#c4b5fd;background:none;border:none;outline:none;min-height:18px;position:relative}
+.ai-search-query .typed-text{border-right:2px solid #c4b5fd}
+.ai-search-query .typed-text.done{border-right-color:transparent}
+.ai-search-send{background:rgba(124,58,237,.4);border:none;border-radius:6px;color:#fff;font-size:10px;padding:5px 12px;font-weight:600;cursor:default;letter-spacing:.03em}
+.ai-strategy-card{background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.15);border-radius:8px;padding:10px 12px;margin-bottom:14px;opacity:0;transition:opacity .5s ease}
+.ai-strategy-card.visible{opacity:1}
+.ai-strategy-label{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:rgba(124,58,237,.6);font-weight:600;margin-bottom:4px}
+.ai-strategy-text{font-size:10px;color:rgba(255,255,255,.5);line-height:1.5}
+.ai-keyword-pills{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.ai-keyword-pill{background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.2);border-radius:20px;padding:2px 10px;font-size:9px;color:#a78bfa;font-weight:500}
+
+/* AI ALLOCATION BUILDER */
+.ai-alloc-builder{background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.2);border-radius:12px;padding:16px;margin-bottom:16px}
+.ai-alloc-header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.ai-alloc-header .ai-icon{font-size:16px}
+.ai-alloc-header .ai-title{font-size:12px;font-weight:600;color:#c4b5fd}
+.ai-alloc-input{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(124,58,237,.2);border-radius:8px;padding:10px 12px;font-family:'Inter',sans-serif;font-size:11px;color:#c4b5fd;resize:none;min-height:40px;outline:none}
+.ai-alloc-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(124,58,237,.35);border:none;border-radius:6px;color:#fff;font-size:10px;padding:6px 14px;font-weight:600;margin-top:8px;cursor:default;letter-spacing:.03em}
+.ai-alloc-result{margin-top:12px;opacity:0;transition:opacity .5s ease}
+.ai-alloc-result.visible{opacity:1}
+.ai-alloc-dim{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:10px}
+.ai-alloc-dim:last-child{border-bottom:none}
+.ai-alloc-dim-name{color:rgba(255,255,255,.5);text-transform:capitalize}
+.ai-alloc-dim-tags{display:flex;gap:4px;flex-wrap:wrap}
+.ai-alloc-tag{background:rgba(15,168,136,.15);border:1px solid rgba(15,168,136,.2);border-radius:4px;padding:1px 8px;font-size:9px;color:#6ee7b7;font-weight:500}
+
+/* TYPING ANIMATION */
+@keyframes blink-caret{0%,100%{border-color:#c4b5fd}50%{border-color:transparent}}
+.typing-caret{border-right:2px solid #c4b5fd;animation:blink-caret .8s step-end infinite;padding-right:1px}
+.typing-caret.done{border-right-color:transparent;animation:none}
+
 /* AGENT CONTROL TAB MOCKUP */
 .control-pipeline{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:20px;padding:16px;background:rgba(255,255,255,.03);border-radius:12px;border:1px solid rgba(255,255,255,.06)}
 .control-node{display:flex;flex-direction:column;align-items:center;gap:3px}
@@ -667,12 +701,30 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
           <div class="agent-ctx">
             <div class="agent-ctx-icon">⚖️</div>
             <div>
-              <div class="agent-ctx-title">Portfolio Analyst Agent — Drift Detection Skill</div>
-              <div class="agent-ctx-body">I set target allocations, and the <strong>Drift Detector</strong> skill compares them against actual positions in real-time. When drift exceeds thresholds, the agent flags it and suggests specific rebalancing moves.</div>
-              <div class="agent-ctx-tools"><span class="agent-ctx-tool">Drift Detector</span><span class="agent-ctx-tool">Rebalance Suggester</span><span class="agent-ctx-tool data">Target Profiles (BigQuery)</span></div>
+              <div class="agent-ctx-title">Allocations — AI Profile Builder + Drift Detection</div>
+              <div class="agent-ctx-body">Two powerful features: an <strong>AI allocation profile builder</strong> that translates plain-English investor descriptions into 6-dimension allocation models (sector, risk, geography, market cap, asset class, income style), and a <strong>drift detector</strong> that compares targets against actual positions in real-time and suggests rebalancing moves.</div>
+              <div class="agent-ctx-tools"><span class="agent-ctx-tool">AI Profile Builder (Claude)</span><span class="agent-ctx-tool">Drift Detector</span><span class="agent-ctx-tool">Rebalance Suggester</span><span class="agent-ctx-tool data">Target Profiles (BigQuery)</span></div>
             </div>
           </div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Category Allocations</div>
+          <!-- AI Allocation Builder -->
+          <div class="ai-alloc-builder" id="ai-alloc-demo">
+            <div class="ai-alloc-header">
+              <span class="ai-icon">🧠</span>
+              <span class="ai-title">Build Allocation Profile with AI</span>
+            </div>
+            <div class="ai-alloc-input" id="ai-alloc-typed" style="cursor:default"><span class="typing-caret" id="alloc-caret"></span></div>
+            <button class="ai-alloc-btn">🧠 Build My Allocation</button>
+            <div class="ai-alloc-result" id="ai-alloc-result">
+              <div style="font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:rgba(124,58,237,.6);font-weight:600;margin-bottom:6px">AI-Generated Profile — "Growth + Income Blend"</div>
+              <div class="ai-alloc-dim"><span class="ai-alloc-dim-name">Sector</span><span class="ai-alloc-dim-tags"><span class="ai-alloc-tag">Technology 35%</span><span class="ai-alloc-tag">Healthcare 25%</span><span class="ai-alloc-tag">Financials 15%</span><span class="ai-alloc-tag">Consumer 15%</span><span class="ai-alloc-tag">Energy 10%</span></span></div>
+              <div class="ai-alloc-dim"><span class="ai-alloc-dim-name">Risk</span><span class="ai-alloc-dim-tags"><span class="ai-alloc-tag">Moderate 50%</span><span class="ai-alloc-tag">Growth 35%</span><span class="ai-alloc-tag">Conservative 15%</span></span></div>
+              <div class="ai-alloc-dim"><span class="ai-alloc-dim-name">Geography</span><span class="ai-alloc-dim-tags"><span class="ai-alloc-tag">US 70%</span><span class="ai-alloc-tag">International 20%</span><span class="ai-alloc-tag">Emerging 10%</span></span></div>
+              <div class="ai-alloc-dim"><span class="ai-alloc-dim-name">Market Cap</span><span class="ai-alloc-dim-tags"><span class="ai-alloc-tag">Large 55%</span><span class="ai-alloc-tag">Mid 30%</span><span class="ai-alloc-tag">Small 15%</span></span></div>
+              <div class="ai-alloc-dim"><span class="ai-alloc-dim-name">Asset Class</span><span class="ai-alloc-dim-tags"><span class="ai-alloc-tag">Equity 75%</span><span class="ai-alloc-tag">ETF 20%</span><span class="ai-alloc-tag">REIT 5%</span></span></div>
+              <div class="ai-alloc-dim"><span class="ai-alloc-dim-name">Income Style</span><span class="ai-alloc-dim-tags"><span class="ai-alloc-tag">Growth 55%</span><span class="ai-alloc-tag">Dividend 30%</span><span class="ai-alloc-tag">Blend 15%</span></span></div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Category Allocations — Live Drift</div>
           <div class="allocation-bars">
             <div class="allocation-row">
               <div class="allocation-label">Technology</div>
@@ -1211,36 +1263,52 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
           <div class="agent-ctx">
             <div class="agent-ctx-icon">🔎</div>
             <div>
-              <div class="agent-ctx-title">Stock Scout Agent — Allocation Gaps &amp; New Securities</div>
-              <div class="agent-ctx-body">Two ways to discover new holdings: a manual screener with server-side filtering powered by Financial Modeling Prep, and the <strong>Stock Scout AI agent</strong> that detects allocation gaps and recommends securities to fill them. Filter by type, sector, market cap, dividend yield, and price — or let the AI find what's missing from the portfolio.</div>
-              <div class="agent-ctx-tools"><span class="agent-ctx-tool">Gap Detection</span><span class="agent-ctx-tool">FMP Screener</span><span class="agent-ctx-tool">Fundamentals Lookup</span><span class="agent-ctx-tool data">FMP API</span></div>
+              <div class="agent-ctx-title">Stock Finder — AI Search + Manual Screener + Stock Scout Agent</div>
+              <div class="agent-ctx-body">Three ways to discover securities: <strong>AI natural language search</strong> ("find me dividend healthcare ETFs") that translates plain English into FMP screener filters and keyword searches, a <strong>manual screener</strong> with dropdowns for sector, market cap, dividend, and price, and the <strong>Stock Scout agent</strong> that detects allocation gaps and recommends securities to fill them. All powered by Financial Modeling Prep with full company profiles, ratios, and fundamentals.</div>
+              <div class="agent-ctx-tools"><span class="agent-ctx-tool">AI Search (Claude)</span><span class="agent-ctx-tool">FMP Screener</span><span class="agent-ctx-tool">Gap Detection</span><span class="agent-ctx-tool">Company Profiles</span><span class="agent-ctx-tool data">FMP API</span></div>
             </div>
           </div>
-          <div class="finder-gap-card">
-            <div class="finder-gap-title">🤖 AI Suggestion — Stock Scout Agent</div>
-            <div class="finder-gap-body">Your portfolio is <strong style="color:#f87171">underweight International by 8.2%</strong> relative to target allocations. Consider adding broad international exposure through diversified ETFs. Top candidates: VXUS (Vanguard Total International), IXUS (iShares Core MSCI International), or SPDW (SPDR Developed World ex-US).</div>
+          <!-- AI Natural Language Search -->
+          <div class="ai-search-bar" id="ai-search-demo">
+            <span class="ai-icon">🧠</span>
+            <div class="ai-search-query"><span id="ai-typed" class="typing-caret"></span></div>
+            <button class="ai-search-send">Search</button>
           </div>
+          <div class="ai-strategy-card" id="ai-strategy-demo">
+            <div class="ai-strategy-label">AI Search Strategy</div>
+            <div class="ai-strategy-text">Looking for mid-cap healthcare companies with strong dividends. Applying screener filters for $2B–$10B market cap, Healthcare sector, and 3%+ dividend yield. Also searching for thematic matches.</div>
+            <div class="ai-keyword-pills">
+              <span class="ai-keyword-pill">healthcare dividend</span>
+              <span class="ai-keyword-pill">medical REIT</span>
+              <span class="ai-keyword-pill">pharma income</span>
+            </div>
+          </div>
+          <!-- Filters still visible below AI search -->
           <div class="finder-filters">
-            <div class="finder-filter">Type: <span class="filter-val">ETF</span></div>
-            <div class="finder-filter">Sector: <span class="filter-val">All</span></div>
-            <div class="finder-filter">Market Cap: <span class="filter-val">&gt; $1B</span></div>
-            <div class="finder-filter">Dividend: <span class="filter-val">Any</span></div>
+            <div class="finder-filter">Sector: <span class="filter-val">Healthcare</span></div>
+            <div class="finder-filter">Market Cap: <span class="filter-val">$2B – $10B</span></div>
+            <div class="finder-filter">Min Dividend: <span class="filter-val">3%+</span></div>
+            <div class="finder-filter">Country: <span class="filter-val">US</span></div>
           </div>
-          <div class="finder-results">
+          <div class="finder-gap-card">
+            <div class="finder-gap-title">🤖 Stock Scout Agent</div>
+            <div class="finder-gap-body">Your portfolio is <strong style="color:#f87171">underweight Healthcare by 6.4%</strong>. These results align with your allocation gap — adding a healthcare dividend position would improve both diversification and income yield.</div>
+          </div>
+          <div class="finder-results" id="ai-results-demo">
             <div class="finder-row header">
               <span>Ticker</span><span>Name</span><span>Mkt Cap</span><span>Price</span><span>Yield</span><span></span>
             </div>
             <div class="finder-row">
-              <span class="finder-ticker">VXUS</span><span class="finder-name">Vanguard Total Intl Stock</span><span style="color:rgba(255,255,255,.6)">$412B</span><span style="color:rgba(255,255,255,.8)">$58.23</span><span class="value-positive">3.1%</span><span class="finder-star active">★</span>
+              <span class="finder-ticker">OHI</span><span class="finder-name">Omega Healthcare Investors</span><span style="color:rgba(255,255,255,.6)">$8.2B</span><span style="color:rgba(255,255,255,.8)">$31.47</span><span class="value-positive">7.8%</span><span class="finder-star active">★</span>
             </div>
             <div class="finder-row">
-              <span class="finder-ticker">IXUS</span><span class="finder-name">iShares Core MSCI Intl</span><span style="color:rgba(255,255,255,.6)">$38B</span><span style="color:rgba(255,255,255,.8)">$67.45</span><span class="value-positive">2.8%</span><span class="finder-star">★</span>
+              <span class="finder-ticker">ABBV</span><span class="finder-name">AbbVie Inc</span><span style="color:rgba(255,255,255,.6)">$9.1B</span><span style="color:rgba(255,255,255,.8)">$168.52</span><span class="value-positive">3.8%</span><span class="finder-star">★</span>
             </div>
             <div class="finder-row">
-              <span class="finder-ticker">SPDW</span><span class="finder-name">SPDR Dev World ex-US</span><span style="color:rgba(255,255,255,.6)">$14B</span><span style="color:rgba(255,255,255,.8)">$36.18</span><span class="value-positive">2.9%</span><span class="finder-star">★</span>
+              <span class="finder-ticker">VTR</span><span class="finder-name">Ventas Inc</span><span style="color:rgba(255,255,255,.6)">$4.7B</span><span style="color:rgba(255,255,255,.8)">$48.93</span><span class="value-positive">3.4%</span><span class="finder-star">★</span>
             </div>
             <div class="finder-row">
-              <span class="finder-ticker">VEA</span><span class="finder-name">Vanguard FTSE Developed</span><span style="color:rgba(255,255,255,.6)">$117B</span><span style="color:rgba(255,255,255,.8)">$50.87</span><span class="value-positive">3.0%</span><span class="finder-star">★</span>
+              <span class="finder-ticker">SBRA</span><span class="finder-name">Sabra Health Care REIT</span><span style="color:rgba(255,255,255,.6)">$3.8B</span><span style="color:rgba(255,255,255,.8)">$16.24</span><span class="value-positive">6.2%</span><span class="finder-star active">★</span>
             </div>
           </div>
         </div>
@@ -1347,8 +1415,12 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
                 <span class="status-text">Connected</span>
               </div>
               <div class="settings-item">
-                <span class="settings-label"><span class="status-dot disconnected"></span>ElevenLabs</span>
-                <span class="status-text">Not Configured</span>
+                <span class="settings-label"><span class="status-dot connected"></span>Financial Modeling Prep</span>
+                <span class="status-text">Connected</span>
+              </div>
+              <div class="settings-item">
+                <span class="settings-label"><span class="status-dot connected"></span>ElevenLabs</span>
+                <span class="status-text">Connected</span>
               </div>
             </div>
             <div class="settings-group">
@@ -1670,6 +1742,11 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <p class="feature-body">Define target allocations, get alerted when market movements push the portfolio off-target, with specific rebalancing suggestions.</p>
     </div>
     <div class="feature-card fade-in">
+      <span class="feature-icon">🧠</span>
+      <div class="feature-title">AI Allocation Builder</div>
+      <p class="feature-body">Describe your investor profile in plain English — "growth-focused, tech-heavy, some international" — and Claude generates a 6-dimension allocation model across sector, risk, geography, market cap, asset class, and income style. Fine-tune with sliders after.</p>
+    </div>
+    <div class="feature-card fade-in">
       <span class="feature-icon">🧾</span>
       <div class="feature-title">Tax-Loss Harvesting</div>
       <p class="feature-body">Scan unrealized losses against realized gains and suggest tax-aware trades. Especially valuable near year-end.</p>
@@ -1692,7 +1769,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="feature-card fade-in">
       <span class="feature-icon">🎙️</span>
       <div class="feature-title">Podcast Briefings</div>
-      <p class="feature-body">Weekly audio summaries generated by ElevenLabs with two AI host voices. Listen to your portfolio analysis like a podcast while commuting.</p>
+      <p class="feature-body">Morning and evening audio briefings generated by ElevenLabs with two AI host voices. Listen to your portfolio analysis like a podcast on walks with the dog — market moves, agent insights, and trade recommendations in a conversational format.</p>
     </div>
     <div class="feature-card fade-in">
       <span class="feature-icon">📋</span>
@@ -1706,8 +1783,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     </div>
     <div class="feature-card fade-in">
       <span class="feature-icon">🔎</span>
-      <div class="feature-title">Stock Finder</div>
-      <p class="feature-body">Server-side stock screener powered by FMP with filters for type, sector, market cap, dividend, and price. AI suggestions from Stock Scout highlight allocation gaps, and a watchlist lets you track candidates without executing trades.</p>
+      <div class="feature-title">Stock Finder + AI Search</div>
+      <p class="feature-body">Three discovery modes: <strong>AI natural language search</strong> — describe what you want in plain English and Claude translates it into FMP screener filters plus keyword searches. A <strong>manual screener</strong> with dropdowns for sector, market cap, dividend, and price. And the <strong>Stock Scout agent</strong> that detects allocation gaps and recommends securities to fill them. Full company profiles with financial ratios and key metrics on click.</p>
     </div>
     <div class="feature-card fade-in">
       <span class="feature-icon">🎛️</span>
@@ -1973,8 +2050,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="stack-card fade-in">
       <span class="stack-card-icon">🎙️</span>
       <div class="stack-card-title">ElevenLabs</div>
-      <div class="stack-card-sub">Podcast Audio (Phase 6)</div>
-      <p class="stack-card-body">Two-voice text-to-speech API that will convert analysis scripts into podcast-style audio briefings.</p>
+      <div class="stack-card-sub">Podcast Audio Generation</div>
+      <p class="stack-card-body">Two-voice text-to-speech API that converts agent analysis into morning and evening podcast-style audio briefings. Two AI hosts discuss portfolio moves, market context, and trade recommendations in a conversational format.</p>
     </div>
   </div>
 </section>
@@ -2035,6 +2112,88 @@ document.querySelectorAll('.agent-toggle').forEach(toggle => {
     e.stopPropagation();
     const card = this.closest('.agent-card');
     if (card) card.classList.toggle('expanded');
+  });
+});
+
+// ── AI Demo Typing Simulations ──────────────────────────────
+// Only run when the tab becomes visible (performance)
+function typeText(el, text, speed, cb) {
+  let i = 0;
+  el.textContent = '';
+  el.classList.add('typing-caret');
+  el.classList.remove('done');
+  function tick() {
+    if (i < text.length) {
+      el.textContent = text.slice(0, ++i);
+      setTimeout(tick, speed + Math.random() * 40);
+    } else {
+      el.classList.add('done');
+      if (cb) setTimeout(cb, 600);
+    }
+  }
+  tick();
+}
+
+// Track which demos have played
+const demoPlayed = { finder: false, alloc: false };
+
+// Finder AI search demo
+function runFinderDemo() {
+  if (demoPlayed.finder) return;
+  demoPlayed.finder = true;
+  const typed = document.getElementById('ai-typed');
+  const strategy = document.getElementById('ai-strategy-demo');
+  const results = document.getElementById('ai-results-demo');
+  if (!typed) return;
+  // Hide results initially
+  if (results) results.style.opacity = '0';
+  strategy.classList.remove('visible');
+  // Type the query
+  typeText(typed, 'Find me mid-cap healthcare companies with strong dividends', 45, function() {
+    // Show strategy card
+    strategy.classList.add('visible');
+    // Fade in results
+    setTimeout(function() {
+      if (results) {
+        results.style.transition = 'opacity .8s ease';
+        results.style.opacity = '1';
+      }
+    }, 800);
+  });
+}
+
+// Allocations AI builder demo
+function runAllocDemo() {
+  if (demoPlayed.alloc) return;
+  demoPlayed.alloc = true;
+  const caret = document.getElementById('alloc-caret');
+  const result = document.getElementById('ai-alloc-result');
+  const container = document.getElementById('ai-alloc-typed');
+  if (!caret || !container) return;
+  result.classList.remove('visible');
+  // Type into the "textarea" div
+  const query = 'Growth-focused investor, heavy on tech and healthcare, some international exposure, moderate risk tolerance, mix of growth and dividend income';
+  let i = 0;
+  function tick() {
+    if (i < query.length) {
+      container.textContent = query.slice(0, ++i);
+      // Keep caret at end
+      container.appendChild(caret);
+      setTimeout(tick, 35 + Math.random() * 30);
+    } else {
+      caret.classList.add('done');
+      setTimeout(function() { result.classList.add('visible'); }, 800);
+    }
+  }
+  tick();
+}
+
+// Hook into tab switching — run demo when that tab is clicked
+document.querySelectorAll('.tab-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var tab = btn.dataset.tab;
+    if (tab === 'finder') setTimeout(runFinderDemo, 300);
+    if (tab === 'allocations') setTimeout(runAllocDemo, 300);
   });
 });
 </script>
