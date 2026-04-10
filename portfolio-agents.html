@@ -37,12 +37,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:fl
 .hero-card{background:var(--ink);border-radius:24px;padding:32px;position:relative;overflow:hidden}
 .hero-card::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(145deg,rgba(124,58,237,.12) 0%,transparent 55%);pointer-events:none}
 .hero-card-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px}
-.arch-mini{font-family:'Inter',monospace;font-size:12px;line-height:1.7;color:rgba(255,255,255,.55)}
-.arch-mini .highlight{color:#a78bfa}
-.arch-mini .teal{color:#6ee7b7}
-.arch-mini .gold{color:#fcd34d}
-.arch-mini .blue{color:#93c5fd}
-.arch-mini .dim{color:rgba(255,255,255,.2)}
+/* arch-mini classes removed — replaced by inline SVG diagram */
 
 /* SECTIONS */
 section{padding:96px 60px}
@@ -55,19 +50,38 @@ section{padding:96px 60px}
 
 /* AGENT CARDS */
 .agents-section{background:#fff}
-.agents-grid{margin-top:48px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.agent-card{background:var(--bg);border:1px solid var(--bg3);border-radius:18px;padding:28px;transition:all .22s}
+.agents-grid{margin-top:48px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:start}
+.agent-card{background:var(--bg);border:1px solid var(--bg3);border-radius:18px;padding:28px;transition:all .22s;position:relative;display:flex;flex-direction:column}
 .agent-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(12,12,20,.07)}
+.agent-card-header{display:flex;flex-direction:column}
 .agent-icon{font-size:28px;margin-bottom:14px;display:block}
 .agent-title{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:6px}
 .agent-role{font-size:12px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
 .agent-body{font-size:14px;line-height:1.75;color:var(--ink2);margin-bottom:18px}
-.agent-outputs{display:flex;flex-wrap:wrap;gap:6px}
+.agent-outputs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
 .agent-out{font-size:11px;font-weight:500;padding:4px 10px;border-radius:6px;letter-spacing:.02em}
 .agent-out.data{background:rgba(26,82,150,.08);color:var(--accent2);border:1px solid rgba(26,82,150,.15)}
 .agent-out.alert{background:rgba(200,151,58,.12);color:#7a5e1a;border:1px solid rgba(200,151,58,.2)}
 .agent-out.ai{background:rgba(91,33,182,.08);color:var(--ai2);border:1px solid rgba(91,33,182,.15)}
 .agent-out.teal{background:rgba(10,117,101,.08);color:var(--teal);border:1px solid rgba(10,117,101,.15)}
+.agent-toggle{margin-top:auto;padding-top:16px;border-top:1px solid var(--bg3);display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none}
+.agent-toggle-text{font-size:12px;font-weight:500;color:var(--ink3);letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+.agent-card:hover .agent-toggle-text{color:var(--accent2)}
+.agent-toggle-icon{width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:14px;transition:transform .3s cubic-bezier(.4,0,.2,1);color:var(--ink3)}
+.agent-card.expanded .agent-toggle-icon{transform:rotate(180deg);color:var(--accent2)}
+.agent-expanded{max-height:0;overflow:hidden;opacity:0;transition:max-height .4s cubic-bezier(.4,0,.2,1),opacity .3s ease}
+.agent-card.expanded .agent-expanded{max-height:1200px;opacity:1}
+.agent-expanded-content{padding-top:20px;display:flex;flex-direction:column;gap:20px}
+.agent-expanded-block{display:flex;flex-direction:column}
+.agent-expanded-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+.agent-goal-text,.agent-backstory-text,.agent-output-text{font-size:13px;line-height:1.7;color:var(--ink2)}
+.agent-skills{display:flex;flex-wrap:wrap;gap:8px}
+.agent-skill{display:flex;align-items:center;gap:5px;font-size:12px;padding:6px 12px;background:rgba(26,82,150,.08);border:1px solid rgba(26,82,150,.15);border-radius:8px;color:var(--accent2);font-weight:500}
+.agent-skill-icon{font-size:11px;opacity:.7}
+.agent-skill-params{font-size:10px;color:var(--ink3);margin-left:2px}
+.agent-redacted{background:linear-gradient(135deg,rgba(12,12,20,.02) 0%,rgba(12,12,20,.04) 100%);border:1.5px dashed rgba(12,12,20,.15);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px}
+.agent-redacted-icon{font-size:20px;opacity:.5;flex-shrink:0}
+.agent-redacted-text{font-size:12px;color:var(--ink3);line-height:1.6;font-style:italic}
 /* PIPELINE SECTION — "How Agents Think" */
 .pipeline-section{background:linear-gradient(160deg,#0a1628 0%,#0f0f1a 50%,#1a0f2e 100%);color:#fff;position:relative;overflow:hidden}
 .pipeline-section::before{content:'';position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(10,117,101,.12) 0%,transparent 70%);pointer-events:none}
@@ -76,6 +90,19 @@ section{padding:96px 60px}
 .pipeline-section .section-title{color:#fff}
 .pipeline-section .section-intro{color:rgba(255,255,255,.6)}
 .pipeline-flow{margin-top:48px;display:flex;flex-direction:column;gap:0}
+.pipeline-flow-svg{margin-top:48px;background:linear-gradient(160deg,rgba(255,255,255,.02) 0%,rgba(255,255,255,.04) 100%);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:40px;display:flex;align-items:center;justify-content:center;min-height:480px;position:relative;overflow:hidden}
+.pipeline-svg-container{width:100%;max-width:900px;position:relative}
+.pipeline-svg{width:100%;height:auto}
+.pipeline-agent-node{cursor:pointer;transition:filter .2s}
+.pipeline-agent-node:hover circle{filter:brightness(1.2)}
+.pipeline-agent-node:hover text{fill:#fff;font-weight:600}
+.pipeline-agent-text{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:500;fill:rgba(255,255,255,.75);text-anchor:middle;pointer-events:none;transition:fill .2s}
+.pipeline-center-node circle{filter:drop-shadow(0 0 12px rgba(124,58,237,.3))}
+.pipeline-flow-line{stroke:rgba(255,255,255,.25);stroke-width:2;fill:none;stroke-dasharray:5,5;animation:dashflow 12s linear infinite}
+@keyframes dashflow{to{stroke-dashoffset:-200}}
+.pipeline-flow-line.active{stroke:rgba(124,58,237,.4);stroke-width:2.5;animation:dashflow 8s linear infinite}
+.pipeline-label{font-family:'Inter',sans-serif;font-size:9px;font-weight:500;fill:rgba(255,255,255,.4);text-anchor:middle;pointer-events:none}
+.pipeline-badge{font-family:'Inter',sans-serif;font-size:8px;font-weight:600;fill:rgba(255,255,255,.6);text-anchor:middle;pointer-events:none}
 .pipeline-step{display:grid;grid-template-columns:56px 1fr;gap:0 24px;position:relative}
 .pipeline-marker{display:flex;flex-direction:column;align-items:center}
 .pipeline-dot{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);transition:all .3s}
@@ -393,23 +420,68 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
   <div class="hero-right">
     <div class="hero-card">
       <div class="hero-card-label">System Overview</div>
-      <div class="arch-mini">
-<span class="dim">┌──────────────────────────────────────────────────────┐</span>
-<span class="highlight">  ORCHESTRATOR</span> <span class="dim">(CrewAI + Claude Sonnet)</span>
-<span class="dim">└──┬──────────┬───────────┬────────┬────────┬──────────┘</span>
-   <span class="dim">│          │           │        │        │</span>
- <span class="teal">Portfolio</span> <span class="teal">Smart</span>    <span class="dim">Macro</span>   <span class="dim">Tax</span>    <span class="dim">Synth</span>
- <span class="teal">Analyst</span>  <span class="teal">Money</span>    <span class="dim">Scanner</span> <span class="dim">Strategy</span> <span class="dim">+ Audio</span>
-   <span class="dim">│          │           │        │        │</span>
-   <span class="dim">└──────────┴───────────┴────────┴────────┘</span>
-                       <span class="dim">│</span>
-         <span class="gold">DataStore Abstraction Layer</span>
-      <span class="teal">Google BigQuery</span> <span class="dim">·</span> <span class="teal">GCP</span>
-        <span class="dim">Finnhub · SnapTrade · yfinance</span>
-                       <span class="dim">│</span>
-        <span class="highlight">React + Vite</span> <span class="dim">frontend</span>
-        <span class="blue">FastAPI</span> <span class="dim">backend (Railway)</span>
-      </div>
+      <svg viewBox="0 0 340 310" style="width:100%;max-width:340px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hPurple" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#a855f7"/></linearGradient>
+          <linearGradient id="hTeal" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0a7565"/><stop offset="100%" stop-color="#0fa888"/></linearGradient>
+          <linearGradient id="hGold" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c89734"/><stop offset="100%" stop-color="#e8b84b"/></linearGradient>
+          <linearGradient id="hBlue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1a5296"/><stop offset="100%" stop-color="#2563eb"/></linearGradient>
+        </defs>
+        <!-- Orchestrator -->
+        <rect x="50" y="8" width="240" height="36" rx="8" fill="url(#hPurple)" opacity=".85"/>
+        <text x="170" y="24" text-anchor="middle" fill="#fff" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="700">CrewAI Orchestrator</text>
+        <text x="170" y="36" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif" font-size="8">Claude Sonnet · Task Routing</text>
+        <!-- Flow lines down -->
+        <line x1="100" y1="44" x2="100" y2="62" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="170" y1="44" x2="170" y2="62" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="240" y1="44" x2="240" y2="62" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- Agent row -->
+        <rect x="8" y="62" width="62" height="28" rx="6" fill="rgba(15,168,136,.18)" stroke="rgba(15,168,136,.3)" stroke-width="1"/>
+        <text x="39" y="79" text-anchor="middle" fill="#6ee7b7" font-family="Inter,sans-serif" font-size="8" font-weight="600">Portfolio</text>
+        <rect x="76" y="62" width="56" height="28" rx="6" fill="rgba(15,168,136,.18)" stroke="rgba(15,168,136,.3)" stroke-width="1"/>
+        <text x="104" y="79" text-anchor="middle" fill="#6ee7b7" font-family="Inter,sans-serif" font-size="8" font-weight="600">Smart $</text>
+        <rect x="138" y="62" width="56" height="28" rx="6" fill="rgba(37,99,235,.18)" stroke="rgba(37,99,235,.3)" stroke-width="1"/>
+        <text x="166" y="79" text-anchor="middle" fill="#93c5fd" font-family="Inter,sans-serif" font-size="8" font-weight="600">Macro</text>
+        <rect x="200" y="62" width="56" height="28" rx="6" fill="rgba(37,99,235,.18)" stroke="rgba(37,99,235,.3)" stroke-width="1"/>
+        <text x="228" y="79" text-anchor="middle" fill="#93c5fd" font-family="Inter,sans-serif" font-size="8" font-weight="600">Security</text>
+        <rect x="262" y="62" width="68" height="28" rx="6" fill="rgba(124,58,237,.18)" stroke="rgba(124,58,237,.3)" stroke-width="1"/>
+        <text x="296" y="79" text-anchor="middle" fill="#a78bfa" font-family="Inter,sans-serif" font-size="8" font-weight="600">Synthesizer</text>
+        <!-- Row 2: more agents -->
+        <rect x="8" y="96" width="62" height="28" rx="6" fill="rgba(37,99,235,.18)" stroke="rgba(37,99,235,.3)" stroke-width="1"/>
+        <text x="39" y="113" text-anchor="middle" fill="#93c5fd" font-family="Inter,sans-serif" font-size="8" font-weight="600">Calendar</text>
+        <rect x="76" y="96" width="62" height="28" rx="6" fill="rgba(200,151,58,.18)" stroke="rgba(200,151,58,.3)" stroke-width="1"/>
+        <text x="107" y="113" text-anchor="middle" fill="#fcd34d" font-family="Inter,sans-serif" font-size="8" font-weight="600">Tax</text>
+        <rect x="144" y="96" width="62" height="28" rx="6" fill="rgba(15,168,136,.18)" stroke="rgba(15,168,136,.3)" stroke-width="1"/>
+        <text x="175" y="113" text-anchor="middle" fill="#6ee7b7" font-family="Inter,sans-serif" font-size="8" font-weight="600">Scout</text>
+        <text x="274" y="113" text-anchor="middle" fill="rgba(255,255,255,.3)" font-family="Inter,sans-serif" font-size="8">8 specialists</text>
+        <!-- Flow down -->
+        <line x1="170" y1="124" x2="170" y2="142" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- DataStore -->
+        <rect x="50" y="142" width="240" height="36" rx="8" fill="url(#hGold)" opacity=".75"/>
+        <text x="170" y="158" text-anchor="middle" fill="#fff" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="700">DataStore Abstraction</text>
+        <text x="170" y="170" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif" font-size="8">Strategy Pattern · Backend-Agnostic</text>
+        <!-- Flow down -->
+        <line x1="120" y1="178" x2="120" y2="196" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="220" y1="178" x2="220" y2="196" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- Data sources -->
+        <rect x="8" y="196" width="84" height="28" rx="6" fill="rgba(15,168,136,.18)" stroke="rgba(15,168,136,.3)" stroke-width="1"/>
+        <text x="50" y="213" text-anchor="middle" fill="#6ee7b7" font-family="Inter,sans-serif" font-size="8" font-weight="600">BigQuery · GCP</text>
+        <rect x="97" y="196" width="62" height="28" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <text x="128" y="213" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif" font-size="8" font-weight="600">Finnhub</text>
+        <rect x="164" y="196" width="76" height="28" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <text x="202" y="213" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif" font-size="8" font-weight="600">SnapTrade</text>
+        <rect x="245" y="196" width="86" height="28" rx="6" fill="rgba(200,151,58,.18)" stroke="rgba(200,151,58,.3)" stroke-width="1"/>
+        <text x="288" y="213" text-anchor="middle" fill="#fcd34d" font-family="Inter,sans-serif" font-size="8" font-weight="600">FMP ⭐</text>
+        <!-- Flow down -->
+        <line x1="170" y1="224" x2="170" y2="248" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- Frontend / Backend -->
+        <rect x="50" y="248" width="130" height="36" rx="8" fill="url(#hPurple)" opacity=".7"/>
+        <text x="115" y="264" text-anchor="middle" fill="#fff" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="700">React + Vite</text>
+        <text x="115" y="276" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="Inter,sans-serif" font-size="8">Vercel</text>
+        <rect x="188" y="248" width="102" height="36" rx="8" fill="url(#hBlue)" opacity=".7"/>
+        <text x="239" y="264" text-anchor="middle" fill="#fff" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="700">FastAPI</text>
+        <text x="239" y="276" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="Inter,sans-serif" font-size="8">Railway</text>
+      </svg>
     </div>
   </div>
 </section>
@@ -1331,195 +1403,237 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
   <div class="fade-in">
     <div class="section-label">Agent Architecture</div>
     <h2 class="section-title">Eight agents, each with a <em>real job</em></h2>
-    <p class="section-intro">Every agent has a specific role and its own set of tools that handle the math — Sharpe ratios, correlation matrices, sentiment scores. The LLM's job is to look at those results and figure out what they mean together. CrewAI orchestrates the whole crew and passes context between them so nothing gets analyzed in a vacuum.</p>
+    <p class="section-intro">Every agent has a specific role, a backstory that shapes its reasoning, configurable skills with tunable parameters, and structured output formats. The LLM's job is to look at tool results and figure out what they mean together. CrewAI orchestrates the whole crew and passes context between them so nothing gets analyzed in a vacuum.</p>
   </div>
   <div class="agents-grid">
     <div class="agent-card fade-in">
-      <span class="agent-icon">📈</span>
-
-      <div class="agent-title">Portfolio Analyst</div>
-      <div class="agent-role">Agent 1 · Performance, Risk &amp; Correlation</div>
-      <p class="agent-body">Runs five tools across every holding: Sharpe ratio and volatility, concentration risk (HHI, sector limits), drift vs. my target allocations, performer ranking with percentiles, and pairwise correlation analysis — because three tech ETFs might look diversified until you see they move in lockstep.</p>
-      <div class="agent-outputs">
-        <span class="agent-out data">Finnhub Prices</span>
-        <span class="agent-out teal">Risk Metrics</span>
-        <span class="agent-out alert">Drift Alerts</span>
-        <span class="agent-out teal">Correlation Matrix</span>
+      <div class="agent-card-header">
+        <span class="agent-icon">📈</span>
+        <div class="agent-title">Portfolio Analyst</div>
+        <div class="agent-role">Agent 1 · Performance, Risk &amp; Correlation</div>
+        <p class="agent-body">Runs five tools across every holding: Sharpe ratio and volatility, concentration risk (HHI, sector limits), drift vs. my target allocations, performer ranking with percentiles, and pairwise correlation analysis — because three tech ETFs might look diversified until you see they move in lockstep.</p>
+        <div class="agent-outputs">
+          <span class="agent-out data">Finnhub Prices</span>
+          <span class="agent-out teal">Risk Metrics</span>
+          <span class="agent-out alert">Drift Alerts</span>
+          <span class="agent-out teal">Correlation Matrix</span>
+        </div>
       </div>
+      <div class="agent-toggle"><span class="agent-toggle-text">View Agent Profile</span><div class="agent-toggle-icon">▼</div></div>
+      <div class="agent-expanded"><div class="agent-expanded-content">
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Goal</div><p class="agent-goal-text">Analyze current portfolio holdings, calculate key metrics, identify strongest and weakest positions, and provide a clear summary of portfolio health and performance.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Backstory</div><p class="agent-backstory-text">Seasoned financial analyst specializing in ETF portfolios, focused on practical insights and clear communication without jargon.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Skills</div><div class="agent-skills"><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Risk Metrics<span class="agent-skill-params">(4)</span></span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Concentration<span class="agent-skill-params">(5)</span></span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Allocation Drift<span class="agent-skill-params">(2)</span></span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Performer Ranking</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Correlation<span class="agent-skill-params">(3)</span></span></div></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Expected Output</div><p class="agent-output-text">Comprehensive portfolio analysis report with risk metrics (Sharpe, volatility, drawdown), concentration warnings, allocation drift, performer rankings, and correlation insights.</p></div>
+        <div class="agent-redacted"><div class="agent-redacted-icon">🔒</div><div class="agent-redacted-text">Agent instructions, prompt architecture, and tunable parameters hidden for IP protection</div></div>
+      </div></div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-icon">🏛️</span>
-
-      <div class="agent-title">Smart Money</div>
-      <div class="agent-role">Agent 2 · Congressional Trading Signals</div>
-      <p class="agent-body">Pulls congressional stock trades from STOCK Act disclosures and cross-references them against my holdings. Which members are buying or selling, sector clustering, timing relative to legislation — the kind of signals that institutional investors pay attention to. If a senator is loading up on a sector I'm in, I want to know about it.</p>
-      <div class="agent-outputs">
-        <span class="agent-out data">Finnhub Congressional</span>
-        <span class="agent-out teal">Trade Patterns</span>
-        <span class="agent-out alert">Overlap Alerts</span>
-        <span class="agent-out data">Member Activity</span>
+      <div class="agent-card-header">
+        <span class="agent-icon">🏛️</span>
+        <div class="agent-title">Smart Money</div>
+        <div class="agent-role">Agent 2 · Congressional Trading &amp; 13F Ownership</div>
+        <p class="agent-body">Pulls congressional stock trades from STOCK Act disclosures, cross-references them against my holdings, and layers in Form 13F institutional ownership data. Which members are buying or selling, which institutions hold multiple positions in my portfolio — the kind of signals that institutional investors pay attention to.</p>
+        <div class="agent-outputs">
+          <span class="agent-out data">Finnhub Congressional</span>
+          <span class="agent-out teal">Trade Patterns</span>
+          <span class="agent-out alert">Overlap Alerts</span>
+          <span class="agent-out data">13F Institutional</span>
+        </div>
       </div>
+      <div class="agent-toggle"><span class="agent-toggle-text">View Agent Profile</span><div class="agent-toggle-icon">▼</div></div>
+      <div class="agent-expanded"><div class="agent-expanded-content">
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Goal</div><p class="agent-goal-text">Analyze congressional stock trading disclosures and 13F institutional ownership data, identify patterns relevant to the user's portfolio.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Backstory</div><p class="agent-backstory-text">Financial intelligence analyst specializing in insider and institutional trading patterns. Monitors STOCK Act congressional disclosures and quarterly 13F filings.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Skills</div><div class="agent-skills"><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Congressional Trades</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Smart Money Overlap</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>13F Institutional Ownership</span></div></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Expected Output</div><p class="agent-output-text">Congressional activity brief, institutional ownership summary, cross-holder analysis identifying institutions with positions across multiple portfolio holdings.</p></div>
+        <div class="agent-redacted"><div class="agent-redacted-icon">🔒</div><div class="agent-redacted-text">Agent instructions, prompt architecture, and tunable parameters hidden for IP protection</div></div>
+      </div></div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-icon">🌍</span>
-
-      <div class="agent-title">Macro Scanner</div>
-      <div class="agent-role">Agent 3 · World &amp; US News</div>
-      <p class="agent-body">Scans broad news for macro events — Fed moves, GDP, employment data, geopolitical shifts, trade policy — and runs each story through three sentiment scoring systems plus the CNN Fear &amp; Greed Index. The interesting part: when the signals disagree (alarming headline, reassuring details), that's flagged as the story worth reading first.</p>
-      <div class="agent-outputs">
-        <span class="agent-out data">NewsAPI</span>
-        <span class="agent-out data">Finnhub News</span>
-        <span class="agent-out ai">VADER NLP</span>
-        <span class="agent-out ai">Alpha Vantage AI</span>
-        <span class="agent-out alert">Fear &amp; Greed</span>
+      <div class="agent-card-header">
+        <span class="agent-icon">🌍</span>
+        <div class="agent-title">Macro Scanner</div>
+        <div class="agent-role">Agent 3 · World &amp; US News</div>
+        <p class="agent-body">Scans broad news for macro events — Fed moves, GDP, employment data, geopolitical shifts, trade policy — and runs each story through three sentiment scoring systems plus the CNN Fear &amp; Greed Index. The interesting part: when the signals disagree (alarming headline, reassuring details), that's flagged as the story worth reading first.</p>
+        <div class="agent-outputs">
+          <span class="agent-out data">NewsAPI</span>
+          <span class="agent-out data">Finnhub News</span>
+          <span class="agent-out ai">VADER NLP</span>
+          <span class="agent-out ai">Alpha Vantage AI</span>
+          <span class="agent-out alert">Fear &amp; Greed</span>
+        </div>
       </div>
+      <div class="agent-toggle"><span class="agent-toggle-text">View Agent Profile</span><div class="agent-toggle-icon">▼</div></div>
+      <div class="agent-expanded"><div class="agent-expanded-content">
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Goal</div><p class="agent-goal-text">Interpret pre-scored macro news briefing and write portfolio-relevant analysis with multi-signal sentiment scoring.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Backstory</div><p class="agent-backstory-text">Macroeconomic analyst who receives pre-analyzed news data and translates it into actionable portfolio insights. Concise, connects findings to specific holdings.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Skills</div><div class="agent-skills"><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Macro News Scanner</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Multi-Source Feed</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Sentiment Scoring</span></div></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Expected Output</div><p class="agent-output-text">Market context with Fear &amp; Greed reading, key headlines with severity scoring, multi-signal sentiment analysis, and portfolio impact assessment.</p></div>
+        <div class="agent-redacted"><div class="agent-redacted-icon">🔒</div><div class="agent-redacted-text">Agent instructions, prompt architecture, and tunable parameters hidden for IP protection</div></div>
+      </div></div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-icon">🔍</span>
-
-      <div class="agent-title">Security Scanner</div>
-      <div class="agent-role">Agent 4 · Holdings-Specific Intelligence</div>
-      <p class="agent-body">Same multi-signal scoring as the Macro Scanner, but zoomed in on each individual holding. Per-ticker sentiment (60% VADER NLP, 40% keyword rules), Alpha Vantage AI relevance scores, and material event detection — earnings surprises, splits, regulatory actions. If something's happening with a stock I own, this agent catches it.</p>
-      <div class="agent-outputs">
-        <span class="agent-out data">Finnhub Company News</span>
-        <span class="agent-out ai">Multi-Signal Scoring</span>
-        <span class="agent-out alert">Signal Disagreements</span>
-        <span class="agent-out alert">Material Events</span>
+      <div class="agent-card-header">
+        <span class="agent-icon">🔍</span>
+        <div class="agent-title">Security Scanner</div>
+        <div class="agent-role">Agent 4 · Holdings-Specific Intelligence</div>
+        <p class="agent-body">Same multi-signal scoring as the Macro Scanner, but zoomed in on each individual holding. Per-ticker sentiment (60% VADER NLP, 40% keyword rules), Alpha Vantage AI relevance scores, and material event detection — earnings surprises, splits, regulatory actions. If something's happening with a stock I own, this agent catches it.</p>
+        <div class="agent-outputs">
+          <span class="agent-out data">Finnhub Company News</span>
+          <span class="agent-out ai">Multi-Signal Scoring</span>
+          <span class="agent-out alert">Signal Disagreements</span>
+          <span class="agent-out alert">Material Events</span>
+        </div>
       </div>
+      <div class="agent-toggle"><span class="agent-toggle-text">View Agent Profile</span><div class="agent-toggle-icon">▼</div></div>
+      <div class="agent-expanded"><div class="agent-expanded-content">
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Goal</div><p class="agent-goal-text">Interpret pre-scored per-ticker security data, flag anything that could change the investment thesis for each holding.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Backstory</div><p class="agent-backstory-text">Securities analyst covering the portfolio. Receives pre-scored news sentiment, material event flags, and analyst/insider signals per ticker. Data-driven, focuses on thesis changes.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Skills</div><div class="agent-skills"><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Security News Scanner</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Multi-Signal Analysis</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Material Event Detection</span></div></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Expected Output</div><p class="agent-output-text">Per-ticker sentiment with multi-signal indicators, material event flags, signal disagreement callouts, and thesis change warnings.</p></div>
+        <div class="agent-redacted"><div class="agent-redacted-icon">🔒</div><div class="agent-redacted-text">Agent instructions, prompt architecture, and tunable parameters hidden for IP protection</div></div>
+      </div></div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-icon">📅</span>
-
-      <div class="agent-title">Earnings &amp; Events Calendar</div>
-      <div class="agent-role">Agent 5 · Forward-Looking Timeline</div>
-      <p class="agent-body">Combines market events (earnings dates, ex-dividends, Fed meetings) with personal financial events (big expenses, bonus timing, tax deadlines). The goal: answer the question "what's coming up in the next few weeks that I should be thinking about?" — because a great trade idea doesn't help if rent is due.</p>
-      <div class="agent-outputs">
-        <span class="agent-out data">Finnhub Calendar</span>
-        <span class="agent-out data">Personal Events</span>
-        <span class="agent-out alert">Upcoming Timeline</span>
-        <span class="agent-out teal">Cash Flow Impact</span>
+      <div class="agent-card-header">
+        <span class="agent-icon">📅</span>
+        <div class="agent-title">Earnings &amp; Events Calendar</div>
+        <div class="agent-role">Agent 5 · Forward-Looking Timeline</div>
+        <p class="agent-body">Combines market events (earnings dates, ex-dividends, Fed meetings) with personal financial events (big expenses, bonus timing, tax deadlines). The goal: answer the question "what's coming up in the next few weeks that I should be thinking about?" — because a great trade idea doesn't help if rent is due.</p>
+        <div class="agent-outputs">
+          <span class="agent-out data">Finnhub Calendar</span>
+          <span class="agent-out data">Personal Events</span>
+          <span class="agent-out alert">Upcoming Timeline</span>
+          <span class="agent-out teal">Cash Flow Impact</span>
+        </div>
       </div>
+      <div class="agent-toggle"><span class="agent-toggle-text">View Agent Profile</span><div class="agent-toggle-icon">▼</div></div>
+      <div class="agent-expanded"><div class="agent-expanded-content">
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Goal</div><p class="agent-goal-text">Interpret pre-built event timeline and highlight anything that should affect portfolio timing or decisions.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Backstory</div><p class="agent-backstory-text">Financial planner's assistant who maintains the master calendar. Great at spotting timing conflicts and planning considerations across market and personal events.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Skills</div><div class="agent-skills"><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Calendar Event Scanner</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Timing Detection</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Conflict Analysis</span></div></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Expected Output</div><p class="agent-output-text">Weekly timeline organized by urgency, timing conflicts and event clustering, trade timing implications, and cash flow considerations.</p></div>
+        <div class="agent-redacted"><div class="agent-redacted-icon">🔒</div><div class="agent-redacted-text">Agent instructions, prompt architecture, and tunable parameters hidden for IP protection</div></div>
+      </div></div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-icon">🧾</span>
-
-      <div class="agent-title">Tax Strategy</div>
-      <div class="agent-role">Agent 6 · Tax-Loss Harvesting &amp; Optimization</div>
-      <p class="agent-body">Watches unrealized gains and losses for tax-loss harvesting opportunities — cost basis math, short-term vs. long-term classification, 30-day wash sale tracking, and harvest candidates ranked by actual tax savings. Runs weekly, but cranks up the frequency in Q4 when every dollar of tax savings counts.</p>
-      <div class="agent-outputs">
-        <span class="agent-out data">Cost Basis Data</span>
-        <span class="agent-out alert">Wash Sale Windows</span>
-        <span class="agent-out teal">Harvest Candidates</span>
-        <span class="agent-out alert">Capital Gains</span>
+      <div class="agent-card-header">
+        <span class="agent-icon">🧾</span>
+        <div class="agent-title">Tax Strategy</div>
+        <div class="agent-role">Agent 6 · Tax-Loss Harvesting &amp; Optimization</div>
+        <p class="agent-body">Watches unrealized gains and losses for tax-loss harvesting opportunities — cost basis math, short-term vs. long-term classification, 30-day wash sale tracking, and harvest candidates ranked by actual tax savings. Runs weekly, but cranks up the frequency in Q4 when every dollar of tax savings counts.</p>
+        <div class="agent-outputs">
+          <span class="agent-out data">Cost Basis Data</span>
+          <span class="agent-out alert">Wash Sale Windows</span>
+          <span class="agent-out teal">Harvest Candidates</span>
+          <span class="agent-out alert">Capital Gains</span>
+        </div>
       </div>
+      <div class="agent-toggle"><span class="agent-toggle-text">View Agent Profile</span><div class="agent-toggle-icon">▼</div></div>
+      <div class="agent-expanded"><div class="agent-expanded-content">
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Goal</div><p class="agent-goal-text">Analyze the portfolio for tax optimization opportunities including tax-loss harvesting candidates, holding period strategy, wash sale risks, and estimated capital gains liability.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Backstory</div><p class="agent-backstory-text">Tax-aware investment analyst specializing in ETF portfolio tax optimization. Focuses on practical tax-loss harvesting, holding period management, and wash sale avoidance.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Skills</div><div class="agent-skills"><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Cost Basis Calc</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Holding Periods<span class="agent-skill-params">(2)</span></span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Wash Sale Detector<span class="agent-skill-params">(1)</span></span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Harvest Finder<span class="agent-skill-params">(2)</span></span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Cap Gains Est<span class="agent-skill-params">(4)</span></span></div></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Expected Output</div><p class="agent-output-text">Cost basis analysis, holding period classifications (short-term vs long-term), wash sale warnings, harvest candidates ranked by tax savings, and capital gains tax liability estimates.</p></div>
+        <div class="agent-redacted"><div class="agent-redacted-icon">🔒</div><div class="agent-redacted-text">Agent instructions, prompt architecture, and tunable parameters hidden for IP protection</div></div>
+      </div></div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-icon">🔎</span>
-
-      <div class="agent-title">Stock Scout</div>
-      <div class="agent-role">Agent 7 · Allocation Gaps &amp; New Securities</div>
-      <p class="agent-body">Looks at where the portfolio is underweight vs. targets and goes hunting for securities to fill the gap. Three tools: allocation gap detection, a server-side stock screener powered by Financial Modeling Prep, and a fundamentals deep-dive that pulls ratios and key metrics. If I'm light on international exposure, Stock Scout finds the ETFs worth considering — not just any ETF, but ones that fit my risk profile.</p>
-      <div class="agent-outputs">
-        <span class="agent-out data">FMP Screener</span>
-        <span class="agent-out teal">Gap Analysis</span>
-        <span class="agent-out alert">Security Recs</span>
-        <span class="agent-out data">Fundamentals</span>
+      <div class="agent-card-header">
+        <span class="agent-icon">🔎</span>
+        <div class="agent-title">Stock Scout</div>
+        <div class="agent-role">Agent 7 · Allocation Gaps &amp; New Securities</div>
+        <p class="agent-body">Looks at where the portfolio is underweight vs. targets and goes hunting for securities to fill the gap. Three tools: allocation gap detection, a server-side stock screener powered by Financial Modeling Prep, and a fundamentals deep-dive that pulls ratios and key metrics. If I'm light on international exposure, Stock Scout finds the ETFs worth considering — not just any ETF, but ones that fit my risk profile.</p>
+        <div class="agent-outputs">
+          <span class="agent-out data">FMP Screener</span>
+          <span class="agent-out teal">Gap Analysis</span>
+          <span class="agent-out alert">Security Recs</span>
+          <span class="agent-out data">Fundamentals</span>
+        </div>
       </div>
+      <div class="agent-toggle"><span class="agent-toggle-text">View Agent Profile</span><div class="agent-toggle-icon">▼</div></div>
+      <div class="agent-expanded"><div class="agent-expanded-content">
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Goal</div><p class="agent-goal-text">Analyze portfolio allocation gaps and recommend new securities (stocks, ETFs, or funds) that would improve diversification and fill underweight positions.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Backstory</div><p class="agent-backstory-text">Experienced investment research analyst specializing in security selection and portfolio construction. Understands factor investing, sector rotation, and matching securities to allocation targets.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Skills</div><div class="agent-skills"><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Gap Detector<span class="agent-skill-params">(1)</span></span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Security Screener<span class="agent-skill-params">(1)</span></span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Fundamentals Lookup<span class="agent-skill-params">(1)</span></span></div></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Expected Output</div><p class="agent-output-text">5-10 recommended securities each with ticker, security type, which allocation gap it fills, key metrics (P/E, dividend yield, expense ratio), confidence level, and risks.</p></div>
+        <div class="agent-redacted"><div class="agent-redacted-icon">🔒</div><div class="agent-redacted-text">Agent instructions, prompt architecture, and tunable parameters hidden for IP protection</div></div>
+      </div></div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-icon">🧠</span>
-
-      <div class="agent-title">Synthesizer + Audio</div>
-      <div class="agent-role">Agent 8 · Cross-Reference &amp; Recommendations</div>
-      <p class="agent-body">Takes everything the other seven agents found and connects the dots. Factors tax implications into timing, weighs calendar events against trade ideas, folds in Stock Scout's new security recommendations, and produces prioritized readouts with confidence scores. Also generates podcast-style audio briefings so I can listen to my portfolio update while walking the dog.</p>
-      <div class="agent-outputs">
-        <span class="agent-out ai">Trade Readouts</span>
-        <span class="agent-out ai">Stock Stories</span>
-        <span class="agent-out ai">Audio Briefing</span>
-        <span class="agent-out teal">Tax-Aware Timing</span>
+      <div class="agent-card-header">
+        <span class="agent-icon">🧠</span>
+        <div class="agent-title">Synthesizer + Audio</div>
+        <div class="agent-role">Agent 8 · Cross-Reference &amp; Recommendations</div>
+        <p class="agent-body">Takes everything the other seven agents found and connects the dots. Factors tax implications into timing, weighs calendar events against trade ideas, folds in Stock Scout's new security recommendations, and produces prioritized readouts with confidence scores. Also generates podcast-style audio briefings so I can listen to my portfolio update while walking the dog.</p>
+        <div class="agent-outputs">
+          <span class="agent-out ai">Trade Readouts</span>
+          <span class="agent-out ai">Stock Stories</span>
+          <span class="agent-out ai">Audio Briefing</span>
+          <span class="agent-out teal">Tax-Aware Timing</span>
+        </div>
       </div>
+      <div class="agent-toggle"><span class="agent-toggle-text">View Agent Profile</span><div class="agent-toggle-icon">▼</div></div>
+      <div class="agent-expanded"><div class="agent-expanded-content">
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Goal</div><p class="agent-goal-text">Read outputs from all specialist agents and produce unified, prioritized recommendations with confidence levels and cross-agent reasoning.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Backstory</div><p class="agent-backstory-text">Senior portfolio strategist who synthesizes intelligence from multiple specialist analysts into a coherent action plan. Transparent about confidence levels and what isn't known.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Skills</div><div class="agent-skills"><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Agent Report Fetcher</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Portfolio Context</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Audio Generation</span></div></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Expected Output</div><p class="agent-output-text">Unified portfolio assessment with 3-7 prioritized recommendations, each with action (BUY/SELL/TRIM/HOLD/HARVEST), confidence level, time horizon, multi-agent reasoning, and tax impact.</p></div>
+        <div class="agent-redacted"><div class="agent-redacted-icon">🔒</div><div class="agent-redacted-text">Agent instructions, prompt architecture, and tunable parameters hidden for IP protection</div></div>
+      </div></div>
     </div>
   </div>
 </section>
 
-<!-- PIPELINE — HOW AGENTS THINK -->
+<!-- PIPELINE — AGENT ORCHESTRATION -->
 <section class="pipeline-section">
   <div class="fade-in">
     <div class="section-label">Under The Hood</div>
-    <h2 class="section-title">How agents <em class="ai-em">think</em></h2>
-    <p class="section-intro">The core design principle: tools do the math, the LLM does the thinking. Python tools read articles, score sentiment, calculate risk metrics, and pack everything into a compact briefing. Claude only sees structured results it can reason about — not raw data it has to parse. It's like handing a senior analyst a research brief instead of a stack of newspapers.</p>
+    <h2 class="section-title">How agents <em class="ai-em">work together</em></h2>
+    <p class="section-intro">Six specialist agents run in parallel, each focused on a single domain. Their outputs converge in the Synthesizer, which cross-references every signal to produce unified, prioritized recommendations. Stock Scout operates independently to find new securities. Tools do the math, the LLM does the thinking.</p>
   </div>
 
-  <div class="pipeline-flow">
-    <div class="pipeline-step fade-in">
-      <div class="pipeline-marker">
-        <div class="pipeline-dot">📡</div>
-        <div class="pipeline-line"></div>
-      </div>
-      <div class="pipeline-content">
-        <div class="pipeline-step-label">Step 1</div>
-        <div class="pipeline-step-title">Fetch from multiple sources</div>
-        <p class="pipeline-step-body">Each tool pulls data from every relevant source — NewsAPI for broad coverage, Finnhub for market-specific feeds, Yahoo Finance for earnings calendars. Articles are fetched at full length, then deduplicated by headline before any analysis begins.</p>
-      </div>
-    </div>
-
-    <div class="pipeline-step fade-in">
-      <div class="pipeline-marker">
-        <div class="pipeline-dot">⚖️</div>
-        <div class="pipeline-line"></div>
-      </div>
-      <div class="pipeline-content">
-        <div class="pipeline-step-label">Step 2</div>
-        <div class="pipeline-step-title">Multi-signal sentiment scoring</div>
-        <p class="pipeline-step-body">Each article is scored by three independent systems: custom keyword rules for speed (54 financial keywords, <code>severity 1–5</code>), NLTK's VADER model for NLP nuance (7,500-word lexicon, understands negation and intensifiers), and Alpha Vantage's AI model for financial-domain depth (per-ticker relevance scores). The CNN Fear &amp; Greed Index adds a market-wide sentiment reading. When signals disagree — alarming headline, reassuring substance — that's flagged as the most interesting insight.</p>
-      </div>
-    </div>
-
-    <div class="pipeline-step fade-in">
-      <div class="pipeline-marker">
-        <div class="pipeline-dot">🏷️</div>
-        <div class="pipeline-line"></div>
-      </div>
-      <div class="pipeline-content">
-        <div class="pipeline-step-label">Step 3</div>
-        <div class="pipeline-step-title">Categorize &amp; detect events</div>
-        <p class="pipeline-step-body">Articles are classified into macro themes (Fed policy, inflation, trade, geopolitical) and material event types (earnings, analyst actions, insider trades, regulatory, corporate). Each article can trigger multiple categories — a Fed rate decision article might tag both <code>fed_policy</code> and <code>inflation</code>.</p>
-      </div>
-    </div>
-
-    <div class="pipeline-step fade-in">
-      <div class="pipeline-marker">
-        <div class="pipeline-dot">🎯</div>
-        <div class="pipeline-line"></div>
-      </div>
-      <div class="pipeline-content">
-        <div class="pipeline-step-label">Step 4</div>
-        <div class="pipeline-step-title">Map portfolio impact</div>
-        <p class="pipeline-step-body">A static impact map connects macro categories to specific portfolio holdings. A trade policy headline automatically links to emerging market and tech supply chain tickers. The tool calculates total portfolio exposure as a percentage — so "trade war" isn't abstract, it's "38% of your holdings."</p>
-      </div>
-    </div>
-
-    <div class="pipeline-step fade-in">
-      <div class="pipeline-marker">
-        <div class="pipeline-dot">📦</div>
-        <div class="pipeline-line"></div>
-      </div>
-      <div class="pipeline-content">
-        <div class="pipeline-step-label">Step 5</div>
-        <div class="pipeline-step-title">Rank, pack &amp; trim</div>
-        <p class="pipeline-step-body">Articles are ranked by <code>severity × portfolio relevance</code>, then only the top stories make the cut. Raw text is discarded — what survives is a compact JSON briefing with scores, tickers, and rationales. Hundreds of articles become ~2K tokens of structured signal.</p>
-      </div>
-    </div>
-
-    <div class="pipeline-step fade-in">
-      <div class="pipeline-marker">
-        <div class="pipeline-dot">🧠</div>
-      </div>
-      <div class="pipeline-content">
-        <div class="pipeline-step-label">Step 6</div>
-        <div class="pipeline-step-title">Claude reasons across all signals</div>
-        <p class="pipeline-step-body">The language model receives the pre-scored briefing packet with every signal layered in: keyword severity, VADER NLP, Alpha Vantage AI scores, Fear &amp; Greed context, and signal disagreement flags. Its job is synthesis: what does this pattern of signals mean for timing, risk, and action? Four independent reads on each article, one reasoning step to connect them.</p>
-      </div>
+  <div class="pipeline-flow-svg fade-in">
+    <div class="pipeline-svg-container">
+      <svg class="pipeline-svg" viewBox="0 0 800 460" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" /><stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" /></linearGradient>
+          <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#1a5296;stop-opacity:1" /><stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" /></linearGradient>
+          <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0a7565;stop-opacity:1" /><stop offset="100%" style="stop-color:#0fa888;stop-opacity:1" /></linearGradient>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c89734;stop-opacity:1" /><stop offset="100%" style="stop-color:#e8b84b;stop-opacity:1" /></linearGradient>
+        </defs>
+        <!-- Flow lines from specialists to Synthesizer -->
+        <path class="pipeline-flow-line" d="M 155 70 C 280 70 380 180 490 200" />
+        <path class="pipeline-flow-line" d="M 155 150 C 280 150 380 185 490 200" />
+        <path class="pipeline-flow-line" d="M 155 230 C 280 230 380 210 490 210" />
+        <path class="pipeline-flow-line" d="M 155 310 C 280 310 380 225 490 215" />
+        <path class="pipeline-flow-line" d="M 155 150 C 280 150 380 185 490 200" />
+        <path class="pipeline-flow-line" d="M 155 370 C 280 340 400 250 490 225" />
+        <!-- Output line from Synthesizer -->
+        <path class="pipeline-flow-line active" d="M 555 210 L 680 210" />
+        <!-- Agent 1: Portfolio Analyst -->
+        <g class="pipeline-agent-node"><circle cx="120" cy="70" r="30" fill="url(#purpleGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="120" y="77" font-size="22">📈</text><text class="pipeline-label" x="50" y="73">Portfolio</text><text class="pipeline-label" x="50" y="85">Analyst</text></g>
+        <!-- Agent 2: Smart Money -->
+        <g class="pipeline-agent-node"><circle cx="120" cy="150" r="30" fill="url(#blueGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="120" y="157" font-size="22">🏛️</text><text class="pipeline-label" x="50" y="153">Smart</text><text class="pipeline-label" x="50" y="165">Money</text></g>
+        <!-- Agent 3: Macro Scanner -->
+        <g class="pipeline-agent-node"><circle cx="120" cy="230" r="30" fill="url(#tealGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="120" y="237" font-size="22">🌍</text><text class="pipeline-label" x="50" y="233">Macro</text><text class="pipeline-label" x="50" y="245">Scanner</text></g>
+        <!-- Agent 4: Security Scanner -->
+        <g class="pipeline-agent-node"><circle cx="120" cy="310" r="30" fill="url(#goldGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="120" y="317" font-size="22">🔍</text><text class="pipeline-label" x="50" y="313">Security</text><text class="pipeline-label" x="50" y="325">Scanner</text></g>
+        <!-- Agent 5: Calendar -->
+        <g class="pipeline-agent-node"><circle cx="120" cy="370" r="30" fill="url(#blueGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="120" y="377" font-size="22">📅</text><text class="pipeline-label" x="50" y="373">Calendar</text></g>
+        <!-- Agent 6: Tax Strategy -->
+        <g class="pipeline-agent-node"><circle cx="220" cy="370" r="30" fill="url(#goldGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="220" y="377" font-size="22">🧾</text><text class="pipeline-label" x="220" y="410">Tax Strategy</text></g>
+        <path class="pipeline-flow-line" d="M 250 365 C 350 340 420 260 490 225" />
+        <!-- CENTER: SYNTHESIZER -->
+        <g class="pipeline-center-node"><circle cx="520" cy="210" r="42" fill="url(#purpleGrad)" opacity="0.95" /><text class="pipeline-agent-text" x="520" y="218" font-size="28">🧠</text><text class="pipeline-label" x="520" y="265">Synthesizer</text><text class="pipeline-badge" x="520" y="280">Agent 8</text></g>
+        <!-- RIGHT OUTPUT -->
+        <g><text class="pipeline-agent-text" x="720" y="200" font-size="14" fill="rgba(255,255,255,.8)">Prioritized</text><text class="pipeline-agent-text" x="720" y="218" font-size="14" fill="rgba(255,255,255,.8)">Recommendations</text><text class="pipeline-label" x="720" y="240">+ Audio Briefing</text></g>
+        <!-- Stock Scout (Independent) -->
+        <g class="pipeline-agent-node"><circle cx="700" cy="370" r="28" fill="url(#tealGrad)" opacity="0.7" /><text class="pipeline-agent-text" x="700" y="377" font-size="20">🔎</text><text class="pipeline-label" x="700" y="408">Stock Scout</text><text class="pipeline-badge" x="700" y="421" fill="rgba(255,255,255,.35)">(Independent)</text></g>
+        <!-- Legend -->
+        <text x="400" y="15" font-size="10" fill="rgba(255,255,255,.3)" text-anchor="middle" font-family="Inter,sans-serif">6 Specialist Agents → Synthesizer · Stock Scout Operates Independently</text>
+      </svg>
     </div>
   </div>
 
@@ -1527,7 +1641,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="pipeline-callout-icon">💡</div>
     <div>
       <div class="pipeline-callout-title">Why this architecture matters</div>
-      <p class="pipeline-callout-body">Most agent designs dump raw data into the LLM and hope for the best — expensive, slow, and token-hungry. This system runs four independent sentiment signals before the LLM even gets involved. The Python tools read thousands of words and crunch the numbers for free. Claude gets a tight briefing and focuses on what it's actually good at: connecting the dots across all those signals and telling me what matters.</p>
+      <p class="pipeline-callout-body">Most agent designs dump raw data into the LLM and hope for the best — expensive, slow, and token-hungry. This system runs parallel specialist agents, each responsible for a specific domain. The Synthesizer agent reads all their outputs and produces unified, prioritized recommendations. Stock Scout operates independently to spot allocation gaps. This separation of concerns means each agent stays focused, context windows stay tight, and the final recommendations benefit from multi-agent reasoning without redundant processing.</p>
     </div>
   </div>
 </section>
@@ -1913,6 +2027,16 @@ phaseButtons.forEach(btn => {
 
 // Initialize at phase 8 (full architecture)
 setPhase(8);
+
+// Expandable Agent Cards
+document.querySelectorAll('.agent-toggle').forEach(toggle => {
+  toggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const card = this.closest('.agent-card');
+    if (card) card.classList.toggle('expanded');
+  });
+});
 </script>
 </body>
 </html>

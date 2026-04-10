@@ -837,32 +837,66 @@
 
     <div class="hero-card">
       <div class="hero-card-title">System Overview</div>
-      <pre style="font-family:'Inter',monospace;font-size:12px;line-height:1.7;color:rgba(255,255,255,.55);margin:0;white-space:pre">
-<span style="color:#e73737">  Peloton</span> · <span style="color:#2563eb">Tonal</span> · <span style="color:rgba(255,255,255,.7)">Apple Health</span> · <span style="color:#10b981">Fit Profile</span>
-<span style="color:#f59e0b">  MyFitnessPal</span> · <span style="color:#a78bfa">Oura Ring</span>
-<span style="color:rgba(255,255,255,.2)">  └────┬────┬────┬────┬────┬────┘</span>
-       <span style="color:rgba(255,255,255,.2)">│    │    │    │    │</span>
-  <span style="color:rgba(255,255,255,.3)">HealthKit + Direct APIs</span> <span style="color:rgba(255,255,255,.2)">(15-min sync)</span>
-             <span style="color:rgba(255,255,255,.2)">│</span>
-  <span style="color:#e8b84b">Data Mastering + Governance</span>
-  <span style="color:rgba(255,255,255,.35)">├── Source trust rankings</span>
-  <span style="color:rgba(255,255,255,.35)">├── Golden record creation</span>
-  <span style="color:rgba(255,255,255,.35)">└── Field-level conflict resolution</span>
-             <span style="color:rgba(255,255,255,.2)">│</span>
-  <span style="color:#0fa888">BigQuery Data Warehouse</span>
-  <span style="color:rgba(255,255,255,.35)">├── 8 tables (partitioned)</span>
-  <span style="color:rgba(255,255,255,.35)">├── 3 pre-aggregated views</span>
-  <span style="color:rgba(255,255,255,.35)">└── Clustered by source/type</span>
-             <span style="color:rgba(255,255,255,.2)">│</span>
-  <span style="color:#93c5fd">Express API</span> <span style="color:rgba(255,255,255,.3)">(Railway)</span>
-  <span style="color:rgba(255,255,255,.35)">├── 5 parallel dashboard queries</span>
-  <span style="color:rgba(255,255,255,.35)">├── Auto-update side effects</span>
-  <span style="color:rgba(255,255,255,.35)">└── Dedup sync pipeline</span>
-             <span style="color:rgba(255,255,255,.2)">│</span>
-  <span style="color:#c4b5fd">Next.js Frontend</span> <span style="color:rgba(255,255,255,.3)">(Vercel)</span>
-  <span style="color:rgba(255,255,255,.35)">├── Goal rings + streak bars</span>
-  <span style="color:rgba(255,255,255,.35)">├── Workout feed + body comp</span>
-  <span style="color:rgba(255,255,255,.35)">└── Mobile-first · Garmin-style</span></pre>
+      <svg viewBox="0 0 360 420" style="width:100%;max-width:360px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="htRed" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c22727"/><stop offset="100%" stop-color="#e73737"/></linearGradient>
+          <linearGradient id="htGold" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c89734"/><stop offset="100%" stop-color="#e8b84b"/></linearGradient>
+          <linearGradient id="htTeal" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0a7565"/><stop offset="100%" stop-color="#0fa888"/></linearGradient>
+          <linearGradient id="htBlue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1a5296"/><stop offset="100%" stop-color="#2563eb"/></linearGradient>
+          <linearGradient id="htPurple" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#a855f7"/></linearGradient>
+        </defs>
+        <!-- Data Sources row 1 -->
+        <rect x="8" y="8" width="72" height="26" rx="6" fill="rgba(231,55,55,.18)" stroke="rgba(231,55,55,.3)" stroke-width="1"/>
+        <text x="44" y="25" text-anchor="middle" fill="#f87171" font-family="Inter,sans-serif" font-size="8" font-weight="600">Peloton</text>
+        <rect x="86" y="8" width="58" height="26" rx="6" fill="rgba(37,99,235,.18)" stroke="rgba(37,99,235,.3)" stroke-width="1"/>
+        <text x="115" y="25" text-anchor="middle" fill="#93c5fd" font-family="Inter,sans-serif" font-size="8" font-weight="600">Tonal</text>
+        <rect x="150" y="8" width="88" height="26" rx="6" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+        <text x="194" y="25" text-anchor="middle" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif" font-size="8" font-weight="600">Apple Health</text>
+        <rect x="244" y="8" width="76" height="26" rx="6" fill="rgba(16,185,129,.18)" stroke="rgba(16,185,129,.3)" stroke-width="1"/>
+        <text x="282" y="25" text-anchor="middle" fill="#6ee7b7" font-family="Inter,sans-serif" font-size="8" font-weight="600">Fit Profile</text>
+        <!-- Data Sources row 2 -->
+        <rect x="8" y="40" width="92" height="26" rx="6" fill="rgba(245,158,11,.18)" stroke="rgba(245,158,11,.3)" stroke-width="1"/>
+        <text x="54" y="57" text-anchor="middle" fill="#fbbf24" font-family="Inter,sans-serif" font-size="8" font-weight="600">MyFitnessPal</text>
+        <rect x="106" y="40" width="76" height="26" rx="6" fill="rgba(167,139,250,.18)" stroke="rgba(167,139,250,.3)" stroke-width="1"/>
+        <text x="144" y="57" text-anchor="middle" fill="#c4b5fd" font-family="Inter,sans-serif" font-size="8" font-weight="600">Oura Ring</text>
+        <text x="270" y="57" text-anchor="middle" fill="rgba(255,255,255,.25)" font-family="Inter,sans-serif" font-size="8">6 sources</text>
+        <!-- Flow -->
+        <line x1="180" y1="66" x2="180" y2="82" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- HealthKit -->
+        <rect x="50" y="82" width="260" height="32" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <text x="180" y="100" text-anchor="middle" fill="rgba(255,255,255,.6)" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="600">HealthKit + Direct APIs</text>
+        <text x="310" y="100" text-anchor="middle" fill="rgba(255,255,255,.25)" font-family="Inter,sans-serif" font-size="7">15-min sync</text>
+        <!-- Flow -->
+        <line x1="180" y1="114" x2="180" y2="130" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- Data Mastering -->
+        <rect x="50" y="130" width="260" height="56" rx="8" fill="url(#htGold)" opacity=".75"/>
+        <text x="180" y="148" text-anchor="middle" fill="#fff" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="700">Data Mastering + Governance</text>
+        <text x="180" y="162" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif" font-size="7.5">Source trust rankings · Golden records</text>
+        <text x="180" y="174" text-anchor="middle" fill="rgba(255,255,255,.45)" font-family="Inter,sans-serif" font-size="7.5">Field-level conflict resolution</text>
+        <!-- Flow -->
+        <line x1="180" y1="186" x2="180" y2="202" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- BigQuery -->
+        <rect x="50" y="202" width="260" height="56" rx="8" fill="url(#htTeal)" opacity=".75"/>
+        <text x="180" y="220" text-anchor="middle" fill="#fff" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="700">BigQuery Data Warehouse</text>
+        <text x="180" y="234" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif" font-size="7.5">8 partitioned tables · 3 pre-agg views</text>
+        <text x="180" y="246" text-anchor="middle" fill="rgba(255,255,255,.45)" font-family="Inter,sans-serif" font-size="7.5">Clustered by source/type</text>
+        <!-- Flow -->
+        <line x1="180" y1="258" x2="180" y2="274" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- Express API -->
+        <rect x="50" y="274" width="260" height="56" rx="8" fill="url(#htBlue)" opacity=".75"/>
+        <text x="180" y="292" text-anchor="middle" fill="#fff" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="700">Express API</text>
+        <text x="253" y="292" text-anchor="start" fill="rgba(255,255,255,.45)" font-family="Inter,sans-serif" font-size="8">Railway</text>
+        <text x="180" y="306" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif" font-size="7.5">5 parallel queries · Auto-update side effects</text>
+        <text x="180" y="318" text-anchor="middle" fill="rgba(255,255,255,.45)" font-family="Inter,sans-serif" font-size="7.5">Dedup sync pipeline</text>
+        <!-- Flow -->
+        <line x1="180" y1="330" x2="180" y2="346" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- Next.js Frontend -->
+        <rect x="50" y="346" width="260" height="56" rx="8" fill="url(#htPurple)" opacity=".75"/>
+        <text x="180" y="364" text-anchor="middle" fill="#fff" font-family="'Space Grotesk',sans-serif" font-size="10" font-weight="700">Next.js Frontend</text>
+        <text x="268" y="364" text-anchor="start" fill="rgba(255,255,255,.45)" font-family="Inter,sans-serif" font-size="8">Vercel</text>
+        <text x="180" y="378" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif" font-size="7.5">Goal rings + streak bars · Workout feed</text>
+        <text x="180" y="390" text-anchor="middle" fill="rgba(255,255,255,.45)" font-family="Inter,sans-serif" font-size="7.5">Mobile-first · Garmin-style</text>
+      </svg>
     </div>
   </section>
 
