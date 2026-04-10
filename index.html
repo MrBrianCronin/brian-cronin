@@ -218,6 +218,9 @@ section{padding:96px 60px}
 .project-tag.lead{background:rgba(10,117,101,.1);color:var(--teal)}
 .project-tag.speak{background:rgba(120,80,180,.1);color:#6030a0}
 .project-tag.ai{background:rgba(91,33,182,.1);color:var(--ai2)}
+.project-badge{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;display:inline-block;margin-bottom:2px}
+.project-badge.live{background:rgba(16,185,129,.12);color:#059669;border:1px solid rgba(16,185,129,.25)}
+.project-badge.arch{background:rgba(139,92,246,.1);color:#7C3AED;border:1px solid rgba(139,92,246,.2)}
 .project-arrow{font-size:17px;color:var(--ink3);transition:all .18s}
 .project-card:hover .project-arrow{color:var(--accent2);transform:translate(2px,-2px)}
 .project-title{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--ink)}
@@ -657,6 +660,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
   <div class="projects-grid" style="margin-top:48px">
     <a href="/portfolio-agents.html" class="project-card fade-in" style="border-color:rgba(124,58,237,.25);background:#fff">
       <div class="project-card-top"><span class="project-tag ai">Multi-Agent System</span><span class="project-arrow">↗</span></div>
+      <span class="project-badge arch">Architecture Deep Dive</span>
       <div class="project-title">Portfolio Intelligence</div>
       <p class="project-desc">A read-only multi-agent analysis tool that monitors markets, evaluates Fidelity portfolio holdings, and delivers insights — featuring AI-powered trade readouts, scenario stress testing, tax-loss harvesting, and a DataStore abstraction layer backed by Google BigQuery on GCP.</p>
       <div class="project-stack">
@@ -670,8 +674,9 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     </a>
     <a href="/health-tracker.html" class="project-card fade-in" style="border-color:rgba(10,117,101,.25);background:#fff">
       <div class="project-card-top"><span class="project-tag" style="background:rgba(10,117,101,.1);color:var(--teal)">Personal Health Platform</span><span class="project-arrow">↗</span></div>
+      <span class="project-badge arch">Architecture Deep Dive</span>
       <div class="project-title">Health Tracker</div>
-      <p class="project-desc">A personal health platform pulling data from six sources — Peloton, Tonal, Apple Health, Fit Profile, MyFitnessPal, and Oura Ring — into BigQuery with a custom data mastering layer and lightweight data governance tool. Source-priority logic, golden record dedup, cross-domain analysis, and custom Apple Watch complications that replace Apple's fitness rings with my own goal trackers.</p>
+      <p class="project-desc">A personal health platform pulling data from six sources — Peloton, Tonal, Apple Health, Fit Profile, MyFitnessPal, and Oura Ring — into BigQuery with a custom data mastering layer and lightweight data governance tool. Near real-time sync, source-priority dedup, cross-domain analysis, push notifications that tap your wrist when you're slipping, and custom Apple Watch complications that replace Apple's fitness rings with my own goal trackers.</p>
       <div class="project-stack">
         <span class="stack-tag">Google BigQuery</span>
         <span class="stack-tag">Express.js</span>
@@ -683,6 +688,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     </a>
     <a href="/etf-finder" class="project-card fade-in" style="border-color:rgba(26,82,150,.25);background:#fff">
       <div class="project-card-top"><span class="project-tag data">Interactive App</span><span class="project-arrow">↗</span></div>
+      <span class="project-badge live">Try It Live</span>
       <div class="project-title">ETF Finder</div>
       <p class="project-desc">A full-featured ETF discovery and portfolio building tool with 115 real funds, 13 filter categories, faceted search that greys out unavailable options, interest-based AI matching, Morningstar-style grid, responsive design, and anonymous telemetry. Built entirely through AI-assisted development.</p>
       <div class="project-stack">
@@ -697,6 +703,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     </a>
     <a href="/car-finder" class="project-card fade-in" style="border-color:rgba(10,117,101,.25);background:#fff">
       <div class="project-card-top"><span class="project-tag" style="background:rgba(10,117,101,.1);color:var(--teal)">Interactive App</span><span class="project-arrow">↗</span></div>
+      <span class="project-badge live">Try It Live</span>
       <div class="project-title">Vehicle Purchase Assistant</div>
       <p class="project-desc">An AI-powered vehicle matching tool that guides users through an adaptive 50-question questionnaire, scores vehicles across 11 dimensions, and presents ranked recommendations with deep links to Cars.com, AutoTrader, and CarGurus. Sign in with Google to save your results and pick up where you left off.</p>
       <div class="project-stack">
@@ -710,6 +717,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     </a>
     <a href="/telemetry" class="project-card fade-in" style="border-color:rgba(16,185,129,.25);background:#fff">
       <div class="project-card-top"><span class="project-tag" style="background:rgba(16,185,129,.1);color:#059669">Live Dashboard</span><span class="project-arrow">↗</span></div>
+      <span class="project-badge live">Try It Live</span>
       <div class="project-title">Telemetry Dashboard</div>
       <p class="project-desc">A real-time analytics dashboard visualizing user interaction data from across briancronin.ai — session metrics, filter usage patterns, popular ETFs, engagement funnels, and user journey tracking. All data is aggregate with no personally identifiable information exposed.</p>
       <div class="project-stack">

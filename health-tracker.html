@@ -842,7 +842,7 @@
 <span style="color:#f59e0b">  MyFitnessPal</span> · <span style="color:#a78bfa">Oura Ring</span>
 <span style="color:rgba(255,255,255,.2)">  └────┬────┬────┬────┬────┬────┘</span>
        <span style="color:rgba(255,255,255,.2)">│    │    │    │    │</span>
-  <span style="color:rgba(255,255,255,.3)">HealthKit + Direct APIs</span>
+  <span style="color:rgba(255,255,255,.3)">HealthKit + Direct APIs</span> <span style="color:rgba(255,255,255,.2)">(15-min sync)</span>
              <span style="color:rgba(255,255,255,.2)">│</span>
   <span style="color:#e8b84b">Data Mastering + Governance</span>
   <span style="color:rgba(255,255,255,.35)">├── Source trust rankings</span>
@@ -1200,7 +1200,7 @@
         <div class="step-icon">🔄</div>
         <div class="step-content">
           <h4>Data Mastering + Sync Engine</h4>
-          <p>When you're wearing both an Apple Watch and an Oura Ring, you get duplicate heart rate, sleep, and activity data. The data mastering layer applies source-priority logic — Oura wins for sleep and HRV, Apple Watch wins for active heart rate and workout metrics — and deduplicates on external_id plus time-window matching to produce one golden record per event. A lightweight data governance tool manages source trust rankings and field-level conflict resolution policies. Each sync is logged for auditability.</p>
+          <p>Six sources sync on a near real-time 15-minute cadence during waking hours. When Apple Watch and Oura Ring both report heart rate and sleep, the data mastering layer applies source-priority logic — Oura wins for sleep and HRV, Apple Watch wins for active heart rate and workout metrics — and deduplicates on external_id plus time-window matching to produce one golden record per event. A lightweight data governance tool manages source trust rankings and field-level conflict resolution. Watch complications refresh every ~30 minutes via watchOS TimelineReloadPolicy, pulling the latest goal progress, streaks, and scores from the API.</p>
         </div>
       </div>
 
@@ -1308,15 +1308,27 @@
     </div>
 
     <div class="arch-layer">
-      <div class="layer-label">Sync Layer (Phase 3+)</div>
+      <div class="layer-label">Sync + Refresh Layer (Phase 3+)</div>
       <div class="layer-boxes">
         <div class="arch-box teal hidden-phase" data-min-phase="3">
           <div class="arch-box-title">HealthKit Sync</div>
-          <div class="arch-box-desc">Batch sync · Dedup · Logging</div>
+          <div class="arch-box-desc">15-min polling during waking hours · Batch push to API · Heart rate, steps, workouts, sleep</div>
         </div>
         <div class="arch-box gold hidden-phase" data-min-phase="3">
+          <div class="arch-box-title">Oura Cloud API Sync</div>
+          <div class="arch-box-desc">Polls every 15 min · Sleep stages, HRV, readiness scores · Overnight data finalizes by morning</div>
+        </div>
+        <div class="arch-box gold hidden-phase" data-min-phase="3">
+          <div class="arch-box-title">MyFitnessPal API Sync</div>
+          <div class="arch-box-desc">Polls every 15 min · Daily calories, macros, meal log · Updates as meals are logged</div>
+        </div>
+        <div class="arch-box hidden-phase" data-min-phase="3" style="background: rgba(231, 55, 55, 0.15); border-color: #e73737;">
           <div class="arch-box-title">Peloton Enrichment</div>
-          <div class="arch-box-desc">REST API · Rich metrics</div>
+          <div class="arch-box-desc">Post-workout pull · Instructor, class type, leaderboard, detailed metrics via unofficial API</div>
+        </div>
+        <div class="arch-box teal hidden-phase" data-min-phase="6">
+          <div class="arch-box-title">Complication Refresh</div>
+          <div class="arch-box-desc">watchOS TimelineReloadPolicy · Goal rings, streak, sleep score update every ~30 min on the watch face</div>
         </div>
       </div>
     </div>
@@ -1374,19 +1386,35 @@
     </div>
 
     <div class="arch-layer hidden-phase" data-min-phase="5">
-      <div class="layer-label">Automation Layer (Phase 5+)</div>
+      <div class="layer-label">Notifications + Automation Layer (Phase 5+)</div>
       <div class="layer-boxes">
+        <div class="arch-box" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444;">
+          <div class="arch-box-title">Push Notification Engine</div>
+          <div class="arch-box-desc">APNs · Apple Watch + iPhone delivery · Real-time nudges right on your wrist</div>
+        </div>
         <div class="arch-box gold">
-          <div class="arch-box-title">Smart Notifications</div>
-          <div class="arch-box-desc">Streaks · Milestones · PRs</div>
+          <div class="arch-box-title">Streak Warnings</div>
+          <div class="arch-box-desc">Afternoon nudge if no workout logged · "You're 1 day from breaking your 12-day streak"</div>
+        </div>
+        <div class="arch-box gold">
+          <div class="arch-box-title">Goal Pace Alerts</div>
+          <div class="arch-box-desc">Tracks daily run rate vs target · Flags when you're falling behind on monthly goals</div>
+        </div>
+        <div class="arch-box teal">
+          <div class="arch-box-title">Inactivity Nudges</div>
+          <div class="arch-box-desc">No movement by 2pm? Gentle tap on the wrist · Configurable quiet hours</div>
+        </div>
+        <div class="arch-box teal">
+          <div class="arch-box-title">Milestone Celebrations</div>
+          <div class="arch-box-desc">PR alerts · Weight milestones · Streak records · "You just hit 20 workouts this month 🎉"</div>
         </div>
         <div class="arch-box gold">
           <div class="arch-box-title">Auto Goal Adjustment</div>
-          <div class="arch-box-desc">Dynamic targets · Progress rate</div>
+          <div class="arch-box-desc">Dynamic targets based on progress rate · Ratchets up when you're crushing it</div>
         </div>
         <div class="arch-box purple">
           <div class="arch-box-title">Weekly Digest</div>
-          <div class="arch-box-desc">AI-generated summary email</div>
+          <div class="arch-box-desc">AI-generated summary · Week-over-week trends · Delivered Sunday evening</div>
         </div>
       </div>
     </div>
@@ -1473,6 +1501,13 @@
         <div class="tech-name">Goal Engine</div>
         <div class="tech-type">Progress Tracking</div>
         <p class="tech-desc">Monthly and overall goals with daily progress snapshots. The API automatically calculates percentage complete on every data write.</p>
+      </div>
+
+      <div class="tech-card fade-in">
+        <div class="tech-icon">🔔</div>
+        <div class="tech-name">Push Notifications</div>
+        <div class="tech-type">APNs · Planned</div>
+        <p class="tech-desc">Apple Push Notification service delivering real-time nudges to Apple Watch and iPhone. Streak warnings before you break a run, goal pace alerts when you're slipping, inactivity nudges if you haven't moved by afternoon, and milestone celebrations when you hit PRs. Your own accountability coach on your wrist.</p>
       </div>
 
       <div class="tech-card fade-in">
