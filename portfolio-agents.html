@@ -312,6 +312,38 @@ section{padding:96px 60px}
 .toggle-dot{width:16px;height:16px;background:rgba(255,255,255,.3);border-radius:50%;position:absolute;left:2px;transition:left .2s}
 .toggle-indicator.on .toggle-dot{left:18px;background:#34d399}
 
+/* FINDER TAB MOCKUP */
+.finder-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.finder-filter{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:6px 12px;font-size:10px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:4px}
+.finder-filter .filter-val{color:#60a5fa;font-weight:600}
+.finder-results{display:flex;flex-direction:column;gap:8px;font-size:11px}
+.finder-row{display:grid;grid-template-columns:60px 1fr 80px 80px 60px 30px;align-items:center;gap:8px;padding:10px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid rgba(255,255,255,.05)}
+.finder-row.header{background:none;border:none;color:rgba(255,255,255,.4);font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:4px 10px}
+.finder-ticker{color:#60a5fa;font-weight:700;font-size:12px}
+.finder-name{color:rgba(255,255,255,.7);font-size:10px}
+.finder-star{color:rgba(255,255,255,.2);cursor:default;font-size:14px}
+.finder-star.active{color:#fcd34d}
+.finder-gap-card{background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.25);border-radius:12px;padding:14px;margin-bottom:16px}
+.finder-gap-title{font-size:11px;font-weight:600;color:#c4b5fd;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.finder-gap-body{font-size:10px;color:rgba(255,255,255,.55);line-height:1.6}
+
+/* AGENT CONTROL TAB MOCKUP */
+.control-pipeline{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:20px;padding:16px;background:rgba(255,255,255,.03);border-radius:12px;border:1px solid rgba(255,255,255,.06)}
+.control-node{display:flex;flex-direction:column;align-items:center;gap:3px}
+.control-dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff}
+.control-node-label{font-size:8px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.04em}
+.control-arrow{color:rgba(255,255,255,.2);font-size:14px}
+.control-skills{display:flex;flex-direction:column;gap:10px;font-size:11px}
+.control-agent-row{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.control-agent-header{display:flex;align-items:center;justify-content:space-between}
+.control-agent-name{color:#fff;font-weight:600;font-size:12px}
+.control-skill-tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:9px;font-weight:500;background:rgba(124,58,237,.2);color:#c4b5fd;border:1px solid rgba(124,58,237,.3)}
+.control-param{display:flex;align-items:center;gap:8px;font-size:10px;color:rgba(255,255,255,.5);padding-left:8px;border-left:2px solid rgba(124,58,237,.3)}
+.control-param-name{color:rgba(255,255,255,.6);width:120px}
+.control-param-val{color:#c4b5fd;font-weight:600}
+.control-modified{display:inline-block;width:6px;height:6px;border-radius:50%;background:#a78bfa;margin-left:4px}
+.control-version{font-size:9px;color:rgba(255,255,255,.3);padding:4px 8px;background:rgba(255,255,255,.03);border-radius:4px;border:1px solid rgba(255,255,255,.06)}
+
 /* FOOTER */
 footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;justify-content:space-between}
 .footer-logo{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:rgba(255,255,255,.75)}
@@ -348,7 +380,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="hero-eyebrow">Personal Project · Multi-Agent System</div>
     <h1 class="hero-name">Portfolio <span>Intelligence</span></h1>
     <p class="hero-subtitle">I got tired of checking five apps before making a portfolio decision, so I built a system that does it for me</p>
-    <p class="hero-desc">Seven AI agents scan news, track congressional trades, score sentiment from multiple angles, monitor allocation drift, and put it all together into something I can actually act on. The backend runs on FastAPI and BigQuery on GCP, the frontend is React on Vercel, and the whole thing deploys to Railway. I can check it from my phone over coffee.</p>
+    <p class="hero-desc">Eight AI agents scan news, track congressional trades, score sentiment from multiple angles, monitor allocation drift, scout new securities to fill portfolio gaps, and put it all together into something I can actually act on. The backend runs on FastAPI and BigQuery on GCP, the frontend is React on Vercel, and the whole thing deploys to Railway. I can check it from my phone over coffee.</p>
     <div class="hero-badges">
       <span class="hero-badge read-only">🔒 Read-Only · No Trade Execution</span>
       <span class="hero-badge ai">🤖 CrewAI + Claude Agents</span>
@@ -407,6 +439,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <button class="tab-btn" data-tab="transactions">Transactions</button>
       <button class="tab-btn" data-tab="tax">Tax</button>
       <button class="tab-btn" data-tab="recs">Recommendations</button>
+      <button class="tab-btn" data-tab="finder">Finder</button>
+      <button class="tab-btn" data-tab="agents">Agents</button>
       <button class="tab-btn" data-tab="settings">Settings</button>
     </div>
     <div class="tab-content">
@@ -1100,6 +1134,117 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
           </div>
         </div>
       </div>
+      <div class="tab-pane" id="tab-finder">
+        <div class="mockup-container">
+          <div class="agent-ctx">
+            <div class="agent-ctx-icon">🔎</div>
+            <div>
+              <div class="agent-ctx-title">Stock Scout Agent — Allocation Gaps &amp; New Securities</div>
+              <div class="agent-ctx-body">Two ways to discover new holdings: a manual screener with server-side filtering powered by Financial Modeling Prep, and the <strong>Stock Scout AI agent</strong> that detects allocation gaps and recommends securities to fill them. Filter by type, sector, market cap, dividend yield, and price — or let the AI find what's missing from the portfolio.</div>
+              <div class="agent-ctx-tools"><span class="agent-ctx-tool">Gap Detection</span><span class="agent-ctx-tool">FMP Screener</span><span class="agent-ctx-tool">Fundamentals Lookup</span><span class="agent-ctx-tool data">FMP API</span></div>
+            </div>
+          </div>
+          <div class="finder-gap-card">
+            <div class="finder-gap-title">🤖 AI Suggestion — Stock Scout Agent</div>
+            <div class="finder-gap-body">Your portfolio is <strong style="color:#f87171">underweight International by 8.2%</strong> relative to target allocations. Consider adding broad international exposure through diversified ETFs. Top candidates: VXUS (Vanguard Total International), IXUS (iShares Core MSCI International), or SPDW (SPDR Developed World ex-US).</div>
+          </div>
+          <div class="finder-filters">
+            <div class="finder-filter">Type: <span class="filter-val">ETF</span></div>
+            <div class="finder-filter">Sector: <span class="filter-val">All</span></div>
+            <div class="finder-filter">Market Cap: <span class="filter-val">&gt; $1B</span></div>
+            <div class="finder-filter">Dividend: <span class="filter-val">Any</span></div>
+          </div>
+          <div class="finder-results">
+            <div class="finder-row header">
+              <span>Ticker</span><span>Name</span><span>Mkt Cap</span><span>Price</span><span>Yield</span><span></span>
+            </div>
+            <div class="finder-row">
+              <span class="finder-ticker">VXUS</span><span class="finder-name">Vanguard Total Intl Stock</span><span style="color:rgba(255,255,255,.6)">$412B</span><span style="color:rgba(255,255,255,.8)">$58.23</span><span class="value-positive">3.1%</span><span class="finder-star active">★</span>
+            </div>
+            <div class="finder-row">
+              <span class="finder-ticker">IXUS</span><span class="finder-name">iShares Core MSCI Intl</span><span style="color:rgba(255,255,255,.6)">$38B</span><span style="color:rgba(255,255,255,.8)">$67.45</span><span class="value-positive">2.8%</span><span class="finder-star">★</span>
+            </div>
+            <div class="finder-row">
+              <span class="finder-ticker">SPDW</span><span class="finder-name">SPDR Dev World ex-US</span><span style="color:rgba(255,255,255,.6)">$14B</span><span style="color:rgba(255,255,255,.8)">$36.18</span><span class="value-positive">2.9%</span><span class="finder-star">★</span>
+            </div>
+            <div class="finder-row">
+              <span class="finder-ticker">VEA</span><span class="finder-name">Vanguard FTSE Developed</span><span style="color:rgba(255,255,255,.6)">$117B</span><span style="color:rgba(255,255,255,.8)">$50.87</span><span class="value-positive">3.0%</span><span class="finder-star">★</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab-agents">
+        <div class="mockup-container">
+          <div class="agent-ctx">
+            <div class="agent-ctx-icon">🧠</div>
+            <div>
+              <div class="agent-ctx-title">Agent Control Plane — Config-Driven Orchestration</div>
+              <div class="agent-ctx-body">A visual control center for the entire multi-agent pipeline. See how agents connect in an SVG pipeline graph, toggle skills on/off per agent, tune skill parameters (correlation thresholds, risk windows, tax brackets) without touching Python code, and compare config versions with built-in A/B comparison. Every config change is immutably versioned.</div>
+              <div class="agent-ctx-tools"><span class="agent-ctx-tool">Pipeline Graph</span><span class="agent-ctx-tool">Skill Registry</span><span class="agent-ctx-tool">Parameter Editor</span><span class="agent-ctx-tool">Version History</span><span class="agent-ctx-tool">A/B Compare</span></div>
+            </div>
+          </div>
+          <div class="control-pipeline">
+            <div class="control-node"><div class="control-dot" style="background:#3b82f6">1</div><div class="control-node-label">Analyst</div></div>
+            <span class="control-arrow">→</span>
+            <div class="control-node"><div class="control-dot" style="background:#8b5cf6">2</div><div class="control-node-label">Smart $</div></div>
+            <span class="control-arrow">→</span>
+            <div class="control-node"><div class="control-dot" style="background:#f59e0b">3</div><div class="control-node-label">Macro</div></div>
+            <span class="control-arrow">→</span>
+            <div class="control-node"><div class="control-dot" style="background:#06b6d4">4</div><div class="control-node-label">Security</div></div>
+            <span class="control-arrow">→</span>
+            <div class="control-node"><div class="control-dot" style="background:#ec4899">5</div><div class="control-node-label">Calendar</div></div>
+            <span class="control-arrow">→</span>
+            <div class="control-node"><div class="control-dot" style="background:#ef4444">6</div><div class="control-node-label">Tax</div></div>
+            <span class="control-arrow">→</span>
+            <div class="control-node"><div class="control-dot" style="background:#10b981">7</div><div class="control-node-label">Scout</div></div>
+            <span class="control-arrow">→</span>
+            <div class="control-node"><div class="control-dot" style="background:#7c3aed">8</div><div class="control-node-label">Synth</div></div>
+          </div>
+          <div class="control-skills">
+            <div class="control-agent-row">
+              <div class="control-agent-header">
+                <div class="control-agent-name">📈 Portfolio Analyst</div>
+                <div class="control-version">v3 · Apr 10</div>
+              </div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap">
+                <span class="control-skill-tag">correlation</span>
+                <span class="control-skill-tag">risk_metrics</span>
+                <span class="control-skill-tag">concentration_risk</span>
+                <span class="control-skill-tag">allocation_drift</span>
+              </div>
+              <div class="control-param"><span class="control-param-name">high_correlation</span><span class="control-param-val">0.70<span class="control-modified"></span></span></div>
+              <div class="control-param"><span class="control-param-name">history_days</span><span class="control-param-val">90</span></div>
+            </div>
+            <div class="control-agent-row">
+              <div class="control-agent-header">
+                <div class="control-agent-name">🔎 Stock Scout</div>
+                <div class="control-version">v1 · Apr 10</div>
+              </div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap">
+                <span class="control-skill-tag">allocation_gaps</span>
+                <span class="control-skill-tag">security_screener</span>
+                <span class="control-skill-tag">fundamentals_lookup</span>
+              </div>
+              <div class="control-param"><span class="control-param-name">min_gap_pct</span><span class="control-param-val">2.0</span></div>
+              <div class="control-param"><span class="control-param-name">enrich_top_n</span><span class="control-param-val">5</span></div>
+            </div>
+            <div class="control-agent-row">
+              <div class="control-agent-header">
+                <div class="control-agent-name">🧾 Tax Strategy</div>
+                <div class="control-version">v2 · Apr 8</div>
+              </div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap">
+                <span class="control-skill-tag">holding_period</span>
+                <span class="control-skill-tag">wash_sales</span>
+                <span class="control-skill-tag">harvest_candidates</span>
+                <span class="control-skill-tag">capital_gains</span>
+              </div>
+              <div class="control-param"><span class="control-param-name">wash_sale_window</span><span class="control-param-val">30 days</span></div>
+              <div class="control-param"><span class="control-param-name">loss_deduction_limit</span><span class="control-param-val">$3,000</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="tab-pane" id="tab-settings">
         <div class="mockup-container">
           <div class="agent-ctx">
@@ -1185,7 +1330,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 <section class="agents-section">
   <div class="fade-in">
     <div class="section-label">Agent Architecture</div>
-    <h2 class="section-title">Seven agents, each with a <em>real job</em></h2>
+    <h2 class="section-title">Eight agents, each with a <em>real job</em></h2>
     <p class="section-intro">Every agent has a specific role and its own set of tools that handle the math — Sharpe ratios, correlation matrices, sentiment scores. The LLM's job is to look at those results and figure out what they mean together. CrewAI orchestrates the whole crew and passes context between them so nothing gets analyzed in a vacuum.</p>
   </div>
   <div class="agents-grid">
@@ -1269,11 +1414,24 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       </div>
     </div>
     <div class="agent-card fade-in">
+      <span class="agent-icon">🔎</span>
+
+      <div class="agent-title">Stock Scout</div>
+      <div class="agent-role">Agent 7 · Allocation Gaps &amp; New Securities</div>
+      <p class="agent-body">Looks at where the portfolio is underweight vs. targets and goes hunting for securities to fill the gap. Three tools: allocation gap detection, a server-side stock screener powered by Financial Modeling Prep, and a fundamentals deep-dive that pulls ratios and key metrics. If I'm light on international exposure, Stock Scout finds the ETFs worth considering — not just any ETF, but ones that fit my risk profile.</p>
+      <div class="agent-outputs">
+        <span class="agent-out data">FMP Screener</span>
+        <span class="agent-out teal">Gap Analysis</span>
+        <span class="agent-out alert">Security Recs</span>
+        <span class="agent-out data">Fundamentals</span>
+      </div>
+    </div>
+    <div class="agent-card fade-in">
       <span class="agent-icon">🧠</span>
 
       <div class="agent-title">Synthesizer + Audio</div>
-      <div class="agent-role">Agent 7 · Cross-Reference &amp; Recommendations</div>
-      <p class="agent-body">Takes everything the other six agents found and connects the dots. Factors tax implications into timing, weighs calendar events against trade ideas, and produces prioritized readouts with confidence scores. Also generates podcast-style audio briefings so I can listen to my portfolio update while walking the dog.</p>
+      <div class="agent-role">Agent 8 · Cross-Reference &amp; Recommendations</div>
+      <p class="agent-body">Takes everything the other seven agents found and connects the dots. Factors tax implications into timing, weighs calendar events against trade ideas, folds in Stock Scout's new security recommendations, and produces prioritized readouts with confidence scores. Also generates podcast-style audio briefings so I can listen to my portfolio update while walking the dog.</p>
       <div class="agent-outputs">
         <span class="agent-out ai">Trade Readouts</span>
         <span class="agent-out ai">Stock Stories</span>
@@ -1433,6 +1591,16 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <p class="feature-body">Combine market events with personal financial milestones — tuition payments, bonus timing, property taxes — so recommendations factor in your real cash flow, not just the market.</p>
     </div>
     <div class="feature-card fade-in">
+      <span class="feature-icon">🔎</span>
+      <div class="feature-title">Stock Finder</div>
+      <p class="feature-body">Server-side stock screener powered by FMP with filters for type, sector, market cap, dividend, and price. AI suggestions from Stock Scout highlight allocation gaps, and a watchlist lets you track candidates without executing trades.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🎛️</span>
+      <div class="feature-title">Agent Control Plane</div>
+      <p class="feature-body">Visual pipeline graph, skill toggles, and parameter tuning for every agent — all config-driven with immutable versioning. Change a correlation threshold or tax bracket from the UI, compare A/B configs, and roll back if needed.</p>
+    </div>
+    <div class="feature-card fade-in">
       <span class="feature-icon">🔐</span>
       <div class="feature-title">macOS Keychain Security</div>
       <p class="feature-body">All API keys and secrets stored in macOS Keychain, encrypted by the OS and protected by your login password or Touch ID. No plaintext .env files — even a compromised dependency can't read your credentials.</p>
@@ -1465,7 +1633,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
   <div class="fade-in">
     <div class="section-label">Architecture</div>
     <h2 class="section-title" style="color:#fff">How it all <em class="ai-em">fits together</em></h2>
-    <p class="section-intro">Built in phases, each one adding a new layer. Click through to see how the architecture grows from a simple data fetch to a full system with seven AI agents, BigQuery on GCP, and a DataStore abstraction that lets me swap backends without touching a line of application code.</p>
+    <p class="section-intro">Built in phases, each one adding a new layer. Click through to see how the architecture grows from a simple data fetch to a full system with eight AI agents, BigQuery on GCP, and a DataStore abstraction that lets me swap backends without touching a line of application code.</p>
   </div>
   <div class="phase-stepper fade-in">
     <button class="phase-btn" data-phase="1">Phase 1 · Foundation</button>
@@ -1474,7 +1642,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <button class="phase-btn" data-phase="4">Phase 4 · Scanners + Calendar</button>
     <button class="phase-btn" data-phase="5">Phase 5 · Tax + Synthesizer</button>
     <button class="phase-btn" data-phase="6">Phase 6 · Audio Briefings</button>
-    <button class="phase-btn active" data-phase="7">Phase 7 · Native App + Polish</button>
+    <button class="phase-btn" data-phase="7">Phase 7 · Native App + Polish</button>
+    <button class="phase-btn active" data-phase="8">Phase 8 · Stock Finder + Control Plane</button>
   </div>
 
   <div class="arch-diagram fade-in">
@@ -1546,6 +1715,10 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
           <div class="arch-box-title">Tax Strategy</div>
           <div class="arch-box-sub">Harvest candidates · Wash sales · Cost basis</div>
         </div>
+        <div class="arch-box teal" data-min-phase="8">
+          <div class="arch-box-title">Stock Scout</div>
+          <div class="arch-box-sub">Allocation gaps · FMP screener · Fundamentals</div>
+        </div>
         <div class="arch-box purple" data-min-phase="5">
           <div class="arch-box-title">Synthesizer</div>
           <div class="arch-box-sub">Cross-reference · Tax-aware timing · Trade readouts</div>
@@ -1589,6 +1762,10 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         <div class="arch-box" data-min-phase="6">
           <div class="arch-box-title">ElevenLabs</div>
           <div class="arch-box-sub">Two-voice TTS · Podcast generation</div>
+        </div>
+        <div class="arch-box" data-min-phase="8">
+          <div class="arch-box-title">Financial Modeling Prep</div>
+          <div class="arch-box-sub">Stock screener · Profiles · Ratios · Key metrics · ETF data</div>
         </div>
       </div>
     </div>
@@ -1657,9 +1834,9 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">📈</span>
-      <div class="stack-card-title">Finnhub + SnapTrade</div>
-      <div class="stack-card-sub">Market Data + Brokerage</div>
-      <p class="stack-card-body">Finnhub for live quotes, fundamentals, news, and congressional trades. SnapTrade gives me full read-only brokerage access to Fidelity — holdings, balances, transactions, the works. yfinance as a fallback when APIs get flaky.</p>
+      <div class="stack-card-title">Finnhub + SnapTrade + FMP</div>
+      <div class="stack-card-sub">Market Data + Brokerage + Screener</div>
+      <p class="stack-card-body">Finnhub for live quotes, fundamentals, news, and congressional trades. SnapTrade for read-only Fidelity access. Financial Modeling Prep for the Stock Finder — server-side screener, company profiles, financial ratios, and ETF data with TTL caching. yfinance as a fallback.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">⚖️</span>
@@ -1734,8 +1911,8 @@ phaseButtons.forEach(btn => {
   btn.addEventListener('click', () => setPhase(parseInt(btn.dataset.phase)));
 });
 
-// Initialize at phase 7 (full architecture)
-setPhase(7);
+// Initialize at phase 8 (full architecture)
+setPhase(8);
 </script>
 </body>
 </html>
