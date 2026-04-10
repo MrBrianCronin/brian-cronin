@@ -215,7 +215,31 @@ section{padding:96px 60px}
 .holdings-table{width:100%;font-size:11px;border-collapse:collapse;margin-bottom:8px}
 .holdings-table th{text-align:left;padding:8px;color:rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.08);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
 .holdings-table td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.85)}
-.holdings-table tr:hover{background:rgba(255,255,255,.02)}
+.holdings-table tr.holding-row{cursor:pointer;transition:background .15s}
+.holdings-table tr.holding-row:hover{background:rgba(255,255,255,.03)}
+.holdings-table tr.holding-row.active{background:rgba(124,58,237,.08)}
+.holdings-table tr.holding-row .expand-chevron{display:inline-block;width:10px;font-size:8px;color:rgba(255,255,255,.3);transition:transform .2s;margin-right:4px}
+.holdings-table tr.holding-row.active .expand-chevron{color:#a78bfa;transform:rotate(90deg)}
+.holdings-table tr.holding-row.active .ticker-badge{color:#a78bfa}
+
+/* Tax lot expansion rows */
+.lot-summary-row td{background:rgba(124,58,237,.04);padding:6px 8px;font-size:10px}
+.lot-summary-row .lot-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:500}
+.lot-badge.lt{background:rgba(52,211,153,.1);color:#6ee7b7;border:1px solid rgba(52,211,153,.15)}
+.lot-badge.st{background:rgba(251,191,36,.1);color:#fcd34d;border:1px solid rgba(251,191,36,.15)}
+.lot-row td{background:rgba(0,0,0,.15);padding:5px 8px;font-size:10px;color:rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.03)}
+.lot-row .lot-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:5px}
+.lot-row .lot-dot.long{background:#34d399}
+.lot-row .lot-dot.short{background:#fbbf24}
+
+/* Holdings detail strip */
+.holding-detail{background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.15);border-radius:10px;padding:12px 14px;margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;font-size:11px;opacity:0;transition:opacity .3s ease}
+.holding-detail.visible{opacity:1}
+.holding-detail .detail-ticker{font-weight:700;font-size:14px;color:#a78bfa;font-family:'Space Grotesk',sans-serif}
+.holding-detail .detail-name{color:rgba(255,255,255,.5)}
+.holding-detail .detail-stat{display:flex;flex-direction:column;gap:1px}
+.holding-detail .detail-stat-label{font-size:8px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.3)}
+.holding-detail .detail-stat-val{font-weight:600;color:rgba(255,255,255,.8)}
 .ticker-badge{color:#60a5fa;font-weight:600}
 .value-positive{color:#34d399}
 .value-negative{color:#f87171}
@@ -609,91 +633,138 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <div class="tab-pane" id="tab-holdings">
         <div class="mockup-container">
           <div class="agent-ctx">
-            <div class="agent-ctx-icon">🔎</div>
+            <div class="agent-ctx-icon">📊</div>
             <div>
-              <div class="agent-ctx-title">SnapTrade Brokerage Integration + Finnhub Market Data</div>
-              <div class="agent-ctx-body">Real-time positions synced from Fidelity. Click any ticker to see a TradingView candlestick chart, an <strong>AI-generated Stock Story</strong> from Claude, and related news alerts from the Security Scanner agent.</div>
-              <div class="agent-ctx-tools"><span class="agent-ctx-tool api">SnapTrade Holdings</span><span class="agent-ctx-tool api">Finnhub Prices</span><span class="agent-ctx-tool api">TradingView Charts</span><span class="agent-ctx-tool">Stock Story Generator</span></div>
+              <div class="agent-ctx-title">Holdings — Positions, Tax Lots &amp; Candlestick Charts</div>
+              <div class="agent-ctx-body">Live positions synced from Fidelity via SnapTrade. <strong>Click any row</strong> to expand tax lots with per-lot cost basis, gain/loss, and long-term vs short-term classification. Below the table, a TradingView candlestick chart and detail strip show the selected position. Tax lots sourced from Fidelity CSV import or reconstructed from SnapTrade trade history.</div>
+              <div class="agent-ctx-tools"><span class="agent-ctx-tool api">SnapTrade Holdings</span><span class="agent-ctx-tool api">Finnhub Prices</span><span class="agent-ctx-tool">Tax Lot Tracker</span><span class="agent-ctx-tool api">TradingView Charts</span><span class="agent-ctx-tool">Stock Story Generator</span></div>
             </div>
           </div>
-          <table class="holdings-table">
+          <table class="holdings-table" id="holdings-demo-table">
             <thead>
               <tr>
                 <th>Ticker</th>
                 <th>Shares</th>
                 <th>Price</th>
                 <th>Value</th>
-                <th>Day Chg</th>
                 <th>P&L</th>
+                <th>Return</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><span class="ticker-badge">AAPL</span></td>
-                <td>45</td>
-                <td>$198.42</td>
-                <td>$8,929</td>
-                <td><span class="value-positive">+$126</span></td>
-                <td><span class="value-positive">+$1,240</span></td>
-              </tr>
-              <tr>
-                <td><span class="ticker-badge">MSFT</span></td>
-                <td>30</td>
-                <td>$432.18</td>
-                <td>$12,965</td>
-                <td><span class="value-positive">+$92</span></td>
-                <td><span class="value-positive">+$2,184</span></td>
-              </tr>
-              <tr>
-                <td><span class="ticker-badge">GOOGL</span></td>
-                <td>20</td>
-                <td>$178.56</td>
-                <td>$3,571</td>
-                <td><span class="value-negative">-$18</span></td>
-                <td><span class="value-negative">-$284</span></td>
-              </tr>
-              <tr>
-                <td><span class="ticker-badge">AMZN</span></td>
-                <td>15</td>
-                <td>$189.73</td>
-                <td>$2,846</td>
-                <td><span class="value-positive">+$82</span></td>
-                <td><span class="value-positive">+$512</span></td>
-              </tr>
-              <tr>
-                <td><span class="ticker-badge">NVDA</span></td>
+              <!-- NVDA — expanded to show tax lots -->
+              <tr class="holding-row active" data-ticker="NVDA">
+                <td><span class="expand-chevron">▶</span><span class="ticker-badge">NVDA</span></td>
                 <td>25</td>
                 <td>$892.45</td>
                 <td>$22,311</td>
-                <td><span class="value-negative">-$284</span></td>
                 <td><span class="value-positive">+$4,621</span></td>
+                <td><span class="value-positive">+26.1%</span></td>
               </tr>
-              <tr>
-                <td><span class="ticker-badge">JPM</span></td>
+              <!-- Tax lot summary -->
+              <tr class="lot-summary-row" data-parent="NVDA">
+                <td colspan="6" style="padding-left:24px">
+                  <span style="color:rgba(255,255,255,.4)">📋 3 lots</span>
+                  <span style="margin-left:12px">Short-term: <span class="value-positive">+$1,840</span></span>
+                  <span style="margin-left:12px">Long-term: <span class="value-positive">+$2,781</span></span>
+                </td>
+              </tr>
+              <!-- Individual tax lots -->
+              <tr class="lot-row" data-parent="NVDA">
+                <td style="padding-left:28px"><span class="lot-dot long"></span>2022-03-15</td>
+                <td>10</td>
+                <td style="color:rgba(255,255,255,.4)">$242.18</td>
+                <td style="color:rgba(255,255,255,.4)">$8,925</td>
+                <td><span class="value-positive">+$6,500</span></td>
+                <td><span class="lot-badge lt">LT</span> <span class="value-positive">+268%</span></td>
+              </tr>
+              <tr class="lot-row" data-parent="NVDA">
+                <td style="padding-left:28px"><span class="lot-dot long"></span>2023-08-22</td>
+                <td>8</td>
+                <td style="color:rgba(255,255,255,.4)">$456.30</td>
+                <td style="color:rgba(255,255,255,.4)">$3,650</td>
+                <td><span class="value-positive">+$3,490</span></td>
+                <td><span class="lot-badge lt">LT</span> <span class="value-positive">+95.6%</span></td>
+              </tr>
+              <tr class="lot-row" data-parent="NVDA">
+                <td style="padding-left:28px"><span class="lot-dot short"></span>2025-11-04</td>
+                <td>7</td>
+                <td style="color:rgba(255,255,255,.4)">$629.55</td>
+                <td style="color:rgba(255,255,255,.4)">$4,407</td>
+                <td><span class="value-positive">+$1,840</span></td>
+                <td><span class="lot-badge st">ST</span> <span class="value-positive">+41.8%</span></td>
+              </tr>
+              <!-- AAPL -->
+              <tr class="holding-row" data-ticker="AAPL">
+                <td><span class="expand-chevron">▶</span><span class="ticker-badge">AAPL</span></td>
+                <td>45</td>
+                <td>$198.42</td>
+                <td>$8,929</td>
+                <td><span class="value-positive">+$1,240</span></td>
+                <td><span class="value-positive">+16.1%</span></td>
+              </tr>
+              <!-- MSFT -->
+              <tr class="holding-row" data-ticker="MSFT">
+                <td><span class="expand-chevron">▶</span><span class="ticker-badge">MSFT</span></td>
+                <td>30</td>
+                <td>$432.18</td>
+                <td>$12,965</td>
+                <td><span class="value-positive">+$2,184</span></td>
+                <td><span class="value-positive">+20.3%</span></td>
+              </tr>
+              <!-- GOOGL -->
+              <tr class="holding-row" data-ticker="GOOGL">
+                <td><span class="expand-chevron">▶</span><span class="ticker-badge">GOOGL</span></td>
+                <td>20</td>
+                <td>$178.56</td>
+                <td>$3,571</td>
+                <td><span class="value-negative">-$284</span></td>
+                <td><span class="value-negative">-7.4%</span></td>
+              </tr>
+              <!-- JPM -->
+              <tr class="holding-row" data-ticker="JPM">
+                <td><span class="expand-chevron">▶</span><span class="ticker-badge">JPM</span></td>
                 <td>40</td>
                 <td>$198.32</td>
                 <td>$7,933</td>
-                <td><span class="value-positive">+$64</span></td>
                 <td><span class="value-positive">+$586</span></td>
+                <td><span class="value-positive">+8.0%</span></td>
               </tr>
-              <tr>
-                <td><span class="ticker-badge">V</span></td>
+              <!-- V -->
+              <tr class="holding-row" data-ticker="V">
+                <td><span class="expand-chevron">▶</span><span class="ticker-badge">V</span></td>
                 <td>35</td>
                 <td>$278.91</td>
                 <td>$9,762</td>
-                <td><span class="value-positive">+$31</span></td>
                 <td><span class="value-positive">+$743</span></td>
+                <td><span class="value-positive">+8.2%</span></td>
               </tr>
-              <tr>
-                <td><span class="ticker-badge">UNH</span></td>
+              <!-- UNH -->
+              <tr class="holding-row" data-ticker="UNH">
+                <td><span class="expand-chevron">▶</span><span class="ticker-badge">UNH</span></td>
                 <td>12</td>
                 <td>$524.67</td>
                 <td>$6,296</td>
-                <td><span class="value-negative">-$12</span></td>
                 <td><span class="value-negative">-$228</span></td>
+                <td><span class="value-negative">-3.5%</span></td>
               </tr>
             </tbody>
           </table>
+          <!-- Detail strip for selected holding -->
+          <div class="holding-detail visible" id="holding-detail-strip">
+            <span class="detail-ticker">NVDA</span>
+            <span class="detail-name">NVIDIA Corporation</span>
+            <div class="detail-stat"><span class="detail-stat-label">Shares</span><span class="detail-stat-val">25</span></div>
+            <div class="detail-stat"><span class="detail-stat-label">Avg Cost</span><span class="detail-stat-val">$708.33</span></div>
+            <div class="detail-stat"><span class="detail-stat-label">Mkt Value</span><span class="detail-stat-val">$22,311</span></div>
+            <div class="detail-stat"><span class="detail-stat-label">Total P&L</span><span class="detail-stat-val" style="color:#6ee7b7">+$4,621</span></div>
+            <div style="margin-left:auto;display:flex;gap:4px">
+              <span style="padding:3px 8px;border-radius:6px;font-size:9px;font-weight:500;background:rgba(124,58,237,.2);color:#a78bfa">30d</span>
+              <span style="padding:3px 8px;border-radius:6px;font-size:9px;font-weight:500;background:rgba(124,58,237,.2);color:#a78bfa">90d</span>
+              <span style="padding:3px 8px;border-radius:6px;font-size:9px;font-weight:500;background:rgba(124,58,237,.4);color:#fff">180d</span>
+              <span style="padding:3px 8px;border-radius:6px;font-size:9px;font-weight:500;background:rgba(124,58,237,.2);color:#a78bfa">1Y</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="tab-pane" id="tab-allocations">
@@ -2187,6 +2258,106 @@ function runAllocDemo() {
   }
   tick();
 }
+
+// ── Holdings click-to-expand demo ───────────────────────────
+(function() {
+  var table = document.getElementById('holdings-demo-table');
+  if (!table) return;
+  // Sample tax lot data for tickers that don't have lots in the HTML
+  var sampleLots = {
+    AAPL: [
+      { date:'2021-06-12', shares:20, cost:'$134.50', total:'$2,690', gain:'+$1,279', pct:'+47.5%', term:'long' },
+      { date:'2023-01-18', shares:15, cost:'$142.80', total:'$2,142', gain:'+$835', pct:'+39.0%', term:'long' },
+      { date:'2025-09-05', shares:10, cost:'$178.20', total:'$1,782', gain:'+$202', pct:'+11.3%', term:'short' }
+    ],
+    MSFT: [
+      { date:'2022-11-30', shares:20, cost:'$342.60', total:'$6,852', gain:'+$1,792', pct:'+26.2%', term:'long' },
+      { date:'2024-04-22', shares:10, cost:'$398.45', total:'$3,985', gain:'+$337', pct:'+8.5%', term:'long' }
+    ],
+    GOOGL: [
+      { date:'2024-02-14', shares:20, cost:'$192.78', total:'$3,856', gain:'-$284', pct:'-7.4%', term:'long' }
+    ]
+  };
+
+  table.addEventListener('click', function(e) {
+    var row = e.target.closest('.holding-row');
+    if (!row) return;
+    var ticker = row.dataset.ticker;
+
+    // Remove active from all holding rows
+    table.querySelectorAll('.holding-row').forEach(function(r) {
+      if (r !== row) r.classList.remove('active');
+    });
+
+    // Toggle this row
+    var wasActive = row.classList.contains('active');
+    row.classList.toggle('active');
+
+    // Remove all dynamically added lot rows
+    table.querySelectorAll('.lot-dynamic').forEach(function(r) { r.remove(); });
+
+    // Hide existing NVDA lot rows when another row is clicked
+    table.querySelectorAll('[data-parent]').forEach(function(r) {
+      r.style.display = row.dataset.ticker === r.dataset.parent && !wasActive ? '' : 'none';
+    });
+
+    // If opening a non-NVDA row, inject sample lot rows
+    if (!wasActive && ticker !== 'NVDA' && sampleLots[ticker]) {
+      var lots = sampleLots[ticker];
+      var stGain = 0, ltGain = 0;
+      lots.forEach(function(l) {
+        var g = parseFloat(l.gain.replace(/[^-\d.]/g,''));
+        if (l.term === 'short') stGain += g; else ltGain += g;
+      });
+      // Summary row
+      var sumRow = document.createElement('tr');
+      sumRow.className = 'lot-summary-row lot-dynamic';
+      sumRow.innerHTML = '<td colspan="6" style="padding-left:24px"><span style="color:rgba(255,255,255,.4)">📋 '+lots.length+' lot'+(lots.length>1?'s':'')+'</span><span style="margin-left:12px">Short-term: <span class="'+(stGain>=0?'value-positive':'value-negative')+'">'+(stGain>=0?'+':'')+('$'+Math.abs(stGain).toLocaleString())+'</span></span><span style="margin-left:12px">Long-term: <span class="'+(ltGain>=0?'value-positive':'value-negative')+'">'+(ltGain>=0?'+':'')+('$'+Math.abs(ltGain).toLocaleString())+'</span></span></td>';
+      row.after(sumRow);
+      // Lot rows
+      var lastInserted = sumRow;
+      lots.forEach(function(l) {
+        var lr = document.createElement('tr');
+        lr.className = 'lot-row lot-dynamic';
+        var dotClass = l.term === 'long' ? 'long' : 'short';
+        var badgeClass = l.term === 'long' ? 'lt' : 'st';
+        var badgeText = l.term === 'long' ? 'LT' : 'ST';
+        var gainClass = l.gain.startsWith('+') ? 'value-positive' : 'value-negative';
+        var pctClass = l.pct.startsWith('+') ? 'value-positive' : 'value-negative';
+        lr.innerHTML = '<td style="padding-left:28px"><span class="lot-dot '+dotClass+'"></span>'+l.date+'</td><td>'+l.shares+'</td><td style="color:rgba(255,255,255,.4)">'+l.cost+'</td><td style="color:rgba(255,255,255,.4)">'+l.total+'</td><td><span class="'+gainClass+'">'+l.gain+'</span></td><td><span class="lot-badge '+badgeClass+'">'+badgeText+'</span> <span class="'+pctClass+'">'+l.pct+'</span></td>';
+        lastInserted.after(lr);
+        lastInserted = lr;
+      });
+    }
+
+    // Update detail strip
+    var strip = document.getElementById('holding-detail-strip');
+    if (strip && !wasActive) {
+      var detailData = {
+        NVDA:{ name:'NVIDIA Corporation', shares:'25', cost:'$708.33', value:'$22,311', pnl:'+$4,621', color:'#6ee7b7' },
+        AAPL:{ name:'Apple Inc', shares:'45', cost:'$147.09', value:'$8,929', pnl:'+$1,240', color:'#6ee7b7' },
+        MSFT:{ name:'Microsoft Corporation', shares:'30', cost:'$359.37', value:'$12,965', pnl:'+$2,184', color:'#6ee7b7' },
+        GOOGL:{ name:'Alphabet Inc', shares:'20', cost:'$192.78', value:'$3,571', pnl:'-$284', color:'#f87171' },
+        JPM:{ name:'JPMorgan Chase & Co', shares:'40', cost:'$183.68', value:'$7,933', pnl:'+$586', color:'#6ee7b7' },
+        V:{ name:'Visa Inc', shares:'35', cost:'$257.68', value:'$9,762', pnl:'+$743', color:'#6ee7b7' },
+        UNH:{ name:'UnitedHealth Group', shares:'12', cost:'$543.67', value:'$6,296', pnl:'-$228', color:'#f87171' }
+      };
+      var d = detailData[ticker];
+      if (d) {
+        strip.querySelector('.detail-ticker').textContent = ticker;
+        strip.querySelector('.detail-name').textContent = d.name;
+        var vals = strip.querySelectorAll('.detail-stat-val');
+        vals[0].textContent = d.shares;
+        vals[1].textContent = d.cost;
+        vals[2].textContent = d.value;
+        vals[3].textContent = d.pnl;
+        vals[3].style.color = d.color;
+      }
+    }
+  });
+
+  // Initially hide NVDA lots display = '' (they're visible by default in HTML for the pre-expanded state)
+})();
 
 // Hook into tab switching — run demo when that tab is clicked
 document.querySelectorAll('.tab-btn').forEach(function(btn) {
