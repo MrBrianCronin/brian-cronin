@@ -1761,43 +1761,59 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 
   <div class="pipeline-flow-svg fade-in">
     <div class="pipeline-svg-container">
-      <svg class="pipeline-svg" viewBox="0 0 800 460" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <svg class="pipeline-svg" viewBox="0 0 900 420" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" /><stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" /></linearGradient>
           <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#1a5296;stop-opacity:1" /><stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" /></linearGradient>
           <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0a7565;stop-opacity:1" /><stop offset="100%" style="stop-color:#0fa888;stop-opacity:1" /></linearGradient>
           <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c89734;stop-opacity:1" /><stop offset="100%" style="stop-color:#e8b84b;stop-opacity:1" /></linearGradient>
+          <linearGradient id="routerGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" /><stop offset="100%" style="stop-color:#818cf8;stop-opacity:1" /></linearGradient>
         </defs>
-        <!-- Flow lines from specialists to Synthesizer -->
-        <path class="pipeline-flow-line" d="M 155 70 C 280 70 380 180 490 200" />
-        <path class="pipeline-flow-line" d="M 155 150 C 280 150 380 185 490 200" />
-        <path class="pipeline-flow-line" d="M 155 230 C 280 230 380 210 490 210" />
-        <path class="pipeline-flow-line" d="M 155 310 C 280 310 380 225 490 215" />
-        <path class="pipeline-flow-line" d="M 155 150 C 280 150 380 185 490 200" />
-        <path class="pipeline-flow-line" d="M 155 370 C 280 340 400 250 490 225" />
+        <!-- Wave zone backgrounds -->
+        <rect x="48" y="55" width="90" height="290" rx="10" fill="rgba(255,255,255,.03)" />
+        <rect x="305" y="55" width="90" height="290" rx="10" fill="rgba(255,255,255,.03)" />
+        <rect x="477" y="105" width="90" height="200" rx="10" fill="rgba(255,255,255,.03)" />
+        <!-- Wave labels -->
+        <text x="93" y="42" font-size="9" font-weight="700" fill="rgba(110,231,183,.45)" text-anchor="middle" font-family="Inter,sans-serif" letter-spacing="1.5">WAVE 1</text>
+        <text x="350" y="42" font-size="9" font-weight="700" fill="rgba(110,231,183,.45)" text-anchor="middle" font-family="Inter,sans-serif" letter-spacing="1.5">WAVE 2</text>
+        <text x="522" y="42" font-size="9" font-weight="700" fill="rgba(110,231,183,.45)" text-anchor="middle" font-family="Inter,sans-serif" letter-spacing="1.5">WAVE 3</text>
+        <!-- Flow lines: Wave 1 → Context Router -->
+        <path class="pipeline-flow-line" d="M 120 95 C 155 95 180 170 197 197" />
+        <path class="pipeline-flow-line" d="M 120 200 L 197 200" />
+        <path class="pipeline-flow-line" d="M 120 305 C 155 305 180 230 197 203" />
+        <!-- Flow lines: Context Router → Wave 2 -->
+        <path class="pipeline-flow-line" d="M 243 197 C 265 170 295 95 322 95" />
+        <path class="pipeline-flow-line" d="M 243 200 L 322 200" />
+        <path class="pipeline-flow-line" d="M 243 203 C 265 230 295 305 322 305" />
+        <!-- Flow lines: Wave 2 → Wave 3 -->
+        <path class="pipeline-flow-line" d="M 378 95 C 420 95 460 140 494 148" />
+        <path class="pipeline-flow-line" d="M 378 200 C 420 190 460 160 494 152" />
+        <path class="pipeline-flow-line" d="M 378 200 C 420 215 460 245 494 255" />
+        <path class="pipeline-flow-line" d="M 378 305 C 420 305 460 270 494 260" />
+        <!-- Flow lines: Wave 3 → Synthesizer -->
+        <path class="pipeline-flow-line" d="M 550 150 C 590 150 625 185 655 195" />
+        <path class="pipeline-flow-line" d="M 550 260 C 590 260 625 220 655 208" />
         <!-- Output line from Synthesizer -->
-        <path class="pipeline-flow-line active" d="M 555 210 L 680 210" />
-        <!-- Agent 1: Portfolio Analyst -->
-        <g class="pipeline-agent-node"><circle cx="120" cy="70" r="30" fill="url(#purpleGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="120" y="77" font-size="22">📈</text><text class="pipeline-label" x="50" y="73">Portfolio</text><text class="pipeline-label" x="50" y="85">Analyst</text></g>
-        <!-- Agent 2: Smart Money -->
-        <g class="pipeline-agent-node"><circle cx="120" cy="150" r="30" fill="url(#blueGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="120" y="157" font-size="22">🏛️</text><text class="pipeline-label" x="50" y="153">Smart</text><text class="pipeline-label" x="50" y="165">Money</text></g>
-        <!-- Agent 3: Macro Scanner -->
-        <g class="pipeline-agent-node"><circle cx="120" cy="230" r="30" fill="url(#tealGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="120" y="237" font-size="22">🌍</text><text class="pipeline-label" x="50" y="233">Macro</text><text class="pipeline-label" x="50" y="245">Scanner</text></g>
-        <!-- Agent 4: Security Scanner -->
-        <g class="pipeline-agent-node"><circle cx="120" cy="310" r="30" fill="url(#goldGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="120" y="317" font-size="22">🔍</text><text class="pipeline-label" x="50" y="313">Security</text><text class="pipeline-label" x="50" y="325">Scanner</text></g>
-        <!-- Agent 5: Calendar -->
-        <g class="pipeline-agent-node"><circle cx="120" cy="370" r="30" fill="url(#blueGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="120" y="377" font-size="22">📅</text><text class="pipeline-label" x="50" y="373">Calendar</text></g>
-        <!-- Agent 6: Tax Strategy -->
-        <g class="pipeline-agent-node"><circle cx="220" cy="370" r="30" fill="url(#goldGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="220" y="377" font-size="22">🧾</text><text class="pipeline-label" x="220" y="410">Tax Strategy</text></g>
-        <path class="pipeline-flow-line" d="M 250 365 C 350 340 420 260 490 225" />
-        <!-- CENTER: SYNTHESIZER -->
-        <g class="pipeline-center-node"><circle cx="520" cy="210" r="42" fill="url(#purpleGrad)" opacity="0.95" /><text class="pipeline-agent-text" x="520" y="218" font-size="28">🧠</text><text class="pipeline-label" x="520" y="265">Synthesizer</text><text class="pipeline-badge" x="520" y="280">Agent 9</text></g>
-        <!-- RIGHT OUTPUT -->
-        <g><text class="pipeline-agent-text" x="720" y="200" font-size="14" fill="rgba(255,255,255,.8)">Prioritized</text><text class="pipeline-agent-text" x="720" y="218" font-size="14" fill="rgba(255,255,255,.8)">Recommendations</text><text class="pipeline-label" x="720" y="240">+ Audio Briefing</text></g>
-        <!-- Stock Scout (Independent) -->
-        <g class="pipeline-agent-node"><circle cx="700" cy="370" r="28" fill="url(#tealGrad)" opacity="0.7" /><text class="pipeline-agent-text" x="700" y="377" font-size="20">🔎</text><text class="pipeline-label" x="700" y="408">Stock Scout</text><text class="pipeline-badge" x="700" y="421" fill="rgba(255,255,255,.35)">(Independent)</text></g>
+        <path class="pipeline-flow-line active" d="M 725 200 L 800 200" />
+        <!-- WAVE 1: Tier 1 Agents (parallel) -->
+        <g class="pipeline-agent-node"><circle cx="93" cy="95" r="26" fill="url(#tealGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="93" y="102" font-size="19">🌍</text><text class="pipeline-label" x="93" y="132">Macro</text><text class="pipeline-label" x="93" y="143">Scanner</text></g>
+        <g class="pipeline-agent-node"><circle cx="93" cy="200" r="26" fill="url(#purpleGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="93" y="207" font-size="19">📈</text><text class="pipeline-label" x="93" y="237">Portfolio</text><text class="pipeline-label" x="93" y="248">Analyst</text></g>
+        <g class="pipeline-agent-node"><circle cx="93" cy="305" r="26" fill="url(#goldGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="93" y="312" font-size="19">🧾</text><text class="pipeline-label" x="93" y="342">Tax</text><text class="pipeline-label" x="93" y="353">Strategy</text></g>
+        <!-- CONTEXT ROUTER (diamond) -->
+        <g class="pipeline-agent-node"><polygon points="220,175 245,200 220,225 195,200" fill="url(#routerGrad)" opacity="0.75" /><text class="pipeline-agent-text" x="220" y="207" font-size="14">⚡</text><text class="pipeline-label" x="220" y="240">Context</text><text class="pipeline-label" x="220" y="251">Router</text><text class="pipeline-badge" x="220" y="264">Haiku</text></g>
+        <!-- WAVE 2: Tier 2 Agents (parallel) -->
+        <g class="pipeline-agent-node"><circle cx="350" cy="95" r="26" fill="url(#goldGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="350" y="102" font-size="19">🔍</text><text class="pipeline-label" x="350" y="132">Security</text><text class="pipeline-label" x="350" y="143">Scanner</text></g>
+        <g class="pipeline-agent-node"><circle cx="350" cy="200" r="26" fill="url(#blueGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="350" y="207" font-size="19">🏛️</text><text class="pipeline-label" x="350" y="237">Smart</text><text class="pipeline-label" x="350" y="248">Money</text></g>
+        <g class="pipeline-agent-node"><circle cx="350" cy="305" r="26" fill="url(#blueGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="350" y="312" font-size="19">📅</text><text class="pipeline-label" x="350" y="342">Calendar</text></g>
+        <!-- WAVE 3: Tier 3 Agents (parallel) -->
+        <g class="pipeline-agent-node"><circle cx="522" cy="150" r="26" fill="url(#tealGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="522" y="157" font-size="19">🔎</text><text class="pipeline-label" x="522" y="187">Stock</text><text class="pipeline-label" x="522" y="198">Scout</text></g>
+        <g class="pipeline-agent-node"><circle cx="522" cy="260" r="26" fill="url(#blueGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="522" y="267" font-size="19">📊</text><text class="pipeline-label" x="522" y="297">Fundamentals</text><text class="pipeline-label" x="522" y="308">Analyst</text></g>
+        <!-- SYNTHESIZER -->
+        <g class="pipeline-center-node"><circle cx="690" cy="200" r="36" fill="url(#purpleGrad)" opacity="0.95" /><text class="pipeline-agent-text" x="690" y="208" font-size="25">🧠</text><text class="pipeline-label" x="690" y="248">Synthesizer</text><text class="pipeline-badge" x="690" y="261">Agent 9</text></g>
+        <!-- OUTPUT -->
+        <g><text class="pipeline-agent-text" x="845" y="190" font-size="12" fill="rgba(255,255,255,.8)">Prioritized</text><text class="pipeline-agent-text" x="845" y="205" font-size="12" fill="rgba(255,255,255,.8)">Recommendations</text><text class="pipeline-label" x="845" y="222">+ Audio Briefing</text></g>
         <!-- Legend -->
-        <text x="400" y="15" font-size="10" fill="rgba(255,255,255,.3)" text-anchor="middle" font-family="Inter,sans-serif">6 Specialist Agents → Synthesizer · Stock Scout Operates Independently</text>
+        <text x="450" y="395" font-size="9" fill="rgba(255,255,255,.3)" text-anchor="middle" font-family="Inter,sans-serif">3 Waves · 9 Agents · Parallel Within Each Wave · Context Flows Forward · Synthesizer Reads All</text>
       </svg>
     </div>
   </div>
@@ -1806,7 +1822,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="pipeline-callout-icon">💡</div>
     <div>
       <div class="pipeline-callout-title">Why this architecture matters</div>
-      <p class="pipeline-callout-body">Most agent designs dump raw data into the LLM and hope for the best — expensive, slow, and token-hungry. This system runs parallel specialist agents, each responsible for a specific domain. The Synthesizer agent reads all their outputs and produces unified, prioritized recommendations. Stock Scout operates independently to spot allocation gaps. This separation of concerns means each agent stays focused, context windows stay tight, and the final recommendations benefit from multi-agent reasoning without redundant processing.</p>
+      <p class="pipeline-callout-body">Most agent designs dump raw data into the LLM and hope for the best — expensive, slow, and token-hungry. This pipeline runs nine agents in three waves, each wave executing in parallel. An LLM-powered context router sits between waves, distilling upstream intelligence into targeted briefings — like building mart tables in a data warehouse, each downstream consumer gets exactly the context relevant to its job. The Synthesizer at the end reads all nine upstream reports live, producing unified recommendations backed by multi-agent reasoning without redundant processing.</p>
     </div>
   </div>
 </section>
