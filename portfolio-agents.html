@@ -1334,9 +1334,9 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
           <div class="agent-ctx">
             <div class="agent-ctx-icon">🔎</div>
             <div>
-              <div class="agent-ctx-title">Stock Finder — AI Search + Manual Screener + Stock Scout Agent</div>
-              <div class="agent-ctx-body">Three ways to discover securities: <strong>AI natural language search</strong> ("find me dividend healthcare ETFs") that translates plain English into FMP screener filters and keyword searches, a <strong>manual screener</strong> with dropdowns for sector, market cap, dividend, and price, and the <strong>Stock Scout agent</strong> that detects allocation gaps and recommends securities to fill them. All powered by Financial Modeling Prep with full company profiles, ratios, and fundamentals.</div>
-              <div class="agent-ctx-tools"><span class="agent-ctx-tool">AI Search (Claude)</span><span class="agent-ctx-tool">FMP Screener</span><span class="agent-ctx-tool">Gap Detection</span><span class="agent-ctx-tool">Company Profiles</span><span class="agent-ctx-tool data">FMP API</span></div>
+              <div class="agent-ctx-title">Stock Finder — Two-Tier Screening + AI Search + Stock Scout Agent</div>
+              <div class="agent-ctx-body">A two-tier screening system: <strong>Tier 1</strong> uses FMP's screener with 13 filters including cascading industry dropdowns, market cap range, volume, beta, and exchange. <strong>Tier 2</strong> auto-enriches top results with deep fundamental metrics — P/E, ROE, Piotroski F-Score, Altman Z-Score, RSI, and more — with 14 client-side advanced filters. Plus <strong>AI natural language search</strong> and the <strong>Stock Scout agent</strong> for allocation gap detection.</div>
+              <div class="agent-ctx-tools"><span class="agent-ctx-tool">AI Search (Claude)</span><span class="agent-ctx-tool">Tier 1 Screener (13 filters)</span><span class="agent-ctx-tool">Tier 2 Deep Metrics (14 filters)</span><span class="agent-ctx-tool">Gap Detection</span><span class="agent-ctx-tool data">FMP API</span></div>
             </div>
           </div>
           <!-- AI Natural Language Search -->
@@ -1357,9 +1357,11 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
           <!-- Filters still visible below AI search -->
           <div class="finder-filters">
             <div class="finder-filter">Sector: <span class="filter-val">Healthcare</span></div>
+            <div class="finder-filter">Industry: <span class="filter-val">Medical REITs</span></div>
             <div class="finder-filter">Market Cap: <span class="filter-val">$2B – $10B</span></div>
             <div class="finder-filter">Min Dividend: <span class="filter-val">3%+</span></div>
-            <div class="finder-filter">Country: <span class="filter-val">US</span></div>
+            <div class="finder-filter">Min Volume: <span class="filter-val">500K+</span></div>
+            <div class="finder-filter" style="border-color:rgba(124,58,237,.3);background:rgba(124,58,237,.1)">Piotroski: <span class="filter-val" style="color:#c4b5fd">6+</span></div>
           </div>
           <div class="finder-gap-card">
             <div class="finder-gap-title">🤖 Stock Scout Agent</div>
@@ -1367,19 +1369,19 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
           </div>
           <div class="finder-results" id="ai-results-demo">
             <div class="finder-row header">
-              <span>Ticker</span><span>Name</span><span>Mkt Cap</span><span>Price</span><span>Yield</span><span></span>
+              <span>Ticker</span><span>Name</span><span>Mkt Cap</span><span>Price</span><span>Yield</span><span style="color:rgba(124,58,237,.6)">P/E</span><span style="color:rgba(124,58,237,.6)">ROE</span><span style="color:rgba(124,58,237,.6)">Score</span><span></span>
             </div>
             <div class="finder-row">
-              <span class="finder-ticker">OHI</span><span class="finder-name">Omega Healthcare Investors</span><span style="color:rgba(255,255,255,.6)">$8.2B</span><span style="color:rgba(255,255,255,.8)">$31.47</span><span class="value-positive">7.8%</span><span class="finder-star active">★</span>
+              <span class="finder-ticker">OHI</span><span class="finder-name">Omega Healthcare Investors</span><span style="color:rgba(255,255,255,.6)">$8.2B</span><span style="color:rgba(255,255,255,.8)">$31.47</span><span class="value-positive">7.8%</span><span style="color:rgba(255,255,255,.6)">28.4</span><span class="value-positive">9.2%</span><span class="value-positive">7/9</span><span class="finder-star active">★</span>
             </div>
             <div class="finder-row">
-              <span class="finder-ticker">ABBV</span><span class="finder-name">AbbVie Inc</span><span style="color:rgba(255,255,255,.6)">$9.1B</span><span style="color:rgba(255,255,255,.8)">$168.52</span><span class="value-positive">3.8%</span><span class="finder-star">★</span>
+              <span class="finder-ticker">ABBV</span><span class="finder-name">AbbVie Inc</span><span style="color:rgba(255,255,255,.6)">$9.1B</span><span style="color:rgba(255,255,255,.8)">$168.52</span><span class="value-positive">3.8%</span><span style="color:rgba(255,255,255,.6)">15.2</span><span class="value-positive">62.1%</span><span class="value-positive">8/9</span><span class="finder-star">★</span>
             </div>
             <div class="finder-row">
-              <span class="finder-ticker">VTR</span><span class="finder-name">Ventas Inc</span><span style="color:rgba(255,255,255,.6)">$4.7B</span><span style="color:rgba(255,255,255,.8)">$48.93</span><span class="value-positive">3.4%</span><span class="finder-star">★</span>
+              <span class="finder-ticker">VTR</span><span class="finder-name">Ventas Inc</span><span style="color:rgba(255,255,255,.6)">$4.7B</span><span style="color:rgba(255,255,255,.8)">$48.93</span><span class="value-positive">3.4%</span><span style="color:rgba(255,255,255,.6)">42.1</span><span style="color:rgba(245,158,11,.6)">3.1%</span><span style="color:rgba(245,158,11,.6)">5/9</span><span class="finder-star">★</span>
             </div>
             <div class="finder-row">
-              <span class="finder-ticker">SBRA</span><span class="finder-name">Sabra Health Care REIT</span><span style="color:rgba(255,255,255,.6)">$3.8B</span><span style="color:rgba(255,255,255,.8)">$16.24</span><span class="value-positive">6.2%</span><span class="finder-star active">★</span>
+              <span class="finder-ticker">SBRA</span><span class="finder-name">Sabra Health Care REIT</span><span style="color:rgba(255,255,255,.6)">$3.8B</span><span style="color:rgba(255,255,255,.8)">$16.24</span><span class="value-positive">6.2%</span><span style="color:rgba(255,255,255,.6)">19.8</span><span class="value-positive">7.4%</span><span class="value-positive">6/9</span><span class="finder-star active">★</span>
             </div>
           </div>
         </div>
@@ -1880,9 +1882,14 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <p class="feature-body">Set financial targets with projected trajectories based on current growth rate. Visual progress bars show if you're ahead or behind schedule.</p>
     </div>
     <div class="feature-card fade-in">
+      <span class="feature-icon">📈</span>
+      <div class="feature-title">Historical Valuation Charts</div>
+      <p class="feature-body">Two charting modes: <strong>EOD historical</strong> with 6-month backfill showing equity and cash value layers (1W/1M/3M/6M/All toggles), and <strong>intraday 5-minute</strong> candles showing real-time portfolio value fluctuations. Star schema storage (daily holdings fact + daily summary aggregate), FMP → Finnhub → yfinance fallback chain, plus a 30-day sparkline widget on the Dashboard.</p>
+    </div>
+    <div class="feature-card fade-in">
       <span class="feature-icon">🎙️</span>
-      <div class="feature-title">Podcast Briefings</div>
-      <p class="feature-body">Morning and evening audio briefings generated by ElevenLabs with two AI host voices. Listen to your portfolio analysis like a podcast on walks with the dog — market moves, agent insights, and trade recommendations in a conversational format.</p>
+      <div class="feature-title">Podcast Briefings + In-App Player</div>
+      <p class="feature-body">Morning and evening audio briefings generated by ElevenLabs with two AI host voices. A <strong>mobile-first audio player</strong> built into the app with play/pause, skip controls, seekable progress bar, collapsible transcript, and scrollable briefing history. Authenticated streaming via blob URLs so audio works with JWT auth. Designed for listening on walks with the dog.</p>
     </div>
     <div class="feature-card fade-in">
       <span class="feature-icon">📋</span>
@@ -1896,8 +1903,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     </div>
     <div class="feature-card fade-in">
       <span class="feature-icon">🔎</span>
-      <div class="feature-title">Stock Finder + AI Search</div>
-      <p class="feature-body">Three discovery modes: <strong>AI natural language search</strong> — describe what you want in plain English and Claude translates it into FMP screener filters plus keyword searches. A <strong>manual screener</strong> with dropdowns for sector, market cap, dividend, and price. And the <strong>Stock Scout agent</strong> that detects allocation gaps and recommends securities to fill them. Full company profiles with financial ratios and key metrics on click.</p>
+      <div class="feature-title">Stock Finder + Deep Metrics</div>
+      <p class="feature-body">A two-tier screening system. <strong>Tier 1</strong>: FMP-powered screener with 13 filters — sector, industry (cascading dropdown), market cap range, price range, volume, beta, dividend, exchange, and country. <strong>Tier 2</strong>: automatic deep metric enrichment for top results — P/E, PEG, Price/Book, EV/EBITDA, ROE, ROA, margins, debt-to-equity, Piotroski F-Score, Altman Z-Score, and RSI — with client-side filtering across 14 fundamental and technical dimensions. Plus <strong>AI natural language search</strong> and the <strong>Stock Scout agent</strong> for allocation gap detection.</p>
     </div>
     <div class="feature-card fade-in">
       <span class="feature-icon">🎛️</span>
@@ -1947,7 +1954,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <button class="phase-btn" data-phase="5">Phase 5 · Tax + Synthesizer</button>
     <button class="phase-btn" data-phase="6">Phase 6 · Audio Briefings</button>
     <button class="phase-btn" data-phase="7">Phase 7 · Native App + Polish</button>
-    <button class="phase-btn active" data-phase="8">Phase 8 · Stock Finder + Control Plane</button>
+    <button class="phase-btn" data-phase="8">Phase 8 · Stock Finder + Control Plane</button>
+    <button class="phase-btn active" data-phase="9">Phase 9 · Valuation + Deep Metrics + Audio Player</button>
   </div>
 
   <div class="arch-diagram fade-in">
@@ -1962,6 +1970,10 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         <div class="arch-box purple" data-min-phase="7">
           <div class="arch-box-title">Native Mac App</div>
           <div class="arch-box-sub">Pywebview wrapper · Dock icon · System notifications</div>
+        </div>
+        <div class="arch-box gold" data-min-phase="9">
+          <div class="arch-box-title">Valuation + Audio Pages</div>
+          <div class="arch-box-sub">EOD/intraday charts · Sparkline widget · Mobile-first audio player · Blob URL streaming</div>
         </div>
       </div>
     </div>
@@ -2069,7 +2081,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         </div>
         <div class="arch-box" data-min-phase="8">
           <div class="arch-box-title">Financial Modeling Prep</div>
-          <div class="arch-box-sub">Stock screener · Profiles · Ratios · Key metrics · ETF data</div>
+          <div class="arch-box-sub">Stock screener · Profiles · Ratios · Key metrics · ETF data · Piotroski/Altman scores · RSI/SMA technicals · Historical EOD prices · Intraday 5-min candles</div>
         </div>
       </div>
     </div>
@@ -2082,6 +2094,10 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         <div class="arch-box gold">
           <div class="arch-box-title">DataStore Interface</div>
           <div class="arch-box-sub">Strategy pattern · Backend-agnostic API · Factory routing via env config</div>
+        </div>
+        <div class="arch-box blue" data-min-phase="9">
+          <div class="arch-box-title">Valuation Service</div>
+          <div class="arch-box-sub">Star schema · Daily holdings + summary fact tables · FMP→Finnhub→yfinance fallback · APScheduler capture</div>
         </div>
       </div>
     </div>
@@ -2140,7 +2156,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <span class="stack-card-icon">📈</span>
       <div class="stack-card-title">Finnhub + SnapTrade + FMP</div>
       <div class="stack-card-sub">Market Data + Brokerage + Screener</div>
-      <p class="stack-card-body">Finnhub for live quotes, fundamentals, news, and congressional trades. SnapTrade for read-only Fidelity access. Financial Modeling Prep for the Stock Finder — server-side screener, company profiles, financial ratios, and ETF data with TTL caching. yfinance as a fallback.</p>
+      <p class="stack-card-body">Finnhub for live quotes, fundamentals, news, and congressional trades. SnapTrade for read-only Fidelity access. Financial Modeling Prep for the two-tier Stock Finder (screener + deep metric enrichment with Piotroski, Altman Z, RSI, SMA), historical EOD prices, and intraday 5-minute candles. FMP→Finnhub→yfinance fallback chain for complete ticker coverage. TTL caching across all sources.</p>
     </div>
     <div class="stack-card fade-in">
       <span class="stack-card-icon">⚖️</span>
@@ -2164,7 +2180,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <span class="stack-card-icon">🎙️</span>
       <div class="stack-card-title">ElevenLabs</div>
       <div class="stack-card-sub">Podcast Audio Generation</div>
-      <p class="stack-card-body">Two-voice text-to-speech API that converts agent analysis into morning and evening podcast-style audio briefings. Two AI hosts discuss portfolio moves, market context, and trade recommendations in a conversational format.</p>
+      <p class="stack-card-body">Two-voice text-to-speech API that converts agent analysis into morning and evening podcast-style audio briefings. Two AI hosts discuss portfolio moves, market context, and trade recommendations in a conversational format. Played through a mobile-first in-app audio player with authenticated blob URL streaming, seekable progress, collapsible transcripts, and full briefing history.</p>
     </div>
   </div>
 </section>
