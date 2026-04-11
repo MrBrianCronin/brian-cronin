@@ -1785,11 +1785,13 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         <path class="pipeline-flow-line" d="M 243 197 C 265 170 295 95 322 95" />
         <path class="pipeline-flow-line" d="M 243 200 L 322 200" />
         <path class="pipeline-flow-line" d="M 243 203 C 265 230 295 305 322 305" />
-        <!-- Flow lines: Wave 2 → Wave 3 -->
-        <path class="pipeline-flow-line" d="M 378 95 C 420 95 460 140 494 148" />
-        <path class="pipeline-flow-line" d="M 378 200 C 420 190 460 160 494 152" />
-        <path class="pipeline-flow-line" d="M 378 200 C 420 215 460 245 494 255" />
-        <path class="pipeline-flow-line" d="M 378 305 C 420 305 460 270 494 260" />
+        <!-- Flow lines: Wave 2 → Context Router 2 -->
+        <path class="pipeline-flow-line" d="M 378 95 C 395 95 405 170 411 197" />
+        <path class="pipeline-flow-line" d="M 378 200 L 411 200" />
+        <path class="pipeline-flow-line" d="M 378 305 C 395 305 405 230 411 203" />
+        <!-- Flow lines: Context Router 2 → Wave 3 -->
+        <path class="pipeline-flow-line" d="M 461 197 C 470 170 480 150 494 148" />
+        <path class="pipeline-flow-line" d="M 461 203 C 470 230 480 253 494 255" />
         <!-- Flow lines: Wave 3 → Synthesizer -->
         <path class="pipeline-flow-line" d="M 550 150 C 590 150 625 185 655 195" />
         <path class="pipeline-flow-line" d="M 550 260 C 590 260 625 220 655 208" />
@@ -1799,8 +1801,10 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         <g class="pipeline-agent-node"><circle cx="93" cy="95" r="26" fill="url(#tealGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="93" y="102" font-size="19">🌍</text><text class="pipeline-label" x="93" y="132">Macro</text><text class="pipeline-label" x="93" y="143">Scanner</text></g>
         <g class="pipeline-agent-node"><circle cx="93" cy="200" r="26" fill="url(#purpleGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="93" y="207" font-size="19">📈</text><text class="pipeline-label" x="93" y="237">Portfolio</text><text class="pipeline-label" x="93" y="248">Analyst</text></g>
         <g class="pipeline-agent-node"><circle cx="93" cy="305" r="26" fill="url(#goldGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="93" y="312" font-size="19">🧾</text><text class="pipeline-label" x="93" y="342">Tax</text><text class="pipeline-label" x="93" y="353">Strategy</text></g>
-        <!-- CONTEXT ROUTER (diamond) -->
-        <g class="pipeline-agent-node"><polygon points="220,175 245,200 220,225 195,200" fill="url(#routerGrad)" opacity="0.75" /><text class="pipeline-agent-text" x="220" y="207" font-size="14">⚡</text><text class="pipeline-label" x="220" y="240">Context</text><text class="pipeline-label" x="220" y="251">Router</text><text class="pipeline-badge" x="220" y="264">Haiku</text></g>
+        <!-- CONTEXT ROUTER 1 (diamond between Wave 1 → Wave 2) -->
+        <g class="pipeline-agent-node"><polygon points="220,175 245,200 220,225 195,200" fill="url(#routerGrad)" opacity="0.75" /><text class="pipeline-agent-text" x="220" y="207" font-size="14">⚡</text><text class="pipeline-label" x="220" y="240">Context</text><text class="pipeline-label" x="220" y="251">Router</text></g>
+        <!-- CONTEXT ROUTER 2 (diamond between Wave 2 → Wave 3) -->
+        <g class="pipeline-agent-node"><polygon points="436,175 461,200 436,225 411,200" fill="url(#routerGrad)" opacity="0.75" /><text class="pipeline-agent-text" x="436" y="207" font-size="14">⚡</text><text class="pipeline-label" x="436" y="240">Context</text><text class="pipeline-label" x="436" y="251">Router</text></g>
         <!-- WAVE 2: Tier 2 Agents (parallel) -->
         <g class="pipeline-agent-node"><circle cx="350" cy="95" r="26" fill="url(#goldGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="350" y="102" font-size="19">🔍</text><text class="pipeline-label" x="350" y="132">Security</text><text class="pipeline-label" x="350" y="143">Scanner</text></g>
         <g class="pipeline-agent-node"><circle cx="350" cy="200" r="26" fill="url(#blueGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="350" y="207" font-size="19">🏛️</text><text class="pipeline-label" x="350" y="237">Smart</text><text class="pipeline-label" x="350" y="248">Money</text></g>
@@ -1822,7 +1826,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="pipeline-callout-icon">💡</div>
     <div>
       <div class="pipeline-callout-title">Why this architecture matters</div>
-      <p class="pipeline-callout-body">Most agent designs dump raw data into the LLM and hope for the best — expensive, slow, and token-hungry. This pipeline runs nine agents in three waves, each wave executing in parallel. An LLM-powered context router sits between waves, distilling upstream intelligence into targeted briefings — like building mart tables in a data warehouse, each downstream consumer gets exactly the context relevant to its job. The Synthesizer at the end reads all nine upstream reports live, producing unified recommendations backed by multi-agent reasoning without redundant processing.</p>
+      <p class="pipeline-callout-body">Most agent designs dump raw data into the LLM and hope for the best — expensive, slow, and token-hungry. This pipeline runs nine agents in three waves, each wave executing in parallel. LLM-powered context routers sit between each wave, distilling upstream intelligence into targeted briefings — like building mart tables in a data warehouse, each downstream consumer gets exactly the context relevant to its job. The Synthesizer at the end reads all nine upstream reports live, producing unified recommendations backed by multi-agent reasoning without redundant processing.</p>
     </div>
   </div>
 </section>
