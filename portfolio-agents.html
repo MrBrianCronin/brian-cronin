@@ -465,10 +465,10 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="hero-eyebrow">Personal Project · Multi-Agent System</div>
     <h1 class="hero-name">Portfolio <span>Intelligence</span></h1>
     <p class="hero-subtitle">I got tired of checking five apps before making a portfolio decision, so I built a system that does it for me</p>
-    <p class="hero-desc">Eight AI agents scan news, track congressional trades, score sentiment from multiple angles, monitor allocation drift, scout new securities to fill portfolio gaps, and put it all together into something I can actually act on. The backend runs on FastAPI and BigQuery on GCP, the frontend is React on Vercel, and the whole thing deploys to Railway. I watch it update in real time on my phone over coffee, and I listen to AI-generated portfolio briefings on my morning and evening walks with the dog.</p>
+    <p class="hero-desc">Nine AI agents orchestrated by LangGraph run in a tiered pipeline — scanning macro conditions, tracking congressional trades, analyzing fundamentals, and scouting new securities. An LLM-powered context router builds targeted briefings between tiers so each agent gets exactly the upstream intelligence it needs, not the raw firehose. The backend runs on FastAPI and BigQuery on GCP, the frontend is React on Vercel, and the whole thing deploys to Railway. I watch it update in real time on my phone over coffee, and I listen to AI-generated portfolio briefings on my morning and evening walks with the dog.</p>
     <div class="hero-badges">
       <span class="hero-badge read-only">🔒 Read-Only · No Trade Execution</span>
-      <span class="hero-badge ai">🤖 CrewAI + Claude Agents</span>
+      <span class="hero-badge ai">🤖 LangGraph + CrewAI + Claude</span>
       <span class="hero-badge mac">⚛️ React + FastAPI</span>
       <span class="hero-badge fin">📊 SnapTrade + Fidelity</span>
       <span class="hero-badge mac">☁️ GCP BigQuery</span>
@@ -487,8 +487,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         </defs>
         <!-- Orchestrator -->
         <rect x="50" y="8" width="240" height="36" rx="8" fill="url(#hPurple)" opacity=".85"/>
-        <text x="170" y="24" text-anchor="middle" fill="#fff" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="700">CrewAI Orchestrator</text>
-        <text x="170" y="36" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif" font-size="8">Claude Sonnet · Task Routing</text>
+        <text x="170" y="24" text-anchor="middle" fill="#fff" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="700">LangGraph Pipeline</text>
+        <text x="170" y="36" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif" font-size="8">Tiered Orchestration · Context Routing</text>
         <!-- Flow lines down -->
         <line x1="100" y1="44" x2="100" y2="62" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
         <line x1="170" y1="44" x2="170" y2="62" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
@@ -511,7 +511,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         <text x="107" y="113" text-anchor="middle" fill="#fcd34d" font-family="Inter,sans-serif" font-size="8" font-weight="600">Tax</text>
         <rect x="144" y="96" width="62" height="28" rx="6" fill="rgba(15,168,136,.18)" stroke="rgba(15,168,136,.3)" stroke-width="1"/>
         <text x="175" y="113" text-anchor="middle" fill="#6ee7b7" font-family="Inter,sans-serif" font-size="8" font-weight="600">Scout</text>
-        <text x="274" y="113" text-anchor="middle" fill="rgba(255,255,255,.3)" font-family="Inter,sans-serif" font-size="8">8 specialists</text>
+        <text x="274" y="113" text-anchor="middle" fill="rgba(255,255,255,.3)" font-family="Inter,sans-serif" font-size="8">9 specialists</text>
         <!-- Flow down -->
         <line x1="170" y1="124" x2="170" y2="142" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="3,3"/>
         <!-- DataStore -->
@@ -1545,8 +1545,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
 <section class="agents-section">
   <div class="fade-in">
     <div class="section-label">Agent Architecture</div>
-    <h2 class="section-title">Eight agents, each with a <em>real job</em></h2>
-    <p class="section-intro">Every agent has a specific role, a backstory that shapes its reasoning, configurable skills with tunable parameters, and structured output formats. The LLM's job is to look at tool results and figure out what they mean together. CrewAI orchestrates the whole crew and passes context between them so nothing gets analyzed in a vacuum.</p>
+    <h2 class="section-title">Nine agents, each with a <em>real job</em></h2>
+    <p class="section-intro">Every agent has a specific role, a backstory that shapes its reasoning, configurable skills with tunable parameters, and structured output formats. LangGraph orchestrates them in a tiered pipeline — Tier 1 scouts the landscape, an LLM-powered context router builds targeted briefings for each downstream consumer, Tier 2 does holdings-level analysis, Tier 3 goes deep on fundamentals and new securities, and the Synthesizer pulls it all together. Each agent reads upstream intelligence tailored to its needs, not the raw firehose.</p>
   </div>
   <div class="agents-grid">
     <div class="agent-card fade-in">
@@ -1706,10 +1706,32 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     </div>
     <div class="agent-card fade-in">
       <div class="agent-card-header">
+        <span class="agent-icon">📊</span>
+        <div class="agent-title">Fundamentals Analyst</div>
+        <div class="agent-role">Agent 8 · Financial Statement Deep-Dive</div>
+        <p class="agent-body">Reads financial statements the way a CFA reads game film. Pulls income statements, balance sheets, cash flows, and owner earnings for every holding, then computes derived metrics — gross/operating/net margins, revenue growth YoY, debt-to-assets, current ratio, and EV/revenue. Flags concentration risk from revenue segmentation and grades financial health using Piotroski and Altman Z-scores.</p>
+        <div class="agent-outputs">
+          <span class="agent-out data">FMP Financials</span>
+          <span class="agent-out teal">Health Scores</span>
+          <span class="agent-out alert">Margin Trends</span>
+          <span class="agent-out data">Revenue Segments</span>
+        </div>
+      </div>
+      <div class="agent-toggle"><span class="agent-toggle-text">View Agent Profile</span><div class="agent-toggle-icon">▼</div></div>
+      <div class="agent-expanded"><div class="agent-expanded-content">
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Goal</div><p class="agent-goal-text">Perform CFA-level fundamental analysis on all portfolio holdings using financial statements, derived metrics, and health scoring models.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Backstory</div><p class="agent-backstory-text">CFA-level fundamental analyst who reads financial statements the way a coach reads game film — looking for trends, red flags, and competitive advantages that surface-level metrics miss.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Skills</div><div class="agent-skills"><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Fundamentals Scanner<span class="agent-skill-params">(12 data sources)</span></span></div></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Expected Output</div><p class="agent-output-text">Per-holding financial health report with margin analysis, growth metrics, debt assessment, Piotroski F-Score interpretation, Altman Z-Score, revenue concentration risk, and comparative rankings.</p></div>
+        <div class="agent-redacted"><div class="agent-redacted-icon">🔒</div><div class="agent-redacted-text">Agent instructions, prompt architecture, and tunable parameters hidden for IP protection</div></div>
+      </div></div>
+    </div>
+    <div class="agent-card fade-in">
+      <div class="agent-card-header">
         <span class="agent-icon">🧠</span>
         <div class="agent-title">Synthesizer + Audio</div>
-        <div class="agent-role">Agent 8 · Cross-Reference &amp; Recommendations</div>
-        <p class="agent-body">Takes everything the other seven agents found and connects the dots. Factors tax implications into timing, weighs calendar events against trade ideas, folds in Stock Scout's new security recommendations, and produces prioritized readouts with confidence scores. Also generates podcast-style audio briefings so I can listen to my portfolio update while walking the dog.</p>
+        <div class="agent-role">Agent 9 · Cross-Reference &amp; Recommendations</div>
+        <p class="agent-body">Takes everything the other eight agents found and connects the dots. Receives LIVE upstream context from the current pipeline run — not stale reports — so every recommendation reflects the latest data. Factors tax implications into timing, weighs calendar events against trade ideas, folds in fundamentals and Stock Scout recommendations, and produces prioritized readouts with confidence scores. Also generates podcast-style audio briefings so I can listen to my portfolio update while walking the dog.</p>
         <div class="agent-outputs">
           <span class="agent-out ai">Trade Readouts</span>
           <span class="agent-out ai">Stock Stories</span>
@@ -1719,8 +1741,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       </div>
       <div class="agent-toggle"><span class="agent-toggle-text">View Agent Profile</span><div class="agent-toggle-icon">▼</div></div>
       <div class="agent-expanded"><div class="agent-expanded-content">
-        <div class="agent-expanded-block"><div class="agent-expanded-label">Goal</div><p class="agent-goal-text">Read outputs from all specialist agents and produce unified, prioritized recommendations with confidence levels and cross-agent reasoning.</p></div>
-        <div class="agent-expanded-block"><div class="agent-expanded-label">Backstory</div><p class="agent-backstory-text">Senior portfolio strategist who synthesizes intelligence from multiple specialist analysts into a coherent action plan. Transparent about confidence levels and what isn't known.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Goal</div><p class="agent-goal-text">Read LIVE outputs from all eight upstream agents in the current pipeline run and produce unified, prioritized recommendations with confidence levels and cross-agent reasoning.</p></div>
+        <div class="agent-expanded-block"><div class="agent-expanded-label">Backstory</div><p class="agent-backstory-text">Senior portfolio strategist who synthesizes intelligence from multiple specialist analysts into a coherent action plan. Receives the full upstream context — macro conditions, portfolio health, security signals, smart money activity, tax considerations, fundamentals, and new security recommendations — all from the current run, not stale reports.</p></div>
         <div class="agent-expanded-block"><div class="agent-expanded-label">Skills</div><div class="agent-skills"><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Agent Report Fetcher</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Portfolio Context</span><span class="agent-skill"><span class="agent-skill-icon">⚙️</span>Audio Generation</span></div></div>
         <div class="agent-expanded-block"><div class="agent-expanded-label">Expected Output</div><p class="agent-output-text">Unified portfolio assessment with 3-7 prioritized recommendations, each with action (BUY/SELL/TRIM/HOLD/HARVEST), confidence level, time horizon, multi-agent reasoning, and tax impact.</p></div>
         <div class="agent-redacted"><div class="agent-redacted-icon">🔒</div><div class="agent-redacted-text">Agent instructions, prompt architecture, and tunable parameters hidden for IP protection</div></div>
@@ -1734,7 +1756,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
   <div class="fade-in">
     <div class="section-label">Under The Hood</div>
     <h2 class="section-title">How agents <em class="ai-em">work together</em></h2>
-    <p class="section-intro">Six specialist agents run in parallel, each focused on a single domain. Their outputs converge in the Synthesizer, which cross-references every signal to produce unified, prioritized recommendations. Stock Scout operates independently to find new securities. Tools do the math, the LLM does the thinking.</p>
+    <p class="section-intro">LangGraph orchestrates nine agents in a tiered pipeline. Tier 1 agents (Macro, Portfolio Analyst, Tax) scout the landscape first. An LLM-powered context router then builds targeted briefings for each Tier 2 agent — like mart tables in a data warehouse, each downstream consumer gets exactly the upstream intelligence relevant to its job. Tier 2 (Security Scanner, Smart Money, Calendar) and Tier 3 (Stock Scout, Fundamentals) each receive progressively richer context. The Synthesizer reads LIVE outputs from the current run, not stale reports, to produce unified recommendations.</p>
   </div>
 
   <div class="pipeline-flow-svg fade-in">
@@ -1769,7 +1791,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         <g class="pipeline-agent-node"><circle cx="220" cy="370" r="30" fill="url(#goldGrad)" opacity="0.85" /><text class="pipeline-agent-text" x="220" y="377" font-size="22">🧾</text><text class="pipeline-label" x="220" y="410">Tax Strategy</text></g>
         <path class="pipeline-flow-line" d="M 250 365 C 350 340 420 260 490 225" />
         <!-- CENTER: SYNTHESIZER -->
-        <g class="pipeline-center-node"><circle cx="520" cy="210" r="42" fill="url(#purpleGrad)" opacity="0.95" /><text class="pipeline-agent-text" x="520" y="218" font-size="28">🧠</text><text class="pipeline-label" x="520" y="265">Synthesizer</text><text class="pipeline-badge" x="520" y="280">Agent 8</text></g>
+        <g class="pipeline-center-node"><circle cx="520" cy="210" r="42" fill="url(#purpleGrad)" opacity="0.95" /><text class="pipeline-agent-text" x="520" y="218" font-size="28">🧠</text><text class="pipeline-label" x="520" y="265">Synthesizer</text><text class="pipeline-badge" x="520" y="280">Agent 9</text></g>
         <!-- RIGHT OUTPUT -->
         <g><text class="pipeline-agent-text" x="720" y="200" font-size="14" fill="rgba(255,255,255,.8)">Prioritized</text><text class="pipeline-agent-text" x="720" y="218" font-size="14" fill="rgba(255,255,255,.8)">Recommendations</text><text class="pipeline-label" x="720" y="240">+ Audio Briefing</text></g>
         <!-- Stock Scout (Independent) -->
