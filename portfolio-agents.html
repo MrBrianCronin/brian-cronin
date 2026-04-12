@@ -465,7 +465,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="hero-eyebrow">Personal Project · Multi-Agent System</div>
     <h1 class="hero-name">Portfolio <span>Intelligence</span></h1>
     <p class="hero-subtitle">I got tired of checking five apps before making a portfolio decision, so I built a system that does it for me</p>
-    <p class="hero-desc">Nine AI agents orchestrated by LangGraph run in a 3-tier pipeline — scanning macro conditions, tracking congressional trades, analyzing fundamentals, and scouting new securities. Haiku-powered context routers build targeted intelligence briefings between tiers so each agent gets exactly what it needs. I can ask Siri "Portfolio Check" and get a spoken answer about my holdings, or pull up the full React dashboard. The backend runs on FastAPI and BigQuery on GCP, deployed to Railway. Now I'm building a second LangGraph pipeline — an Allocation Builder that takes a target model and recommends specific stocks and ETFs to construct a portfolio from scratch, with side-by-side scenario comparison for testing different allocation strategies.</p>
+    <p class="hero-desc">Two LangGraph pipelines handle different sides of portfolio management. The <strong>Analysis Pipeline</strong> runs 9 agents in a 3-tier architecture — scanning macro conditions, tracking congressional trades, analyzing fundamentals, and scouting new securities. The <strong>Allocation Builder</strong> runs 7 agents that take a target allocation model and recommend specific stocks and ETFs to construct a portfolio from scratch, with side-by-side scenario comparison. Haiku-powered context routers build targeted intelligence briefings between tiers in both pipelines. I can ask Siri "Portfolio Check" for a spoken answer, or pull up the full React dashboard. The backend runs on FastAPI and BigQuery on GCP, deployed to Railway.</p>
     <div class="hero-badges">
       <span class="hero-badge read-only">🔒 Read-Only · No Trade Execution</span>
       <span class="hero-badge ai">🤖 LangGraph + CrewAI + Claude</span>
@@ -1759,7 +1759,12 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
   <div class="fade-in">
     <div class="section-label">Under The Hood</div>
     <h2 class="section-title">How agents <em class="ai-em">work together</em></h2>
-    <p class="section-intro">LangGraph orchestrates nine agents in a tiered pipeline. Tier 1 agents (Macro, Portfolio Analyst, Tax) scout the landscape first. An LLM-powered context router then builds targeted briefings for each Tier 2 agent — like mart tables in a data warehouse, each downstream consumer gets exactly the upstream intelligence relevant to its job. Tier 2 (Security Scanner, Smart Money, Calendar) and Tier 3 (Stock Scout, Fundamentals) each receive progressively richer context. The Synthesizer reads LIVE outputs from the current run, not stale reports, to produce unified recommendations.</p>
+    <p class="section-intro">Two LangGraph pipelines handle different questions. The <strong>Analysis Pipeline</strong> answers "how is my portfolio doing?" — nine agents in three waves analyze holdings, market conditions, and opportunities. The <strong>Allocation Builder</strong> answers "what should I buy?" — seven agents take a target model and produce a concrete buy list. Both use Haiku-powered context routers between tiers, like mart tables in a data warehouse — each downstream agent gets exactly the upstream intelligence relevant to its job.</p>
+  </div>
+
+  <div class="fade-in" style="margin-top:40px;margin-bottom:8px">
+    <div class="section-label">Pipeline 1</div>
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(18px,2vw,22px);color:#fff;margin:0">Analysis Pipeline — <em class="ai-em">9 Agents</em></h3>
   </div>
 
   <div class="pipeline-flow-svg fade-in">
@@ -1830,6 +1835,83 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div>
       <div class="pipeline-callout-title">Why this architecture matters</div>
       <p class="pipeline-callout-body">Most agent designs dump raw data into the LLM and hope for the best — expensive, slow, and token-hungry. This pipeline runs nine agents in three waves, each wave executing in parallel. LLM-powered context routers sit between each wave, distilling upstream intelligence into targeted briefings — like building mart tables in a data warehouse, each downstream consumer gets exactly the context relevant to its job. The Synthesizer at the end reads all nine upstream reports live, producing unified recommendations backed by multi-agent reasoning without redundant processing.</p>
+    </div>
+  </div>
+
+  <!-- ALLOCATION BUILDER PIPELINE -->
+  <div class="fade-in" style="margin-top:80px">
+    <div class="section-label" style="color:rgba(139,92,246,.5)">Pipeline 2</div>
+    <h2 class="section-title">Allocation <em class="ai-em">Builder</em></h2>
+    <p class="section-intro">A second LangGraph pipeline for the other side of portfolio management — greenfield construction. Feed it a target allocation model and investment amount, and seven agents go shopping: finding candidates, vetting fundamentals, comparing ETF efficiency, optimizing for tax, and producing a concrete buy list. Run the same model with different parameters and compare scenarios side-by-side.</p>
+  </div>
+
+  <div class="pipeline-flow-svg fade-in">
+    <div class="pipeline-svg-container">
+      <svg class="pipeline-svg" viewBox="0 0 900 420" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bPurple" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#a855f7"/></linearGradient>
+          <linearGradient id="bBlue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1a5296"/><stop offset="100%" stop-color="#2563eb"/></linearGradient>
+          <linearGradient id="bTeal" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0a7565"/><stop offset="100%" stop-color="#0fa888"/></linearGradient>
+          <linearGradient id="bGold" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c89734"/><stop offset="100%" stop-color="#e8b84b"/></linearGradient>
+          <linearGradient id="bOrange" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c2410c"/><stop offset="100%" stop-color="#f97316"/></linearGradient>
+          <linearGradient id="bRouter" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#818cf8"/></linearGradient>
+        </defs>
+        <!-- Wave zone backgrounds -->
+        <rect x="48" y="55" width="90" height="240" rx="10" fill="rgba(255,255,255,.03)" />
+        <rect x="275" y="55" width="152" height="290" rx="10" fill="rgba(255,255,255,.03)" />
+        <rect x="555" y="55" width="90" height="240" rx="10" fill="rgba(255,255,255,.03)" />
+        <!-- Wave labels -->
+        <text x="93" y="42" font-size="9" font-weight="700" fill="rgba(139,92,246,.45)" text-anchor="middle" font-family="Inter,sans-serif" letter-spacing="1.5">SET THE TABLE</text>
+        <text x="350" y="42" font-size="9" font-weight="700" fill="rgba(139,92,246,.45)" text-anchor="middle" font-family="Inter,sans-serif" letter-spacing="1.5">GO SHOPPING</text>
+        <text x="600" y="42" font-size="9" font-weight="700" fill="rgba(139,92,246,.45)" text-anchor="middle" font-family="Inter,sans-serif" letter-spacing="1.5">VET &amp; CONSTRUCT</text>
+        <!-- Flow lines: Tier 1 → Context Router 1 -->
+        <path class="pipeline-flow-line" d="M 120 140 C 155 140 175 180 192 197" />
+        <path class="pipeline-flow-line" d="M 120 245 C 155 245 175 220 192 203" />
+        <!-- Flow lines: Context Router 1 → Tier 2 -->
+        <path class="pipeline-flow-line" d="M 238 197 C 260 160 280 105 298 105" />
+        <path class="pipeline-flow-line" d="M 238 200 L 298 200" />
+        <path class="pipeline-flow-line" d="M 238 203 C 260 240 280 295 298 295" />
+        <!-- Flow lines: Tier 2 → Context Router 2 -->
+        <path class="pipeline-flow-line" d="M 385 105 C 410 105 425 170 442 197" />
+        <path class="pipeline-flow-line" d="M 385 200 L 442 200" />
+        <path class="pipeline-flow-line" d="M 385 295 C 410 295 425 230 442 203" />
+        <!-- Flow lines: Context Router 2 → Tier 3 -->
+        <path class="pipeline-flow-line" d="M 488 197 C 510 170 530 150 572 145" />
+        <path class="pipeline-flow-line" d="M 488 203 C 510 230 530 253 572 253" />
+        <!-- Flow lines: Tier 3 → Synthesizer -->
+        <path class="pipeline-flow-line" d="M 630 145 C 660 145 670 185 695 195" />
+        <path class="pipeline-flow-line" d="M 630 253 C 660 253 670 215 695 205" />
+        <!-- Output line from Synthesizer -->
+        <path class="pipeline-flow-line active" d="M 765 200 L 825 200" />
+        <!-- TIER 1: Set the Table -->
+        <g class="pipeline-agent-node"><circle cx="93" cy="140" r="26" fill="url(#bTeal)" opacity="0.85" /><text class="pipeline-agent-text" x="93" y="147" font-size="19">📐</text><text class="pipeline-label" x="93" y="177">Gap</text><text class="pipeline-label" x="93" y="188">Analyst</text></g>
+        <g class="pipeline-agent-node"><circle cx="93" cy="245" r="26" fill="url(#bBlue)" opacity="0.85" /><text class="pipeline-agent-text" x="93" y="252" font-size="19">🌍</text><text class="pipeline-label" x="93" y="282">Macro</text><text class="pipeline-label" x="93" y="293">Strategist</text></g>
+        <!-- CONTEXT ROUTER 1 -->
+        <g class="pipeline-agent-node"><polygon points="215,175 240,200 215,225 190,200" fill="url(#bRouter)" opacity="0.75" /><text class="pipeline-agent-text" x="215" y="207" font-size="14">⚡</text><text class="pipeline-label" x="215" y="240">Context</text><text class="pipeline-label" x="215" y="251">Router</text></g>
+        <!-- TIER 2: Go Shopping -->
+        <g class="pipeline-agent-node"><circle cx="340" cy="105" r="26" fill="url(#bTeal)" opacity="0.85" /><text class="pipeline-agent-text" x="340" y="112" font-size="19">🔎</text><text class="pipeline-label" x="340" y="142">Stock</text><text class="pipeline-label" x="340" y="153">Scout</text></g>
+        <g class="pipeline-agent-node"><circle cx="340" cy="200" r="26" fill="url(#bBlue)" opacity="0.85" /><text class="pipeline-agent-text" x="340" y="207" font-size="19">📊</text><text class="pipeline-label" x="340" y="237">Fundamentals</text><text class="pipeline-label" x="340" y="248">Analyst</text></g>
+        <g class="pipeline-agent-node"><circle cx="340" cy="295" r="26" fill="url(#bOrange)" opacity="0.85" /><text class="pipeline-agent-text" x="340" y="302" font-size="19">📦</text><text class="pipeline-label" x="340" y="332">ETF</text><text class="pipeline-label" x="340" y="343">Strategist</text></g>
+        <!-- CONTEXT ROUTER 2 -->
+        <g class="pipeline-agent-node"><polygon points="465,175 490,200 465,225 440,200" fill="url(#bRouter)" opacity="0.75" /><text class="pipeline-agent-text" x="465" y="207" font-size="14">⚡</text><text class="pipeline-label" x="465" y="240">Context</text><text class="pipeline-label" x="465" y="251">Router</text></g>
+        <!-- TIER 3: Vet & Construct -->
+        <g class="pipeline-agent-node"><circle cx="600" cy="145" r="26" fill="url(#bGold)" opacity="0.85" /><text class="pipeline-agent-text" x="600" y="152" font-size="19">🧾</text><text class="pipeline-label" x="600" y="182">Tax</text><text class="pipeline-label" x="600" y="193">Optimizer</text></g>
+        <g class="pipeline-agent-node"><circle cx="600" cy="253" r="26" fill="url(#bPurple)" opacity="0.85" /><text class="pipeline-agent-text" x="600" y="260" font-size="19">🏗️</text><text class="pipeline-label" x="600" y="290">Portfolio</text><text class="pipeline-label" x="600" y="301">Constructor</text></g>
+        <!-- SYNTHESIZER -->
+        <g class="pipeline-center-node"><circle cx="730" cy="200" r="36" fill="url(#bPurple)" opacity="0.95" /><text class="pipeline-agent-text" x="730" y="208" font-size="25">🧠</text><text class="pipeline-label" x="730" y="248">Synthesizer</text><text class="pipeline-badge" x="730" y="261">Scenario Report</text></g>
+        <!-- OUTPUT -->
+        <g><text class="pipeline-agent-text" x="855" y="190" font-size="12" fill="rgba(255,255,255,.8)">Buy List</text><text class="pipeline-agent-text" x="855" y="205" font-size="12" fill="rgba(255,255,255,.8)">+ Comparison</text><text class="pipeline-label" x="855" y="222">Scenario A vs B</text></g>
+        <!-- Legend -->
+        <text x="450" y="395" font-size="9" fill="rgba(255,255,255,.3)" text-anchor="middle" font-family="Inter,sans-serif">3 Tiers · 7 Agents · Greenfield Construction · Scenario Comparison · No Existing Holdings Required</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="pipeline-callout fade-in">
+    <div class="pipeline-callout-icon">🔀</div>
+    <div>
+      <div class="pipeline-callout-title">Two pipelines, one system</div>
+      <p class="pipeline-callout-body">The Analysis Pipeline answers "how is my portfolio doing?" — monthly check-ins, drift detection, rebalancing suggestions. The Allocation Builder answers "what should I buy?" — greenfield construction for new accounts or strategy changes. They share the same agent config infrastructure, skill registry, and DataStore abstraction, but run independently with their own state schemas. Feed the Builder different allocation models and compare the resulting buy lists side-by-side — like A/B testing investment strategy before committing capital.</p>
     </div>
   </div>
 </section>
@@ -1920,7 +2002,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="feature-card fade-in">
       <span class="feature-icon">🏗️</span>
       <div class="feature-title">Allocation Builder Pipeline</div>
-      <p class="feature-body">A second LangGraph pipeline purpose-built for <strong>greenfield portfolio construction</strong>. Feed it a target allocation model and investment amount, and 7 agents go to work: a Gap Analyst maps what to fill, Stock Scout and an ETF Strategist hunt for candidates, Fundamentals vets them, a Tax Optimizer picks the right vehicle per slot, and a Portfolio Constructor produces a concrete buy list. Run multiple scenarios with different allocation models and compare results side-by-side — like A/B testing your investment strategy before committing capital.</p>
+      <p class="feature-body">A separate LangGraph pipeline purpose-built for <strong>greenfield portfolio construction</strong>. Feed it a target allocation model and investment amount, and 7 agents go to work: a Gap Analyst maps what to fill, Stock Scout and an ETF Strategist hunt for candidates, Fundamentals vets them, a Tax Optimizer picks the right vehicle per slot, and a Portfolio Constructor produces a concrete buy list. Run multiple scenarios with different allocation models and compare results side-by-side — A/B testing investment strategy before committing capital.</p>
     </div>
     <div class="feature-card fade-in">
       <span class="feature-icon">🔐</span>
