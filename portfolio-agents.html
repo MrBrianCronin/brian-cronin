@@ -465,13 +465,14 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="hero-eyebrow">Personal Project · Multi-Agent System</div>
     <h1 class="hero-name">Portfolio <span>Intelligence</span></h1>
     <p class="hero-subtitle">I got tired of checking five apps before making a portfolio decision, so I built a system that does it for me</p>
-    <p class="hero-desc">Nine AI agents orchestrated by LangGraph run in a tiered pipeline — scanning macro conditions, tracking congressional trades, analyzing fundamentals, and scouting new securities. An LLM-powered context router builds targeted briefings between tiers so each agent gets exactly the upstream intelligence it needs, not the raw firehose. The backend runs on FastAPI and BigQuery on GCP, the frontend is React on Vercel, and the whole thing deploys to Railway. I watch it update in real time on my phone over coffee, and I listen to AI-generated portfolio briefings on my morning and evening walks with the dog.</p>
+    <p class="hero-desc">Nine AI agents orchestrated by LangGraph run in a 3-tier pipeline — scanning macro conditions, tracking congressional trades, analyzing fundamentals, and scouting new securities. Haiku-powered context routers build targeted intelligence briefings between tiers so each agent gets exactly what it needs. I can ask Siri "Portfolio Check" and get a spoken answer about my holdings, or pull up the full React dashboard. The backend runs on FastAPI and BigQuery on GCP, deployed to Railway. Now I'm building a second LangGraph pipeline — an Allocation Builder that takes a target model and recommends specific stocks and ETFs to construct a portfolio from scratch, with side-by-side scenario comparison for testing different allocation strategies.</p>
     <div class="hero-badges">
       <span class="hero-badge read-only">🔒 Read-Only · No Trade Execution</span>
       <span class="hero-badge ai">🤖 LangGraph + CrewAI + Claude</span>
       <span class="hero-badge mac">⚛️ React + FastAPI</span>
       <span class="hero-badge fin">📊 SnapTrade + Fidelity</span>
       <span class="hero-badge mac">☁️ GCP BigQuery</span>
+      <span class="hero-badge ai">🗣️ Siri Voice Integration</span>
       <span class="hero-badge read-only">🔑 Encrypted · JWT Auth</span>
     </div>
   </div>
@@ -1909,7 +1910,17 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     <div class="feature-card fade-in">
       <span class="feature-icon">🎛️</span>
       <div class="feature-title">Agent Control Plane</div>
-      <p class="feature-body">Visual pipeline graph, skill toggles, and parameter tuning for every agent — all config-driven with immutable versioning. Change a correlation threshold or tax bracket from the UI, compare A/B configs, and roll back if needed.</p>
+      <p class="feature-body">Interactive 3-tier pipeline visualization showing all 9 agents, Haiku context routers, and the Synthesizer. A <strong>Run Full Pipeline</strong> button executes all tiers with real-time status dots on every node. Skill toggles, parameter tuning, immutable versioning, A/B config comparison — all from the UI. Plus a Siri integration status card and context routing display.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🗣️</span>
+      <div class="feature-title">Siri Voice Integration</div>
+      <p class="feature-body">An Apple Shortcut wired to the Portfolio Intelligence API. Say <strong>"Hey Siri, Portfolio Check"</strong> followed by any question — "how's tech doing?" or "any tax harvesting opportunities?" — and Siri speaks back a concise, conversational answer powered by Claude. The shortcut hits a Railway-hosted endpoint authenticated with an API key, and Claude crafts responses optimized for spoken delivery — no markdown, no jargon, under 150 words.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <span class="feature-icon">🏗️</span>
+      <div class="feature-title">Allocation Builder Pipeline</div>
+      <p class="feature-body">A second LangGraph pipeline purpose-built for <strong>greenfield portfolio construction</strong>. Feed it a target allocation model and investment amount, and 7 agents go to work: a Gap Analyst maps what to fill, Stock Scout and an ETF Strategist hunt for candidates, Fundamentals vets them, a Tax Optimizer picks the right vehicle per slot, and a Portfolio Constructor produces a concrete buy list. Run multiple scenarios with different allocation models and compare results side-by-side — like A/B testing your investment strategy before committing capital.</p>
     </div>
     <div class="feature-card fade-in">
       <span class="feature-icon">🔐</span>
