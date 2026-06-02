@@ -94,10 +94,44 @@ section{padding:96px 60px}
 .agentic-impact-text h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:-.02em}
 .agentic-impact-text p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.6)}
 /* GOVERNANCE CALLOUT */
-.governance-callout{margin-top:32px;background:rgba(26,82,150,.12);border:1px solid rgba(26,82,150,.25);border-radius:16px;padding:24px 28px;display:flex;gap:18px;align-items:flex-start}
-.governance-callout-icon{font-size:24px;flex-shrink:0;margin-top:2px}
-.governance-callout-title{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:#93c5fd;margin-bottom:6px}
-.governance-callout-body{font-size:13px;line-height:1.7;color:rgba(255,255,255,.55)}
+/* METHODOLOGY BLOCK — Skills, not prompts */
+.method-block{margin-bottom:52px;padding:34px;background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.22);border-radius:22px;position:relative;overflow:hidden}
+.method-block::before{content:'';position:absolute;top:-120px;right:-120px;width:320px;height:320px;background:radial-gradient(circle,rgba(124,58,237,.16) 0%,transparent 70%);pointer-events:none}
+.method-eyebrow{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(196,181,253,.7);margin-bottom:14px;display:flex;align-items:center;gap:10px;position:relative}
+.method-eyebrow::after{content:'';flex:0 0 80px;height:1px;background:rgba(196,181,253,.3)}
+.method-h{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,2.6vw,32px);font-weight:700;color:#fff;letter-spacing:-.025em;margin-bottom:14px;position:relative}
+.method-h em{font-style:normal;color:#c4b5fd}
+.method-lede{font-size:15px;line-height:1.78;color:rgba(255,255,255,.7);max-width:820px;margin-bottom:30px;position:relative}
+.method-lede strong{color:#c4b5fd;font-weight:600}
+.method-flow{display:grid;grid-template-columns:1fr 24px 1fr 24px 1fr;align-items:stretch;gap:0;margin-bottom:22px;position:relative}
+.method-stage{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:22px;display:flex;flex-direction:column}
+.method-num{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:600;letter-spacing:.18em;color:rgba(167,139,250,.7);margin-bottom:10px}
+.method-stage-title{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:10px}
+.method-stage-body{font-size:13px;line-height:1.68;color:rgba(255,255,255,.62);margin-bottom:14px;flex:1}
+.method-stage-meta{font-size:11px;color:rgba(167,139,250,.78);letter-spacing:.04em;border-top:1px solid rgba(255,255,255,.08);padding-top:11px;display:flex;align-items:center;gap:6px}
+.method-arrow{display:flex;align-items:center;justify-content:center;color:rgba(167,139,250,.45);font-size:22px;font-family:'Space Grotesk',sans-serif;font-weight:300}
+.method-foot{font-size:13.5px;line-height:1.7;color:rgba(255,255,255,.55);font-style:italic;max-width:820px;position:relative;border-top:1px solid rgba(255,255,255,.08);padding-top:18px}
+.method-foot strong{color:#fff;font-style:normal;font-weight:500}
+@media(max-width:920px){.method-flow{grid-template-columns:1fr;gap:8px}.method-arrow{transform:rotate(90deg);padding:2px 0;font-size:18px}.method-block{padding:24px}}
+/* HUMANS BLOCK — Where the humans went */
+.humans-block{margin-bottom:52px;padding:34px;background:rgba(10,117,101,.08);border:1px solid rgba(10,117,101,.28);border-radius:22px;position:relative;overflow:hidden}
+.humans-block::before{content:'';position:absolute;top:-100px;left:-120px;width:340px;height:340px;background:radial-gradient(circle,rgba(15,168,136,.16) 0%,transparent 70%);pointer-events:none}
+.humans-eyebrow{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(110,231,183,.75);margin-bottom:14px;display:flex;align-items:center;gap:10px;position:relative}
+.humans-eyebrow::after{content:'';flex:0 0 80px;height:1px;background:rgba(110,231,183,.3)}
+.humans-h{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,2.6vw,32px);font-weight:700;color:#fff;letter-spacing:-.025em;margin-bottom:16px;position:relative}
+.humans-h em{font-style:normal;color:#6ee7b7}
+.humans-lede{font-size:15px;line-height:1.78;color:rgba(255,255,255,.7);max-width:840px;margin-bottom:30px;position:relative}
+.humans-lede strong{color:#6ee7b7;font-weight:600}
+.humans-split{display:grid;grid-template-columns:1fr 1fr;gap:18px;position:relative}
+.humans-col{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px}
+.humans-col.agents{background:rgba(124,58,237,.07);border-color:rgba(124,58,237,.25)}
+.humans-col-label{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#fff;letter-spacing:-.01em;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:9px}
+.humans-col-label .who{font-size:10px;font-weight:500;letter-spacing:.14em;color:rgba(255,255,255,.4);margin-left:auto;text-transform:uppercase}
+.humans-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.humans-list li{font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.7);display:flex;align-items:flex-start;gap:10px}
+.humans-list .ico{font-size:15px;line-height:1.2;flex-shrink:0;width:20px;text-align:center;margin-top:1px}
+.humans-list b{color:#fff;font-weight:600}
+@media(max-width:920px){.humans-split{grid-template-columns:1fr}.humans-block{padding:24px}}
 /* FEATURED PROJECT SPOTLIGHT */
 .spotlight{background:linear-gradient(160deg,#0a1628 0%,#0f0f1a 50%,#1a0f2e 100%);color:#fff;padding:80px 60px;position:relative;overflow:hidden}
 .spotlight::before{content:'';position:absolute;top:-150px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(124,58,237,.18) 0%,transparent 70%);pointer-events:none}
@@ -211,9 +245,11 @@ section{padding:96px 60px}
 .project-tag.lead{background:rgba(10,117,101,.1);color:var(--teal)}
 .project-tag.speak{background:rgba(120,80,180,.1);color:#6030a0}
 .project-tag.ai{background:rgba(91,33,182,.1);color:var(--ai2)}
-.project-badge{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;display:inline-block;margin-bottom:2px}
-.project-badge.live{background:rgba(16,185,129,.12);color:#059669;border:1px solid rgba(16,185,129,.25)}
-.project-badge.arch{background:rgba(139,92,246,.1);color:#7C3AED;border:1px solid rgba(139,92,246,.2)}
+.project-badge{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px 3px 7px;border-radius:4px;display:inline-flex;align-items:center;gap:5px;background:rgba(12,12,20,.04);color:var(--ink2);border:1px solid var(--bg3);margin-bottom:2px}
+.project-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ink3);flex-shrink:0}
+.project-badge.live::before{background:#10b981}
+.project-badge.arch::before{background:#7c3aed}
+.project-badge.design::before{background:var(--gold2)}
 .project-arrow{font-size:17px;color:var(--ink3);transition:all .18s}
 .project-card:hover .project-arrow{color:var(--accent2);transform:translate(2px,-2px)}
 .project-title{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--ink)}
@@ -268,7 +304,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <div class="hero-eyebrow">VP of Data · Financial Services</div>
     <h1 class="hero-name">Brian<span>Cronin</span></h1>
     <p class="hero-title">I build data organizations that actually work — and now I'm doing it with AI agents</p>
-    <p class="hero-desc">Twenty-plus years in financial services data, from mortgage ops to running the enterprise data org at the nation's largest independent broker-dealer. Now I'm designing agentic AI systems that are transforming data environments 10x faster than traditional approaches. I don't just think AI-first at work — I <a href="/portfolio-agents.html">manage my own investment portfolio with a 9-agent AI system</a> that I can query by voice through Siri. Same leadership principles, radically different toolbox.</p>
+    <p class="hero-desc">Twenty-plus years in financial services data, from mortgage ops to running the enterprise data org at the nation's largest independent broker-dealer. Now I'm designing and shipping agentic AI systems into production in a regulated industry — with the governance, guardrails, and human checkpoints that make autonomous systems something you can actually trust. I don't just think AI-first at work — I <a href="/portfolio-agents.html">manage my own investment portfolio with a 9-agent AI system</a> that I can query by voice through Siri. Same leadership principles, radically different toolbox.</p>
     <div class="hero-ctas">
       <a href="#agentic" class="btn-primary">Agentic AI Work →</a>
       <a href="#career" class="btn-outline">View Career</a>
@@ -287,8 +323,8 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
       <div class="hero-card-label">Career at a glance</div>
       <div class="hero-stat-grid">
         <div class="hero-stat"><div class="hero-stat-num">20<span>+</span></div><div class="hero-stat-label">Years in Data &amp; FS</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">10<span>×</span></div><div class="hero-stat-label">AI Acceleration</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">SVP<span>→</span></div><div class="hero-stat-label">Fortune 500 FS Firm</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">Builder<span>.</span></div><div class="hero-stat-label">Organize to execute</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">6</div><div class="hero-stat-label">Enterprise transformations led</div></div>
         <div class="hero-stat"><div class="hero-stat-num">AI<span>-first</span></div><div class="hero-stat-label">Data Leader</div></div>
       </div>
       <div class="hero-industries">
@@ -298,7 +334,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
           <span class="hero-domain-tag ai">Agent Orchestration</span>
           <span class="hero-domain-tag active">Enterprise Data Strategy</span>
           <span class="hero-domain-tag fin">Financial Services</span>
-          <span class="hero-domain-tag fin">Insurtech</span>
+          <span class="hero-domain-tag fin">P&amp;C Insurance</span>
           <span class="hero-domain-tag active">Cultural Transformation</span>
         </div>
       </div>
@@ -393,18 +429,18 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
         <img src="picforsite.jpg" alt="Brian Cronin" class="about-headshot">
         <div>
           <div class="about-headshot-name">Brian Cronin</div>
-          <div class="about-headshot-role">VP of Data<br>Financial Services &amp; Insurtech · Charlotte, NC</div>
+          <div class="about-headshot-role">VP of Data<br>Financial Services &amp; P&amp;C Insurance · Charlotte, NC</div>
         </div>
       </div>
       <div class="about-body">
-        <p>I've been doing data work in financial services for over twenty years — mortgage, broker-dealer, fintech infrastructure, insurtech. Every stop taught me something different about what makes data organizations succeed (and what makes them fail).</p>
-        <p>Right now I'm leading an agentic AI programme that's getting <strong>10x acceleration</strong> on data environment transformations. We're using AWS Kiro, Google Agentspace, Claude Code, and Snowflake Cortex to do in days what used to take months. It's the most exciting work I've done in my career, and it's not close.</p>
+        <p>I've been doing data work in financial services for over twenty years — mortgage, capital markets, wealth management, and P&amp;C insurance. Every stop taught me something different about what makes data organizations succeed (and what makes them fail).</p>
+        <p>Right now I'm leading an agentic AI programme that takes autonomous agents from prototype to <strong>production</strong> on real enterprise data work — we standardised on <strong>Claude Code</strong> as the agentic dev surface and <strong>Snowflake Cortex</strong> for AI inside the data platform, all wrapped in a governance framework with guardrails and human checkpoints. It's the most exciting work I've done in my career, and it's not close.</p>
         <p>I'm a firm believer that <strong>AI without governance is just chaos with better marketing</strong>. Every agent my team deploys has guardrails, human checkpoints, audit trails, and an off switch. In financial services, that's not optional — it's the whole point.</p>
       </div>
       <div class="about-pillars">
-        <div class="about-pillar"><div class="pillar-icon purple">🤖</div><div class="pillar-text"><h4>Agentic AI — Hands On</h4><p>I don't just talk about AI strategy in meetings. I'm designing agents, writing skills, building orchestration frameworks, and shipping results. The 10x number isn't a slide deck — it's what my team is actually delivering.</p></div></div>
-        <div class="about-pillar"><div class="pillar-icon blue">🏦</div><div class="pillar-text"><h4>Financial Services Through and Through</h4><p>Insurance, wealth management, lending, fintech — I speak the language. Regulatory constraints, compliance data, risk environments. This is my home turf.</p></div></div>
-        <div class="about-pillar"><div class="pillar-icon teal">🔄</div><div class="pillar-text"><h4>Culture Is the Hard Part</h4><p>The technology is the easy part. Getting people to trust data, adopt new tools, and change how they work — that's where most transformations die. I've done it four times across four very different organizations.</p></div></div>
+        <div class="about-pillar"><div class="pillar-icon purple">🤖</div><div class="pillar-text"><h4>Agentic AI — Hands On</h4><p>I don't just talk about AI strategy in meetings. I'm designing agents, writing skills, building orchestration frameworks, and shipping results. This isn't slideware — my team runs these systems in production, with the guardrails to match.</p></div></div>
+        <div class="about-pillar"><div class="pillar-icon blue">🏦</div><div class="pillar-text"><h4>Financial Services Through and Through</h4><p>Capital markets, P&amp;C insurance, wealth management, lending — I speak the language. Regulatory constraints, compliance data, risk environments. This is my home turf.</p></div></div>
+        <div class="about-pillar"><div class="pillar-icon teal">🔄</div><div class="pillar-text"><h4>Culture Is the Hard Part</h4><p>The technology is the easy part. Getting people to trust data, adopt new tools, and change how they work — that's where most transformations die. I've led six of them — big-data and cloud platforms and a data mesh at a $900B broker-dealer, then a ground-up warehouse and the org redesign to run it at a P&amp;C insurance company.</p></div></div>
       </div>
     </div>
     <div class="about-right fade-in" style="transition-delay:.14s">
@@ -412,7 +448,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
       <div style="font-size:14px;line-height:1.8;color:var(--ink2)">
         <p>I've built data orgs from scratch, inherited legacy messes, and figured out how to make both work. The common thread is always the same: get the right people, give them clarity, remove the blockers, and measure what matters.</p>
         <p style="margin-top:14px">The agentic AI work I'm doing now is the most impactful thing I've seen in twenty years of data. We're compressing months of migration work into days — not by cutting corners, but by letting well-designed agents handle the repetitive grind so my team can focus on the decisions that actually need a human brain.</p>
-        <p style="margin-top:14px">The 10x number comes from real deliverables, not a pitch deck. Thoughtful agent design, proper guardrails, and a data foundation that was built right in the first place.</p>
+        <p style="margin-top:14px">The proof is in production, not a pitch deck — thoughtful agent design, proper guardrails, and a data foundation that was built right in the first place.</p>
       </div>
       <div style="margin-top:28px;padding:20px;background:var(--ai3);border-radius:14px;border:1px solid rgba(91,33,182,.2)">
         <div style="font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ai2);margin-bottom:12px">AI-First Leadership Principles</div>
@@ -433,7 +469,62 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <div class="section-label">Agentic AI Leadership</div>
     <div class="agentic-badge">🟣 Active Initiative</div>
     <h2 class="section-title" style="color:#fff">What I'm <em class="ai-em">building</em> right now</h2>
-    <p class="agentic-intro">My team is using agentic AI to do data transformation work in days that used to take months. We design agents with specific jobs, give them well-defined skills and clear boundaries, and orchestrate them across complex workflows. The result is <strong>up to 10x acceleration</strong> — and that number keeps climbing as the agents get smarter and the patterns get more repeatable.</p>
+    <p class="agentic-intro">This isn't prompt engineering. My team builds with <strong>skill-based, spec-driven engineering</strong> — a real engineering discipline on top of agents, where AI helps humans write better specs, agents build to spec, and reviewer agents validate the output before anything reaches a human.</p>
+  </div>
+
+  <div class="method-block fade-in">
+    <div class="method-eyebrow">Methodology · How we actually build</div>
+    <h3 class="method-h">Skills, not <em>prompts.</em></h3>
+    <p class="method-lede">Prompt engineering is throwing words at a model and hoping. We replaced it with a real workflow — three stages, each powered by <strong>skills</strong> rather than ad-hoc prompts, so the rigor lives in the system instead of in someone's head.</p>
+    <div class="method-flow">
+      <div class="method-stage">
+        <div class="method-num">01 · SPEC</div>
+        <div class="method-stage-title">Decide what to build</div>
+        <div class="method-stage-body">Skills that help <strong>PMs, managers, and engineers</strong> describe what they want — in a structured form other agents can actually consume. The expensive thinking happens here, before any code is generated. AI helps humans write a real spec; it doesn't replace the spec.</div>
+        <div class="method-stage-meta">📋 Spec-authoring skills</div>
+      </div>
+      <div class="method-arrow">→</div>
+      <div class="method-stage">
+        <div class="method-num">02 · BUILD</div>
+        <div class="method-stage-title">Set the agents loose</div>
+        <div class="method-stage-body">Skills that constrain what the agents build — our conventions, the right tools, the architectural decisions already made. Agents execute against a spec, not a vibe, and they reach for the right scaffolding instead of inventing one each time.</div>
+        <div class="method-stage-meta">🔨 Execution skills</div>
+      </div>
+      <div class="method-arrow">→</div>
+      <div class="method-stage">
+        <div class="method-num">03 · VALIDATE</div>
+        <div class="method-stage-title">Review the output</div>
+        <div class="method-stage-body">Reviewer agents that check the output against the original spec — adversarially, structured, before anything reaches a human. Reviewers are agents too, with their own skills, so the bar travels with the work instead of depending on whoever happens to be looking.</div>
+        <div class="method-stage-meta">🛡️ Validation skills</div>
+      </div>
+    </div>
+    <p class="method-foot">Same agents. <strong>Completely different rigor.</strong> This is the difference between running a pilot and running it in production — and it's why my team's results aren't a one-off.</p>
+  </div>
+
+  <div class="humans-block fade-in">
+    <div class="humans-eyebrow">Human in the loop · just a different loop</div>
+    <h3 class="humans-h">Humans didn't go away. Their job <em>moved up.</em></h3>
+    <p class="humans-lede">You can't review code line-by-line at the speed AI writes it — so my people stopped trying. They <strong>orchestrate</strong> now: bringing the knowledge, context, and judgment agents can't, and deciding what to validate and how. Then agents do the building, and other agents do the checking. <strong>The human-in-the-loop didn't go away; it moved up the stack.</strong></p>
+    <div class="humans-split">
+      <div class="humans-col">
+        <div class="humans-col-label">🧠 Humans bring <span class="who">Knowledge · Direction</span></div>
+        <ul class="humans-list">
+          <li><span class="ico">📚</span><div><b>Domain knowledge</b> — the business, the regulations, the data, the customers</div></li>
+          <li><span class="ico">🗺️</span><div><b>Context</b> the agents can't see — history, politics, what's already been tried</div></li>
+          <li><span class="ico">⚖️</span><div><b>Judgment</b> on what "good" looks like — the bar agents are building toward</div></li>
+          <li><span class="ico">🎯</span><div><b>The validation strategy</b> itself — humans decide what to check and why</div></li>
+        </ul>
+      </div>
+      <div class="humans-col agents">
+        <div class="humans-col-label">⚙️ Agents do <span class="who">Build · Validate</span></div>
+        <ul class="humans-list">
+          <li><span class="ico">🔨</span><div><b>Translate specs into code</b> — at a speed no human team can match</div></li>
+          <li><span class="ico">⚡</span><div><b>Execute with skills, not prompts</b> — within the boundaries the humans set</div></li>
+          <li><span class="ico">✅</span><div><b>Run the validation</b> the humans designed — adversarially, structured, fast</div></li>
+          <li><span class="ico">🚨</span><div><b>Surface what needs eyes</b> — escalating only what humans actually need to see</div></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <div class="agentic-grid fade-in">
@@ -445,7 +536,6 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
         <span class="ait ait-purple">Agent design</span>
         <span class="ait ait-purple">Skills architecture</span>
         <span class="ait ait-purple">Autonomous execution</span>
-        <span class="ait ait-blue">AWS Kiro</span>
         <span class="ait ait-blue">Claude Code</span>
       </div>
     </div>
@@ -456,16 +546,15 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
       <div class="agentic-card-tags">
         <span class="ait ait-purple">Agent orchestration</span>
         <span class="ait ait-purple">Multi-agent systems</span>
-        <span class="ait ait-blue">Google Agentspace</span>
         <span class="ait ait-teal">Snowflake Cortex</span>
       </div>
     </div>
     <div class="agentic-card">
       <span class="agentic-card-icon">⚡</span>
-      <div class="agentic-card-title">10× Data Transformation</div>
-      <div class="agentic-card-body">Schema migration, pipeline generation, data quality cleanup, documentation — stuff that used to eat up months of engineering time. Agents handle the repetitive work, humans review and approve. The timeline compression is real, and it compounds as patterns get reused.</div>
+      <div class="agentic-card-title">Production-Grade Transformation</div>
+      <div class="agentic-card-body">Schema migration, pipeline generation, data quality cleanup, documentation — the work that used to eat months of engineering time. Agents handle the repetitive grind; humans review and approve at every gate. It's real production work, not a demo, and it compounds as patterns get reused.</div>
       <div class="agentic-card-tags">
-        <span class="ait ait-amber">10× acceleration</span>
+        <span class="ait ait-amber">In production</span>
         <span class="ait ait-amber">Pipeline automation</span>
         <span class="ait ait-amber">Schema migration</span>
         <span class="ait ait-amber">Auto-documentation</span>
@@ -486,19 +575,11 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
   </div>
 
   <div class="agentic-stack fade-in">
-    <div class="agentic-stack-title">Agentic AI Stack</div>
+    <div class="agentic-stack-title">Agentic AI Stack — One Tool Per Job</div>
     <div class="agentic-tools">
       <div class="agentic-tool">
-        <span class="agentic-tool-icon">🔶</span>
-        <div><div class="agentic-tool-name">AWS Kiro</div><div class="agentic-tool-desc">Agentic IDE &amp; development framework</div></div>
-      </div>
-      <div class="agentic-tool">
-        <span class="agentic-tool-icon">🔵</span>
-        <div><div class="agentic-tool-name">Google Agentspace</div><div class="agentic-tool-desc">Enterprise agent orchestration platform</div></div>
-      </div>
-      <div class="agentic-tool">
         <span class="agentic-tool-icon">🟣</span>
-        <div><div class="agentic-tool-name">Claude Code</div><div class="agentic-tool-desc">Agentic coding &amp; automation</div></div>
+        <div><div class="agentic-tool-name">Claude Code</div><div class="agentic-tool-desc">The agentic dev tool I bet on</div></div>
       </div>
       <div class="agentic-tool">
         <span class="agentic-tool-icon">🔷</span>
@@ -508,20 +589,13 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
   </div>
 
   <div class="agentic-impact fade-in">
-    <div class="agentic-impact-num">10<span>×</span></div>
+    <div class="agentic-impact-num">100<span>%</span></div>
     <div class="agentic-impact-text">
-      <h3>Acceleration in data environment transformation</h3>
-      <p>Schema migrations, pipeline builds, data quality cleanups, cataloguing — the bread and butter of data modernization that used to eat months of engineering time. My team is finishing these in days now. Not by cutting corners. By letting agents handle the grind so our people can focus on the architecture decisions and business logic that actually need a human brain.</p>
+      <h3>Governed, by design</h3>
+      <p>I put as much thought into the guardrails as the agents themselves. Every agent my team ships gets scoped access, human approval gates, immutable audit trails, explainability, and an off switch — no exceptions. In financial services that isn't the brake pedal; it's the entire reason you're allowed to put autonomous systems into production at all. Speed was never the hard part. Trust is.</p>
     </div>
   </div>
 
-  <div class="governance-callout fade-in">
-    <span class="governance-callout-icon">🔐</span>
-    <div>
-      <div class="governance-callout-title">AI-First. Governance-Led.</div>
-      <div class="governance-callout-body">Speed without governance is just a faster way to create problems. Every agent my team deploys runs within a governance framework — scoped access, human approval gates, immutable audit trails, explainability requirements, and clear escalation paths. I put as much thought into the guardrails as the agents themselves. That's the difference between doing AI well and just doing AI loudly.</div>
-    </div>
-  </div>
 </section>
 
 <section class="skills-matrix" id="skills">
@@ -538,8 +612,6 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
         <span class="skt skt-purple">Agentic AI</span>
         <span class="skt skt-purple">Agent design &amp; skills</span>
         <span class="skt skt-purple">Multi-agent orchestration</span>
-        <span class="skt skt-purple">AWS Kiro</span>
-        <span class="skt skt-purple">Google Agentspace</span>
         <span class="skt skt-purple">Claude Code</span>
         <span class="skt skt-purple">Snowflake Cortex</span>
         <span class="skt skt-purple">LLM integration</span>
@@ -631,9 +703,9 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
 <section class="timeline-section" id="career">
   <div class="fade-in"><div class="section-label">Career Timeline</div><h2 class="section-title">20 years of <em>enterprise</em> impact</h2></div>
   <div class="timeline">
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Present</span><span class="timeline-type exec">Current Role</span></div><div class="timeline-role">VP of Data</div><div class="timeline-company">Leading Insurtech Platform · Charlotte, NC</div><p class="timeline-desc">Leading enterprise data strategy and a ground-breaking agentic AI programme at one of the fastest-growing insurance comparison platforms in the US. Designing autonomous agents, composable skills, and multi-agent orchestration frameworks — delivering up to 10x acceleration in data environment transformation using AWS Kiro, Google Agentspace, Claude Code, and Snowflake Cortex. Simultaneously driving governance, data quality, and cultural transformation across the organisation.</p><div class="timeline-wins"><div class="win-chip"><span class="win-chip-num">10×</span> data transformation acceleration</div><div class="win-chip"><span class="win-chip-num">Agentic</span> AI programme from zero</div><div class="win-chip"><span class="win-chip-num">100+</span> insurance carriers in data estate</div></div></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Prior Role</span><span class="timeline-type exec">Senior Executive</span></div><div class="timeline-role">Senior Vice President, Enterprise Data</div><div class="timeline-company">Fortune 500 Independent Broker-Dealer · Charlotte, NC</div><p class="timeline-desc">Senior VP-level ownership of enterprise data at the nation's largest independent broker-dealer. Led multi-year data modernisation programme, self-serve analytics buildout, data governance framework, and cultural change initiative. Owned P&amp;L, budget, and team strategy across a large, complex data organisation managing $900B+ in assets.</p><div class="timeline-wins"><div class="win-chip"><span class="win-chip-num">#1</span> independent broker-dealer US</div><div class="win-chip"><span class="win-chip-num">$900B+</span> AUM on platform</div><div class="win-chip"><span class="win-chip-num">6</span> acceleration cohorts, 100+ participants</div></div></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Earlier Career</span><span class="timeline-type fs">Financial Services</span></div><div class="timeline-role">Senior Data &amp; Analytics Leader</div><div class="timeline-company">Global Fintech Infrastructure Provider · Charlotte, NC</div><p class="timeline-desc">Data and analytics leadership at one of the world's largest fintech infrastructure providers, supporting banking, payments, and capital markets clients. Deep expertise in complex regulatory data environments and enterprise-scale systems.</p></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Present</span><span class="timeline-type exec">Current Role</span></div><div class="timeline-role">VP of Data</div><div class="timeline-company">P&amp;C Insurance Company · Charlotte, NC</div><p class="timeline-desc">Leading enterprise data strategy and a ground-breaking agentic AI programme. Designing autonomous agents, composable skills, and multi-agent orchestration frameworks — delivering autonomous agents into production with the governance and guardrails a regulated environment demands — Claude Code for agentic dev, Snowflake Cortex for AI in the data platform. Simultaneously driving governance, data quality, and cultural transformation across the organisation.</p><div class="timeline-wins"><div class="win-chip"><span class="win-chip-num">0</span> major AI incidents, fully governed</div><div class="win-chip"><span class="win-chip-num">Agentic</span> AI programme from zero</div><div class="win-chip"><span class="win-chip-num">100+</span> insurance carriers in data estate</div></div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Prior Role</span><span class="timeline-type exec">Senior Executive</span></div><div class="timeline-role">Senior Vice President, Enterprise Data</div><div class="timeline-company">Fortune 500 Independent Broker-Dealer · Charlotte, NC</div><p class="timeline-desc">Senior VP-level ownership of enterprise data at the nation's largest independent broker-dealer. Led multi-year data modernisation programme, self-serve analytics buildout, data governance framework, and cultural change initiative. Owned P&amp;L, budget, and team strategy across a large, complex data organisation managing $900B+ in assets.</p><div class="timeline-wins"><div class="win-chip"><span class="win-chip-num">#1</span> independent broker-dealer US</div><div class="win-chip"><span class="win-chip-num">$900B+</span> AUM on platform</div><div class="win-chip"><span class="win-chip-num">1st</span> enterprise big-data platform</div></div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Earlier Career</span><span class="timeline-type fs">Financial Services</span></div><div class="timeline-role">Senior Data &amp; Analytics Leader</div><div class="timeline-company">Global Capital Markets &amp; Payments Platform · Charlotte, NC</div><p class="timeline-desc">Data and analytics leadership at one of the world's largest capital markets and payments platforms, supporting banking, payments, and capital markets clients. Deep expertise in complex regulatory data environments and enterprise-scale systems.</p></div>
     <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">Earlier Career</span><span class="timeline-type fs">Financial Services</span></div><div class="timeline-role">Data &amp; Analytics Leader</div><div class="timeline-company">Mortgage &amp; Credit Data · Financial Services</div><p class="timeline-desc">Built foundational expertise in mortgage and credit data within highly regulated lending operations — requirements analysis, data quality, and business analysis that have informed every subsequent leadership role.</p></div>
     <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-meta"><span class="timeline-year">1999 — 2003</span><span class="timeline-type tech">Education</span></div><div class="timeline-role">BS, Mathematics &amp; Computer Science</div><div class="timeline-company">Buena Vista University · Storm Lake, IA</div></div>
   </div>
@@ -642,12 +714,12 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
 <section class="achievements-section" id="impact">
   <div class="fade-in"><div class="section-label">Measurable Impact</div><h2 class="section-title">Results that <em>speak</em></h2></div>
   <div class="ach-grid">
-    <div class="ach-card purple fade-in"><span class="ach-card-icon">🤖</span><div class="ach-num">10<span>×</span></div><div class="ach-label">Acceleration in data environment transformation through agentic AI</div><div class="ach-context">AWS Kiro · Google Agentspace · Claude Code · Snowflake Cortex</div></div>
-    <div class="ach-card navy fade-in"><span class="ach-card-icon">🏆</span><div class="ach-num">20<span>+</span></div><div class="ach-label">Years of data leadership across financial services, insurance, and fintech</div><div class="ach-context">Mortgage · Broker-Dealer · Insurtech · Fintech Infrastructure</div></div>
+    <div class="ach-card purple fade-in"><span class="ach-card-icon">🤖</span><div class="ach-num" style="font-size:30px;line-height:1.08;letter-spacing:-.01em">In&nbsp;Prod</div><div class="ach-label">Agentic AI running in production across the data org — not pilots, not slideware</div><div class="ach-context">Claude Code (agentic dev) + Snowflake Cortex (in-warehouse AI) — one tool per job</div></div>
+    <div class="ach-card navy fade-in"><span class="ach-card-icon">🏆</span><div class="ach-num">20<span>+</span></div><div class="ach-label">Years of data leadership across financial services, capital markets, and P&amp;C insurance</div><div class="ach-context">Mortgage · Capital Markets · Wealth Management · P&amp;C Insurance</div></div>
     <div class="ach-card fade-in"><span class="ach-card-icon">🏦</span><div class="ach-num">$<span>900B+</span></div><div class="ach-label">Assets on platforms where enterprise data strategy has been led</div><div class="ach-context">Nation's largest independent broker-dealer</div></div>
-    <div class="ach-card fade-in"><span class="ach-card-icon">🔄</span><div class="ach-num">4<span>×</span></div><div class="ach-label">Enterprise data transformations led across distinct FS organisations</div><div class="ach-context">Each at different scale and maturity stage</div></div>
-    <div class="ach-card fade-in"><span class="ach-card-icon">👥</span><div class="ach-num">100<span>+</span></div><div class="ach-label">Data professionals developed through cultural acceleration programmes</div><div class="ach-context">Experienced-Based Acceleration — 6 cohorts</div></div>
-    <div class="ach-card fade-in"><span class="ach-card-icon">🛡️</span><div class="ach-num">0</div><div class="ach-label">AI governance frameworks deployed with zero major incidents across all agentic programmes</div><div class="ach-context">Guardrails · HITL · Audit trails · Explainability</div></div>
+    <div class="ach-card fade-in"><span class="ach-card-icon">🔄</span><div class="ach-num">6</div><div class="ach-label">Enterprise data transformations I've personally led</div><div class="ach-context">Big-data, cloud, data mesh &amp; warehouse builds · broker-dealer + P&amp;C insurance company</div></div>
+    <div class="ach-card fade-in"><span class="ach-card-icon">💰</span><div class="ach-num">1<span>st</span></div><div class="ach-label">Data-driven revenue line built at a Fortune 500 financial-services firm</div><div class="ach-context">Internal data turned into a new line of business — a revenue generator, not a cost centre</div></div>
+    <div class="ach-card fade-in"><span class="ach-card-icon">🛡️</span><div class="ach-num">0</div><div class="ach-label">Major AI incidents across every agentic programme I've governed</div><div class="ach-context">Governed from day one · guardrails · HITL · audit trails · explainability</div></div>
   </div>
 </section>
 
@@ -657,8 +729,8 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
     <div class="phil-card fade-in"><div class="phil-num">01</div><div class="phil-title">AI-first, governance-led</div><p class="phil-body">Agentic AI is the biggest accelerant data teams have ever had. But deploying it in financial services without guardrails isn't bold — it's reckless. I go hard on both the innovation and the governance because you can't have one without the other.</p></div>
     <div class="phil-card fade-in"><div class="phil-num">02</div><div class="phil-title">Culture eats technology for breakfast</div><p class="phil-body">The best data platform in the world is worthless if nobody trusts it or knows how to use it. I spend as much energy on literacy, buy-in, and change management as I do on the tech stack. Transformation is a people problem first.</p></div>
     <div class="phil-card fade-in"><div class="phil-num">03</div><div class="phil-title">Lead from behind</div><p class="phil-body">Give smart people clarity, remove the blockers, trust their expertise, and get out of the way. That beats command-and-control every time. The best work I've seen — including the agentic AI stuff — comes from teams that feel safe to experiment.</p></div>
-    <div class="phil-card fade-in"><div class="phil-num">04</div><div class="phil-title">If it doesn't move a metric, it doesn't matter</div><p class="phil-body">Every data initiative should tie to something the business cares about — revenue, risk reduction, efficiency, customer experience. The 10x acceleration is great, but only if it's pointed at the right problems.</p></div>
-    <div class="phil-card fade-in"><div class="phil-num">05</div><div class="phil-title">Speak their language, not yours</div><p class="phil-body">Compliance, risk, AUM, policy lifecycle — financial services has its own vocabulary. Twenty years of fluency in that language, plus the ability to explain agentic AI to a board in terms they actually care about, is what gets a data leader a real seat at the table.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">04</div><div class="phil-title">If it doesn't move a metric, it doesn't matter</div><p class="phil-body">Every data initiative should tie to something the business cares about — revenue, risk reduction, efficiency, customer experience. Agentic AI is powerful, but only if it's pointed at the problems that actually move the business.</p></div>
+    <div class="phil-card fade-in"><div class="phil-num">05</div><div class="phil-title">Fluent in the business</div><p class="phil-body">Every corner of financial services speaks its own dialect — lending, markets, wealth, claims — and none of it is "data." Twenty years across those desks taught me to lead with what the business actually cares about, not my pipelines and models. Agentic AI raises the stakes: you spec agents in plain business language and explain them to a board in P&amp;L terms — so translating fluently in both directions isn't a soft skill. It's what earns a data leader a real seat at the table.</p></div>
     <div class="phil-card fade-in"><div class="phil-num">06</div><div class="phil-title">Invest in your people obsessively</div><p class="phil-body">Every great data platform I've built was built by great people I found, developed, and kept. In the agentic AI era, human expertise matters more, not less — because agents are only as good as the people who design, govern, and improve them.</p></div>
   </div>
 </section>
@@ -666,13 +738,13 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
 <!-- DEMO PROJECTS -->
 <section class="projects-section" id="demos" style="background:var(--bg2)">
   <div class="fade-in">
-    <div class="section-label">Interactive Projects — Try Them Live</div>
+    <div class="section-label">Hands-On Builds</div>
     <h2 class="section-title">Things I've <em>built</em></h2>
     <p style="margin-top:16px;font-size:16px;color:var(--ink2);max-width:680px;line-height:1.7">Side projects where I get to combine domain knowledge with hands-on building. Each one started as "I wonder if I could..." and turned into something I'm proud to put my name on. All built with AI-assisted development — because that's how I think data leaders should be working now.</p>
   </div>
   <div class="projects-grid" style="margin-top:48px">
     <a href="/portfolio-agents.html" class="project-card fade-in" style="border-color:rgba(124,58,237,.25);background:#fff">
-      <div class="project-card-top"><span class="project-tag ai">Multi-Agent System</span><span class="project-arrow">↗</span></div>
+      <div class="project-card-top"><span class="project-tag ai">Agentic AI</span><span class="project-arrow">↗</span></div>
       <span class="project-badge arch">Architecture Deep Dive</span>
       <div class="project-title">Portfolio Intelligence</div>
       <p class="project-desc">A read-only multi-agent analysis tool that monitors markets, evaluates Fidelity portfolio holdings, and delivers insights — featuring AI-powered trade readouts, scenario stress testing, tax-loss harvesting, an Agent Control Plane, a two-tier Stock Finder with deep fundamental metrics (P/E, ROE, Piotroski, RSI), historical portfolio valuation charting with intraday and EOD views, and a mobile-first audio briefing player for podcast-style portfolio updates.</p>
@@ -688,7 +760,7 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
       </div>
     </a>
     <a href="/health-tracker.html" class="project-card fade-in" style="border-color:rgba(10,117,101,.25);background:#fff">
-      <div class="project-card-top"><span class="project-tag" style="background:rgba(10,117,101,.1);color:var(--teal)">Personal Health Platform</span><span class="project-arrow">↗</span></div>
+      <div class="project-card-top"><span class="project-tag" style="background:rgba(10,117,101,.1);color:var(--teal)">Data Platform</span><span class="project-arrow">↗</span></div>
       <span class="project-badge arch">Architecture Deep Dive</span>
       <div class="project-title">Health Tracker</div>
       <p class="project-desc">A personal health platform pulling data from six sources — Peloton, Tonal, Apple Health, Fit Profile, MyFitnessPal, and Oura Ring — into BigQuery with a custom data mastering layer and lightweight data governance tool. Near real-time sync, source-priority dedup, cross-domain analysis, push notifications that tap your wrist when you're slipping, and custom Apple Watch complications that replace Apple's fitness rings with my own goal trackers.</p>
@@ -701,8 +773,23 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
         <span class="stack-tag">Oura + MFP APIs</span>
       </div>
     </a>
+    <a href="/ceiling-hud.html" class="project-card fade-in" style="border-color:rgba(124,58,237,.25);background:#fff">
+      <div class="project-card-top"><span class="project-tag ai">Agentic AI</span><span class="project-arrow">↗</span></div>
+      <span class="project-badge design">Design Concept</span>
+      <div class="project-title">Ceiling HUD</div>
+      <p class="project-desc">A Raspberry Pi that projects onto my bedroom ceiling. I roll over, press a hidden bedside button, and an AI agent that knows my routine fuses Oura sleep quality, my workout plan, whether Taco the chihuahua has daycare, the weather, and my calendar — then projects one human sentence above my eyes and reads it aloud through a small speaker. Like: <em>"You went to bed at 1am like a college sophomore. Nothing's on fire till 10. Close your eyes."</em> Soothing voice when it's sleep, stern when it's go. A study in when the right answer is one sentence, not a dashboard.</p>
+      <div class="project-stack">
+        <span class="stack-tag">Raspberry Pi</span>
+        <span class="stack-tag">Claude API</span>
+        <span class="stack-tag">Oura API</span>
+        <span class="stack-tag">Calendar + Weather</span>
+        <span class="stack-tag">ElevenLabs</span>
+        <span class="stack-tag">BigQuery</span>
+        <span class="stack-tag">Python</span>
+      </div>
+    </a>
     <a href="/etf-finder" class="project-card fade-in" style="border-color:rgba(26,82,150,.25);background:#fff">
-      <div class="project-card-top"><span class="project-tag data">Interactive App</span><span class="project-arrow">↗</span></div>
+      <div class="project-card-top"><span class="project-tag data">Decision Tool</span><span class="project-arrow">↗</span></div>
       <span class="project-badge live">Try It Live</span>
       <div class="project-title">ETF Finder</div>
       <p class="project-desc">A full-featured ETF discovery and portfolio building tool with 115 real funds, 13 filter categories, faceted search that greys out unavailable options, interest-based AI matching, Morningstar-style grid, responsive design, and anonymous telemetry. Built entirely through AI-assisted development.</p>
@@ -716,8 +803,8 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
         <span class="stack-tag">Responsive</span>
       </div>
     </a>
-    <a href="/car-finder" class="project-card fade-in" style="border-color:rgba(10,117,101,.25);background:#fff">
-      <div class="project-card-top"><span class="project-tag" style="background:rgba(10,117,101,.1);color:var(--teal)">Interactive App</span><span class="project-arrow">↗</span></div>
+    <a href="/car-finder" class="project-card fade-in" style="border-color:rgba(26,82,150,.25);background:#fff">
+      <div class="project-card-top"><span class="project-tag data">Decision Tool</span><span class="project-arrow">↗</span></div>
       <span class="project-badge live">Try It Live</span>
       <div class="project-title">Vehicle Purchase Assistant</div>
       <p class="project-desc">An AI-powered vehicle matching tool that guides users through an adaptive 50-question questionnaire, scores vehicles across 11 dimensions, and presents ranked recommendations with deep links to Cars.com, AutoTrader, and CarGurus. Sign in with Google to save your results and pick up where you left off.</p>
@@ -730,8 +817,8 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
         <span class="stack-tag">Deep Links</span>
       </div>
     </a>
-    <a href="/telemetry" class="project-card fade-in" style="border-color:rgba(16,185,129,.25);background:#fff">
-      <div class="project-card-top"><span class="project-tag" style="background:rgba(16,185,129,.1);color:#059669">Live Dashboard</span><span class="project-arrow">↗</span></div>
+    <a href="/telemetry" class="project-card fade-in" style="border-color:rgba(10,117,101,.25);background:#fff">
+      <div class="project-card-top"><span class="project-tag" style="background:rgba(10,117,101,.1);color:var(--teal)">Data Platform</span><span class="project-arrow">↗</span></div>
       <span class="project-badge live">Try It Live</span>
       <div class="project-title">Telemetry Dashboard</div>
       <p class="project-desc">A real-time analytics dashboard visualizing user interaction data from across briancronin.ai — session metrics, filter usage patterns, popular ETFs, engagement funnels, and user journey tracking. All data is aggregate with no personally identifiable information exposed.</p>
@@ -780,18 +867,19 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
         <span class="stack-tag">SnowPro Certified</span>
       </div>
     </a>
-  </div>
-</section>
-
-<section class="projects-section" id="projects">
-  <div class="fade-in"><div class="section-label">Side Projects &amp; Thought Leadership</div><h2 class="section-title">Beyond the <em>day job</em></h2></div>
-  <div class="projects-grid">
-    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag ai">Agentic AI</span><span class="project-arrow">↗</span></div><div class="project-title">Agentic Data Transformation</div><p class="project-desc">Building and deploying multi-agent systems for data environment transformation — designing agents with composable skills, orchestration frameworks, and governance guardrails that deliver 10x acceleration. Hands-on with AWS Kiro, Google Agentspace, Claude Code, and Snowflake Cortex.</p><div class="project-stack"><span class="stack-tag">AWS Kiro</span><span class="stack-tag">Google Agentspace</span><span class="stack-tag">Claude Code</span><span class="stack-tag">Snowflake Cortex</span></div></div>
-    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag lead">Leadership</span><span class="project-arrow">↗</span></div><div class="project-title">Leading From Behind</div><p class="project-desc">Published perspective on servant leadership — creating conditions for a team to excel consistently outperforms top-down command. Widely shared across the data and FS leadership community.</p><div class="project-stack"><span class="stack-tag">Thought Leadership</span><span class="stack-tag">Published Article</span></div></div>
-    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag fs">AI in FS</span><span class="project-arrow">↗</span></div><div class="project-title">GenAI for Customer Experience</div><p class="project-desc">Guidance on integrating generative AI into customer-facing financial services products — covering enterprise adoption challenges, change management strategy, and value realisation for both employees and customers.</p><div class="project-stack"><span class="stack-tag">GenAI / LLM</span><span class="stack-tag">CX Strategy</span><span class="stack-tag">Financial Services</span></div></div>
-    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag data">Data Culture</span><span class="project-arrow">↗</span></div><div class="project-title">Experienced-Based Acceleration</div><p class="project-desc">Designed and ran a multi-cohort data acceleration programme reaching 100+ professionals across 6 events — elevating data foundations, literacy, and culture across a large enterprise.</p><div class="project-stack"><span class="stack-tag">100+ Participants</span><span class="stack-tag">6 Cohorts</span><span class="stack-tag">Enterprise Scale</span></div></div>
-    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag fs">Data Revenue</span><span class="project-arrow">↗</span></div><div class="project-title">Data Monetization Pioneer</div><p class="project-desc">Pioneered a Fortune 500 financial services firm's first successful data-driven revenue stream — designing and delivering a machine learning platform that transformed internal data assets into a new line of business. Proved that enterprise data organisations can be revenue generators, not just cost centres.</p><div class="project-stack"><span class="stack-tag">Machine Learning</span><span class="stack-tag">Revenue Generation</span><span class="stack-tag">Financial Services</span><span class="stack-tag">First-of-its-Kind</span></div></div>
-    <div class="project-card fade-in"><div class="project-card-top"><span class="project-tag data">Community</span><span class="project-arrow">↗</span></div><div class="project-title">Data &amp; AI Leadership Network</div><p class="project-desc">Active mentor and connector across the data and AI community in Charlotte and beyond — with a track record of investing in the careers of data professionals navigating the agentic AI era.</p><div class="project-stack"><span class="stack-tag">Charlotte, NC</span><span class="stack-tag">500+ Connections</span><span class="stack-tag">Mentorship</span></div></div>
+    <a href="/architectures/#datamesh" class="project-card fade-in" style="border-color:rgba(10,117,101,.25);background:#fff">
+      <div class="project-card-top"><span class="project-tag" style="background:rgba(10,117,101,.1);color:var(--teal)">Data Architecture</span><span class="project-arrow">↗</span></div>
+      <div class="project-title">Domain-Oriented Data Mesh</div>
+      <p class="project-desc">Decentralized ownership done right: business domains own their data as products, served through a self-serve platform with federated computational governance. Pushes accountability to the teams closest to the data while keeping contracts, lineage, and standards central — the pattern that scales data across a large, regulated enterprise without a central team becoming the bottleneck.</p>
+      <div class="project-stack">
+        <span class="stack-tag">Data Products</span>
+        <span class="stack-tag">Domain Ownership</span>
+        <span class="stack-tag">Federated Governance</span>
+        <span class="stack-tag">Self-Serve Platform</span>
+        <span class="stack-tag">Data Contracts</span>
+        <span class="stack-tag">Lineage &amp; Catalog</span>
+      </div>
+    </a>
   </div>
 </section>
 
