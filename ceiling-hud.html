@@ -155,14 +155,6 @@ section{padding:92px 60px}
 .thread-punch em{font-style:normal;color:#6ee7b7}
 
 /* STACK / STATUS */
-.stack-section{background:var(--bg2)}
-.status-callout{margin-top:44px;display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--bg3);border-left:3px solid var(--gold2);border-radius:14px;padding:24px 26px;max-width:860px}
-.status-icon{font-size:24px;flex-shrink:0}
-.status-title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px}
-.status-body{font-size:13.5px;line-height:1.72;color:var(--ink2)}
-.status-body strong{color:var(--ink);font-weight:600}
-.stack-tags{margin-top:34px;display:flex;flex-wrap:wrap;gap:9px}
-.stack-tag{font-size:12px;font-weight:500;background:#fff;border:1px solid var(--bg3);color:var(--ink2);padding:7px 14px;border-radius:8px}
 
 /* CTA */
 .cta-section{background:var(--ink);color:#fff;text-align:center}
@@ -186,9 +178,6 @@ footer{background:var(--ink);padding:28px 60px;display:flex;align-items:center;j
 .fade-in.visible{opacity:1;transform:none}
 
 /* SPOKEN VOICE */
-.proj-btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.85)}
-.proj-btn.ghost:hover{background:rgba(255,255,255,.08);box-shadow:none}
-.proj-foot-btns{display:flex;gap:10px;flex-wrap:wrap}
 .proj-tone{margin-top:14px;position:relative;z-index:1;min-height:26px;transition:opacity .35s}
 .tone-chip{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.04em;padding:5px 12px;border-radius:30px}
 .tone-chip.rest{background:rgba(96,165,250,.14);border:1px solid rgba(96,165,250,.3);color:#93c5fd}
@@ -254,11 +243,8 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
         <div class="proj-reads" id="projReads">reads: <b>Oura sleep</b> <b>calendar</b></div>
         <div class="proj-tone" id="projTone"><span class="tone-chip rest">🌙 calm, soothing voice</span></div>
         <div class="proj-foot">
-          <div class="proj-foot-btns">
-            <button class="proj-btn" id="projBtn"><span class="ico">⟳</span> Press the button</button>
-            <button class="proj-btn ghost" id="projSpeak">🔊 Hear it</button>
-          </div>
-          <span class="proj-hint">tap = new morning · 🔊 speak it</span>
+          <button class="proj-btn" id="projBtn"><span class="ico">⟳</span> Press the button</button>
+          <span class="proj-hint">tap to re-roll the morning</span>
         </div>
       </div>
       <div class="projector-caption">↑ This is the actual interface. One button, one sentence. Go ahead — press it.</div>
@@ -496,7 +482,7 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
       <div class="speak-meta">pre-rendered cache · ElevenLabs Flash</div>
     </div>
   </div>
-  <div class="speak-note fade-in">🔊 <b>Try it above:</b> the "Hear it" button on the projection speaks the line using your browser's built-in voice as a stand-in — soft for sleep, firm for go. On the real Pi, that's my ElevenLabs voice: the same one that reads my portfolio briefings.</div>
+  <div class="speak-note fade-in">🔊 <b>On the Pi:</b> my ElevenLabs voice — the same one that already reads my portfolio briefings. Two voices, keyed to the agent's call: soft and slow when it's sleep, firmer and brighter when it's go.</div>
 </section>
 
 <!-- THROUGH-LINE -->
@@ -527,35 +513,6 @@ footer{padding:22px 24px;flex-direction:column;gap:6px;text-align:center}
     </div>
   </div>
   <p class="thread-punch">Three projects, one philosophy: <em>build agents that turn noise into a single, clear decision</em> — whether it's a high-stakes portfolio call or whether I should hit snooze.</p>
-</section>
-
-<!-- STACK / STATUS -->
-<section class="stack-section">
-  <div class="fade-in">
-    <div class="section-label">Build &amp; Status</div>
-    <h2 class="section-title">Honest <em>state of play</em></h2>
-  </div>
-  <div class="status-callout fade-in">
-    <span class="status-icon">🚧</span>
-    <div>
-      <div class="status-title">What's real today vs. what's the redesign</div>
-      <div class="status-body"><strong>Real and running:</strong> the Raspberry Pi, the ceiling projection, the bedside button, and a working v1 that displays the raw data dump. <strong>The redesign on this page</strong> — the AI agent that turns those inputs into one sentence — and reads it aloud through a small speaker in a tone that matches the call — is designed and prototyped; the example projections above are the intended outputs. (The speaker's on the way; the ElevenLabs voice is the same one that already narrates my portfolio briefings.) I built the literal version first, lived with it, and the "make it think" rebuild is in progress. That's usually how the good ideas show up.</div>
-    </div>
-  </div>
-  <div class="stack-tags">
-    <span class="stack-tag">Raspberry Pi</span>
-    <span class="stack-tag">Python</span>
-    <span class="stack-tag">Anthropic Claude</span>
-    <span class="stack-tag">Oura API</span>
-    <span class="stack-tag">Google + Apple Calendar</span>
-    <span class="stack-tag">Weather API</span>
-    <span class="stack-tag">BigQuery (Health Tracker)</span>
-    <span class="stack-tag">Chromium kiosk → framebuffer</span>
-    <span class="stack-tag">Bedside button (GPIO)</span>
-    <span class="stack-tag">ElevenLabs Flash (TTS)</span>
-    <span class="stack-tag">Mini speaker (I2S / USB)</span>
-    <span class="stack-tag">Pre-rendered audio cache</span>
-  </div>
 </section>
 
 <!-- CTA -->
@@ -598,7 +555,6 @@ const elCtx=document.getElementById('projContext');
 const elReads=document.getElementById('projReads');
 const elTone=document.getElementById('projTone');
 const elBtn=document.getElementById('projBtn');
-const elSpeak=document.getElementById('projSpeak');
 const elPanel=document.getElementById('projection');
 let idx=0;
 function renderReads(arr){return 'reads: '+arr.map(r=>'<b>'+r+'</b>').join(' ');}
@@ -619,22 +575,7 @@ function reroll(){
     elCtx.style.opacity='';elReads.style.opacity='';elTone.style.opacity='';
   },340);
 }
-// Speak the current line — browser voice as a stand-in for the Pi's ElevenLabs voice.
-// Tone follows the agent's decision: soft & slow for sleep, firm & brighter for go.
-function speak(){
-  if(!('speechSynthesis' in window))return;
-  const s=scenarios[idx];
-  window.speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(s.line);
-  if(s.mode==='rest'){u.rate=.82;u.pitch=.9;u.volume=.75;}
-  else{u.rate=1.06;u.pitch=1.05;u.volume=1;}
-  const voices=window.speechSynthesis.getVoices();
-  const pick=voices.find(v=>/^en[-_]/i.test(v.lang))||voices[0];
-  if(pick)u.voice=pick;
-  window.speechSynthesis.speak(u);
-}
 elBtn.addEventListener('click',e=>{e.stopPropagation();reroll();});
-elSpeak.addEventListener('click',e=>{e.stopPropagation();speak();});
 elPanel.addEventListener('click',reroll);
 elPanel.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();reroll();}});
 </script>
